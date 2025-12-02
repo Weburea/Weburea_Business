@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from stackbros.in/folio/landing/career.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 29 Nov 2025 04:19:54 GMT -->
+<head>
+	
+	<title>Folio - Multipurpose Bootstrap Template</title>
+
+	<!-- Meta Tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="StackBros">
+	<meta name="description" content="multipurpose Bootstrap Template">
+
+	<!-- Dark mode -->
+	<script>
+		const storedTheme = localStorage.getItem('theme')
+ 
+		const getPreferredTheme = () => {
+			if (storedTheme) {
+				return storedTheme
+			}
+			return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'light'
+		}
+
+		const setTheme = function (theme) {
+			if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				document.documentElement.setAttribute('data-bs-theme', 'dark')
+			} else {
+				document.documentElement.setAttribute('data-bs-theme', theme)
+			}
+		}
+
+		setTheme(getPreferredTheme())
+
+		window.addEventListener('DOMContentLoaded', () => {
+		    var el = document.querySelector('.theme-icon-active');
+			if(el != 'undefined' && el != null) {
+				const showActiveTheme = theme => {
+				const activeThemeIcon = document.querySelector('.theme-icon-active use')
+				const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
+				const svgOfActiveBtn = btnToActive.querySelector('.mode-switch use').getAttribute('href')
+
+				document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+					element.classList.remove('active')
+				})
+
+				btnToActive.classList.add('active')
+				activeThemeIcon.setAttribute('href', svgOfActiveBtn)
+			}
+
+			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+				if (storedTheme !== 'light' || storedTheme !== 'dark') {
+					setTheme(getPreferredTheme())
+				}
+			})
+
+			showActiveTheme(getPreferredTheme())
+
+			document.querySelectorAll('[data-bs-theme-value]')
+				.forEach(toggle => {
+					toggle.addEventListener('click', () => {
+						const theme = toggle.getAttribute('data-bs-theme-value')
+						localStorage.setItem('theme', theme)
+						setTheme(theme)
+						showActiveTheme(theme)
+					})
+				})
+
+			}
+		})
+		
+	</script>
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="assets/images/favicon.ico">
+
+	<!-- Google Font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com/">
+	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/swiper/swiper-bundle.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/glightbox/css/glightbox.css">
+
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+<!-- Header START -->
+<div class="header-absolute">
+	<!-- Header START -->
+	<header class="header-sticky bg-transparent">
+		<!-- Logo Nav START -->
+		<nav class="navbar navbar-expand-xl">
+			<div class="container">
+				<!-- Logo START -->
+				<a class="navbar-brand me-0" href="index.html">
+					<img class="light-mode-item navbar-brand-item" src="assets/images/logo.svg" alt="logo">
+					<img class="dark-mode-item navbar-brand-item" src="assets/images/logo-light.svg" alt="logo">
+				</a>
+				<!-- Logo END -->
+
+				<!-- Main navbar START -->
+				<div class="navbar-collapse collapse" id="navbarCollapse">
+				<ul class="navbar-nav navbar-nav-scroll dropdown-hover mx-auto">
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Demos</a>
+						<div class="dropdown-menu dropdown-menu-size-lg overflow-hidden p-0">
+							<div class="row px-3 py-4">
+								<!-- Image and button -->
+								<div class="col-sm-6">
+									<ul class="list-unstyled">
+										<li> <a class="dropdown-item" href="index.html">Classic Default</a> </li>
+										<li> <a class="dropdown-item" href="index-software-company.html">Software Company</a> </li>
+										<li> <a class="dropdown-item" href="index-finance-consulting.html">Finance Consulting</a> </li>
+										<li> <a class="dropdown-item" href="index-ai-agency.html">AI Agency</a> </li>
+										<li> <a class="dropdown-item" href="index-product-landing.html">Product Landing</a> </li>
+									</ul>
+								</div>
+
+								<!-- Image and button -->
+								<div class="col-sm-6">
+									<ul class="list-unstyled">
+										<li> <a class="dropdown-item" href="index-saas.html">SaaS</a> </li>
+										<li> <a class="dropdown-item" href="index-ai-chatbot.html">SaaS AI Chatbot</a> </li>
+										<li> <a class="dropdown-item" href="index-application-showcase.html">Application Showcase</a> </li>
+										<li> <a class="dropdown-item" href="index-personal-portfolio.html">Personal Portfolio</a> </li>
+										<li> <a class="dropdown-item" href="index-blog.html">Blog home</a> </li>
+									</ul>
+								</div>
+							</div>
+
+							<!-- Cta -->
+							 <div class="h-200px position-relative" style="background:url(assets/images/elements/nav-cta.jpg) no-repeat; background-size:cover; background-position:center;">
+								<!-- Bg overlay -->
+								 <div class="bg-overlay bg-dark bg-opacity-10"></div>
+							 </div>
+						</div>
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">Pages</a>
+						<ul class="dropdown-menu">
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">About</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="about-v1.html">About v.1</a> </li>
+									<li> <a class="dropdown-item" href="about-v2.html">About v.2</a> </li>
+									<li> <a class="dropdown-item" href="services-grid.html">Services Grid</a></li>
+									<li> <a class="dropdown-item" href="services-list.html">Services List</a></li>
+									<li> <a class="dropdown-item" href="service-single.html">Service Single</a></li>
+									<li> <a class="dropdown-item" href="team.html">Team</a></li>
+									<li> <a class="dropdown-item" href="career.html">Career <span class="badge text-bg-success ms-2">2 Job</span></a></li>
+									<li> <a class="dropdown-item" href="career-single.html">Career Single</a></li>
+								</ul>
+							</li>
+
+							<li> <a class="dropdown-item" href="contact-us-v1.html">Contact Us v1</a> </li>
+							<li> <a class="dropdown-item" href="contact-us-v2.html">Contact Us v2</a> </li>
+							<li> <a class="dropdown-item" href="pricing-v1.html">Pricing v1</a> </li>
+							<li> <a class="dropdown-item" href="pricing-v2.html">Pricing v2</a> </li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Saas pages</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="feature-single.html">Feature Single</a> </li>
+									<li> <a class="dropdown-item" href="integrations.html">Integrations</a> </li>
+									<li> <a class="dropdown-item" href="integration-single.html">Integrations Single</a> </li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Portfolio</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="portfolio-grid.html">Portfolio Grid</a> </li>
+									<li> <a class="dropdown-item" href="portfolio-list.html">Portfolio List</a> </li>
+									<li> <a class="dropdown-item" href="portfolio-modern.html">Portfolio Modern</a> </li>
+									<li> <a class="dropdown-item" href="portfolio-case-study-v1.html">Portfolio case study v1</a> </li>
+									<li> <a class="dropdown-item" href="portfolio-case-study-v2.html">Portfolio case study v2</a> </li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Blog</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="blog-minimal.html">Blog Minimal</a> </li>
+									<li> <a class="dropdown-item" href="blog-single.html">Blog Single</a> </li>
+								</ul>
+							</li>
+
+							<li> <a class="dropdown-item" href="error-404.html">Error 404</a> </li>
+							<li> <a class="dropdown-item" href="coming-soon.html">Coming soon</a> </li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Authentication</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="sign-in.html">Sign in</a> </li>
+									<li> <a class="dropdown-item" href="sign-up.html">Sign up</a> </li>
+									<li> <a class="dropdown-item" href="forgot-password.html">Forgot Password</a> </li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Doc</a>
+						<div class="dropdown-menu dropdown-menu-size-xl dropdown-menu-center p-xl-3">
+							<div class="row row-cols-1 row-cols-md-2 pt-2">
+								<!-- Doc menu -->
+								<div class="col">
+									<div class="dropdown-item bg-secondary-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
+										<div class="d-flex">
+											<!-- Icon -->
+											<div class="icon-md bg-primary bg-opacity-15 text-primary rounded flex-shrink-0"><i class="bi bi-file-earmark-text fs-6"></i></div>
+											<!-- Content -->
+											<div class="mx-3">
+												<p class="stretched-link heading-color fw-bold mb-0">Documentation</p>
+												<p class="mb-0 text-body small">Using documentation you can easily develop projects</p>
+											</div>
+										</div>
+										<!-- Button -->
+										<a class="icon-link icon-link-hover text-primary-hover stretched-link" href="#" target="_blank"><i class="bi bi-chevron-right"></i> </a>
+									</div>
+								</div>
+
+								<!-- Doc menu -->
+								<div class="col">
+									<div class="dropdown-item bg-secondary-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
+										<div class="d-flex">
+											<!-- Icon -->
+											<div class="icon-md bg-pink bg-opacity-15 text-pink rounded flex-shrink-0"><i class="bi bi-stickies fs-6"></i></div>
+											<!-- Content -->
+											<div class="mx-3">
+												<p class="stretched-link heading-color fw-bold mb-0">Snippets</p>
+												<p class="mb-0 text-body small">Development guides for building projects with Folio</p>
+											</div>
+										</div>
+										<!-- Button -->
+										<a class="icon-link icon-link-hover text-primary-hover stretched-link" href="#" target="_blank"><i class="bi bi-chevron-right"></i> </a>
+									</div>
+								</div>
+
+								<!-- Doc menu -->
+								<div class="col">
+									<div class="dropdown-item bg-secondary-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
+										<div class="d-flex">
+											<!-- Icon -->
+											<div class="icon-md bg-success bg-opacity-15 text-success rounded flex-shrink-0"><i class="bi bi-bullseye fs-6"></i></div>
+											<!-- Content -->
+											<div class="mx-3">
+												<p class="stretched-link heading-color fw-bold mb-0">Changelog</p>
+												<p class="mb-0 text-body small">Recent feature release and announcement.</p>
+											</div>
+										</div>
+										<!-- Button -->
+										<a class="icon-link icon-link-hover text-primary-hover stretched-link" href="#" target="_blank"><i class="bi bi-chevron-right"></i> </a>
+									</div>
+								</div>
+
+								<!-- Doc menu -->
+								<div class="col">
+									<div class="dropdown-item bg-secondary-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
+										<div class="d-flex">
+											<!-- Icon -->
+											<div class="icon-md bg-warning bg-opacity-15 text-warning rounded flex-shrink-0"><i class="bi bi-mask fs-6"></i></div>
+											<!-- Content -->
+											<div class="mx-3">
+												<p class="stretched-link heading-color fw-bold mb-0">Playwright tips</p>
+												<p class="mb-0 text-body small">Tips and In-depth guide for headless browser automation</p>
+											</div>
+										</div>
+										<!-- Button -->
+										<a class="icon-link icon-link-hover text-primary-hover stretched-link" href="#" target="_blank"><i class="bi bi-chevron-right"></i> </a>
+									</div>
+								</div>
+
+								<!-- Doc menu -->
+								<div class="col">
+									<div class="dropdown-item bg-secondary-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
+										<div class="d-flex">
+											<!-- Icon -->
+											<div class="icon-md bg-info bg-opacity-15 text-info rounded flex-shrink-0"><i class="bi bi-grid-fill fs-6"></i></div>
+											<!-- Content -->
+											<div class="mx-3">
+												<p class="stretched-link heading-color fw-bold mb-0">Integrations</p>
+												<p class="mb-0 text-body small">Taking advantage of integrations with other services.</p>
+											</div>
+										</div>
+										<!-- Button -->
+										<a class="icon-link icon-link-hover text-primary-hover stretched-link" href="integrations.html" target="_blank"><i class="bi bi-chevron-right"></i> </a>
+									</div>
+								</div>
+
+								<!-- Doc menu -->
+								<div class="col">
+									<div class="dropdown-item bg-secondary-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
+										<div class="d-flex">
+											<!-- Icon -->
+											<div class="icon-md bg-purple bg-opacity-15 text-purple rounded flex-shrink-0"><i class="bi bi-chat-dots fs-6"></i></div>
+											<!-- Content -->
+											<div class="mx-3">
+												<p class="stretched-link heading-color fw-bold mb-0">Supports</p>
+												<p class="mb-0 text-body small">Need help? Our customers support is there to help you.</p>
+											</div>
+										</div>
+										<!-- Button -->
+										<a class="icon-link icon-link-hover text-primary-hover stretched-link" href="#" target="_blank"><i class="bi bi-chevron-right"></i> </a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item"> <a class="nav-link" href="contact-us-v1.html">Contact us</a> </li>
+				</ul>
+			</div>
+				<!-- Main navbar END -->
+
+				<!-- Buttons -->
+				<ul class="nav align-items-center dropdown-hover ms-sm-2">
+					<!-- Dark mode option START -->
+					<li class="nav-item dropdown dropdown-animation">
+						<button class="btn btn-link mb-0 px-2 lh-1" id="bd-theme"
+						type="button"
+						aria-expanded="false"
+						data-bs-toggle="dropdown"
+						data-bs-display="static">
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"  class="bi bi-circle-half theme-icon-active fill-mode fa-fw" viewBox="0 0 16 16">
+							<path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+							<use href="#"></use>
+						</svg>
+						</button>
+
+						<ul class="dropdown-menu min-w-auto dropdown-menu-end" aria-labelledby="bd-theme">
+							<li class="mb-1">
+								<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light">
+									<svg width="16" height="16" fill="currentColor" class="bi bi-brightness-high-fill fa-fw mode-switch me-1" viewBox="0 0 16 16">
+										<path d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+										<use href="#"></use>
+									</svg>Light
+								</button>
+							</li>
+							<li class="mb-1">
+								<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon-stars-fill fa-fw mode-switch me-1" viewBox="0 0 16 16">
+										<path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+										<path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+										<use href="#"></use>
+									</svg>Dark
+								</button>
+							</li>
+							<li>
+								<button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-half fa-fw mode-switch me-1" viewBox="0 0 16 16">
+										<path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+										<use href="#"></use>
+									</svg>Auto
+								</button>
+							</li>
+						</ul>
+					</li>
+					<!-- Dark mode option END -->
+
+					<!-- Authentication button -->
+					<li class="nav-item bg-secondary rounded d-none d-sm-block gap-1 ms-2 p-1">
+						<a href="sign-up.html" class="btn btn-sm btn-secondary mb-0">Login</a>
+						<a href="sign-up.html" class="btn btn-sm btn-primary mb-0">Sign up</a>
+					</li>
+
+					<!-- Responsive navbar toggler -->
+					<li class="nav-item">
+						<button class="navbar-toggler ms-sm-3 p-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-animation">
+								<span></span>
+								<span></span>
+								<span></span>
+							</span>
+						</button>
+					</li>	
+				</ul>
+
+			</div>
+		</nav>
+		<!-- Logo Nav END -->
+	</header>
+	<!-- Header END -->
+</div> 
+<!-- Header END -->
+
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+
+<!-- =======================
+Hero START -->
+<section class="position-relative overflow-hidden pt-lg-7 pb-0">
+	<div class="bg-secondary-grad position-relative py-6 py-lg-8 mt-sm-2">
+		<!-- Bg pattern -->
+		<div class="position-absolute top-0 start-0">
+			<img src="assets/images/elements/bg-pattern.svg" style="opacity: 0.05;" alt="bg pattern">
+		</div>
+
+		<!-- Main content -->
+		<div class="container position-relative">
+			<!-- Avatar decoration START -->
+			<!-- Avatar item -->
+			<div class="avatar avatar-xl flex-shrink-0 position-absolute top-0 start-0 mt-6 ms-n3 d-none d-lg-block">
+				<img class="avatar-img rounded-circle position-relative" src="assets/images/avatar/10.jpg" alt="avatar">
+			</div>
+			<!-- Avatar item -->
+			<div class="avatar flex-shrink-0 position-absolute top-0 start-50 translate-middle-x ms-n9 mt-n6 d-none d-lg-block">
+				<img class="avatar-img rounded-circle position-relative" src="assets/images/avatar/02.jpg" alt="avatar">
+			</div>
+			<!-- Avatar item -->
+			<div class="avatar avatar-lg flex-shrink-0 position-absolute top-0 end-0 me-7 mt-n4 d-none d-lg-block">
+				<img class="avatar-img rounded-circle position-relative" src="assets/images/avatar/06.jpg" alt="avatar">
+			</div>
+			<!-- Avatar item -->
+			<div class="avatar avatar-xxl flex-shrink-0 position-absolute bottom-50 end-0 mb-n9 me-n3 d-none d-lg-block">
+				<img class="avatar-img rounded-circle position-relative" src="assets/images/avatar/09.jpg" alt="avatar">
+			</div>
+			<!-- Avatar item -->
+			<div class="avatar flex-shrink-0 position-absolute bottom-0 start-0 ms-8 mb-n3 d-none d-lg-block">
+				<img class="avatar-img rounded-circle position-relative" src="assets/images/avatar/01.jpg" alt="avatar">
+			</div>
+			<!-- Avatar decoration END -->
+
+			<!-- Main title and search START -->
+			<div class="inner-container text-center position-relative z-index-2 mx-auto">
+				<!-- Title -->
+				<h1 class="fw-semibold mb-4 lh-base">Discover Inspiring Career Opportunities at <span class="text-primary">Folio</span></h1>
+
+				<!-- Desc -->
+				<p class="mb-5">Unlock your potential with our exciting career opportunities. At Folio, you'll find a supportive and dynamic environment where you can develop your skills and achieve your career goals.</p>
+
+				<!-- Search form START -->
+				<div class="bg-body d-inline-block border border-primary border-opacity-10 rounded-3 position-relative p-2">
+					<!-- Form START -->
+					<form class="d-sm-flex align-items-center gap-3">
+						<!-- Input -->
+						<div class="position-relative mb-1 mb-sm-0">
+							<input class="form-control border-0 me-1 ps-5 w-sm-200px w-md-300px" type="text" placeholder="Job title">
+							<!-- Icon -->
+							<span class="position-absolute top-50 start-0 translate-middle ps-5"><i class="bi bi-briefcase"></i></span>
+						</div>
+
+						<div class="vr opacity-1 my-2 d-none d-sm-block"></div>
+
+						<!-- Select -->
+						<div class="position-relative mb-1 mb-sm-0">
+							<select class="form-select border-0 w-sm-200px w-md-300px ps-5" data-search-enabled="true">
+								<option>Location</option>
+								<option>Canada</option>
+								<option>USA</option>
+								<option>Paris</option>
+								<option>India</option>
+								<option>London</option>
+							</select>
+							<!-- Icons -->
+							<span class="position-absolute top-50 start-0 translate-middle ps-5"><i class="bi bi-geo-alt"></i></span>
+						</div>
+
+						<!-- Search -->
+						<a class="btn btn-lg btn-dark btn-icon mb-0" href="#"><i class="bi bi-search fs-6"></i></a>
+					</form>
+					<!-- Form END -->
+				</div>
+				<!-- Search form END -->
+			</div>
+			<!-- Main title and search END -->
+		</div>
+
+		<!-- Unique selling points START -->
+		<div class="container mt-6 mt-lg-9">
+			<!-- Title and slider button -->
+			<div class="row align-items-center mb-3">
+				<div class="col-sm-5">
+					<h5 class="text-center text-sm-start mb-0">Our unique selling points</h5>
+				</div>
+
+				<!-- Slider button -->
+				<div class="col-sm-4 col-lg-5 ms-auto">
+					<div class="d-flex justify-content-center justify-content-sm-end gap-3 position-relative mt-3">
+						<a href="#" class="fs-5 text-body-secondary text-primary-hover mb-0 swiper-button-prev-points rtl-flip"><i class="bi bi-arrow-left"></i></a>
+						<a href="#" class="fs-5 text-body-secondary text-primary-hover mb-0 swiper-button-next-points rtl-flip"><i class="bi bi-arrow-right"></i></a>
+					</div>
+				</div>
+			</div>
+
+			<!-- Slider START -->
+			<div class="swiper px-2" data-swiper-options='{
+				"slidesPerView": 1, 
+				"spaceBetween": 40,
+				"autoplay": false,
+				"navigation":{
+					"nextEl":".swiper-button-next-points",
+					"prevEl":".swiper-button-prev-points"
+				},
+				"breakpoints": { 
+					"576": {"slidesPerView": 2}, 
+					"768": {"slidesPerView": 3},
+					"992": {"slidesPerView": 4},
+					"1400": {"slidesPerView": 5}
+				}}'>
+
+				<!-- Slider items -->
+				<div class="swiper-wrapper">
+					<!-- Item -->
+					<div class="swiper-slide py-3">
+						<div class="card card-body card-hover-transition shadow-primary p-4">
+							<h3 class="text-pink mb-4"><i class="bi bi-people"></i></h3>
+							<p class="lead heading-color fw-bold mb-2">Collaborative culture</p>
+							<a href="#" class="link-primary-grad stretched-link icon-link icon-link-hover">Read more <i class="bi bi-arrow-right"></i></a>
+						</div>
+					</div>
+					<!-- Item -->
+					<div class="swiper-slide py-3">
+						<div class="card card-body card-hover-transition shadow-primary p-4">
+							<h3 class="text-purple mb-4"><i class="bi bi-bullseye"></i></h3>
+							<p class="lead heading-color fw-bold mb-2">Competitive benefits</p>
+							<a href="#" class="link-primary-grad stretched-link icon-link icon-link-hover">Read more <i class="bi bi-arrow-right"></i></a>
+						</div>
+					</div>
+					<!-- Item -->
+					<div class="swiper-slide py-3">
+						<div class="card card-body card-hover-transition shadow-primary p-4">
+							<h3 class="text-success mb-4"><i class="bi bi-boxes"></i></h3>
+							<p class="lead heading-color fw-bold mb-2">Impactful projects</p>
+							<a href="#" class="link-primary-grad stretched-link icon-link icon-link-hover">Read more <i class="bi bi-arrow-right"></i></a>
+						</div>
+					</div>
+					<!-- Item -->
+					<div class="swiper-slide py-3">
+						<div class="card card-body card-hover-transition shadow-primary p-4">
+							<h3 class="text-primary mb-4"><i class="bi bi-fire"></i></h3>
+							<p class="lead heading-color fw-bold mb-2">Community focused</p>
+							<a href="#" class="link-primary-grad stretched-link icon-link icon-link-hover">Read more <i class="bi bi-arrow-right"></i></a>
+						</div>
+					</div>
+					<!-- Item -->
+					<div class="swiper-slide py-3">
+						<div class="card card-body card-hover-transition shadow-primary p-4">
+							<h3 class="text-info mb-4"><i class="bi bi-gem"></i></h3>
+							<p class="lead heading-color fw-bold mb-2">Cutting-Edge technology</p>
+							<a href="#" class="link-primary-grad stretched-link icon-link icon-link-hover">Read more <i class="bi bi-arrow-right"></i></a>
+						</div>
+					</div>
+					<!-- Item -->
+					<div class="swiper-slide py-3">
+						<div class="card card-body card-hover-transition shadow-primary p-4">
+							<h3 class="text-warning mb-4"><i class="bi bi-layers"></i></h3>
+							<p class="lead heading-color fw-bold mb-2">Inspiring leadership</p>
+							<a href="#" class="link-primary-grad stretched-link icon-link icon-link-hover">Read more <i class="bi bi-arrow-right"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Slider END -->
+		</div>
+		<!-- Unique selling points END -->
+	</div>
+
+	<!-- Blur bg -->
+	<div class="bg-body h-400px blur-7 position-absolute bottom-0 start-50 translate-middle-x mb-n8" style="width: 3000px"></div>
+</section>
+<!-- =======================
+Hero END -->
+
+<!-- =======================
+Recruitment Process START -->
+<section class="pt-0">
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-10 mx-auto">
+				<div class="row g-4">
+					<!-- Tab content -->
+					<div class="col-md-6 order-2">
+						<!-- Tab content START -->
+						<div class="tab-content" id="v-pills-tabContent">
+							<!-- Content item -->
+							<div class="tab-pane fade show active" id="proceee-one" aria-labelledby="proceee-one-tab" tabindex="0">
+								<div class="card rounded-4 border overflow-hidden">
+									<!-- Image -->
+									<img src="assets/images/career/steps/01.jpg" class="card-img-top" alt="Blog-img">
+									<!-- Content -->
+									<div class="card-body p-4">
+										<h6>What to Do</h6>
+										<p class="mb-0">Submit your application through our online portal. Make sure your resume is up-to-date and tailored to the specific position you’re applying for. Include a cover letter if required, highlighting your relevant experience and why you’re interested in joining</p>
+									</div>
+								</div>
+							</div>
+							<!-- Content item -->
+							<div class="tab-pane fade" id="process-two" aria-labelledby="process-two-tab" tabindex="0">
+								<div class="card rounded-4 border overflow-hidden">
+									<!-- Image -->
+									<img src="assets/images/career/steps/02.jpg" class="card-img-top" alt="Blog-img">
+									<!-- Content -->
+									<div class="card-body p-4">
+										<h6>What to Do</h6>
+										<p class="mb-0">This interview typically lasts 20-30 minutes and will be conducted via phone or video call. We’ll ask about your previous experience, your understanding of the role, and why you’re interested in working with us.</p>
+									</div>
+								</div>
+							</div>
+							<!-- Content item -->
+							<div class="tab-pane fade" id="process-three" aria-labelledby="process-three-tab" tabindex="0">
+								<div class="card rounded-4 border overflow-hidden">
+									<!-- Image -->
+									<img src="assets/images/career/steps/03.jpg" class="card-img-top" alt="Blog-img">
+									<!-- Content -->
+									<div class="card-body p-4">
+										<h6>What to Do</h6>
+										<p class="mb-0">Participate in an initial interview with a member of our HR team. This is your chance to learn more about company and to ask any questions you might have about the position or company culture.</p>
+									</div>
+								</div>
+							</div>
+							<!-- Content item -->
+							<div class="tab-pane fade" id="process-four" aria-labelledby="process-four-tab" tabindex="0"></div>
+							<!-- Content item -->
+							<div class="tab-pane fade" id="process-five" aria-labelledby="process-five-tab" tabindex="0"></div>
+						</div>
+						<!-- Tab content END -->
+					</div>
+
+					<!-- Title and tabs -->
+					<div class="col-md-5 order-1 order-md-2 ms-auto">
+						<h2 class="mb-4">Our Recruitment Process</h2>
+						<!-- Tabs START -->
+						<div class="nav nav-pills-dark flex-column gap-3 nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+							<button class="nav-link text-start rounded-pill ps-4 py-3 active" id="proceee-one-tab" role="tab" data-bs-toggle="pill" data-bs-target="#proceee-one" aria-selected="true">1. Application Submission</button>
+							<button class="nav-link text-start rounded-pill ps-4 py-3" id="process-two-tab" role="tab" data-bs-toggle="pill" data-bs-target="#process-two" aria-selected="false">2. Initial Screening</button>
+							<button class="nav-link text-start rounded-pill ps-4 py-3" id="process-three-tab" role="tab" data-bs-toggle="pill" data-bs-target="#process-three" aria-selected="false">3. First Interview</button>
+							<button class="nav-link text-start rounded-pill ps-4 py-3" id="process-four-tab" role="tab" data-bs-toggle="pill" data-bs-target="#process-four" aria-selected="false" disabled>4. Technical/Skill Assessment</button>
+							<button class="nav-link text-start rounded-pill ps-4 py-3" id="process-five-tab" role="tab" data-bs-toggle="pill" data-bs-target="#process-five" aria-selected="false" disabled>5. Final Interview</button>
+						</div>
+						<!-- Tabs END -->
+					</div>
+				</div> <!-- Row END -->
+
+				<!-- CTA -->
+				<div class="inner-container-small bg-primary rounded-3 text-white text-center py-3 mt-5">
+					<p class="mb-0 px-2 px-sm-5 px-md-0"><i class="bi bi-info-square-fill heading-color me-2"></i>Contact our team for more information  
+						<a href="#" class="fw-semibold icon-link icon-link-hover hover-underline-animation text-white">Let’s chat <i class="bi bi-arrow-right"></i></a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- =======================
+Recruitment Process END -->
+
+<!-- =======================
+Office gallery START -->
+<section class="pt-0">
+	<div class="container">
+		<div class="row row-cols-2 row-cols-md-4 g-lg-5 align-items-center">
+			<!-- Image item -->
+			<div class="col">
+				<div class="card card-content-hover overflow-hidden">
+					<!-- Image -->
+					<img src="assets/images/career/01.jpg" class="rounded-4" alt="course image">
+					<!-- Full screen button -->
+					<a class="hover-content position-absolute w-100 h-100" data-glightbox data-gallery="gallery" href="assets/images/career/01.jpg">
+						<i class="bi bi-fullscreen fs-6 text-white position-absolute top-50 start-50 translate-middle bg-dark rounded-3 p-2 lh-1"></i>
+					</a>
+				</div>
+			</div>
+
+			<!-- Image item -->
+			<div class="col">
+				<!-- Item -->
+				<div class="card card-content-hover overflow-hidden mb-5">
+					<!-- Image -->
+					<img src="assets/images/career/02.jpg" class="rounded-4" alt="course image">
+					<!-- Full screen button -->
+					<a class="hover-content position-absolute w-100 h-100" data-glightbox data-gallery="gallery" href="assets/images/career/02.jpg">
+						<i class="bi bi-fullscreen fs-6 text-white position-absolute top-50 start-50 translate-middle bg-dark rounded-3 p-2 lh-1"></i>
+					</a>
+				</div>
+				<!-- Item -->
+				<div class="card card-content-hover overflow-hidden">
+					<!-- Image -->
+					<img src="assets/images/career/03.jpg" class="rounded-4" alt="course image">
+					<!-- Full screen button -->
+					<a class="hover-content position-absolute w-100 h-100" data-glightbox data-gallery="gallery" href="assets/images/career/03.jpg">
+						<i class="bi bi-fullscreen fs-6 text-white position-absolute top-50 start-50 translate-middle bg-dark rounded-3 p-2 lh-1"></i>
+					</a>
+				</div>
+			</div>
+
+			<!-- Image item -->
+			<div class="col">
+				<!-- Item -->
+				<div class="card card-content-hover overflow-hidden mb-5">
+					<!-- Image -->
+					<img src="assets/images/career/05.jpg" class="rounded-4" alt="course image">
+					<!-- Full screen button -->
+					<a class="hover-content position-absolute w-100 h-100" data-glightbox data-gallery="gallery" href="assets/images/career/05.jpg">
+						<i class="bi bi-fullscreen fs-6 text-white position-absolute top-50 start-50 translate-middle bg-dark rounded-3 p-2 lh-1"></i>
+					</a>
+				</div>
+				<!-- Item -->
+				<div class="card card-content-hover overflow-hidden">
+					<!-- Image -->
+					<img src="assets/images/career/04.jpg" class="rounded-4" alt="course image">
+					<!-- Full screen button -->
+					<a class="hover-content position-absolute w-100 h-100" data-glightbox data-gallery="gallery" href="assets/images/career/04.jpg">
+						<i class="bi bi-fullscreen fs-6 text-white position-absolute top-50 start-50 translate-middle bg-dark rounded-3 p-2 lh-1"></i>
+					</a>
+				</div>
+			</div>
+
+			<!-- Image item -->
+			<div class="col">
+				<div class="card card-content-hover overflow-hidden">
+					<!-- Image -->
+					<img src="assets/images/career/06.jpg" class="rounded-4" alt="course image">
+					<!-- Full screen button -->
+					<a class="hover-content position-absolute w-100 h-100" data-glightbox data-gallery="gallery" href="assets/images/career/06.jpg">
+						<i class="bi bi-fullscreen fs-6 text-white position-absolute top-50 start-50 translate-middle bg-dark rounded-3 p-2 lh-1"></i>
+					</a>
+				</div>
+			</div>
+		</div> <!-- Row END -->
+	</div>
+</section>
+<!-- =======================
+Office gallery END -->
+
+<!-- =======================
+Job listing START -->
+<section class="py-0 mb-n8">
+	<div class="container-fluid">
+
+		<div class="max-width-1550 bg-dark position-relative rounded-4 overflow-hidden py-5 py-sm-6 py-lg-8">
+			<!-- Decoration START -->
+			<!-- Grad blur -->
+			<div class="position-absolute top-0 start-0 mt-n6 ms-n5">
+				<img src="assets/images/elements/grad-shape/blur-decoration.svg" class="blur-7 opacity-1" alt="Grad shape">
+			</div>
+			<!-- Grad blur -->
+			<div class="position-absolute top-100 start-50 translate-middle">
+				<img src="assets/images/elements/grad-shape/blur-decoration-2.svg" class="opacity-2 blur-9" alt="Grad shape">
+			</div>
+			<!-- Decoration END -->
+	
+			<div class="container position-relative" data-bs-theme="dark">
+				<!-- Title and button -->
+				<h2 class="text-center mb-4">New job openings</h2>
+				<p class="text-center lead mx-auto mb-5">Explore our exciting career opportunities and find the perfect fit for your skills and aspirations.</p>
+
+				<!-- job list -->
+				<div class="row">
+					<div class="col-lg-10 mx-auto">
+						<!-- Job item -->
+						<div class="card bg-transparent bg-opacity-50 border border-opacity-10 card-hover-transition card-hover-shadow mb-4">
+							<div class="card-body p-4">
+								<div class="row g-3 g-sm-4 align-items-center">
+									<div class="col-md-5">
+										<h6 class="mb-0">Sales account executive</h6>
+									</div>
+									<!-- End Col -->
+
+									<div class="col-sm-4 col-md-2">
+										<span>London</span>
+									</div>
+									<!-- End Col -->
+
+									<div class="col-sm-4 col-md-3">
+										<span>Sales</span>
+									</div>
+									<!-- End Col -->
+
+									<div class="col-sm-4 col-md-2 text-sm-end">
+										<a href="career-single.html" class="fw-semibold link-success icon-link icon-link-hover stretched-link">Apply <i class="bi bi-arrow-right"></i></a>
+									</div>
+									<!-- End Col -->
+								</div> <!-- End Row -->
+							</div>
+						</div>
+
+						<!-- Job item -->
+						<div class="card bg-transparent bg-opacity-50 border border-opacity-10 card-hover-transition card-hover-shadow mb-4">
+							<div class="card-body p-4">
+								<div class="row g-3 g-sm-4 align-items-center">
+									<div class="col-md-5">
+										<h6 class="mb-0">General office manager</h6>
+									</div>
+									<!-- End Col -->
+
+									<div class="col-sm-4 col-md-2">
+										<span>Remote work</span>
+									</div>
+									<!-- End Col -->
+
+									<div class="col-sm-4 col-md-3">
+										<span>Software development</span>
+									</div>
+									<!-- End Col -->
+
+									<div class="col-sm-4 col-md-2 text-sm-end">
+										<a href="career-single.html" class="fw-semibold link-success icon-link icon-link-hover stretched-link">Apply <i class="bi bi-arrow-right"></i></a>
+									</div>
+									<!-- End Col -->
+								</div> <!-- End Row -->
+							</div>
+						</div>
+
+						<!-- Job item -->
+						<div class="card bg-transparent bg-opacity-50 border border-opacity-10 card-hover-transition card-hover-shadow mb-4">
+							<div class="card-body p-4">
+								<div class="row g-3 g-sm-4 align-items-center">
+									<div class="col-md-5">
+										<h6 class="mb-0">Machine learning specialist</h6>
+									</div>
+									<!-- End Col -->
+
+									<div class="col-sm-4 col-md-2">
+										<span>New york</span>
+									</div>
+									<!-- End Col -->
+
+									<div class="col-sm-4 col-md-3">
+										<span>Design</span>
+									</div>
+									<!-- End Col -->
+
+									<div class="col-sm-4 col-md-2 text-sm-end">
+										<a href="career-single.html" class="fw-semibold link-success icon-link icon-link-hover stretched-link">Apply <i class="bi bi-arrow-right"></i></a>
+									</div>
+									<!-- End Col -->
+								</div> <!-- End Row -->
+							</div>
+						</div>
+
+						<!-- Job item -->
+						<div class="card bg-transparent bg-opacity-50 border border-opacity-10 card-hover-transition card-hover-shadow mb-4">
+							<div class="card-body p-4">
+								<div class="row g-3 g-sm-4 align-items-center">
+									<div class="col-md-5">
+										<h6 class="mb-0">Senior product manager</h6>
+									</div>
+									<!-- End Col -->
+
+									<div class="col-sm-4 col-md-2">
+										<span>London</span>
+									</div>
+									<!-- End Col -->
+
+									<div class="col-sm-4 col-md-3">
+										<span>Sales</span>
+									</div>
+									<!-- End Col -->
+
+									<div class="col-sm-4 col-md-2 text-sm-end">
+										<a href="career-single.html" class="fw-semibold link-success icon-link icon-link-hover stretched-link">Apply <i class="bi bi-arrow-right"></i></a>
+									</div>
+									<!-- End Col -->
+								</div> <!-- End Row -->
+							</div>
+						</div>
+					</div>
+				</div> <!-- Row END -->
+			</div>
+		</div>
+	</div>
+</section>
+<!-- =======================
+Job listing END -->
+
+<!-- =======================
+Review START -->
+<section class="bg-secondary-grad">
+	<!-- Title -->
+	<h2 class="text-center mb-4 mb-sm-6 pt-8">What people say about us</h2>
+
+	<!-- Testimonials START -->
+	<div class="swiper px-4 px-sm-5"
+	data-swiper-options='{
+			"spaceBetween": 30,
+			"speed":"14000",
+			"autoplay":{
+				"delay": 0, 
+				"disableOnInteraction": false,
+				"pauseOnMouseEnter": true
+			},
+			"breakpoints": {
+				"576": {"slidesPerView": 1}, 
+				"768": {"slidesPerView": 2}, 
+				"992": {"slidesPerView": 3},
+				"1400": {"slidesPerView": 4}
+			}}'>
+
+		<div class="swiper-wrapper">
+			<!-- Testimonials item -->
+			<div class="swiper-slide">
+				<div class="card rounded-4 p-4 h-100">
+					<!-- Card body -->
+					<div class="card-body p-0 mb-4">
+						<!-- Rating star -->
+						<ul class="list-inline mb-3">
+							<li class="list-inline-item me-0"><i class="bi bi-star-fill text-warning"></i></li>
+							<li class="list-inline-item me-0"><i class="bi bi-star-fill text-warning"></i></li>
+							<li class="list-inline-item me-0"><i class="bi bi-star-fill text-warning"></i></li>
+							<li class="list-inline-item me-0"><i class="bi bi-star-fill text-warning"></i></li>
+							<li class="list-inline-item me-0"><i class="bi bi-star-half text-warning"></i></li>
+						</ul>
+						<!-- Testimonials text -->
+						<blockquote>
+							<p class="heading-color mb-0">Their team went above and beyond to understand our needs and deliver a solution that exceeded our expectations. They demonstrated throughout the process was truly impressive.</p>
+						</blockquote>	
+					</div>
+					<!-- Card footer -->
+					<div class="card-footer bg-transparent p-0">
+						<!-- Testimonials info -->
+						<div class="d-flex align-items-center">
+							<div class="avatar flex-shrink-0">
+								<img class="avatar-img rounded-circle" src="assets/images/avatar/09.jpg" alt="avatar">
+							</div> 
+							<div class="ms-3">
+								<p class="lead heading-color fw-semibold mb-0">Jacqueline Miller</p>
+								<small>Product designer</small>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Testimonials item -->
+			<div class="swiper-slide">
+				<div class="card rounded-4 p-4 h-100">
+					<!-- Card body -->
+					<div class="card-body p-0 mb-4">
+						<!-- Rating star -->
+						<ul class="list-inline mb-3">
+							<li class="list-inline-item me-0"><i class="bi bi-star-fill text-warning"></i></li>
+							<li class="list-inline-item me-0"><i class="bi bi-star-fill text-warning"></i></li>
+							<li class="list-inline-item me-0"><i class="bi bi-star-fill text-warning"></i></li>
+							<li class="list-inline-item me-0"><i class="bi bi-star-fill text-warning"></i></li>
+							<li class="list-inline-item me-0"><i class="bi bi-star-fill text-warning"></i></li>
+						</ul>
+						<!-- Testimonials text -->
+						<blockquote>
+							<p class="heading-color mb-0">Frequently partiality possession resolution at or appearance unaffected me. Ye goodness felicity do disposal dwelling no.</p>
+						</blockquote>	
+					</div>
+					<!-- Card footer -->
+					<div class="card-footer bg-transparent p-0">
+						<!-- Testimonials info -->
+						<div class="d-flex align-items-center">
+							<div class="avatar flex-shrink-0">
+								<img class="avatar-img rounded-circle" src="assets/images/avatar/10.jpg" alt="avatar">
+							</div> 
+							<div class="ms-3">
+								<p class="lead heading-color fw-semibold mb-0">Louis Ferguson</p>
+								<small>Web Developer</small>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	
+			<!-- Testimonials item -->
+			<div class="swiper-slide">
+				<div class="card rounded-4 p-4 h-100">
+					<!-- Card body -->
+					<div class="card-body p-0 mb-4">
+						<!-- Rating star -->
+						<ul class="list-inline mb-3">
+							<li class="list-inline-item me-0"><i class="bi bi-star-fill text-warning"></i></li>
+							<li class="list-inline-item me-0"><i class="bi bi-star-fill text-warning"></i></li>
+							<li class="list-inline-item me-0"><i class="bi bi-star-fill text-warning"></i></li>
+							<li class="list-inline-item me-0"><i class="bi bi-star-fill text-warning"></i></li>
+							<li class="list-inline-item me-0"><i class="bi bi-star-half text-warning"></i></li>
+						</ul>
+						<!-- Testimonials text -->
+						<blockquote>
+							<p class="heading-color mb-0">Was out laughter raptures returned outweigh. Luckily cheered colonel I do we attack highest enabled. Tried law yet style child. The bore of true of no be deal.</p>
+						</blockquote>	
+					</div>
+					<!-- Card footer -->
+					<div class="card-footer bg-transparent p-0">
+						<!-- Testimonials info -->
+						<div class="d-flex align-items-center">
+							<div class="avatar flex-shrink-0">
+								<img class="avatar-img rounded-circle" src="assets/images/avatar/04.jpg" alt="avatar">
+							</div> 
+							<div class="ms-3">
+								<p class="lead heading-color fw-semibold mb-0">Emma Watson</p>
+								<small>UI/UX designer</small>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Testimonials item -->
+			<div class="swiper-slide">
+				<div class="card rounded-4 p-4 h-100">
+					<!-- Card body -->
+					<div class="card-body p-0 mb-4">
+						<!-- Rating star -->
+						<ul class="list-inline mb-3">
+							<li class="list-inline-item me-0"><i class="bi bi-star-fill text-warning"></i></li>
+							<li class="list-inline-item me-0"><i class="bi bi-star-fill text-warning"></i></li>
+							<li class="list-inline-item me-0"><i class="bi bi-star-fill text-warning"></i></li>
+							<li class="list-inline-item me-0"><i class="bi bi-star-fill text-warning"></i></li>
+							<li class="list-inline-item me-0"><i class="bi bi-star-half text-warning"></i></li>
+						</ul>
+						<!-- Testimonials text -->
+						<blockquote>
+							<p class="heading-color mb-0">Our passion for customer excellence is just one reason why we are the market leader. We've always worked very hard to give our customers the best experience.</p>
+						</blockquote>	
+					</div>
+					<!-- Card footer -->
+					<div class="card-footer bg-transparent p-0">
+						<!-- Testimonials info -->
+						<div class="d-flex align-items-center">
+							<div class="avatar flex-shrink-0">
+								<img class="avatar-img rounded-circle" src="assets/images/avatar/07.jpg" alt="avatar">
+							</div> 
+							<div class="ms-3">
+								<p class="lead heading-color fw-semibold mb-0">Allen Smith</p>
+								<small>Manager</small>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Testimonials item -->
+			<div class="swiper-slide">
+				<div class="card rounded-4 p-4 h-100">
+					<!-- Card body -->
+					<div class="card-body p-0 mb-4">
+						<!-- Rating star -->
+						<ul class="list-inline mb-3">
+							<li class="list-inline-item me-0"><i class="bi bi-star-fill text-warning"></i></li>
+							<li class="list-inline-item me-0"><i class="bi bi-star-fill text-warning"></i></li>
+							<li class="list-inline-item me-0"><i class="bi bi-star-fill text-warning"></i></li>
+							<li class="list-inline-item me-0"><i class="bi bi-star-fill text-warning"></i></li>
+							<li class="list-inline-item me-0"><i class="bi bi-star-half text-warning"></i></li>
+						</ul>
+						<!-- Testimonials text -->
+						<blockquote>
+							<p class="heading-color mb-0">Was out laughter raptures returned outweigh. Luckily cheered colonel I do we attack highest enabled. Tried law yet style child. The bore of true of no be deal.</p>
+						</blockquote>	
+					</div>
+					<!-- Card footer -->
+					<div class="card-footer bg-transparent p-0">
+						<!-- Testimonials info -->
+						<div class="d-flex align-items-center">
+							<div class="avatar flex-shrink-0">
+								<img class="avatar-img rounded-circle" src="assets/images/avatar/01.jpg" alt="avatar">
+							</div> 
+							<div class="ms-3">
+								<p class="lead heading-color fw-semibold mb-0">Emma Watson</p>
+								<small>UI/UX designer</small>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Testimonials END -->
+</section>
+<!-- =======================
+Review END -->
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+
+<!-- =======================
+Footer START -->
+<footer class="bg-dark pt-6 pt-lg-8" data-bs-theme="dark">
+	<div class="container">
+		<!-- Link widgets -->
+		<div class="row g-4">
+
+			<!-- Widget item -->
+			<div class="col-md-6 col-xl-4">
+				<!-- logo -->
+				<a href="index.html">
+					<img class="h-40px" src="assets/images/logo-light.svg" alt="logo">
+				</a>
+				<p class="my-3 my-xl-4">A Bootstrap Template that's both stylish and functional, perfect for any type of technology or corporate website.</p>
+			</div>
+
+			<div class="col-xl-7 ms-auto">
+				<div class="row g-4">
+					<!-- Widget item -->
+					<div class="col-6 col-md-3">
+						<h6 class="mb-3 mb-xl-4">Company</h6>
+						<!-- Links -->
+						<ul class="nav flex-column gap-1">
+							<li class="nav-item"><a class="nav-link pt-0" href="about-v1.html">About us</a></li>
+							<li class="nav-item"><a class="nav-link" href="contact-us.html">Contact us</a></li>
+							<li class="nav-item"><a class="nav-link" href="career.html">Career <span class="badge bg-primary ms-2">2 jobs</span></a></li>
+							<li class="nav-item"><a class="nav-link" href="career-single.html">Career detail</a></li>
+							<li class="nav-item"><a class="nav-link" href="contact-us-v2.html">Become a partner</a></li>
+							<li class="nav-item"><a class="nav-link" href="service-v1.html">Services</a></li>
+						</ul>
+					</div>
+
+					<!-- Widget item -->
+					<div class="col-6 col-md-3">
+						<h6 class="mb-3 mb-xl-4">Resources</h6>
+						<!-- Links -->
+						<ul class="nav flex-column gap-1">
+							<li class="nav-item"><a class="nav-link pt-0" href="portfolio-case-study-v1.html">Case studies</a></li>
+							<li class="nav-item"><a class="nav-link" href="pricing-v1.html">Pricing <span class="badge bg-success ms-2">New</span></a></li>
+							<li class="nav-item"><a class="nav-link" href="blog-minimal.html">Blogs</a></li>
+							<li class="nav-item"><a class="nav-link" href="blog-single.html">Blog detail</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Success stories<i class="bi bi-box-arrow-up-right small ms-2"></i></a></li>
+						</ul>
+					</div>
+					
+					<!-- Widget item -->
+					<div class="col-sm-6 col-md-6">
+						<h6 class="mb-3 mb-xl-4">Download our app</h6>
+						<p class="mb-3">Get instant access to exclusive features for FREE!</p>
+						<div class="row g-2 mb-4 mb-sm-5">
+							<!-- Google play store button -->
+							<div class="col-5 col-sm-6 col-md-5 col-lg-4 col-xl-5">
+								<a href="#"> <img src="assets/images/elements/google-play.svg" alt=""> </a>
+							</div>
+							<!-- App store button -->
+							<div class="col-5 col-sm-6 col-md-5 col-lg-4 col-xl-5">
+								<a href="#"> <img src="assets/images/elements/app-store.svg" alt="app-store"> </a>
+							</div>
+						</div>
+
+						<!-- Social buttons -->
+						<span class="heading-color fw-semibold">Follow on:</span>
+						<ul class="list-inline align-items-center mb-0 mt-3">
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon bg-facebook" href="#"><i class="bi bi-facebook lh-base"></i></a> </li>
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon bg-instagram" href="#"><i class="bi bi-instagram lh-base"></i></a> </li>
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon bg-twitter-x" href="#"><i class="bi bi-twitter-x lh-base"></i></a> </li>
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon bg-linkedin" href="#"><i class="bi bi-linkedin lh-base"></i></a> </li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Divider -->
+		<hr class="mt-xl-5 mb-0 opacity-1">
+
+		<!-- Bottom footer -->
+		<div class="d-md-flex justify-content-between align-items-center text-center text-lg-start py-4">
+			<!-- copyright text -->
+			<div class="text-body small mb-3 mb-md-0"> Copyrights ©2025 Folio. Build by <a href="#" target="_blank" class="text-body text-primary-hover hover-underline-animation">StackBros</a>. </div>
+			
+			<!-- Policy link -->
+			<ul class="nav d-flex justify-content-center gap-1 mb-0">
+				<li class="nav-item"><a class="nav-link small py-0" href="#">Privacy policy</a></li>
+				<li class="nav-item"><a class="nav-link small py-0 pe-0" href="#">Terms &amp; conditions</a></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<!-- =======================
+Footer END -->
+
+<!-- Back to top -->
+<div class="back-top"></div>
+
+<!-- Bootstrap JS -->
+<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+<!--Vendors-->
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/vendor/purecounterjs/dist/purecounter_vanilla.js"></script>
+<script src="assets/vendor/glightbox/js/glightbox.js"></script>
+
+<!-- Theme Functions -->
+<script src="assets/js/functions.js"></script>
+
+</body>
+
+<!-- Mirrored from stackbros.in/folio/landing/career.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 29 Nov 2025 04:19:56 GMT -->
+</html>

@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from stackbros.in/folio/landing/index-saas.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 29 Nov 2025 04:19:20 GMT -->
+<head>
+	
+	<title>Folio - Multipurpose Bootstrap Template</title>
+
+	<!-- Meta Tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="StackBros">
+	<meta name="description" content="multipurpose Bootstrap Template">
+
+	<!-- Dark mode -->
+	<script>
+		const storedTheme = localStorage.getItem('theme')
+ 
+		const getPreferredTheme = () => {
+			if (storedTheme) {
+				return storedTheme
+			}
+			return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'light'
+		}
+
+		const setTheme = function (theme) {
+			if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				document.documentElement.setAttribute('data-bs-theme', 'dark')
+			} else {
+				document.documentElement.setAttribute('data-bs-theme', theme)
+			}
+		}
+
+		setTheme(getPreferredTheme())
+
+		window.addEventListener('DOMContentLoaded', () => {
+		    var el = document.querySelector('.theme-icon-active');
+			if(el != 'undefined' && el != null) {
+				const showActiveTheme = theme => {
+				const activeThemeIcon = document.querySelector('.theme-icon-active use')
+				const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
+				const svgOfActiveBtn = btnToActive.querySelector('.mode-switch use').getAttribute('href')
+
+				document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+					element.classList.remove('active')
+				})
+
+				btnToActive.classList.add('active')
+				activeThemeIcon.setAttribute('href', svgOfActiveBtn)
+			}
+
+			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+				if (storedTheme !== 'light' || storedTheme !== 'dark') {
+					setTheme(getPreferredTheme())
+				}
+			})
+
+			showActiveTheme(getPreferredTheme())
+
+			document.querySelectorAll('[data-bs-theme-value]')
+				.forEach(toggle => {
+					toggle.addEventListener('click', () => {
+						const theme = toggle.getAttribute('data-bs-theme-value')
+						localStorage.setItem('theme', theme)
+						setTheme(theme)
+						showActiveTheme(theme)
+					})
+				})
+
+			}
+		})
+		
+	</script>
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="assets/images/favicon.ico">
+
+	<!-- Google Font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com/">
+	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/swiper/swiper-bundle.min.css">
+
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+<!-- Header START -->
+<div class="header-absolute">
+	<!-- Top header -->
+	<div class="alert fade show bg-dark border-0 rounded-0 text-center overflow-hidden z-index-9 py-2 m-0 d-none d-lg-block" role="alert">
+			<p class="text-white small m-0"><i class="bi bi-rocket-takeoff-fill me-2"></i> New version available! discover the latest enhancements. <a href="#" class="fw-semibold text-purple hover-underline-animation ">Click here to upgrade!</a></p>
+	</div>
+		
+	<!-- Header START -->
+	<header class="header-sticky bg-transparent">
+		<!-- Logo Nav START -->
+		<nav class="navbar navbar-expand-xl">
+			<div class="container">
+				<!-- Logo START -->
+				<a class="navbar-brand me-0" href="index.html">
+					<img class="light-mode-item navbar-brand-item" src="assets/images/logo.svg" alt="logo">
+					<img class="dark-mode-item navbar-brand-item" src="assets/images/logo-light.svg" alt="logo">
+				</a>
+				<!-- Logo END -->
+
+				<!-- Main navbar START -->
+				<div class="navbar-collapse collapse" id="navbarCollapse">
+				<ul class="navbar-nav navbar-nav-scroll dropdown-hover mx-auto">
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle active" href="#" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Demos</a>
+						<div class="dropdown-menu dropdown-menu-size-lg overflow-hidden p-0">
+							<div class="row px-3 py-4">
+								<!-- Image and button -->
+								<div class="col-sm-6">
+									<ul class="list-unstyled">
+										<li> <a class="dropdown-item" href="index.html">Classic Default</a> </li>
+										<li> <a class="dropdown-item" href="index-software-company.html">Software Company</a> </li>
+										<li> <a class="dropdown-item" href="index-finance-consulting.html">Finance Consulting</a> </li>
+										<li> <a class="dropdown-item" href="index-ai-agency.html">AI Agency</a> </li>
+										<li> <a class="dropdown-item" href="index-product-landing.html">Product Landing</a> </li>
+									</ul>
+								</div>
+
+								<!-- Image and button -->
+								<div class="col-sm-6">
+									<ul class="list-unstyled">
+										<li> <a class="dropdown-item active" href="index-saas.html">SaaS</a> </li>
+										<li> <a class="dropdown-item" href="index-ai-chatbot.html">SaaS AI Chatbot</a> </li>
+										<li> <a class="dropdown-item" href="index-application-showcase.html">Application Showcase</a> </li>
+										<li> <a class="dropdown-item" href="index-personal-portfolio.html">Personal Portfolio</a> </li>
+										<li> <a class="dropdown-item" href="index-blog.html">Blog home</a> </li>
+									</ul>
+								</div>
+							</div>
+
+							<!-- Cta -->
+							 <div class="h-200px position-relative" style="background:url(assets/images/elements/nav-cta.jpg) no-repeat; background-size:cover; background-position:center;">
+								<!-- Bg overlay -->
+								 <div class="bg-overlay bg-dark bg-opacity-10"></div>
+							 </div>
+						</div>
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">Pages</a>
+						<ul class="dropdown-menu">
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">About</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="about-v1.html">About v.1</a> </li>
+									<li> <a class="dropdown-item" href="about-v2.html">About v.2</a> </li>
+									<li> <a class="dropdown-item" href="services-grid.html">Services Grid</a></li>
+									<li> <a class="dropdown-item" href="services-list.html">Services List</a></li>
+									<li> <a class="dropdown-item" href="service-single.html">Service Single</a></li>
+									<li> <a class="dropdown-item" href="team.html">Team</a></li>
+									<li> <a class="dropdown-item" href="career.html">Career <span class="badge text-bg-success ms-2">2 Job</span></a></li>
+									<li> <a class="dropdown-item" href="career-single.html">Career Single</a></li>
+								</ul>
+							</li>
+
+							<li> <a class="dropdown-item" href="contact-us-v1.html">Contact Us v1</a> </li>
+							<li> <a class="dropdown-item" href="contact-us-v2.html">Contact Us v2</a> </li>
+							<li> <a class="dropdown-item" href="pricing-v1.html">Pricing v1</a> </li>
+							<li> <a class="dropdown-item" href="pricing-v2.html">Pricing v2</a> </li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Saas pages</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="feature-single.html">Feature Single</a> </li>
+									<li> <a class="dropdown-item" href="integrations.html">Integrations</a> </li>
+									<li> <a class="dropdown-item" href="integration-single.html">Integrations Single</a> </li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Portfolio</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="portfolio-grid.html">Portfolio Grid</a> </li>
+									<li> <a class="dropdown-item" href="portfolio-list.html">Portfolio List</a> </li>
+									<li> <a class="dropdown-item" href="portfolio-modern.html">Portfolio Modern</a> </li>
+									<li> <a class="dropdown-item" href="portfolio-case-study-v1.html">Portfolio case study v1</a> </li>
+									<li> <a class="dropdown-item" href="portfolio-case-study-v2.html">Portfolio case study v2</a> </li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Blog</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="blog-minimal.html">Blog Minimal</a> </li>
+									<li> <a class="dropdown-item" href="blog-single.html">Blog Single</a> </li>
+								</ul>
+							</li>
+
+							<li> <a class="dropdown-item" href="error-404.html">Error 404</a> </li>
+							<li> <a class="dropdown-item" href="coming-soon.html">Coming soon</a> </li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Authentication</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="sign-in.html">Sign in</a> </li>
+									<li> <a class="dropdown-item" href="sign-up.html">Sign up</a> </li>
+									<li> <a class="dropdown-item" href="forgot-password.html">Forgot Password</a> </li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Doc</a>
+						<div class="dropdown-menu dropdown-menu-size-xl dropdown-menu-center p-xl-3">
+							<div class="row row-cols-1 row-cols-md-2 pt-2">
+								<!-- Doc menu -->
+								<div class="col">
+									<div class="dropdown-item bg-secondary-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
+										<div class="d-flex">
+											<!-- Icon -->
+											<div class="icon-md bg-primary bg-opacity-15 text-primary rounded flex-shrink-0"><i class="bi bi-file-earmark-text fs-6"></i></div>
+											<!-- Content -->
+											<div class="mx-3">
+												<p class="stretched-link heading-color fw-bold mb-0">Documentation</p>
+												<p class="mb-0 text-body small">Using documentation you can easily develop projects</p>
+											</div>
+										</div>
+										<!-- Button -->
+										<a class="icon-link icon-link-hover text-primary-hover stretched-link" href="#" target="_blank"><i class="bi bi-chevron-right"></i> </a>
+									</div>
+								</div>
+
+								<!-- Doc menu -->
+								<div class="col">
+									<div class="dropdown-item bg-secondary-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
+										<div class="d-flex">
+											<!-- Icon -->
+											<div class="icon-md bg-pink bg-opacity-15 text-pink rounded flex-shrink-0"><i class="bi bi-stickies fs-6"></i></div>
+											<!-- Content -->
+											<div class="mx-3">
+												<p class="stretched-link heading-color fw-bold mb-0">Snippets</p>
+												<p class="mb-0 text-body small">Development guides for building projects with Folio</p>
+											</div>
+										</div>
+										<!-- Button -->
+										<a class="icon-link icon-link-hover text-primary-hover stretched-link" href="#" target="_blank"><i class="bi bi-chevron-right"></i> </a>
+									</div>
+								</div>
+
+								<!-- Doc menu -->
+								<div class="col">
+									<div class="dropdown-item bg-secondary-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
+										<div class="d-flex">
+											<!-- Icon -->
+											<div class="icon-md bg-success bg-opacity-15 text-success rounded flex-shrink-0"><i class="bi bi-bullseye fs-6"></i></div>
+											<!-- Content -->
+											<div class="mx-3">
+												<p class="stretched-link heading-color fw-bold mb-0">Changelog</p>
+												<p class="mb-0 text-body small">Recent feature release and announcement.</p>
+											</div>
+										</div>
+										<!-- Button -->
+										<a class="icon-link icon-link-hover text-primary-hover stretched-link" href="#" target="_blank"><i class="bi bi-chevron-right"></i> </a>
+									</div>
+								</div>
+
+								<!-- Doc menu -->
+								<div class="col">
+									<div class="dropdown-item bg-secondary-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
+										<div class="d-flex">
+											<!-- Icon -->
+											<div class="icon-md bg-warning bg-opacity-15 text-warning rounded flex-shrink-0"><i class="bi bi-mask fs-6"></i></div>
+											<!-- Content -->
+											<div class="mx-3">
+												<p class="stretched-link heading-color fw-bold mb-0">Playwright tips</p>
+												<p class="mb-0 text-body small">Tips and In-depth guide for headless browser automation</p>
+											</div>
+										</div>
+										<!-- Button -->
+										<a class="icon-link icon-link-hover text-primary-hover stretched-link" href="#" target="_blank"><i class="bi bi-chevron-right"></i> </a>
+									</div>
+								</div>
+
+								<!-- Doc menu -->
+								<div class="col">
+									<div class="dropdown-item bg-secondary-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
+										<div class="d-flex">
+											<!-- Icon -->
+											<div class="icon-md bg-info bg-opacity-15 text-info rounded flex-shrink-0"><i class="bi bi-grid-fill fs-6"></i></div>
+											<!-- Content -->
+											<div class="mx-3">
+												<p class="stretched-link heading-color fw-bold mb-0">Integrations</p>
+												<p class="mb-0 text-body small">Taking advantage of integrations with other services.</p>
+											</div>
+										</div>
+										<!-- Button -->
+										<a class="icon-link icon-link-hover text-primary-hover stretched-link" href="integrations.html" target="_blank"><i class="bi bi-chevron-right"></i> </a>
+									</div>
+								</div>
+
+								<!-- Doc menu -->
+								<div class="col">
+									<div class="dropdown-item bg-secondary-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
+										<div class="d-flex">
+											<!-- Icon -->
+											<div class="icon-md bg-purple bg-opacity-15 text-purple rounded flex-shrink-0"><i class="bi bi-chat-dots fs-6"></i></div>
+											<!-- Content -->
+											<div class="mx-3">
+												<p class="stretched-link heading-color fw-bold mb-0">Supports</p>
+												<p class="mb-0 text-body small">Need help? Our customers support is there to help you.</p>
+											</div>
+										</div>
+										<!-- Button -->
+										<a class="icon-link icon-link-hover text-primary-hover stretched-link" href="#" target="_blank"><i class="bi bi-chevron-right"></i> </a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item"> <a class="nav-link" href="contact-us-v1.html">Contact us</a> </li>
+				</ul>
+			</div>
+				<!-- Main navbar END -->
+
+				<!-- Buttons -->
+				<ul class="nav align-items-center dropdown-hover ms-sm-2">
+					<!-- Dark mode option START -->
+					<li class="nav-item dropdown dropdown-animation">
+						<button class="btn btn-link mb-0 px-2 lh-1" id="bd-theme"
+						type="button"
+						aria-expanded="false"
+						data-bs-toggle="dropdown"
+						data-bs-display="static">
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"  class="bi bi-circle-half theme-icon-active fill-mode fa-fw" viewBox="0 0 16 16">
+							<path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+							<use href="#"></use>
+						</svg>
+						</button>
+
+						<ul class="dropdown-menu min-w-auto dropdown-menu-end" aria-labelledby="bd-theme">
+							<li class="mb-1">
+								<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light">
+									<svg width="16" height="16" fill="currentColor" class="bi bi-brightness-high-fill fa-fw mode-switch me-1" viewBox="0 0 16 16">
+										<path d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+										<use href="#"></use>
+									</svg>Light
+								</button>
+							</li>
+							<li class="mb-1">
+								<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon-stars-fill fa-fw mode-switch me-1" viewBox="0 0 16 16">
+										<path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+										<path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+										<use href="#"></use>
+									</svg>Dark
+								</button>
+							</li>
+							<li>
+								<button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-half fa-fw mode-switch me-1" viewBox="0 0 16 16">
+										<path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+										<use href="#"></use>
+									</svg>Auto
+								</button>
+							</li>
+						</ul>
+					</li>
+					<!-- Dark mode option END -->
+
+					<!-- Authentication button -->
+					<li class="nav-item bg-secondary rounded d-none d-sm-block gap-1 ms-2 p-1">
+						<a href="sign-up.html" class="btn btn-sm btn-secondary mb-0">Login</a>
+						<a href="sign-up.html" class="btn btn-sm btn-primary mb-0">Sign up</a>
+					</li>
+
+					<!-- Responsive navbar toggler -->
+					<li class="nav-item">
+						<button class="navbar-toggler ms-sm-3 p-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-animation">
+								<span></span>
+								<span></span>
+								<span></span>
+							</span>
+						</button>
+					</li>	
+				</ul>
+
+			</div>
+		</nav>
+		<!-- Logo Nav END -->
+	</header>
+	<!-- Header END -->
+</div> 
+<!-- Header END -->
+
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+
+<!-- =======================
+Hero START -->
+<section class="position-relative overflow-hidden pt-lg-8">
+	<div class="container-fluid px-xxl-6 pt-3">
+		<div class="bg-secondary-grad position-relative rounded-4 pt-5 pt-sm-8 px-sm-4 px-xxl-6">
+			<!-- Notepad image -->
+			<div class="position-absolute end-0 top-0 mt-6 me-n7 d-none d-sm-block">
+				<img src="assets/images/elements/rocket-02.png" class="w-50" alt="">
+			</div>
+
+			<!-- Main content -->
+			<div class="container position-relative z-index-2 mb-6">
+				<div class="row">
+					<div class="col-xxl-8 text-center mx-auto">
+						<!-- Pre title -->
+						<p class="heading-color bg-body d-inline-block rounded px-2 px-sm-4 py-2 mb-3"><span class="badge bg-success me-2">v2.0.0</span>Unlock your potential with new version</p>
+			
+						<!-- Title -->
+						<h1 class="fw-bold mb-4 lh-base">Powerful <span class="text-primary">Saas</span> solutions for modern businesses</h1>
+
+						<!-- Desc -->
+						<p class="mb-4">Empower your business with cutting-edge software solutions designed to streamline operations, boost productivity, and drive growth.</p>
+
+						<!-- Button -->
+						<a href="pricing-v2.html" class="btn btn-lg btn-primary-grad">Get started now - free</a>
+						<p class="heading-color small mb-0">🔥 Sign up now for a 14-day free trial</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Images -->
+			<div class="row position-relative z-index-2 g-4 g-xxl-5 justify-content-center align-items-center">
+				<!-- Image item -->
+				<div class="col-sm-6 col-md-5 col-xxl-3">
+					<div class="bg-body bg-opacity-10 bg-blur border border-primary border-opacity-10 rounded-4 shadow-primary-md p-3">
+						<img src="assets/images/elements/saas-decoration/01.png" class="rounded-4 shadow-sm" alt="saas image 1">
+					</div>
+				</div>
+
+				<!-- Image item -->
+				<div class="col-sm-6 col-md-5 col-xxl-4">
+					<div class="bg-body bg-opacity-10 bg-blur border border-primary border-opacity-10 rounded-4 shadow-primary-md p-3">
+						<img src="assets/images/elements/saas-decoration/02.png" class="rounded-4 shadow-sm" alt="saas image 1">
+					</div>
+				</div>
+
+				<!-- Image item -->
+				<div class="col-md-10 col-xxl-5 d-none d-sm-block">
+					<div class="row g-4 g-xxl-5">
+						<!-- Vertical image  -->
+						<div class="col-md-10 ms-xl-7">
+							<div class="bg-body bg-opacity-10 bg-blur border border-primary border-opacity-10 rounded-4 shadow-primary-md p-3">
+								<img src="assets/images/elements/saas-decoration/03.png" class="rounded-4 shadow-sm" alt="saas image 1">
+							</div>
+						</div>
+
+						<div class="col-sm-6">
+							<div class="bg-primary rounded-4 p-4">
+								<!-- Icon -->
+								<div class="icon-lg bg-white text-dark d-flex justify-content-center align-items-center rounded-circle">
+									<i class="bi bi-people-fill fs-5"></i>
+								</div>
+								<!-- Content -->
+								<div class="d-flex justify-content-between align-items-center mt-4">
+									<div>
+										<span class="text-white opacity-6">New clients</span>
+										<h3 class="mb-0 text-white">321</h3>
+									</div>
+									<div>
+										<svg width="64" height="46" viewBox="0 0 64 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M60.7407 45.5705C59.268 45.5705 58.0742 44.3767 58.0742 42.904L58.0742 2.66644C58.0742 1.19381 59.268 8.12872e-06 60.7407 8.10623e-06C62.2133 8.08374e-06 63.4071 1.19381 63.4071 2.66644L63.4071 42.904C63.4071 44.3767 62.2133 45.5705 60.7407 45.5705Z" fill="#E9EDF7" fill-opacity="0.3"/>
+											<path d="M60.7407 45.5705C59.268 45.5705 58.0742 44.3767 58.0742 42.904L58.0742 37.3701C58.0742 35.8975 59.268 34.7037 60.7407 34.7037C62.2133 34.7037 63.4071 35.8975 63.4071 37.3701L63.4071 42.904C63.4071 44.3767 62.2133 45.5705 60.7407 45.5705Z" fill="#EBEEFF"/>
+											<path d="M46.2211 45.5705C44.7485 45.5705 43.5547 44.3767 43.5547 42.9041L43.5547 2.66641C43.5547 1.19379 44.7485 2.24891e-08 46.2211 0C47.6937 -2.24891e-08 48.8875 1.19379 48.8875 2.6664L48.8875 42.9041C48.8875 44.3767 47.6937 45.5705 46.2211 45.5705Z" fill="#E9EDF7" fill-opacity="0.3"/>
+											<path d="M46.2211 45.5705C44.7485 45.5705 43.5547 44.3767 43.5547 42.9041L43.5547 6.87294C43.5547 5.40032 44.7485 4.20652 46.2211 4.20652C47.6938 4.20652 48.8876 5.40032 48.8876 6.87295L48.8875 42.9041C48.8875 44.3767 47.6937 45.5705 46.2211 45.5705Z" fill="#EBEEFF"/>
+											<path d="M31.7035 45.5705C30.2309 45.5705 29.0371 44.3767 29.0371 42.904L29.0371 2.66644C29.0371 1.19381 30.2309 8.12872e-06 31.7035 8.10623e-06C33.1762 8.08374e-06 34.37 1.19381 34.37 2.66644L34.37 42.904C34.37 44.3767 33.1762 45.5705 31.7035 45.5705Z" fill="#E9EDF7" fill-opacity="0.3"/>
+											<path d="M31.7035 45.5705C30.2309 45.5705 29.0371 44.3767 29.0371 42.904L29.0371 16.6881C29.0371 15.2155 30.2309 14.0217 31.7035 14.0217C33.1762 14.0217 34.37 15.2155 34.37 16.6881L34.37 42.904C34.37 44.3767 33.1762 45.5705 31.7035 45.5705Z" fill="#EBEEFF"/>
+											<path d="M17.186 45.5705C15.7133 45.5705 14.5195 44.3767 14.5195 42.904L14.5195 2.66644C14.5195 1.19381 15.7133 8.12872e-06 17.186 8.10623e-06C18.6586 8.08374e-06 19.8524 1.19381 19.8524 2.66644L19.8524 42.904C19.8524 44.3767 18.6586 45.5705 17.186 45.5705Z" fill="#E9EDF7" fill-opacity="0.3"/>
+											<path d="M17.186 45.5705C15.7133 45.5705 14.5195 44.3767 14.5195 42.904L14.5195 24.7506C14.5195 23.278 15.7133 22.0842 17.186 22.0842C18.6586 22.0842 19.8524 23.278 19.8524 24.7506L19.8524 42.904C19.8524 44.3767 18.6586 45.5705 17.186 45.5705Z" fill="#EBEEFF"/>
+											<path d="M2.66644 45.5705C1.19381 45.5705 5.22313e-06 44.3767 5.03888e-06 42.904L4.5402e-09 2.66644C-1.79708e-07 1.19381 1.1938 8.60663e-06 2.66644 8.58414e-06C4.13907 8.56166e-06 5.33287 1.19381 5.33287 2.66644L5.33288 42.904C5.33288 44.3767 4.13907 45.5705 2.66644 45.5705Z" fill="#E9EDF7" fill-opacity="0.3"/>
+											<path d="M2.66644 45.5705C1.19381 45.5705 5.22313e-06 44.3767 5.03888e-06 42.904L0 10.7289C-1.8425e-07 9.25627 1.19381 8.06247 2.66644 8.06247C4.13907 8.06247 5.33288 9.25628 5.33288 10.7289L5.33288 42.904C5.33288 44.3767 4.13907 45.5705 2.66644 45.5705Z" fill="#EBEEFF"/>
+										</svg>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Image -->
+						<div class="col-sm-6">
+							<div class="bg-body bg-opacity-10 bg-blur border border-primary border-opacity-10 rounded-4 shadow-primary-md p-3">
+								<img src="assets/images/elements/saas-decoration/04.png" class="rounded-4 shadow-sm" alt="saas image 1">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Blur bg -->
+	<div class="bg-body h-500px w-100 blur-7 position-absolute start-0 bottom-0"></div>
+</section>
+<!-- =======================
+Hero END -->
+
+<!-- =======================
+Skill sets START -->
+<section class="pt-0">
+	<div class="container">
+		<div class="border-top border-bottom border-primary mx-xl-6 py-4 py-xl-6 px-xl-4" style="--bs-border-opacity: .20;">
+			<div class="row g-4">
+				<!-- Item -->
+				<div class="col-sm-4">
+					<div class="d-flex justify-content-between">
+						<div class="d-md-flex align-items-center">
+							<!-- Number -->
+							<h4 class="h2 mb-0">99<span class="ms-1 text-primary">%</span></h4>
+							<!-- Text -->
+							<p class="mb-0 ms-md-3">Track and analyze business reports</p>
+						</div>
+						<!-- Vr divider -->
+						<div class="vr bg-primary mx-2 opacity-2 d-none d-sm-block"></div>
+					</div>
+				</div>
+
+				<!-- Item -->
+				<div class="col-sm-4">
+					<div class="d-flex justify-content-between">
+						<div class="d-md-flex align-items-center">
+							<!-- Number -->
+							<h4 class="h2 mb-0">4.8</h4>
+							<!-- Text and star -->
+							<div class="ms-md-3">
+								<ul class="list-inline mb-0">
+									<li class="list-inline-item me-0"><i class="bi bi-star-fill text-warning"></i></li>
+									<li class="list-inline-item me-0"><i class="bi bi-star-fill text-warning"></i></li>
+									<li class="list-inline-item me-0"><i class="bi bi-star-fill text-warning"></i></li>
+									<li class="list-inline-item me-0"><i class="bi bi-star-fill text-warning"></i></li>
+									<li class="list-inline-item me-0"><i class="bi bi-star-half text-warning"></i></li>
+								</ul>
+								<p class="mb-0">Best rated company</p>
+							</div>
+						</div>
+						<!-- Vr divider -->
+						<div class="vr bg-primary mx-2 opacity-2 d-none d-sm-block"></div>
+					</div>
+				</div>
+
+				<!-- Item -->
+				<div class="col-sm-4">
+					<div class="d-flex justify-content-between">
+						<div class="d-md-flex align-items-center">
+							<!-- Number -->
+							<h4 class="h2 mb-0">95<span class="ms-1 text-purple">%</span></h4>
+							<!-- Text -->
+							<p class="mb-0 ms-md-3">Genuine reputed happy customers</p>
+						</div>
+					</div>
+				</div>
+
+			</div> <!-- Row END -->
+		</div>
+	</div>
+</section>
+<!-- =======================
+Skill sets END -->
+
+<!-- =======================
+About START -->
+<section class="pt-0">
+	<div class="container">
+		<div class="row">
+			<!-- Content -->
+			<div class="col-lg-6 mb-5 mb-lg-0">
+			<!-- Title -->
+			<h2 class="mb-3 mb-lg-4">Easily streamline your user analytics</h2>
+			<a href="about-v1.html" class="btn btn-primary mb-0">Know more</a>
+
+			<hr class="my-4 my-lg-5 border-primary opacity-2"> <!-- Divider -->
+
+			<!-- Features START -->
+			<div class="row g-4">
+				<!-- Item -->
+				<div class="col-md-6">
+					<div class="card card-body bg-transparent p-0">
+						<!-- Icon image -->
+						<img src="assets/images/elements/hourglass.png" class="w-40px mb-4" alt="feature icon">
+						<!-- Content -->
+							<h6>Real-time data insights</h6>
+							<p>Monitor key metrics, track performance, and gain actionable insights instantly.</p>
+					</div>
+				</div>
+
+				<!-- Item -->
+				<div class="col-md-6">
+					<div class="card card-body bg-transparent p-0">
+						<!-- Icon image -->
+						<img src="assets/images/elements/report-book.png" class="w-40px mb-4" alt="feature icon">
+						<!-- Content -->
+							<h6>Customizable reports</h6>
+							<p>With our customizable reporting tools, you can dive deep into specific</p>
+					</div>
+				</div>
+
+			</div>
+			<!-- Features END -->
+
+			<!-- CTA link -->
+			<div class="bg-body shadow-primary rounded d-inline-block py-3 px-md-4 mt-4">
+				<p class="heading-color mb-0 px-3 px-sm-5 px-md-0"><i class="bi bi-info-square-fill me-2"></i>Contact our team for more information  
+					<a href="contact-us-v1.html" class="fw-semibold icon-link icon-link-hover hover-underline-animation">Let’s chat <i class="bi bi-arrow-right"></i></a>
+				</p>
+			</div>
+			</div>
+
+			<!-- Images -->
+			<div class="col-lg-5 position-relative ms-auto">
+				<div class="bg-secondary rounded-4 position-relative p-5">
+					<!-- Saas image -->
+					<img src="assets/images/elements/saas-decoration/05.png" alt="Saas image">
+					<!-- Image -->
+					<img src="assets/images/about/06.jpg" class="rounded-4" alt="image">
+				</div>
+			</div>
+		</div> <!-- Row END -->
+	</div>
+</section>
+<!-- =======================
+About END -->
+
+<!-- =======================
+Steps START -->
+<section class="position-relative z-index-2 py-0 mb-n9">
+	<div class="container-fluid position-relative">
+		<div class="max-width-1550 bg-dark position-relative rounded-4 overflow-hidden py-6 py-lg-8">
+			<!-- Grad blur -->
+			<div class="position-absolute top-100 start-50 translate-middle">
+				<img src="assets/images/elements/grad-shape/blur-decoration-2.svg" class="opacity-2 blur-9" alt="Grad shape">
+			</div>
+	
+			<div class="container position-relative" data-bs-theme="dark">
+				<!-- Title and button -->
+				<div class="row g-4 align-items-center mb-5 mb-lg-6">
+					<!-- Title -->
+					<div class="col-lg-7 col-xl-5">
+						<h2 class="mb-0">Simplify data <span class="text-primary-grad">collection</span> with easy</h2>
+					</div>
+					<!-- Button -->
+					<div class="col-lg-5 ms-auto text-lg-end">
+							<a href="#" class="btn btn-white mb-0"><i class="bi bi-google text-google-icon me-2"></i>Sign up with google</a>
+					</div>
+				</div>
+
+				<!-- Step START -->
+				<div class="row justify-content-center g-4 g-xl-6">
+					<!-- Item -->
+					<div class="col-md-6 col-lg-4">
+						<div class="card bg-transparent p-0">
+							<!-- Image -->
+							<div class="bg-white bg-opacity-10 rounded-4 h-200px h-sm-300px overflow-hidden p-4 mb-2 mb-sm-3">
+								<img src="assets/images/elements/saas-decoration/step-1.png" class="d-flex m-auto" alt="step image">
+							</div>
+
+							<!-- Card body -->
+							<div class="card-body bg-transparent px-0">
+								<h6>Sign up and customize</h6>
+								<p class="mb-0">Create your account and customize your dashboard to fit your business needs.</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Item -->
+					<div class="col-md-6 col-lg-4">
+						<div class="card bg-transparent p-0">
+							<!-- Image -->
+							<div class="bg-white bg-opacity-10 rounded-4 h-200px h-sm-300px overflow-hidden p-4 mb-2 mb-sm-3">
+								<img src="assets/images/elements/saas-decoration/step-2-1.png" class="mt-n5 rounded-3" alt="step image">
+								<img src="assets/images/elements/saas-decoration/step-2-2.png" class="ms-auto d-flex me-n6 mt-n5 rounded-3" alt="step image">
+							</div>
+
+							<!-- Card body -->
+							<div class="card-body bg-transparent px-0">
+								<h6>Integrate and collect data</h6>
+								<p class="mb-0">Start collecting valuable data from all your user business processes instantly.</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Item -->
+					<div class="col-md-6 col-lg-4">
+						<div class="card bg-transparent p-0">
+							<!-- Image -->
+							<div class="bg-white bg-opacity-10 rounded-4 position-relative h-200px h-sm-300px overflow-hidden p-4 mb-2 mb-sm-3">
+								<img src="assets/images/elements/saas-decoration/step-3.png" class="position-absolute mt-2 ms-2 img-fluid rounded-3" alt="step image">
+							</div>
+
+							<!-- Card body -->
+							<div class="card-body bg-transparent px-0">
+								<h6>Analyze and optimize</h6>
+								<p class="mb-0">Use the analytics to make informed decisions and drive growth.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Step END -->
+			</div>
+		</div>
+	</div>
+</section>
+<!-- =======================
+Steps END -->
+
+<!-- =======================
+Tab features START -->
+<section class="bg-secondary position-relative overflow-hidden">
+	<!-- Decoration START -->
+	<!-- skewed divider	 -->
+	<span class="position-absolute top-0 start-0">
+		<svg class="fill-body" width="1920" height="128" viewBox="0 0 1920 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M1920 0H0V55.5C706.347 186.7 1574.31 110.167 1920 55.5V0Z"/>
+		</svg>
+	</span>
+	<!-- Rocket image -->
+	<div class="position-absolute end-0 mt-8 me-6 d-none d-lg-block">
+		<img src="assets/images/elements/rocket-03.png" class="h-200px" alt="rocket image">
+	</div>
+	<!-- hand finger image -->
+	<div class="position-absolute start-0 bottom-0">
+		<img src="assets/images/elements/hand-finger.png" alt="hand image">
+	</div>
+	<!-- Decoration END -->
+
+	<div class="container pt-8 mt-5">
+		<!-- Title -->
+		<div class="inner-container-small text-center mb-4 mb-lg-5">
+			<h2 class="mb-0">Discover the power of our platform</h2>
+		</div>
+
+		<!-- Tabs item START -->
+		<div class="inner-container mx-auto mb-5">
+			<div class="nav nav-pills nav-pills-primary-grad nav-responsive gap-4 mx-auto mb-3 pt-3" id="pills-tab" role="tablist">
+				<!-- Tab item -->
+				<div class="col">
+					<div class="nav-item">
+						<a href="#!" class="nav-link rounded-4" id="pills-dashboard-tab" data-bs-toggle="pill" data-bs-target="#pills-dashboard" role="tab" aria-controls="pills-dashboard" aria-selected="false" style="min-width: 9rem; min-height: 120px;">
+							<span class="nav-bg-primary-grad"></span>
+							<!-- Icon -->
+							<svg class="nav-link-content" width="36" height="35" viewBox="0 0 36 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M18 4.375V7.29167M18 4.375C14.3756 4.375 11.0944 5.84407 8.71923 8.21923M18 4.375C21.6241 4.375 24.9052 5.84391 27.2804 8.21883M8.71923 8.21923C6.34407 10.5944 4.875 13.8756 4.875 17.5M8.71923 8.21923L10.7802 10.2802M27.2804 8.21883C29.6557 10.594 31.125 13.8754 31.125 17.5M27.2804 8.21883L25.218 10.2812M4.875 17.5H7.79167M4.875 17.5C4.875 21.1241 6.34391 24.4052 8.71883 26.7804M8.71883 26.7804C11.094 29.1557 14.3754 30.625 18 30.625M8.71883 26.7804L10.7812 24.718M31.125 17.5H28.2083M31.125 17.5C31.125 21.1244 29.6559 24.4056 27.2808 26.7808M27.2808 26.7808C24.9056 29.1559 21.6244 30.625 18 30.625M27.2808 26.7808L25.217 24.717M18 30.625V27.7083M17.9994 15.3125C19.2075 15.3125 20.1875 16.2919 20.1875 17.5C20.1875 18.7081 19.2081 19.6875 18 19.6875C16.7919 19.6875 15.8125 18.7078 15.8125 17.4997C15.8125 16.2919 16.7916 15.3125 17.9994 15.3125ZM17.9994 15.3125V11.3021" stroke="currentColor" stroke-width="2.1875" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+							<!-- Text -->
+							<span class="nav-link-content mt-2">Dashboard</span>
+						</a>
+					</div>
+				</div>
+
+				<!-- Tab item -->
+				<div class="col">
+					<div class="nav-item">
+						<a href="#!" class="nav-link rounded-4 active" id="pills-analytics-tab" data-bs-toggle="pill" data-bs-target="#pills-analytics" role="tab" aria-controls="pills-analytics" aria-selected="true" style="min-width: 9rem; min-height: 120px;">
+							<span class="nav-bg-primary-grad"></span>
+							<!-- Icon -->
+							<svg class="nav-link-content" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M22.6575 5.42667C21.6595 4.99974 21.1604 4.78627 20.5971 5.01507C20.4401 5.07877 20.2396 5.21111 20.1195 5.33027C19.6875 5.75822 19.6875 6.3915 19.6875 7.65809V15.3121H27.3414C28.608 15.3121 29.2413 15.3121 29.6692 14.8802C29.7885 14.7598 29.9208 14.5593 29.9845 14.4025C30.2133 13.8392 29.9998 13.3401 29.5728 12.3421C28.2462 9.24043 25.7591 6.7534 22.6575 5.42667Z" stroke="CurrentColor" stroke-width="2.1875" stroke-linejoin="round"/>
+								<path d="M4.375 17.4997C4.375 24.7483 10.2513 30.6247 17.5 30.6247C23.2383 30.6247 28.1164 26.9422 29.9002 21.8115C30.2406 20.8327 30.4108 20.3433 30.1685 19.8116C30.1006 19.6625 29.9669 19.4745 29.8484 19.3614C29.4257 18.958 28.8218 18.958 27.6137 18.958H18.6667C17.5731 18.958 17.0262 18.958 16.6428 18.6795C16.519 18.5895 16.4102 18.4805 16.3202 18.3567C16.0417 17.9735 16.0417 17.4266 16.0417 16.333V7.38588C16.0417 6.17789 16.0417 5.57389 15.6381 5.15123C15.5251 5.03274 15.3371 4.89904 15.188 4.83113C14.6563 4.58886 14.1669 4.75901 13.1881 5.09933C8.05744 6.88319 4.375 11.7614 4.375 17.4997Z" stroke="CurrentColor" stroke-width="2.1875" stroke-linejoin="round"/>
+							</svg>
+							<!-- Text -->
+							<span class="nav-link-content mt-2">Analytics</span>
+						</a>
+					</div>
+				</div>
+
+				<!-- Tab item -->
+				<div class="col">
+					<div class="nav-item">
+						<a href="#!" class="nav-link rounded-4" id="pills-reports-tab" data-bs-toggle="pill" data-bs-target="#pills-reports" role="tab" aria-controls="pills-reports" aria-selected="false" style="min-width: 9rem; min-height: 120px;">
+							<span class="nav-bg-primary-grad"></span>
+							<!-- Icon -->
+							<svg class="nav-link-content" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M18.9596 4.375V5.25C18.9596 8.53102 18.9596 10.1715 19.7953 11.3216C20.0651 11.693 20.3917 12.0196 20.763 12.2894C21.9131 13.125 23.5537 13.125 26.8346 13.125H27.7096M27.7096 14.9287V22.75C27.7096 26.031 27.7096 27.6716 26.8742 28.8216C26.6042 29.1929 26.2775 29.5196 25.9063 29.7895C24.7562 30.625 23.1156 30.625 19.8346 30.625H15.168C11.887 30.625 10.2464 30.625 9.0964 29.7895C8.72499 29.5196 8.39837 29.1929 8.12852 28.8216C7.29297 27.6716 7.29297 26.031 7.29297 22.75V12.25C7.29297 8.96898 7.29297 7.32848 8.12852 6.17843C8.39837 5.80702 8.72499 5.4804 9.0964 5.21055C10.2464 4.375 11.887 4.375 15.168 4.375H17.156C18.5846 4.375 19.2987 4.375 19.9577 4.58913C20.1757 4.65996 20.3878 4.74779 20.5919 4.85185C21.2094 5.16644 21.7144 5.67147 22.7245 6.68153L25.4031 9.36014C26.4132 10.3702 26.9182 10.8752 27.2328 11.4926C27.3369 11.6969 27.4247 11.9089 27.4956 12.1269C27.7096 12.7859 27.7096 13.5001 27.7096 14.9287Z" stroke="currentColor" stroke-width="2.1875" stroke-linejoin="round"/>
+								<path d="M18.9596 18.229H11.668M23.3346 22.604H11.668" stroke="currentColor" stroke-width="2.1875" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+							<!-- Text -->
+							<span class="nav-link-content mt-2">Reports</span>
+						</a>
+					</div>
+				</div>
+
+				<!-- Tab item -->
+				<div class="col">
+					<div class="nav-item position-relative">
+						<span class="badge text-bg-success position-absolute top-0 start-100 translate-middle mt-n1 ms-n6 rotate-13 z-index-9">Coming soon</span>
+						<a href="#!" class="nav-link rounded-4" id="pills-management-tab" role="tab" aria-selected="false" style="min-width: 9rem; min-height: 120px;">
+							<span class="nav-bg-primary-grad"></span>
+							<!-- Icon -->
+							<svg class="nav-link-content" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M27.8136 18.4745C26.6589 17.1752 24.6287 17.1752 23.4739 18.4745C23.0581 18.9424 22.5023 19.2632 21.8894 19.3893C20.1866 19.7398 19.1716 21.4979 19.7194 23.1478C19.9167 23.7416 19.9167 24.3834 19.7194 24.9774C19.1716 26.6272 20.1866 28.3852 21.8894 28.7357C22.5023 28.8619 23.0581 29.1828 23.4739 29.6506C24.6287 30.9498 26.6589 30.9498 27.8136 29.6506C28.2294 29.1828 28.7853 28.8619 29.3982 28.7357C31.1008 28.3852 32.1158 26.6272 31.5681 24.9774C31.3709 24.3834 31.3709 23.7416 31.5681 23.1478C32.1158 21.4979 31.1008 19.7398 29.3982 19.3893C28.7853 19.2632 28.2294 18.9424 27.8136 18.4745ZM25.6277 25.6068C26.4811 25.6068 27.1729 24.915 27.1729 24.0616C27.1729 23.2081 26.4811 22.5163 25.6277 22.5163C24.7743 22.5163 24.0824 23.2081 24.0824 24.0616C24.0824 24.915 24.7743 25.6068 25.6277 25.6068Z" fill="currentColor"/>
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M16.04 3.28125C13.0196 3.28125 10.5711 5.72969 10.5711 8.75C10.5711 11.7703 13.0196 14.2188 16.04 14.2188C19.0602 14.2188 21.5087 11.7703 21.5087 8.75C21.5087 5.72969 19.0602 3.28125 16.04 3.28125ZM12.7586 8.75C12.7586 6.93782 14.2277 5.46875 16.04 5.46875C17.8521 5.46875 19.3212 6.93782 19.3212 8.75C19.3212 10.5622 17.8521 12.0312 16.04 12.0312C14.2277 12.0312 12.7586 10.5622 12.7586 8.75ZM13.8666 16.4062C9.43508 16.4062 5.41918 19.0161 3.61934 23.0657C1.81072 27.1351 4.78951 31.7188 9.24274 31.7188H20.9156C19.9152 31.1637 19.0351 30.4182 18.3242 29.5312H9.24274C6.3725 29.5312 4.45261 26.577 5.61831 23.9541C7.06705 20.6945 10.2996 18.5938 13.8666 18.5938H18.2132C18.2499 18.5938 18.2868 18.594 18.3236 18.5945C18.9377 17.8283 19.6778 17.1676 20.5128 16.6441C19.7659 16.4876 18.996 16.4062 18.2132 16.4062H13.8666Z" fill="currentColor"/>
+							</svg>
+							<!-- Text -->
+							<span class="nav-link-content mt-2">Management</span>
+						</a>
+					</div>
+				</div>
+
+				<!-- Tab item -->
+				<div class="col">
+					<div class="nav-item">
+						<a href="#" class="nav-link rounded-4 disabled" id="pills-Chat-tab" data-bs-toggle="pill" data-bs-target="#pills-Chat" role="tab" aria-selected="false" style="min-width: 9rem; min-height: 120px;">
+							<span class="nav-bg-primary-grad"></span>
+							<!-- Icon -->
+							<svg class="nav-link-content" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M10.2083 24.7918C6.98667 24.7918 4.375 22.1801 4.375 18.9585V15.3127C4.375 11.908 4.375 10.2057 5.06379 8.91701C5.60766 7.89952 6.44102 7.06615 7.45851 6.52228C8.74716 5.8335 10.4495 5.8335 13.8542 5.8335H21.1458C24.5505 5.8335 26.2528 5.8335 27.5415 6.52228C28.559 7.06615 29.3924 7.89952 29.9362 8.91701C30.625 10.2057 30.625 11.908 30.625 15.3127C30.625 18.7173 30.625 20.4196 29.9362 21.7083C29.3924 22.7258 28.559 23.5592 27.5415 24.1031C26.2528 24.7918 24.5505 24.7918 21.1458 24.7918H17.5" stroke="currentColor" stroke-width="2.1875" stroke-linecap="round" stroke-linejoin="round"/>
+								<path d="M18.9596 13.125H11.668M23.3346 17.5H11.668" stroke="currentColor" stroke-width="2.1875" stroke-linecap="round" stroke-linejoin="round"/>
+								<path d="M10.2083 24.7915L8.75 29.1665L17.5 24.7915" stroke="currentColor" stroke-width="2.1875" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+							<!-- Text -->
+							<span class="nav-link-content mt-2">Chat</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Tabs item END -->
+
+		<!-- Tab content START -->
+		<div class="row">
+			<div class="col-xl-10 mx-auto">
+				<div class="tab-content" id="pills-tabContent">
+					<!-- Tab content item -->
+					<div class="tab-pane card rounded-4 fade p-4" id="pills-dashboard" role="tabpanel" aria-labelledby="pills-dashboard-tab" tabindex="0">
+						<div class="row align-items-center g-4">
+							<!-- Image -->
+							<div class="col-md-6">
+								<div class="bg-secondary-grad p-3 rounded-4">
+									<img src="assets/images/elements/saas-decoration/tab-2.png" alt="tab image">
+								</div>
+							</div>
+
+							<!-- Content -->
+							<div class="col-md-5 pe-4 ms-auto">
+								<h6 class="mb-3">Access live data and insights as they happen</h6>
+								<!-- List -->
+								<ul class="list-group list-group-borderless mb-4">
+									<li class="list-group-item d-flex pb-0"><i class="bi bi-check-circle text-primary me-2"></i>Collaborative approach</li>
+									<li class="list-group-item d-flex pb-0"><i class="bi bi-check-circle text-primary me-2"></i>Live data dashboards</li>
+									<li class="list-group-item d-flex pb-0"><i class="bi bi-check-circle text-primary me-2"></i>Data security and compliance</li>
+								</ul>
+								<!-- Content -->
+								<div class="d-flex align-items-center">
+									<!-- Number -->
+									<h4 class="h2 mb-0">99<span class="ms-1 text-primary">%</span></h4>
+									<!-- Text -->
+									<p class="mb-0 ms-3">Track and analyze business reports</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Tab content item -->
+					<div class="tab-pane card rounded-4 fade show active p-4" id="pills-analytics" role="tabpanel" aria-labelledby="pills-analytics-tab" tabindex="0">
+						<div class="row align-items-center g-4">
+							<!-- Content -->
+							<div class="col-md-5 ps-md-4">
+								<h6 class="mb-3">Drive your business forward with powerful analytics</h6>
+								<!-- List -->
+								<ul class="list-group list-group-borderless mb-4">
+									<li class="list-group-item d-flex pb-0"><i class="bi bi-check-circle text-primary me-2"></i>Actionable recommendations</li>
+									<li class="list-group-item d-flex pb-0"><i class="bi bi-check-circle text-primary me-2"></i>Live data dashboards</li>
+									<li class="list-group-item d-flex pb-0"><i class="bi bi-check-circle text-primary me-2"></i>Instant notifications</li>
+								</ul>
+								<!-- Button -->
+								<a href="feature-single.html" class="btn btn-primary mb-0">Explore feature</a>
+							</div>
+
+							<!-- Image -->
+							<div class="col-md-6 ms-auto">
+								<div class="bg-secondary-grad p-3 rounded-4">
+									<img src="assets/images/elements/saas-decoration/tab-1.png" alt="tab image">
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Tab content item -->
+					<div class="tab-pane card rounded-4 fade p-4" id="pills-reports" role="tabpanel" aria-labelledby="pills-reports-tab" tabindex="0">
+						
+						<div class="row align-items-center g-4">
+							<!-- Image -->
+							<div class="col-md-6">
+								<div class="bg-secondary-grad p-3 rounded-4">
+									<img src="assets/images/elements/saas-decoration/tab-3.png" alt="tab image">
+								</div>
+							</div>
+
+							<!-- Content -->
+							<div class="col-md-5 pe-4 ms-auto">
+								<h6 class="mb-3">Access live data and insights as they happen</h6>
+								<!-- List -->
+								<ul class="list-group list-group-borderless mb-4">
+									<li class="list-group-item d-flex pb-0"><i class="bi bi-check-circle text-primary me-2"></i>Collaborative approach</li>
+									<li class="list-group-item d-flex pb-0"><i class="bi bi-check-circle text-primary me-2"></i>Live data dashboards</li>
+									<li class="list-group-item d-flex pb-0"><i class="bi bi-check-circle text-primary me-2"></i>Data security and compliance</li>
+								</ul>
+								<!-- Content -->
+								<div class="d-flex align-items-center">
+									<!-- Number -->
+									<h4 class="h2 mb-0">99<span class="ms-1 text-primary">%</span></h4>
+									<!-- Text -->
+									<p class="mb-0 ms-3">Track and analyze business reports</p>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Tab content END -->
+	</div>
+</section>
+<!-- =======================
+Tab features END -->
+
+<!-- =======================
+Integrations START -->
+<section>
+	<div class="container position-relative">
+		<!-- Blur decoration -->
+		<div class="position-absolute bottom-0 start-50 translate-middle-x mb-8">
+			<img src="assets/images/elements/grad-shape/blur-decoration-2.svg" class="opacity-2 blur-9" alt="Grad shape">
+		</div>
+
+		<!-- Title and content -->
+		<div class="row position-relative z-index-2">
+			<div class="col-md-8 mx-auto text-center">
+				<h2 class="mb-4">Maximize efficiency with seamless <span class="text-primary">Integrations</span></h2>
+				<p class="mb-4">Our robust integration capabilities ensure your data flows smoothly across systems, empowering you to streamline operations and boost productivity</p>
+				<a href="integrations.html" class="btn btn-primary-grad icon-link icon-link-hover">Explore all integrations<i class="bi bi-arrow-right"></i> </a>
+			</div>
+		</div>
+
+		<!-- Integrations icons -->
+		<div class="row row-cols-9 g-3 justify-content-sm-between position-relative z-index-2 mt-4 mt-sm-7">
+			<!-- Item -->
+			<div class="col d-none d-lg-flex justify-content-start mt-n8">
+				<div class="icon-md card rounded-circle shadow-primary justify-content-center">
+					<img src="assets/images/client/icons/07.svg" class="h-20px" alt="client icon">
+				</div>
+			</div>
+
+			<!-- Item -->
+			<div class="col d-none d-md-flex justify-content-start mt-n6">
+				<div class="icon-lg card rounded-circle shadow-primary justify-content-center">
+					<img src="assets/images/client/icons/01.svg" class="h-30px" alt="client icon">
+				</div>
+			</div>
+
+			<!-- Item -->
+			<div class="col d-none d-sm-flex justify-content-start mt-n4">
+				<div class="icon-lg card rounded-circle shadow-primary justify-content-center">
+					<img src="assets/images/client/icons/04.svg" class="h-30px" alt="client icon">
+				</div>
+			</div>
+
+			<!-- Item -->
+			<div class="col d-flex justify-content-start">
+				<div class="icon-xl card rounded-circle shadow-primary justify-content-center">
+					<img src="assets/images/client/icons/10.svg" class="h-40px" alt="client icon">
+				</div>
+			</div>
+
+			<!-- Item -->
+			<div class="col d-flex">
+				<div class="icon-xxl card rounded-circle shadow-primary justify-content-center">
+					<img src="assets/images/logo-icon.svg" class="h-50px" alt="client icon">
+				</div>
+			</div>
+
+			<!-- Item -->
+			<div class="col d-flex justify-content-end">
+				<div class="icon-xl card rounded-circle shadow-primary justify-content-center">
+					<img src="assets/images/client/icons/12.svg" class="h-40px" alt="client icon">
+				</div>
+			</div>
+
+			<!-- Item -->
+			<div class="col d-none d-sm-flex justify-content-end mt-n4">
+				<div class="icon-lg card rounded-circle shadow-primary justify-content-center">
+					<img src="assets/images/client/icons/09.svg" class="h-30px" alt="client icon">
+				</div>
+			</div>
+
+			<!-- Item -->
+			<div class="col d-none d-md-flex justify-content-end mt-n6">
+				<div class="icon-lg card rounded-circle shadow-primary justify-content-center">
+					<img src="assets/images/client/icons/11.svg" class="h-30px" alt="client icon">
+				</div>
+			</div>
+
+			<!-- Item -->
+			<div class="col d-none d-lg-flex justify-content-end mt-n8">
+				<div class="icon-md card rounded-circle shadow-primary justify-content-center">
+					<img src="assets/images/client/icons/05.svg" class="h-20px" alt="client icon">
+				</div>
+			</div>
+		</div>
+
+		<!-- CTA -->
+		<div class="bg-secondary rounded-4 d-xl-flex align-items-center text-center position-relative z-index-2 p-4 mt-7">
+			<!-- Avatar list -->
+			<ul class="avatar-group align-items-center justify-content-center mb-2 mb-xl-0">
+				<li class="avatar">
+					<img class="avatar-img rounded-circle" src="assets/images/avatar/02.jpg" alt="avatar">
+				</li>
+				<li class="avatar">
+					<img class="avatar-img rounded-circle" src="assets/images/avatar/05.jpg" alt="avatar">
+				</li>
+				<li class="avatar">
+					<img class="avatar-img rounded-circle" src="assets/images/avatar/10.jpg" alt="avatar">
+				</li>
+				<li class="avatar">
+					<img class="avatar-img rounded-circle" src="assets/images/avatar/09.jpg" alt="avatar">
+				</li>
+			</ul>
+			<!-- Text -->
+			<p class="heading-color lead mb-2 mb-xl-0 ms-xl-3">Join over 15M+ users transforming ideas</p>
+			<p class="heading-color lead mb-2 mb-xl-0 ms-auto"><a href="sign-up.html" class="hover-underline-animation">Create an account</a> and kickstart your business</p>
+		</div>
+	</div>
+</section>
+<!-- =======================
+Integrations END -->
+
+<!-- =======================
+Pricing START -->
+<section class="price-wrap overflow-hidden pt-0">
+	<div class="container">
+		<div class="row">
+			<!-- Contents and tabs -->
+			<div class="col-xl-8 position-relative">
+				
+				<!-- hand decoration -->
+				<div class="position-absolute end-0 top-0 me-xl-n4 z-index-2 d-none d-sm-block">
+					<img src="assets/images/elements/money-hand.png" alt="decoration">
+				</div>
+
+				<!-- Title and content -->
+				<div class="inner-container-small ms-0 mb-4 mb-lg-6">
+					<h2 class="mb-sm-4">Affordable solutions for every budget</h2>
+					<p>Need guidance? <a href="#" class="link-purple hover-underline-animation">Reserve a 20-minute call</a></p>
+				</div>
+
+				<!-- Price change switch -->
+				<form class="d-flex align-items-center mb-4">
+					<!-- Label -->
+					<span class="fw-semibold">Monthly</span>
+					<!-- Switch -->
+					<div class="form-check form-switch form-check-lg mx-2 mb-0">
+						<input class="form-check-input mt-0 price-toggle" type="checkbox" id="flexSwitchCheckDefault">
+					</div>
+					<!-- Label -->
+					<div class="position-relative">
+						<span class="fw-semibold">Yearly</span>
+						<span class="badge bg-success">10% save</span>
+					</div>
+				</form>
+
+				<!-- Tabs START -->
+				<ul class="nav nav-pills-secondary nav-responsive gap-3 gap-xxl-4" id="myTab" role="tablist">
+					<!-- Tab item -->
+					<li class="nav-item col" role="presentation" style="min-width: 14rem;">
+						<a href="#!" class="nav-link p-4 rounded-4 active" id="starter-plan" role="tab" data-bs-toggle="tab" data-bs-target="#starter-plan-pane" aria-controls="starter-plan-pane" aria-selected="true">
+							<!-- Icon -->
+							<div class="icon-lg bg-body shadow-primary rounded-circle mb-3">
+							<img src="assets/images/elements/rocket.png" class="h-40px" alt="rocket image">
+							</div>
+							<p class="heading-color fw-semibold mb-3">Starter plan</p>
+							<!-- Price -->
+							<span class="mb-0 price-text"> <span class="h2 mb-0 plan-price" data-monthly-price="$25" data-annual-price="$20">$25</span> /month</span>
+						</a>
+					</li>
+
+					<!-- Tab item -->
+					<li class="nav-item col" role="presentation" style="min-width: 14rem;">
+						<a href="#!" class="nav-link p-4 rounded-4" id="professional-plan" role="tab" data-bs-toggle="tab" data-bs-target="#professional-plan-pane" aria-controls="professional-plan-pane" aria-selected="false">
+							<!-- Icon -->
+							<div class="icon-lg bg-body shadow-primary rounded-circle mb-3">
+								<img src="assets/images/elements/thunder.png" class="h-40px" alt="">
+							</div>
+							<p class="heading-color fw-semibold mb-3">Professional plan</p>
+							<!-- Price -->
+							<span class="price-text"><span class="h2 plan-price fw-bold" data-monthly-price="$49" data-annual-price="$39">$49</span> /month</span>
+						</a>
+					</li>
+
+					<!-- Tab item -->
+					<li class="nav-item col" role="presentation" style="min-width: 14rem;">
+						<a href="#!" class="nav-link p-4 rounded-4" id="enterprise-plan" role="tab" data-bs-toggle="tab" data-bs-target="#enterprise-plan-pane" aria-controls="enterprise-plan-pane" aria-selected="false">
+							<!-- Icon -->
+							<div class="icon-lg bg-body shadow-primary rounded-circle mb-3">
+								<img src="assets/images/elements/fire.png" class="h-40px" alt="fire image">
+							</div>
+							<p class="heading-color fw-semibold mb-3">Enterprise plan</p>
+							<!-- Price -->
+							<span class="price-text"><span class="h2 plan-price fw-bold" data-monthly-price="$89" data-annual-price="$69">$89</span> /month</span>
+						</a>
+					</li>
+				</ul>
+				<!-- Tabs END -->
+			</div>
+
+			<!-- Tabs Content START -->
+			<div class="col-xl-4 mt-5 mt-xl-0">
+				<div class="tab-content" id="myTabContent" data-bs-theme="dark">
+					<!-- Tab content item -->
+					<div class="tab-pane fade show active" id="starter-plan-pane" role="tabpanel" aria-labelledby="starter-plan" tabindex="0">
+						<div class="card bg-dark p-4 p-sm-5 rounded-4">
+							<!-- Features -->
+							<div class="card-body p-0">
+								<h5 class="mb-3">Included features</h5>
+								<!-- List -->
+								<ul class="list-group list-group-borderless mb-4">
+									<li class="list-group-item d-flex heading-color mb-0"><i class="bi bi-check-lg text-success me-1"></i>Customizable features</li>
+									<li class="list-group-item d-flex heading-color mb-0"><i class="bi bi-check-lg text-success me-1"></i>5 user accounts</li>
+									<li class="list-group-item d-flex heading-color mb-0"><i class="bi bi-check-lg text-success me-1"></i>Customizable features</li>
+									<li class="list-group-item d-flex heading-color mb-0"><i class="bi bi-check-lg text-success me-1"></i>10 GB storage</li>
+									<li class="list-group-item d-flex heading-color mb-0"><i class="bi bi-check-lg text-success me-1"></i>Email support</li>
+								</ul>
+							</div>
+		
+							<!-- Buttons -->
+							<div class="card-footer bg-transparent text-center mt-0 mt-xl-6 p-0">
+								<a href="#" class="btn btn-primary w-100 mb-2">Get started</a>
+								<a href="#" class="link-white hover-underline-animation">View comparison table</a>
+							</div>
+						</div>
+					</div>	
+
+					<!-- Tab content item -->
+					<div class="tab-pane fade" id="professional-plan-pane" role="tabpanel" aria-labelledby="professional-plan" tabindex="0">
+						<div class="card bg-dark p-4 p-sm-5 rounded-4">
+							<!-- Features -->
+							<div class="card-body p-0">
+								<h5 class="mb-3">Included features</h5>
+								<!-- List -->
+								<ul class="list-group list-group-borderless mb-4">
+									<li class="list-group-item d-flex heading-color mb-0"><i class="bi bi-check-lg text-success me-1"></i>Access to basic features</li>
+									<li class="list-group-item d-flex heading-color mb-0"><i class="bi bi-check-lg text-success me-1"></i>15 user accounts</li>
+									<li class="list-group-item d-flex heading-color mb-0"><i class="bi bi-check-lg text-success me-1"></i>Customizable features</li>
+									<li class="list-group-item d-flex heading-color mb-0"><i class="bi bi-check-lg text-success me-1"></i>50 GB storage</li>
+									<li class="list-group-item d-flex heading-color mb-0"><i class="bi bi-check-lg text-success me-1"></i>Email support</li>
+									<li class="list-group-item d-flex heading-color mb-0"><i class="bi bi-check-lg text-success me-1"></i>Dedicated account manager</li>
+								</ul>
+							</div>
+		
+							<!-- Buttons -->
+							<div class="card-footer bg-transparent text-center mt-0 mt-xl-6 p-0">
+								<a href="#" class="btn btn-primary w-100 mb-2">Get started</a>
+								<a href="#" class="link-white hover-underline-animation">View comparison table</a>
+							</div>
+						</div>
+					</div>
+
+					<!-- Tab content item -->
+					<div class="tab-pane fade" id="enterprise-plan-pane" role="tabpanel" aria-labelledby="enterprise-plan" tabindex="0">
+						<div class="card bg-dark p-4 p-sm-5 rounded-4">
+							<!-- Features -->
+							<div class="card-body p-0">
+								<h5 class="mb-3">Included features</h5>
+								<!-- List -->
+								<ul class="list-group list-group-borderless mb-4">
+									<li class="list-group-item d-flex heading-color mb-0"><i class="bi bi-check-lg text-success me-1"></i>Access to basic features</li>
+									<li class="list-group-item d-flex heading-color mb-0"><i class="bi bi-check-lg text-success me-1"></i>30 user accounts</li>
+									<li class="list-group-item d-flex heading-color mb-0"><i class="bi bi-check-lg text-success me-1"></i>Customizable features</li>
+									<li class="list-group-item d-flex heading-color mb-0"><i class="bi bi-check-lg text-success me-1"></i>100 GB storage</li>
+									<li class="list-group-item d-flex heading-color mb-0"><i class="bi bi-check-lg text-success me-1"></i>Email support</li>
+									<li class="list-group-item d-flex heading-color mb-0"><i class="bi bi-check-lg text-success me-1"></i>Dedicated account manager</li>
+								</ul>
+							</div>
+		
+							<!-- Buttons -->
+							<div class="card-footer bg-transparent text-center mt-0 mt-xl-6 p-0">
+								<a href="#" class="btn btn-primary w-100 mb-2">Get started</a>
+								<a href="#" class="link-white hover-underline-animation">View comparison table</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Tab content END -->
+		</div> <!-- Row END -->
+	</div>
+</section>
+<!-- =======================
+Pricing END -->
+
+<!-- =======================
+Blogs START -->
+<section class="position-relative overflow-hidden pt-0">
+	<!-- Decoration -->
+	 <div class="position-absolute bottom-0 end-0 mb-n2 me-n6 d-none d-xxl-block">
+		<img src="assets/images/elements/relex-slay.png" class="h-300px rtl-flip" alt="image">
+	 </div>
+
+	<div class="container">
+		<div class="row g-4">
+
+			<!-- Title and slider button -->
+			<div class="col-lg-4">
+				<h2 class="mb-3">Insights from our blog</h2>
+				<p class="mb-5"><i class="bi bi-instagram text-primary-grad me-2"></i>Follow us on <b>Instagram</b> to see life at <a href="#" class="hover-underline-animation">@folio</a></p>
+				
+				<!-- Slider arrow -->
+				<div class="d-flex gap-2">
+					<a href="#" class="btn btn-secondary btn-icon btn-lg rounded-circle mb-0 swiper-button-prev rtl-flip"><i class="bi bi-arrow-left"></i></a>
+					<a href="#" class="btn btn-secondary btn-icon btn-lg rounded-circle mb-0 swiper-button-next rtl-flip"><i class="bi bi-arrow-right"></i></a>
+				</div>
+
+			</div>
+
+			<div class="col-lg-8">
+				<!-- Slider START -->
+				<div class="swiper"
+				data-swiper-options='{
+						"spaceBetween": 50, 
+						"loop": true,
+						"breakpoints": {
+							"576": {"slidesPerView": 1}, 
+							"768": {"slidesPerView": 2},
+							"1200": {"slidesPerView": 2}
+						},
+						"navigation":{
+							"nextEl":".swiper-button-next",
+							"prevEl":".swiper-button-prev"
+						}}'>
+
+					<div class="swiper-wrapper">
+						<!-- Blog item -->
+						<div class="swiper-slide">
+							<article class="card bg-transparent">
+								<!-- Badge -->
+								<div class="badge text-bg-dark position-absolute top-0 start-0 m-4">Lifestyle</div>
+								<!-- Image -->
+								<img src="assets/images/blog/4by3/01.jpg" class="card-img rounded-4" alt="blog-image">
+								<!-- Card body -->
+								<div class="card-body px-0 pb-0">
+									<h6 class="card-title mb-3">Harnessing the power of real-time analytics</h6>
+									<div class="d-flex justify-content-between align-items-center">
+										<p class="mb-0">By Carolyn Ortiz</p>
+										<a class="link-primary-grad icon-link icon-link-hover stretched-link me-1" href="blog-single.html">Read more<i class="bi bi-arrow-right"></i> </a>
+									</div>
+								</div>
+							</article>
+						</div>
+
+						<!-- Blog item -->
+						<div class="swiper-slide">
+							<article class="card bg-transparent">
+								<!-- Badge -->
+								<div class="badge text-bg-dark position-absolute top-0 start-0 m-4">Research</div>
+								<!-- Image -->
+								<img src="assets/images/blog/4by3/02.jpg" class="card-img rounded-4" alt="blog-image">
+								<!-- Card body -->
+								<div class="card-body px-0 pb-0">
+									<h6 class="card-title mb-3">The ultimate guide to customizable reports</h6>
+									<div class="d-flex justify-content-between align-items-center">
+										<p class="mb-0">By Louis Ferguson</p>
+										<a class="link-primary-grad icon-link icon-link-hover stretched-link me-1" href="blog-single.html">Read more<i class="bi bi-arrow-right"></i> </a>
+									</div>
+								</div>
+							</article>
+						</div>
+
+						<!-- Blog item -->
+						<div class="swiper-slide">
+							<article class="card bg-transparent">
+								<!-- Badge -->
+								<div class="badge text-bg-dark position-absolute top-0 start-0 m-4">Research</div>
+								<!-- Image -->
+								<img src="assets/images/blog/4by3/03.jpg" class="card-img rounded-4" alt="blog-image">
+								<!-- Card body -->
+								<div class="card-body px-0 pb-0">
+									<h6 class="card-title mb-3">Sleek and Responsive - Designing with Bootstrap and Folio</h6>
+									<div class="d-flex justify-content-between align-items-center">
+										<p class="mb-0">By Carolyn Ortiz</p>
+										<a class="link-primary-grad icon-link icon-link-hover stretched-link me-1" href="blog-single.html">Read more<i class="bi bi-arrow-right"></i> </a>
+									</div>
+								</div>
+							</article>
+						</div>
+
+						<!-- Blog item -->
+						<div class="swiper-slide">
+							<article class="card bg-transparent">
+								<!-- Badge -->
+								<div class="badge text-bg-dark position-absolute top-0 start-0 m-4">Design</div>
+								<!-- Image -->
+								<img src="assets/images/blog/4by3/04.jpg" class="card-img rounded-4" alt="blog-image">
+								<!-- Card body -->
+								<div class="card-body px-0 pb-0">
+									<h6 class="card-title mb-3">Interactive Web Design with Bootstrap and StackBros</h6>
+									<div class="d-flex justify-content-between align-items-center">
+										<p class="mb-0">By Louis Ferguson</p>
+										<a class="link-primary-grad icon-link icon-link-hover stretched-link me-1" href="blog-single.html">Read more<i class="bi bi-arrow-right"></i> </a>
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+				</div>
+				<!-- Slider START -->
+			</div>
+		</div>
+	</div>
+</section>
+<!-- =======================
+Blogs END -->
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+
+<!-- =======================
+Footer START -->
+<footer class="bg-secondary-grad position-relative pt-6 pt-xl-8">
+	<div class="container">
+		<!-- CTA -->
+		<div class="row g-4 align-items-center">
+			<div class="col-md-7">
+				<!-- Title and download button -->
+				<h2 class="mb-3">Get started with our powerful <span class="text-primary">SaaS</span> solution today</h2>
+
+				<!-- Download button -->
+				<div class="d-sm-flex gap-3 align-items-center">
+					<p class="heading-color mb-3 mb-sm-0">Download for:</p>
+					<ul class="list-inline flex-wrap mb-0">
+						<li class="list-inline-item">
+							<a href="#" class="btn btn-icon btn-lg btn-white rounded-circle" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="IOS">
+								<img src="assets/images/elements/apple.svg" class="h-20px" alt="apple icon">
+							</a>
+						</li>
+						<li class="list-inline-item">
+							<a href="#" class="btn btn-icon btn-lg btn-white rounded-circle" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Microsoft">
+								<img src="assets/images/elements/microsoft.svg" class="h-20px" alt="microsoft icon">
+							</a>
+						</li>
+						<li class="list-inline-item">
+							<a href="#" class="btn btn-icon btn-lg btn-white rounded-circle" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Android">
+								<img src="assets/images/elements/android.svg" class="h-20px" alt="microsoft icon">
+							</a>
+						</li>
+						<li class="list-inline-item">
+							<a href="#" class="btn btn-icon btn-lg btn-white rounded-circle" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Linux">
+								<img src="assets/images/elements/linux.svg" class="h-20px" alt="microsoft icon">
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!-- Button -->
+			<div class="col-md-5 text-md-end">
+				<a href="#" class="btn btn-primary mb-0">Start your free trial</a>
+			</div>
+		</div>
+
+		<hr class="my-4 my-lg-6"> <!-- Divider -->
+
+		<!-- Widgets START -->
+		<div class="row g-4">
+			<!-- Widget 1 -->
+			<div class="col-lg-4">
+				<!-- logo -->
+				<a class="navbar-brand me-0" href="index.html">
+					<img class="light-mode-item navbar-brand-item h-40px" src="assets/images/logo.svg" alt="logo">
+					<img class="dark-mode-item navbar-brand-item h-40px" src="assets/images/logo-light.svg" alt="logo">
+				</a>
+
+				<p class="my-3 my-lg-4">A Bootstrap Template that's both stylish and functional, perfect for any type of technology or corporate website.</p>
+				<!-- List -->
+				<ul class="list-group list-group-borderless">
+					<li class="d-flex mb-2"><a href="#" class="text-primary-hover"><i class="me-2 text-primary bi bi-headset"></i> (251) 854-6308 </a></li>
+					<li class="d-flex mb-2"><a href="#" class="text-primary-hover"><i class="me-2 text-primary bi bi-envelope"></i> example@gmail.com</a></li>
+				</ul>
+			</div>
+
+			<!-- Widget 2 -->
+			<div class="col-6 col-md-3 col-lg-2">
+				<h6 class="mb-3 mb-sm-4">Company</h6>
+				<!-- Links -->
+				<ul class="nav flex-column gap-1">
+					<li class="nav-item"><a class="nav-link pt-0" href="about-v1.html">About us</a></li>
+					<li class="nav-item"><a class="nav-link" href="contact-us.html">Contact us</a></li>
+					<li class="nav-item"><a class="nav-link" href="career.html">Career <span class="badge bg-primary ms-2">2 jobs</span></a></li>
+					<li class="nav-item"><a class="nav-link" href="career-single.html">Career detail</a></li>
+					<li class="nav-item"><a class="nav-link" href="contact-us-v2.html">Become a partner</a></li>
+					<li class="nav-item"><a class="nav-link" href="service-v1.html">Services</a></li>
+				</ul>
+			</div>
+
+			<!-- Widget 3 -->
+			<div class="col-6 col-md-3 col-lg-2">
+				<h6 class="mb-3 mb-sm-4">Resources</h6>
+				<!-- Links -->
+				<ul class="nav flex-column gap-1">
+					<li class="nav-item"><a class="nav-link pt-0" href="portfolio-case-study-v1.html">Case studies</a></li>
+					<li class="nav-item"><a class="nav-link" href="pricing-v1.html">Pricing <span class="badge bg-success ms-2">New</span></a></li>
+					<li class="nav-item"><a class="nav-link" href="blog-minimal.html">Blogs</a></li>
+					<li class="nav-item"><a class="nav-link" href="blog-single.html">Blog detail</a></li>
+					<li class="nav-item"><a class="nav-link" href="#">Success stories<i class="bi bi-box-arrow-up-right small ms-2"></i></a></li>
+				</ul>
+			</div>
+
+			<!-- Widget 4 -->
+			<div class="col-md-6 col-lg-4">
+				<h6 class="mb-3 mb-sm-4">Stay connected with us</h6>
+				<!-- Input group -->
+				<form class="input-group bg-body p-2 rounded-3 mb-2">
+					<input class="form-control form-control-sm rounded border-0 me-3" type="email" placeholder="Enter your email">
+					<button type="button" class="btn btn-sm btn-primary-grad px-3 rounded-2 mb-0"><i class="bi bi-send-fill"></i></button>
+				</form>
+				<p class="small mb-0">✌️ No Spam — We Promise!</p>
+
+				<!-- Social links -->
+				<ul class="list-inline align-items-center mb-0 mt-3 mt-sm-4">
+					<li class="list-inline-item heading-color fw-semibold">Follow on:</li>
+					<li class="list-inline-item"> <a class="btn btn-xs btn-icon bg-facebook" href="#"><i class="bi bi-facebook lh-base"></i></a> </li>
+					<li class="list-inline-item"> <a class="btn btn-xs btn-icon bg-instagram" href="#"><i class="bi bi-instagram lh-base"></i></a> </li>
+					<li class="list-inline-item"> <a class="btn btn-xs btn-icon bg-twitter-x" href="#"><i class="bi bi-twitter-x lh-base"></i></a> </li>
+					<li class="list-inline-item"> <a class="btn btn-xs btn-icon bg-linkedin" href="#"><i class="bi bi-linkedin lh-base"></i></a> </li>
+				</ul>
+
+			</div>
+		</div>
+		<!-- Widgets END -->
+
+		<!-- Divider -->
+		<hr class="my-4 mt-xl-5 mb-0">
+
+		<!-- Bottom footer -->
+		<div class="d-md-flex justify-content-between align-items-center text-center text-lg-start py-4">
+			<!-- copyright text -->
+			<div class="text-body small mb-3 mb-md-0"> Copyrights ©2025 Folio. Build by <a href="#" target="_blank" class="text-body text-primary-hover hover-underline-animation">StackBros</a>. </div>
+			
+			<!-- Policy link -->
+			<ul class="nav d-flex justify-content-center gap-1 mb-0">
+				<li class="nav-item"><a class="nav-link small py-0" href="#">Privacy policy</a></li>
+				<li class="nav-item"><a class="nav-link small py-0 pe-0" href="#">Terms & conditions</a></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<!-- =======================
+Footer END -->
+
+<!-- Back to top -->
+<div class="back-top"></div>
+
+<!-- Bootstrap JS -->
+<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+<!--Vendors-->
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/vendor/purecounterjs/dist/purecounter_vanilla.js"></script>
+
+<!-- Theme Functions -->
+<script src="assets/js/functions.js"></script>
+
+</body>
+
+<!-- Mirrored from stackbros.in/folio/landing/index-saas.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 29 Nov 2025 04:19:30 GMT -->
+</html>

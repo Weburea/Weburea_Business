@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from stackbros.in/folio/landing/index-product-landing.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 29 Nov 2025 04:19:10 GMT -->
+<head>
+	
+	<title>Folio - Multipurpose Bootstrap Template</title>
+
+	<!-- Meta Tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="StackBros">
+	<meta name="description" content="multipurpose Bootstrap Template">
+
+	<!-- Dark mode -->
+	<script>
+		const storedTheme = localStorage.getItem('theme')
+ 
+		const getPreferredTheme = () => {
+			if (storedTheme) {
+				return storedTheme
+			}
+			return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'light'
+		}
+
+		const setTheme = function (theme) {
+			if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				document.documentElement.setAttribute('data-bs-theme', 'dark')
+			} else {
+				document.documentElement.setAttribute('data-bs-theme', theme)
+			}
+		}
+
+		setTheme(getPreferredTheme())
+
+		window.addEventListener('DOMContentLoaded', () => {
+		    var el = document.querySelector('.theme-icon-active');
+			if(el != 'undefined' && el != null) {
+				const showActiveTheme = theme => {
+				const activeThemeIcon = document.querySelector('.theme-icon-active use')
+				const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
+				const svgOfActiveBtn = btnToActive.querySelector('.mode-switch use').getAttribute('href')
+
+				document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+					element.classList.remove('active')
+				})
+
+				btnToActive.classList.add('active')
+				activeThemeIcon.setAttribute('href', svgOfActiveBtn)
+			}
+
+			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+				if (storedTheme !== 'light' || storedTheme !== 'dark') {
+					setTheme(getPreferredTheme())
+				}
+			})
+
+			showActiveTheme(getPreferredTheme())
+
+			document.querySelectorAll('[data-bs-theme-value]')
+				.forEach(toggle => {
+					toggle.addEventListener('click', () => {
+						const theme = toggle.getAttribute('data-bs-theme-value')
+						localStorage.setItem('theme', theme)
+						setTheme(theme)
+						showActiveTheme(theme)
+					})
+				})
+
+			}
+		})
+		
+	</script>
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="assets/images/favicon.ico">
+
+	<!-- Google Font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com/">
+	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/swiper/swiper-bundle.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/glightbox/css/glightbox.css">
+
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+
+<body>
+	
+<!-- Header START -->
+<div class="header-absolute">
+	<!-- Top header -->
+	<div class="alert fade show bg-dark border-0 rounded-0 text-center py-2 m-0 d-none d-lg-block" role="alert" style="z-index: 1025;">
+		<div class="container d-flex justify-content-between px-2 px-xl-4">
+			<!-- Contact info -->
+			<p class="small text-white mb-0"><i class="bi bi-headset me-2"></i>Call us: <a href="#" class="link-white">+123 555 66 </a></p>
+
+			<p class="small text-white mb-0">🔥 Hurry, limited time 40% discount!</p>
+
+			<!-- Buttons -->
+			<ul class="list-inline d-flex align-items-center gap-2 dropdown-hover mb-0">
+				<!-- Dark mode option START -->
+				<li class="list-inline-item dropdown dropdown-animation">
+					<button class="btn btn-link mb-0 p-0 lh-1" id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static">
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="bi bi-circle-half theme-icon-active fill-white fa-fw" viewBox="0 0 16 16">
+							<path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path>
+							<use href="#"></use>
+						</svg>
+					</button>
+
+					<ul class="dropdown-menu min-w-auto dropdown-menu-end" aria-labelledby="bd-theme">
+						<li class="mb-1">
+							<button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="light">
+								<svg width="16" height="16" fill="currentColor" class="bi bi-brightness-high-fill fa-fw mode-switch me-1" viewBox="0 0 16 16">
+									<path d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
+									<use href="#"></use>
+								</svg>Light
+							</button>
+						</li>
+						<li class="mb-1">
+							<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon-stars-fill fa-fw mode-switch me-1" viewBox="0 0 16 16">
+									<path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path>
+									<path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
+									<use href="#"></use>
+								</svg>Dark
+							</button>
+						</li>
+						<li>
+							<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-half fa-fw mode-switch me-1" viewBox="0 0 16 16">
+									<path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path>
+									<use href="#"></use>
+								</svg>Auto
+							</button>
+						</li>
+					</ul>
+				</li>
+				<!-- Dark mode option END -->
+
+				<li class="list-inline-item vr"> </li> <!-- Divider -->
+
+				<!-- Authentication links -->
+				<li class="list-inline-item">
+					<a href="#" class="text-white text-primary-hover fw-light small">Login</a>
+					<span class="text-white mx-1">/</span>
+					<a href="#" class="text-white text-primary-hover fw-light small">Register</a>
+				</li> 
+			</ul>
+		</div>
+	</div>
+		
+	<!-- Header START -->
+	<header class="header-sticky bg-transparent">
+		<!-- Logo Nav START -->
+		<nav class="navbar navbar-expand-xl">
+			<div class="container">
+				<!-- Logo START -->
+				<a class="navbar-brand me-0" href="index.html">
+					<img class="light-mode-item navbar-brand-item" src="assets/images/logo.svg" alt="logo">
+					<img class="dark-mode-item navbar-brand-item" src="assets/images/logo-light.svg" alt="logo">
+				</a>
+				<!-- Logo END -->
+
+				<!-- Main navbar START -->
+				<div class="navbar-collapse collapse" id="navbarCollapse">
+				<ul class="navbar-nav navbar-nav-scroll dropdown-hover mx-auto">
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle active" href="#" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Demos</a>
+						<div class="dropdown-menu dropdown-menu-size-lg overflow-hidden p-0">
+							<div class="row px-3 py-4">
+								<!-- Image and button -->
+								<div class="col-sm-6">
+									<ul class="list-unstyled">
+										<li> <a class="dropdown-item" href="index.html">Classic Default</a> </li>
+										<li> <a class="dropdown-item" href="index-software-company.html">Software Company</a> </li>
+										<li> <a class="dropdown-item" href="index-finance-consulting.html">Finance Consulting</a> </li>
+										<li> <a class="dropdown-item" href="index-ai-agency.html">AI Agency</a> </li>
+										<li> <a class="dropdown-item active" href="index-product-landing.html">Product Landing</a> </li>
+									</ul>
+								</div>
+
+								<!-- Image and button -->
+								<div class="col-sm-6">
+									<ul class="list-unstyled">
+										<li> <a class="dropdown-item" href="index-saas.html">SaaS</a> </li>
+										<li> <a class="dropdown-item" href="index-ai-chatbot.html">SaaS AI Chatbot</a> </li>
+										<li> <a class="dropdown-item" href="index-application-showcase.html">Application Showcase</a> </li>
+										<li> <a class="dropdown-item" href="index-personal-portfolio.html">Personal Portfolio</a> </li>
+										<li> <a class="dropdown-item" href="index-blog.html">Blog home</a> </li>
+									</ul>
+								</div>
+							</div>
+
+							<!-- Cta -->
+							 <div class="h-200px position-relative" style="background:url(assets/images/elements/nav-cta.jpg) no-repeat; background-size:cover; background-position:center;">
+								<!-- Bg overlay -->
+								 <div class="bg-overlay bg-dark bg-opacity-10"></div>
+							 </div>
+						</div>
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">Pages</a>
+						<ul class="dropdown-menu">
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">About</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="about-v1.html">About v.1</a> </li>
+									<li> <a class="dropdown-item" href="about-v2.html">About v.2</a> </li>
+									<li> <a class="dropdown-item" href="services-grid.html">Services Grid</a></li>
+									<li> <a class="dropdown-item" href="services-list.html">Services List</a></li>
+									<li> <a class="dropdown-item" href="service-single.html">Service Single</a></li>
+									<li> <a class="dropdown-item" href="team.html">Team</a></li>
+									<li> <a class="dropdown-item" href="career.html">Career <span class="badge text-bg-success ms-2">2 Job</span></a></li>
+									<li> <a class="dropdown-item" href="career-single.html">Career Single</a></li>
+								</ul>
+							</li>
+
+							<li> <a class="dropdown-item" href="contact-us-v1.html">Contact Us v1</a> </li>
+							<li> <a class="dropdown-item" href="contact-us-v2.html">Contact Us v2</a> </li>
+							<li> <a class="dropdown-item" href="pricing-v1.html">Pricing v1</a> </li>
+							<li> <a class="dropdown-item" href="pricing-v2.html">Pricing v2</a> </li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Saas pages</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="feature-single.html">Feature Single</a> </li>
+									<li> <a class="dropdown-item" href="integrations.html">Integrations</a> </li>
+									<li> <a class="dropdown-item" href="integration-single.html">Integrations Single</a> </li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Portfolio</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="portfolio-grid.html">Portfolio Grid</a> </li>
+									<li> <a class="dropdown-item" href="portfolio-list.html">Portfolio List</a> </li>
+									<li> <a class="dropdown-item" href="portfolio-modern.html">Portfolio Modern</a> </li>
+									<li> <a class="dropdown-item" href="portfolio-case-study-v1.html">Portfolio case study v1</a> </li>
+									<li> <a class="dropdown-item" href="portfolio-case-study-v2.html">Portfolio case study v2</a> </li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Blog</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="blog-minimal.html">Blog Minimal</a> </li>
+									<li> <a class="dropdown-item" href="blog-single.html">Blog Single</a> </li>
+								</ul>
+							</li>
+
+							<li> <a class="dropdown-item" href="error-404.html">Error 404</a> </li>
+							<li> <a class="dropdown-item" href="coming-soon.html">Coming soon</a> </li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Authentication</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="sign-in.html">Sign in</a> </li>
+									<li> <a class="dropdown-item" href="sign-up.html">Sign up</a> </li>
+									<li> <a class="dropdown-item" href="forgot-password.html">Forgot Password</a> </li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Doc</a>
+						<div class="dropdown-menu dropdown-menu-size-xl dropdown-menu-center p-xl-3">
+							<div class="row row-cols-1 row-cols-md-2 pt-2">
+								<!-- Doc menu -->
+								<div class="col">
+									<div class="dropdown-item bg-secondary-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
+										<div class="d-flex">
+											<!-- Icon -->
+											<div class="icon-md bg-primary bg-opacity-15 text-primary rounded flex-shrink-0"><i class="bi bi-file-earmark-text fs-6"></i></div>
+											<!-- Content -->
+											<div class="mx-3">
+												<p class="stretched-link heading-color fw-bold mb-0">Documentation</p>
+												<p class="mb-0 text-body small">Using documentation you can easily develop projects</p>
+											</div>
+										</div>
+										<!-- Button -->
+										<a class="icon-link icon-link-hover text-primary-hover stretched-link" href="#" target="_blank"><i class="bi bi-chevron-right"></i> </a>
+									</div>
+								</div>
+
+								<!-- Doc menu -->
+								<div class="col">
+									<div class="dropdown-item bg-secondary-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
+										<div class="d-flex">
+											<!-- Icon -->
+											<div class="icon-md bg-pink bg-opacity-15 text-pink rounded flex-shrink-0"><i class="bi bi-stickies fs-6"></i></div>
+											<!-- Content -->
+											<div class="mx-3">
+												<p class="stretched-link heading-color fw-bold mb-0">Snippets</p>
+												<p class="mb-0 text-body small">Development guides for building projects with Folio</p>
+											</div>
+										</div>
+										<!-- Button -->
+										<a class="icon-link icon-link-hover text-primary-hover stretched-link" href="#" target="_blank"><i class="bi bi-chevron-right"></i> </a>
+									</div>
+								</div>
+
+								<!-- Doc menu -->
+								<div class="col">
+									<div class="dropdown-item bg-secondary-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
+										<div class="d-flex">
+											<!-- Icon -->
+											<div class="icon-md bg-success bg-opacity-15 text-success rounded flex-shrink-0"><i class="bi bi-bullseye fs-6"></i></div>
+											<!-- Content -->
+											<div class="mx-3">
+												<p class="stretched-link heading-color fw-bold mb-0">Changelog</p>
+												<p class="mb-0 text-body small">Recent feature release and announcement.</p>
+											</div>
+										</div>
+										<!-- Button -->
+										<a class="icon-link icon-link-hover text-primary-hover stretched-link" href="#" target="_blank"><i class="bi bi-chevron-right"></i> </a>
+									</div>
+								</div>
+
+								<!-- Doc menu -->
+								<div class="col">
+									<div class="dropdown-item bg-secondary-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
+										<div class="d-flex">
+											<!-- Icon -->
+											<div class="icon-md bg-warning bg-opacity-15 text-warning rounded flex-shrink-0"><i class="bi bi-mask fs-6"></i></div>
+											<!-- Content -->
+											<div class="mx-3">
+												<p class="stretched-link heading-color fw-bold mb-0">Playwright tips</p>
+												<p class="mb-0 text-body small">Tips and In-depth guide for headless browser automation</p>
+											</div>
+										</div>
+										<!-- Button -->
+										<a class="icon-link icon-link-hover text-primary-hover stretched-link" href="#" target="_blank"><i class="bi bi-chevron-right"></i> </a>
+									</div>
+								</div>
+
+								<!-- Doc menu -->
+								<div class="col">
+									<div class="dropdown-item bg-secondary-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
+										<div class="d-flex">
+											<!-- Icon -->
+											<div class="icon-md bg-info bg-opacity-15 text-info rounded flex-shrink-0"><i class="bi bi-grid-fill fs-6"></i></div>
+											<!-- Content -->
+											<div class="mx-3">
+												<p class="stretched-link heading-color fw-bold mb-0">Integrations</p>
+												<p class="mb-0 text-body small">Taking advantage of integrations with other services.</p>
+											</div>
+										</div>
+										<!-- Button -->
+										<a class="icon-link icon-link-hover text-primary-hover stretched-link" href="integrations.html" target="_blank"><i class="bi bi-chevron-right"></i> </a>
+									</div>
+								</div>
+
+								<!-- Doc menu -->
+								<div class="col">
+									<div class="dropdown-item bg-secondary-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
+										<div class="d-flex">
+											<!-- Icon -->
+											<div class="icon-md bg-purple bg-opacity-15 text-purple rounded flex-shrink-0"><i class="bi bi-chat-dots fs-6"></i></div>
+											<!-- Content -->
+											<div class="mx-3">
+												<p class="stretched-link heading-color fw-bold mb-0">Supports</p>
+												<p class="mb-0 text-body small">Need help? Our customers support is there to help you.</p>
+											</div>
+										</div>
+										<!-- Button -->
+										<a class="icon-link icon-link-hover text-primary-hover stretched-link" href="#" target="_blank"><i class="bi bi-chevron-right"></i> </a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item"> <a class="nav-link" href="contact-us-v1.html">Contact us</a> </li>
+				</ul>
+			</div>
+				<!-- Main navbar END -->
+
+				<!-- Buttons -->
+				<ul class="nav align-items-center dropdown-hover ms-sm-2">
+					<!-- Search -->
+					<li class="nav nav-item dropdown nav-search">
+						<a class="btn btn-secondary btn-round d-flex justify-content-center align-items-center mb-0" role="button" href="#" id="navSearch" data-bs-toggle="dropdown" aria-expanded="true" data-bs-auto-close="outside" data-bs-display="static">
+							<svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M13.4016 13.9001L9.56434 10.0629M9.56434 10.0629C10.5141 9.11275 11.1015 7.80033 11.1015 6.35073C11.1015 3.45087 8.75104 1.1001 5.85155 1.1001C2.95205 1.1001 0.601562 3.45087 0.601562 6.35073C0.601562 9.2505 2.95205 11.6013 5.85155 11.6013C7.30151 11.6013 8.61429 11.0134 9.56434 10.0629Z" stroke="currentColor" stroke-width="1.06667" stroke-linecap="round"/>
+							</svg>
+						</a>
+						<div class="dropdown-menu dropdown-menu-center shadow rounded p-1" aria-labelledby="navSearch" data-bs-popper="none">
+							<form class="input-group">
+								<input class="form-control form-control-sm border-primary" type="search" placeholder="Search..." aria-label="Search">
+								<button class="btn btn-sm btn-primary m-0" type="submit">Search</button>
+							</form>
+						</div>
+					</li>
+
+					<!-- Offcanvas cart menu -->
+					<li class="nav-item position-relative ms-2 me-1">
+						<a class="btn btn-secondary btn-round d-flex justify-content-center align-items-center mb-0" data-bs-toggle="offcanvas" href="#offcanvasMenu" role="button" aria-controls="offcanvasMenu">
+							<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-target="#offcanvasMenu">
+								<path d="M10.5751 4.15553C10.5751 2.19185 8.98322 0.599976 7.01956 0.599976C5.05589 0.599976 3.46401 2.19185 3.46401 4.15553M5.50425 13.4H8.53487C9.64797 13.4 10.2045 13.4 10.6762 13.2505C11.4659 13.0003 12.1279 12.4535 12.5228 11.7252C12.7586 11.2903 12.8637 10.7437 13.0739 9.65064C13.3705 8.10824 13.5188 7.33711 13.392 6.71574C13.1791 5.67247 12.4613 4.80345 11.4771 4.39739C10.8909 4.15553 10.1055 4.15553 8.53487 4.15553H5.50425C3.93362 4.15553 3.1483 4.15553 2.56206 4.39739C1.5778 4.80345 0.859967 5.67247 0.647082 6.71574C0.52029 7.33711 0.668593 8.10824 0.965204 9.65064C1.17541 10.7437 1.2805 11.2903 1.51637 11.7252C1.91124 12.4535 2.57316 13.0003 3.36291 13.2505C3.83464 13.4 4.39117 13.4 5.50425 13.4Z" stroke="currentColor" stroke-width="1.06667" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+						</a>
+						<span class="position-absolute top-0 start-100 translate-middle badge smaller rounded-circle bg-success mt-xl-2 ms-n1">2 
+							<span class="visually-hidden">unread messages</span>
+						</span>
+					</li>
+
+					<li class="nav-item vr bg-primary opacity-1 ms-3 d-none d-sm-block"> </li> <!-- Divider -->
+
+					<!-- Hamburger icon -->
+					<li class="nav-item ms-3 d-none d-xl-block">
+						<a class="m-0" href="#">
+							<span class="hamburger-menu">
+							 <span class="hamburger-menu-line"></span>
+							 <span class="hamburger-menu-line"></span>
+							 <span class="hamburger-menu-line"></span>
+						 </span>
+					 </a>
+					</li>
+					
+					<!-- Responsive navbar toggler -->
+					<li class="nav-item ms-3">
+						<button class="navbar-toggler p-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-animation">
+								<span></span>
+								<span></span>
+								<span></span>
+							</span>
+						</button>
+					</li>	
+				</ul>
+			</div>
+		</nav>
+		<!-- Logo Nav END -->
+	</header>
+	<!-- Header END -->
+</div>
+<!-- Header END -->
+
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+
+<!-- =======================
+Hero START -->
+<section class="position-relative overflow-hidden pt-xl-9 pb-0">
+	<!-- Decoration START -->
+	<!-- Grad blur -->
+	<div class="position-absolute top-0 end-0 mt-8 me-n5">
+		<img src="assets/images/elements/grad-shape/blur-decoration.svg" class="blur-9 opacity-2" alt="Grad shape">
+	</div>
+
+	<!-- Weather info decoration -->
+	<div class="position-absolute mx-xl-5 ms-xxl-9 mt-8 rotate-335 d-none d-xl-block">
+		<img src="assets/images/elements/weather-info.png" alt="weather-info">
+	</div>
+	<!-- Decoration START -->
+	
+	<!-- Title -->
+	<div class="inner-container text-center align-items-center mt-5 mb-8">
+		<!-- Title -->
+		<h1 class="display-5 mb-4">Smart technology on your wrist</h1>
+		<p class="w-75 mx-auto mb-4">Discover the perfect blend of style and technology. Stay connected, track your health, and elevate your everyday life.</p>
+		<!-- Buttons -->
+		<a href="#" class="btn btn-primary mb-0">Explore collections</a>
+	</div>
+
+	<!-- Product hero image -->
+	<div class="bg-secondary-grad position-relative">
+		<!-- Curve decoration -->
+		<span>
+			<svg class="position-absolute top-0 start-0" viewBox="0 0 1921 209" style="enable-background:new 0 0 1921 209;" xml:space="preserve">
+				<path class="fill-body" d="M1920.5,209C1092.5-17.8,295.2,114.5,0,209V0h1920.5V209z"/>
+			</svg>
+		</span>
+
+		<!-- Main image -->
+		<div class="container position-relative">
+			<!-- Call decoration -->
+			<div class="position-absolute top-0 end-0 ms-n6 mt-n9 d-none d-sm-block">
+				<img src="assets/images/elements/call-notif.png" alt="decoration">
+			</div>
+			<!-- Product image -->
+			<img src="assets/images/product/digital-watch-hero.png" class="mt-n6 mt-md-n8" alt="digital watch image">
+		</div>
+	</div>
+</section>
+<!-- =======================
+Hero END -->
+
+<!-- =======================
+Features START -->
+<section class="bg-secondary-grad">
+	<div class="container">
+		<div class="row g-4 g-xl-5">
+			<!-- Feature item -->
+			<div class="col-md-4">
+				<div class="d-lg-flex gap-3">
+					<!-- Icon -->
+					<div class="icon-xl bg-primary bg-opacity-25 d-flex align-items-center justify-content-center rounded-3 flex-shrink-0">
+						<svg class="text-primary" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M12 7.5C8.56275 7.5 6.84412 7.5 5.63932 8.37533C5.25022 8.65803 4.90803 9.00022 4.62533 9.38932C3.75 10.5941 3.75 12.3127 3.75 15.75V24.75C3.75 26.9373 3.75 28.031 4.30703 28.7977C4.48693 29.0453 4.70468 29.263 4.9523 29.443C5.46133 29.8128 6.1145 29.9372 7.1362 29.9788C7.10127 29.7135 7.08333 29.4423 7.08333 29.1667C7.08333 25.945 9.53392 23.3333 12.9167 23.3333C16.2994 23.3333 18.75 25.945 18.75 29.1667C18.75 29.4497 18.7312 29.7278 18.6943 30H21.3057C21.2688 29.7278 21.25 29.4497 21.25 29.1667C21.25 25.945 23.7007 23.3333 27.0833 23.3333C30.466 23.3333 32.9167 25.945 32.9167 29.1667C32.9167 29.4423 32.8987 29.7135 32.8638 29.9788C33.8855 29.9372 34.5387 29.8128 35.0477 29.443C35.2953 29.263 35.513 29.0453 35.693 28.7977C36.25 28.031 36.25 26.9373 36.25 24.75V20.9243C36.25 20.6998 36.25 20.5875 36.2303 20.478C36.2238 20.4415 36.2157 20.4055 36.206 20.3697C36.1767 20.2625 36.1285 20.161 36.0322 19.9585L33.1172 13.8287C32.5037 12.5386 32.1968 11.8935 31.6753 11.475C31.5042 11.3377 31.3182 11.2202 31.1207 11.1247C30.5188 10.8333 29.8045 10.8333 28.376 10.8333H26.9167C24.7293 10.8333 23.6357 10.8333 22.869 11.3904C22.6213 11.5703 22.4037 11.788 22.2237 12.0356C21.6667 12.8023 21.6667 13.896 21.6667 16.0833V15.75C21.6667 12.3127 21.6667 10.5941 20.7913 9.38932C20.5087 9.00022 20.1665 8.65803 19.7773 8.37533C18.5725 7.5 16.854 7.5 13.4167 7.5H12ZM24.1667 15.5833C24.1667 14.6459 24.1667 14.1772 24.4053 13.8486C24.4825 13.7425 24.5758 13.6492 24.682 13.5721C25.0105 13.3333 25.4792 13.3333 26.4167 13.3333H28.6095C29.209 13.3333 29.5088 13.3333 29.7632 13.4539C29.8465 13.4935 29.9253 13.5422 29.998 13.5991C30.2197 13.7726 30.3537 14.0408 30.6218 14.5771L31.7052 16.7438C32.3482 18.0298 32.6697 18.6728 32.485 19.1788C32.4267 19.3385 32.3362 19.4848 32.2193 19.6085C31.8495 20 31.1305 20 29.6928 20H26.4167C25.4792 20 25.0105 20 24.682 19.7613C24.5758 19.6842 24.4825 19.5908 24.4053 19.4847C24.1667 19.1562 24.1667 18.6875 24.1667 17.75V15.5833Z" fill="currentColor"/>
+							<path d="M23.75 29.1666C23.75 27.3256 25.1503 25.8333 27.0833 25.8333C29.0163 25.8333 30.4167 27.3256 30.4167 29.1666C30.4167 31.0076 29.0163 32.4999 27.0833 32.4999C25.1503 32.4999 23.75 31.0076 23.75 29.1666Z" fill="currentColor"/>
+							<path d="M9.58203 29.1668C9.58203 27.3258 10.9824 25.8335 12.9154 25.8335C14.8484 25.8335 16.2487 27.3258 16.2487 29.1668C16.2487 31.0078 14.8484 32.5002 12.9154 32.5002C10.9824 32.5002 9.58203 31.0078 9.58203 29.1668Z" fill="currentColor"/>
+						</svg>
+					</div>
+					<!-- Content -->
+					<div class="mt-3 mt-lg-0">
+						<h6>Enjoy free shipping</h6>
+						<p>Experience the convenience of free shipping on all your orders, no minimum purchase required.</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Feature item -->
+			<div class="col-md-4">
+				<div class="d-lg-flex gap-3">
+					<!-- Icon -->
+					<div class="icon-xl bg-success bg-opacity-25 d-flex align-items-center justify-content-center rounded-3 flex-shrink-0">
+						<svg class="text-success" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M7.5 27.0833C6.69783 27.0833 5.9616 26.6067 5.71623 25.843C5.25115 24.3955 5 22.852 5 21.25C5 12.9657 11.7157 6.25 20 6.25C28.2843 6.25 35 12.9657 35 21.25C35 22.852 34.7488 24.3955 34.2838 25.843C34.0383 26.6067 33.3022 27.0833 32.5 27.0833" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+							<path d="M7.5 23.3333C7.5 20.802 9.55203 18.75 12.0833 18.75C14.6146 18.75 16.6667 20.802 16.6667 23.3333V30C16.6667 32.5313 14.6146 34.5833 12.0833 34.5833C9.55203 34.5833 7.5 32.5313 7.5 30V23.3333Z" fill="currentColor"/>
+							<path d="M23.332 23.3333C23.332 20.802 25.384 18.75 27.9154 18.75C30.4467 18.75 32.4987 20.802 32.4987 23.3333V30C32.4987 32.5313 30.4467 34.5833 27.9154 34.5833C25.384 34.5833 23.332 32.5313 23.332 30V23.3333Z" fill="currentColor"/>
+						</svg>
+					</div>
+					<!-- Content -->
+					<div class="mt-3 mt-lg-0">
+						<h6>24/7 Customer assistance</h6>
+						<p>Day or night, we're here to ensure you have the best possible experience with our products.</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Feature item -->
+			<div class="col-md-4">
+				<div class="d-lg-flex gap-3">
+					<!-- Icon -->
+					<div class="icon-xl bg-pink bg-opacity-25 d-flex align-items-center justify-content-center rounded-3 flex-shrink-0">
+						<svg class="text-pink" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M35.3837 18.9705C33.3648 28.5658 28.0665 37.086 20.002 37.086C11.9375 37.086 6.63918 28.5658 4.62031 18.9705C4.11334 16.5611 3.85986 15.3563 4.31663 13.8322C4.44688 13.3976 4.71088 12.7997 4.94433 12.4107C5.76298 11.0464 7.04734 10.2907 9.61609 8.77948L14.2974 6.02537C16.7633 4.57463 17.9963 3.84927 19.3385 3.70597C19.7797 3.65888 20.2245 3.65888 20.6655 3.70597C22.0077 3.84927 23.2407 4.57463 25.7067 6.02537L30.388 8.77948C32.9567 10.2907 34.241 11.0464 35.0597 12.4107C35.2932 12.7997 35.5572 13.3976 35.6873 13.8322C36.1442 15.3563 35.8907 16.5611 35.3837 18.9705ZM25.1093 18.3232C25.564 17.8035 25.5113 17.0138 24.9918 16.5593C24.4723 16.1047 23.6825 16.1573 23.228 16.6768L18.6132 21.9508C18.5365 22.0385 18.47 22.1145 18.4102 22.182C18.3555 22.1102 18.295 22.0295 18.225 21.9362L16.8353 20.0833C16.4211 19.531 15.6376 19.4192 15.0853 19.8333C14.533 20.2475 14.4211 21.031 14.8353 21.5833L16.225 23.4362L16.2564 23.478C16.4551 23.7432 16.6634 24.0212 16.8653 24.234C17.0915 24.4723 17.4348 24.7688 17.9395 24.8793C18.1815 24.9323 18.4312 24.9417 18.6765 24.907C19.188 24.8348 19.5527 24.5652 19.796 24.3445C20.0135 24.1473 20.2422 23.8858 20.4602 23.6365L20.4947 23.5972L25.1093 18.3232Z" fill="currentColor"/>
+						</svg>
+					</div>
+					<!-- Content -->
+					<div class="mt-3 mt-lg-0">
+						<h6>Secure payment options</h6>
+						<p>Our secure payment system ensures your personal and financial information is always safe.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- =======================
+Features END -->
+
+<!-- =======================
+Product features START -->
+<section class="bg-secondary-grad overflow-hidden position-relative pt-0">
+	<!-- Geo gard pattern decoration -->
+	<div class="position-absolute bottom-0 start-0 ms-n8 mb-n6">
+		<img src="assets/images/elements/geo-grad-pattern.svg" class="h-500px opacity-2" alt="pattern">
+	</div>
+
+	<div class="container">
+		<!-- Title and slider button -->
+		<div class="row mb-4 mb-md-5">
+			<!-- Title -->
+			<div class="col-md-8 col-xl-6">
+				<h2>Unmatched features for everyday excellence</h2>
+			</div>
+			<!-- Buttons -->
+			<div class="col-md-4 col-xl-6">
+				<!-- Slider arrow -->
+				<div class="d-flex justify-content-md-end gap-3 position-relative mt-3">
+					<a href="#" class="btn btn-lg btn-white btn-icon rounded-circle mb-0 swiper-button-prev-feature rtl-flip"><i class="bi bi-arrow-left"></i></a>
+					<a href="#" class="btn btn-lg btn-white btn-icon rounded-circle mb-0 swiper-button-next-feature rtl-flip"><i class="bi bi-arrow-right"></i></a>
+				</div>
+			</div>
+		</div>
+
+		<!-- Features slider START -->
+		<div class="swiper swiper-outside-end-n20" data-swiper-options='{
+			"spaceBetween": 50,
+			"loop": true,
+			"autoplay":{
+				"pauseOnMouseEnter": true
+			},
+			"navigation":{
+				"nextEl":".swiper-button-next-feature",
+				"prevEl":".swiper-button-prev-feature"
+			},
+			"breakpoints": { 
+				"576": {"slidesPerView": 2},
+				"992": {"slidesPerView": 3},
+				"1200": {"slidesPerView": 4}
+			}}'>
+			
+			<div class="swiper-wrapper">
+				<!-- Feature item -->
+				<div class="swiper-slide">
+					<div class="card card-img-scale rounded-4 overflow-hidden">
+						<!-- Card Image -->              
+						<img src="assets/images/product/features/01.jpg" class="img-scale" alt="portfolio-img">  
+						<!-- BG overlay -->
+						<div class="bg-overlay bg-dark opacity-4"></div>
+
+						<!-- Card elements -->
+						<div class="card-img-overlay p-4 p-xxl-5"> 
+							<h5 class="text-white">Advanced fitness tracking</h5>
+							<p class="text-white text-opacity-75">Helping you stay on top of your health and fitness goals every step of the way</p>
+						</div>						
+					</div>
+				</div>
+
+				<!-- Feature item -->
+				<div class="swiper-slide">
+					<div class="card card-img-scale rounded-4 overflow-hidden">
+						<!-- Card Image -->              
+						<img src="assets/images/product/features/02.jpg" class="img-scale" alt="portfolio-img">  
+						<!-- BG overlay -->
+						<div class="bg-overlay bg-dark opacity-4"></div>
+
+						<!-- Card elements -->
+						<div class="card-img-overlay p-4 p-xxl-5"> 
+							<h5 class="text-white">Heart rate Monitoring</h5>
+							<p class="text-white text-opacity-75">Monitor your heart rate in real-time</p>
+						</div>						
+					</div>
+				</div>
+
+				<!-- Feature item -->
+				<div class="swiper-slide">
+					<div class="card card-img-scale rounded-4 overflow-hidden">
+						<!-- Card Image -->              
+						<img src="assets/images/product/features/03.jpg" class="img-scale" alt="portfolio-img">  
+						<!-- BG overlay -->
+						<div class="bg-overlay bg-dark opacity-4"></div>
+
+						<!-- Card elements -->
+						<div class="card-img-overlay p-4 p-xxl-5"> 
+							<h5 class="text-white">GPS Navigation</h5>
+							<p class="text-white text-opacity-75">Helps you navigate and track your routes.</p>
+						</div>						
+					</div>
+				</div>
+
+				<!-- Feature item -->
+				<div class="swiper-slide">
+					<div class="card card-img-scale rounded-4 overflow-hidden">
+						<!-- Card Image -->              
+						<img src="assets/images/product/features/04.jpg" class="img-scale" alt="portfolio-img">  
+						<!-- BG overlay -->
+						<div class="bg-overlay bg-dark opacity-4"></div>
+
+						<!-- Card elements -->
+						<div class="card-img-overlay p-4 p-xxl-5"> 
+							<h5 class="text-white">Voice assistant</h5>
+							<p class="text-white text-opacity-75">Voice commands to set reminders, check the weather, and more.</p>
+						</div>						
+					</div>
+				</div>
+
+				<!-- Feature item -->
+				<div class="swiper-slide">
+					<div class="card card-img-scale rounded-4 overflow-hidden">
+						<!-- Card Image -->              
+						<img src="assets/images/product/features/05.jpg" class="img-scale" alt="portfolio-img">  
+						<!-- BG overlay -->
+						<div class="bg-overlay bg-dark opacity-4"></div>
+
+						<!-- Card elements -->
+						<div class="card-img-overlay p-4 p-xxl-5"> 
+							<h5 class="text-white">Connectivity</h5>
+							<p class="text-white text-opacity-75">Stay connected with your devices, using Bluetooth and Wi-Fi</p>
+						</div>						
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Features slider END -->
+	</div>
+</section>
+<!-- =======================
+Product features END -->
+
+<!-- =======================
+Product features two START -->
+<section class="bg-dark overflow-hidden position-relative" data-bs-theme="dark">
+	<!-- Image -->
+	<div class="col-md-8 col-lg-7 col-xl-12 col-xxl-9 position-absolute bottom-0 end-0 me-xl-n9 d-none d-md-block">
+		<img src="assets/images/product/feature-bg.png" class="ps-8 position-relative z-index-2" alt="">
+	</div>
+	<!-- Blur decoration -->
+	<div class="position-absolute bottom-50 end-0">
+		<img src="assets/images/elements/grad-shape/blur-decoration-2.svg" class="opacity-2 blur-9" alt="Grad shape">
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-6">
+				<!-- Title -->
+				<h2 class="mb-4 mb-md-6">Advanced functionality for every moment</h2>
+
+				<!-- Features START -->
+				<div class="row g-4 g-lg-5">
+					<!-- Item -->
+					<div class="col-md-6">
+						<span class="text-primary fs-3"><i class="bi bi-smartwatch"></i></span>
+						<h6 class="my-3">High-resolution display</h6>
+						<p class="mb-0">Personalize your watch with a variety of designs and layouts.</p>
+					</div>
+					<!-- Item -->
+					<div class="col-md-6">
+						<span class="text-pink fs-3"><i class="bi bi-app-indicator"></i></span>
+						<h6 class="my-3">Smart notifications</h6>
+						<p class="mb-0">Receive calls, messages, and app notifications directly on your wrist</p>
+					</div>
+					<!-- Item -->
+					<div class="col-md-6">
+						<span class="text-success fs-3"><i class="bi bi-battery-full"></i></span>
+						<h6 class="my-3">Long battery life</h6>
+						<p class="mb-0">Enjoy up to 7 days of battery life on a single charge.</p>
+					</div>
+					<!-- Item -->
+					<div class="col-md-6">
+						<span class="text-purple fs-3"><i class="bi bi-droplet-fill"></i></span>
+						<h6 class="my-3">Water resistant design</h6>
+						<p class="mb-0">Waterproof up to 50 meters, perfect for swimming and showering</p>
+					</div>
+					<!-- Item -->
+					<div class="col-md-6">
+						<span class="text-warning fs-3"><i class="bi bi-music-note-list"></i></span>
+						<h6 class="my-3">Music control</h6>
+						<p class="mb-0">Personalize your watch with a variety of designs and layouts.</p>
+					</div>
+				</div>
+				<!-- Features END -->
+			</div>
+		</div>
+	</div>
+</section>
+<!-- =======================
+Product features two END -->
+
+<!-- =======================
+Products grid START -->
+<section class="pb-0 pb-xl-8">
+	<div class="container">
+		<!-- Title -->
+		<div class="d-sm-flex justify-content-between text-center mb-7">
+			<h2 class="mb-3 mb-sm-0">Our collections</h2>
+			<a href="#" class="link-primary-grad icon-link icon-link-hover mb-0">View all products <i class="bi bi-arrow-right"></i></a>
+		</div>
+
+		<div class="row">
+			<!-- Product item -->
+			<div class="col-md-6 col-xl-3 mb-7 mb-xl-0">
+				<div class="card card-img-scale text-center bg-secondary p-4 h-100" style="--bs-bg-opacity:0.4">
+					<!-- Card header -->
+					<div class="card-header bg-transparent p-3 mt-n7">
+						<img src="assets/images/product/watches/01.png" class="img-scale" alt="watch image">
+					</div>
+
+					<!-- Card body -->
+					<div class="card-body p-0 mt-3">
+						<h6 class="mb-2"><a href="#">Apex Pro</a></h6>
+						<p class="mb-3">Perfect for athletes and tech enthusiasts alike.</p>
+						<span class="text-success h6">$358</span>
+					</div>
+
+					<!-- Card footer -->
+					 <div class="card-footer bg-transparent p-0 pt-3">
+						<a href="#" class="btn btn-sm btn-dark mb-0">Buy now</a>
+					 </div>
+				</div>
+			</div>
+
+			<!-- Product item -->
+			<div class="col-md-6 col-xl-3 mb-7 mb-xl-0">
+				<div class="card card-img-scale text-center bg-secondary p-4 h-100" style="--bs-bg-opacity:0.4">
+					<!-- Discount label -->
+					<div class="position-absolute top-0 start-0 mt-n3 ms-n3">
+						<img src="assets/images/elements/discount-label.svg" class="position-relative" alt="">
+						<span class="small text-white position-absolute top-50 start-50 translate-middle">20% off</span>
+					</div>
+
+					<!-- Card header -->
+					<div class="card-header bg-transparent p-3 mt-n7">
+						<img src="assets/images/product/watches/02.png" class="img-scale" alt="watch image">
+					</div>
+
+					<!-- Card body -->
+					<div class="card-body p-0 mt-3">
+						<h6 class="mb-2"><a href="#">Classic Fit v2</a></h6>
+						<p class="mb-3">Perfect for athletes and tech enthusiasts alike.</p>
+						<div class="d-flex align-items-center gap-2 justify-content-center">
+							<span class="text-success h6 mb-0">$275.00</span>
+							<small class="text-decoration-line-through">$320.00</small>
+						</div>
+					</div>
+
+					<!-- Card footer -->
+					 <div class="card-footer bg-transparent p-0 pt-3">
+						<a href="#" class="btn btn-sm btn-dark mb-0">Buy now</a>
+					 </div>
+				</div>
+			</div>
+
+			<!-- Product item -->
+			<div class="col-md-6 col-xl-3 mb-7 mb-xl-0">
+				<div class="card card-img-scale text-center bg-secondary p-4 h-100" style="--bs-bg-opacity:0.4">
+					<!-- Card header -->
+					<div class="card-header bg-transparent p-3 mt-n7">
+						<img src="assets/images/product/watches/03.png" class="img-scale" alt="watch image">
+					</div>
+
+					<!-- Card body -->
+					<div class="card-body p-0 mt-3">
+						<h6 class="mb-2"><a href="#">Active Sport SE</a></h6>
+						<p class="mb-3">Stay connected and on top of your health goals with this watch.</p>
+						<span class="text-success h6">$410</span>
+					</div>
+
+					<!-- Card footer -->
+					 <div class="card-footer bg-transparent p-0 pt-3">
+						<a href="#" class="btn btn-sm btn-dark mb-0">Buy now</a>
+					 </div>
+				</div>
+			</div>
+
+			<!-- Product item -->
+			<div class="col-md-6 col-xl-3 mb-7 mb-xl-0">
+				<div class="card card-img-scale text-center bg-secondary p-4 h-100" style="--bs-bg-opacity:0.4">
+					<!-- Card header -->
+					<div class="card-header bg-transparent p-3 mt-n7">
+						<img src="assets/images/product/watches/04.png" class="img-scale" alt="watch image">
+					</div>
+
+					<!-- Card body -->
+					<div class="card-body p-0 mt-3">
+						<h6 class="mb-2"><a href="#">Luxe Edition Ultra 2</a></h6>
+						<p class="mb-3">Perfect for athletes and tech enthusiasts alike.</p>
+						<span class="text-success h6">$358</span>
+					</div>
+
+					<!-- Card footer -->
+					 <div class="card-footer bg-transparent p-0 pt-3">
+						<a href="#" class="btn btn-sm btn-dark mb-0">Buy now</a>
+					 </div>
+				</div>
+			</div>
+		</div> <!-- Row END -->
+	</div>
+</section>
+<!-- =======================
+Products grid END -->
+
+<!-- =======================
+CTA START -->
+<section class="pt-0">
+	<div class="container">
+		<div class="row g-4 g-lg-5">
+			<!-- Video CTA -->
+			<div class="col-md-6">
+				<div class="card rounded-4 overflow-hidden">
+					<!-- BG overlay -->
+						<div class="bg-overlay bg-dark opacity-5"></div>
+					<!-- Image -->
+					<img src="assets/images/product/video-cta.jpg" class="img-fluid" alt="CTA image">
+
+					<!-- Title and button -->
+					<div class="card-img-overlay d-flex flex-column align-items-start p-sm-5"> 
+						<div class="mt-auto">
+							<h4 class="text-white mb-3">See our watches in action</h4>
+							<a href="https://www.youtube.com/embed/tXHviS-4ygo" class="btn btn-sm btn-primary mb-0" data-glightbox data-gallery="office-tour"><i class="bi bi-play-fill me-2"></i>Play video</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- New arrival CTA -->
+			<div class="col-md-6">
+				<div class="card rounded-4 overflow-hidden">
+					<!-- Image -->
+					<img src="assets/images/product/arrival-cta.jpg" class="img-fluid" alt="CTA image">
+
+					<!-- Title and button -->
+					<div class="card-img-overlay d-flex flex-column align-items-center text-center p-sm-5 mx-auto" style="max-width: 75%;"> 
+						<span class="heading-color fw-bold mb-2">New arrival</span>
+						<h4 class="text-white mb-3">Hurricane smart watch pro at $89 USD</h4>
+						<a href="#" class="btn btn-sm btn-dark mb-0">Explore now</a>
+					</div>
+				</div>
+			</div>
+		</div> <!-- Row END -->
+	</div>
+</section>
+<!-- =======================
+CTA START -->
+
+<!-- =======================
+Testimonials START -->
+<section class="py-0">
+	<div class="container position-relative">
+		<div class="row">
+			<div class="col-md-10 mx-auto">
+				<!-- Slider START -->
+				<div class="swiper mt-2 mt-md-4" data-swiper-options='{
+					"spaceBetween": 30,
+					"autoplay":{
+						"delay": 4000, 
+						"disableOnInteraction": false,
+						"pauseOnMouseEnter": true
+					},
+					"navigation":{
+						"nextEl":".swiper-button-next",
+						"prevEl":".swiper-button-prev"
+					}}'>
+					
+					<div class="swiper-wrapper">
+						<!-- Testimonial item -->
+						 <div class="swiper-slide">
+							 <div class="row align-items-center">
+								 <!-- Author info -->
+								 <div class="col-lg-3 text-lg-center mb-3 mb-lg-0">
+									 <!-- Avatar -->
+									 <div class="avatar avatar-xxl mx-auto flex-shrink-0 mb-3">
+										 <img class="avatar-img rounded-circle" src="assets/images/avatar/01.jpg" alt="avatar">
+									 </div>
+									 <h6 class="mb-1">Jacqueline Miller</h6>
+									 <span>Product designer</span>
+								 </div>
+ 
+								 <!-- Testimonial content -->
+								 <blockquote class="col-lg-9">
+									 <!-- Rating star -->
+									 <ul class="list-inline mb-2">
+										 <li class="list-inline-item lead me-0"><i class="bi bi-star-fill text-warning"></i></li>
+										 <li class="list-inline-item lead me-0"><i class="bi bi-star-fill text-warning"></i></li>
+										 <li class="list-inline-item lead me-0"><i class="bi bi-star-fill text-warning"></i></li>
+										 <li class="list-inline-item lead me-0"><i class="bi bi-star-fill text-warning"></i></li>
+										 <li class="list-inline-item lead me-0"><i class="bi bi-star-half text-warning"></i></li>
+									 </ul>
+									 <p class="fs-5 heading-color">Our passion for customer excellence is just one reason why we are the market leader. We've always worked very hard to give our customers the best experience. Was out laughter raptures returned outweigh.</p>
+								 </blockquote>
+							 </div>
+						 </div>
+
+						<!-- Testimonial item -->
+						<div class="swiper-slide">
+							<div class="row align-items-center">
+								<!-- Author info -->
+								<div class="col-lg-3 text-lg-center mb-3 mb-lg-0">
+									<!-- Avatar -->
+									<div class="avatar avatar-xxl mx-auto flex-shrink-0 mb-3">
+										<img class="avatar-img rounded-circle" src="assets/images/avatar/02.jpg" alt="avatar">
+									</div>
+									<h6 class="mb-1">Louis Ferguson</h6>
+									<span>Web Developer</span>
+								</div>
+
+								<!-- Testimonial content -->
+								<blockquote class="col-lg-9">
+									<!-- Rating star -->
+									<ul class="list-inline mb-2">
+										<li class="list-inline-item lead me-0"><i class="bi bi-star-fill text-warning"></i></li>
+										<li class="list-inline-item lead me-0"><i class="bi bi-star-fill text-warning"></i></li>
+										<li class="list-inline-item lead me-0"><i class="bi bi-star-fill text-warning"></i></li>
+										<li class="list-inline-item lead me-0"><i class="bi bi-star-fill text-warning"></i></li>
+										<li class="list-inline-item lead me-0"><i class="bi bi-star-half text-warning"></i></li>
+									</ul>
+									<p class="fs-5 heading-color">Their team went above and beyond to understand our needs and deliver a solution that exceeded our expectations. They demonstrated throughout the process was truly impressive.</p>
+								</blockquote>
+							</div>
+						</div>	
+
+						<!-- Testimonial item -->
+						<div class="swiper-slide">
+							<div class="row align-items-center">
+								<!-- Author info -->
+								<div class="col-lg-3 text-lg-center mb-3 mb-lg-0">
+									<!-- Avatar -->
+									<div class="avatar avatar-xxl mx-auto flex-shrink-0 mb-3">
+										<img class="avatar-img rounded-circle" src="assets/images/avatar/06.jpg" alt="avatar">
+									</div>
+									<h6 class="mb-1">Samuel Bishop</h6>
+									<span>UI/UX designer</span>
+								</div>
+
+								<!-- Testimonial content -->
+								<blockquote class="col-lg-9">
+									<!-- Rating star -->
+									<ul class="list-inline mb-2">
+										<li class="list-inline-item lead me-0"><i class="bi bi-star-fill text-warning"></i></li>
+										<li class="list-inline-item lead me-0"><i class="bi bi-star-fill text-warning"></i></li>
+										<li class="list-inline-item lead me-0"><i class="bi bi-star-fill text-warning"></i></li>
+										<li class="list-inline-item lead me-0"><i class="bi bi-star-fill text-warning"></i></li>
+										<li class="list-inline-item lead me-0"><i class="bi bi-star-half text-warning"></i></li>
+									</ul>
+									<p class="fs-5 heading-color">Was out laughter raptures returned outweigh. Luckily cheered colonel I do we attack highest enabled. Tried law yet style child. The bore of true of no be deal.</p>
+								</blockquote>
+							</div>
+						</div>	
+					</div>
+				</div>		
+				<!-- Slider END -->
+			</div>
+		</div> <!-- Row END -->
+
+		<!-- Slider arrow -->
+		<div class="d-flex justify-content-between position-absolute top-50 start-0 w-100">
+			<a href="#" class="btn btn-secondary btn-icon btn-lg rounded-circle mb-0 swiper-button-prev ms-2"><i class="bi bi-arrow-left text-primary-grad"></i></a>
+			<a href="#" class="btn btn-secondary btn-icon btn-lg rounded-circle mb-0 swiper-button-next me-2"><i class="bi bi-arrow-right text-primary-grad"></i></a>
+		</div>
+	</div>
+</section>
+<!-- =======================
+Testimonials END -->
+
+<!-- =======================
+Newsletter START -->
+<section class="position-relative overflow-hidden">
+	<div class="container">
+		<div class="inner-container-small text-center">
+			<h2 class="mb-4">Discover the latest in <span class=text-primary>watch</span> innovation</h2>
+			<p class="mb-4">Subscribe to our newsletter for updates on new arrivals, exclusive offers, and special events.</p>
+			<!-- Input form -->
+			<div class="bg-body rounded-2 position-relative z-index-2 p-2">
+				<form class="input-group">
+					<input class="form-control bg-transparent border-0 me-1" type="email" placeholder="Enter your email address">
+					<button type="button" class="btn btn-dark rounded-2 mb-0">Subscribe!</button>
+				</form>
+			</div>
+			<div class="form-text mt-3">✌️ No Spam — We Promise!</div>
+		</div>
+	</div>
+
+	<!-- Bg blur -->
+	 <div class="bg-blur-grad opacity-3 position-absolute top-100 start-50 translate-middle mt-n7"></div>
+</section>
+<!-- =======================
+Newsletter END -->
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+
+<!-- =======================
+Footer START -->
+<footer class="bg-secondary position-relative pt-6 pt-lg-8" style="--bs-bg-opacity:0.4">
+	<div class="container position-relative">
+		<!-- Breadcrumb -->
+		<nav class="mb-2" aria-label="breadcrumb">
+			<ol class="breadcrumb pt-0">
+				<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+				<li class="breadcrumb-item active" aria-current="page">Product landing page</li>
+			</ol>
+		</nav>
+		<!-- Info -->
+		<p>Representative example: Based on a 12-month tenure. ₹59900.00 total cost includes 12% p.a. and No Cost EMI savings of ₹2850.00, paid over 12 months as twelve monthly payments of ₹4991.67.</p>
+
+		<!-- List -->
+		 <ul class="ps-3">
+			<li>The Classic Fit Series 5 and Classic Fit SE have a water resistance rating of 50 meters under VIS standard 22810:2010. This means they are suitable for shallow-water activities such as swimming in a pool or ocean.</li>
+			<li>However, they are not recommended for scuba diving, waterskiing, or other activities involving high-velocity water or submersion beyond shallow depth.</li>
+			<li>Water resistance is not a permanent condition and can decrease over time. For additional information, see</li>
+			<li>Classic Fit Series 5 and Classic Fit Pro are rated IP6X dust resistant.</li>
+			<li>The ECG app is available on Classic Fit Series 3 and later (excluding Classic Fit SE) and can generate an ECG similar to a single-lead electrocardiogram. Intended for use by individuals 22 years old and over.</li>
+		 </ul>
+
+		<!-- Divider -->
+		<hr class="my-4 my-xl-6">
+
+		<!-- Link widgets -->
+		<div class="row g-4">
+			<!-- Widget item -->
+			<div class="col-md-6 col-xl-4">
+				<!-- logo -->
+				<a class="navbar-brand me-0" href="index.html">
+					<img class="light-mode-item navbar-brand-item h-40px" src="assets/images/logo.svg" alt="logo">
+					<img class="dark-mode-item navbar-brand-item h-40px" src="assets/images/logo-light.svg" alt="logo">
+				</a>
+				<p class="my-3 my-xl-4">A Bootstrap Template that's both stylish and functional, perfect for any type of technology or corporate website.</p>
+			</div>
+
+			<div class="col-xl-7 ms-auto">
+				<div class="row g-4">
+					<!-- Widget item -->
+					<div class="col-6 col-md-3">
+						<h6 class="mb-3 mb-xl-4">Company</h6>
+						<!-- Links -->
+						<ul class="nav flex-column gap-1">
+							<li class="nav-item"><a class="nav-link pt-0" href="about-v1.html">About us</a></li>
+							<li class="nav-item"><a class="nav-link" href="contact-us.html">Contact us</a></li>
+							<li class="nav-item"><a class="nav-link" href="career.html">Career <span class="badge bg-primary ms-2">2 jobs</span></a></li>
+							<li class="nav-item"><a class="nav-link" href="career-single.html">Career detail</a></li>
+							<li class="nav-item"><a class="nav-link" href="contact-us-v2.html">Become a partner</a></li>
+							<li class="nav-item"><a class="nav-link" href="service-v1.html">Services</a></li>
+						</ul>
+					</div>
+
+					<!-- Widget item -->
+					<div class="col-6 col-md-3">
+						<h6 class="mb-3 mb-xl-4">Resources</h6>
+						<!-- Links -->
+						<ul class="nav flex-column gap-1">
+							<li class="nav-item"><a class="nav-link pt-0" href="portfolio-case-study-v1.html">Case studies</a></li>
+							<li class="nav-item"><a class="nav-link" href="pricing-v1.html">Pricing <span class="badge bg-success ms-2">New</span></a></li>
+							<li class="nav-item"><a class="nav-link" href="blog-minimal.html">Blogs</a></li>
+							<li class="nav-item"><a class="nav-link" href="blog-single.html">Blog detail</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Success stories<i class="bi bi-box-arrow-up-right small ms-2"></i></a></li>
+						</ul>
+					</div>
+					
+					<!-- Widget item -->
+					<div class="col-sm-6 col-md-6">
+						<h6 class="mb-3 mb-xl-4">Download our app</h6>
+						<p class="mb-2">Get instant access to exclusive features for FREE!</p>
+						<div class="row g-2 mb-4 mb-sm-5">
+							<!-- Google play store button -->
+							<div class="col-5 col-md-4 col-xl-5">
+								<a href="#"> <img src="assets/images/elements/google-play.svg" alt=""> </a>
+							</div>
+							<!-- App store button -->
+							<div class="col-5 col-md-4 col-xl-5">
+								<a href="#"> <img src="assets/images/elements/app-store.svg" alt="app-store"> </a>
+							</div>
+						</div>
+
+						<!-- Social buttons -->
+						<span class="heading-color fw-semibold">Follow on:</span>
+						<ul class="list-inline align-items-center mb-0 mt-3">
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon bg-facebook" href="#"><i class="bi bi-facebook lh-base"></i></a> </li>
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon bg-instagram" href="#"><i class="bi bi-instagram lh-base"></i></a> </li>
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon bg-twitter-x" href="#"><i class="bi bi-twitter-x lh-base"></i></a> </li>
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon bg-linkedin" href="#"><i class="bi bi-linkedin lh-base"></i></a> </li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Divider -->
+		<hr class="mt-4 mt-xl-5 mb-0">
+
+		<!-- Bottom footer -->
+		<div class="d-md-flex justify-content-between align-items-center text-center text-lg-start py-4">
+			<!-- copyright text -->
+			<div class="text-body small mb-3 mb-md-0"> Copyrights ©2025 Folio. Build by <a href="#" target="_blank" class="text-body text-primary-hover hover-underline-animation">StackBros</a>. </div>
+			
+			<!-- Policy link -->
+			<ul class="nav d-flex justify-content-center gap-1 mb-0">
+				<li class="nav-item"><a class="nav-link small py-0" href="#">Privacy policy</a></li>
+				<li class="nav-item"><a class="nav-link small py-0 pe-0" href="#">Terms &amp; conditions</a></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<!-- =======================
+Footer END -->
+
+<!-- Offcanvas START -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasMenu">
+	<!-- Offcanvas header -->
+	<div class="offcanvas-header justify-content-between border-bottom px-3">
+		<h6 class="mb-0">My Cart</h6>
+		<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+	</div>
+
+	<!-- Offcanvas body -->
+	<div class="offcanvas-body d-flex flex-column px-3">
+		<div class="d-flex align-items-center gap-2">
+			<!-- Image -->
+			<img src="assets/images/product/watches/01.png" class="rounded-2 bg-light p-2 h-70px" alt="product image">
+
+			<div class="ms-2">
+				<p class="heading-color fw-semibold mb-1">Apex Pro</p>
+				<!-- Select item -->
+				<select class="form-select form-select-sm w-auto" aria-label="Default select example">
+					<option value="1">01</option>
+					<option value="2">02</option>
+					<option value="3">03</option>
+				</select>
+			</div>
+			
+			<a href="#" class="btn btn-sm btn-link p-0 ms-auto">Remove</a>
+		</div>
+
+		<!-- Button and price -->
+		<div class="mt-auto">
+			<div class="d-flex justify-content-between mb-2">
+				<span class="heading-color fw-semibold">Subtotal</span>
+				<h6 class="text-success mb-0">$358</h6>
+			</div>
+			<!-- Button -->
+			<div class="d-grid">
+				<a href="checkout.html" class="btn btn-lg btn-dark mb-0">Continue to Checkout</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Offcanvas END -->
+
+<!-- Back to top -->
+<div class="back-top"></div>
+
+<!-- Bootstrap JS -->
+<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+<!--Vendors-->
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/vendor/glightbox/js/glightbox.js"></script>
+
+<!-- Theme Functions -->
+<script src="assets/js/functions.js"></script>
+
+</body>
+
+<!-- Mirrored from stackbros.in/folio/landing/index-product-landing.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 29 Nov 2025 04:19:20 GMT -->
+</html>

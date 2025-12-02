@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from stackbros.in/folio/landing/portfolio-case-study-v2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 29 Nov 2025 04:20:01 GMT -->
+<head>
+	
+	<title>Folio - Multipurpose Bootstrap Template</title>
+
+	<!-- Meta Tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="StackBros">
+	<meta name="description" content="multipurpose Bootstrap Template">
+
+	<!-- Dark mode -->
+	<script>
+		const storedTheme = localStorage.getItem('theme')
+ 
+		const getPreferredTheme = () => {
+			if (storedTheme) {
+				return storedTheme
+			}
+			return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'light'
+		}
+
+		const setTheme = function (theme) {
+			if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				document.documentElement.setAttribute('data-bs-theme', 'dark')
+			} else {
+				document.documentElement.setAttribute('data-bs-theme', theme)
+			}
+		}
+
+		setTheme(getPreferredTheme())
+
+		window.addEventListener('DOMContentLoaded', () => {
+		    var el = document.querySelector('.theme-icon-active');
+			if(el != 'undefined' && el != null) {
+				const showActiveTheme = theme => {
+				const activeThemeIcon = document.querySelector('.theme-icon-active use')
+				const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
+				const svgOfActiveBtn = btnToActive.querySelector('.mode-switch use').getAttribute('href')
+
+				document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+					element.classList.remove('active')
+				})
+
+				btnToActive.classList.add('active')
+				activeThemeIcon.setAttribute('href', svgOfActiveBtn)
+			}
+
+			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+				if (storedTheme !== 'light' || storedTheme !== 'dark') {
+					setTheme(getPreferredTheme())
+				}
+			})
+
+			showActiveTheme(getPreferredTheme())
+
+			document.querySelectorAll('[data-bs-theme-value]')
+				.forEach(toggle => {
+					toggle.addEventListener('click', () => {
+						const theme = toggle.getAttribute('data-bs-theme-value')
+						localStorage.setItem('theme', theme)
+						setTheme(theme)
+						showActiveTheme(theme)
+					})
+				})
+
+			}
+		})
+		
+	</script>
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="assets/images/favicon.ico">
+
+	<!-- Google Font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com/">
+	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/glightbox/css/glightbox.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/swiper/swiper-bundle.min.css">
+	
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+
+<body>
+	
+<!-- Header START -->
+<header class="header-sticky header-absolute">
+	<!-- Logo Nav START -->
+	<nav class="navbar navbar-expand-xl">
+		<div class="container">
+			<!-- Logo START -->
+			<a class="navbar-brand me-0" href="index.html">
+				<img class="light-mode-item navbar-brand-item" src="assets/images/logo.svg" alt="logo">
+				<img class="dark-mode-item navbar-brand-item" src="assets/images/logo-light.svg" alt="logo">
+			</a>
+			<!-- Logo END -->
+
+			<!-- Main navbar START -->
+			<div class="navbar-collapse collapse" id="navbarCollapse">
+				<ul class="navbar-nav navbar-nav-scroll dropdown-hover mx-auto">
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Demos</a>
+						<div class="dropdown-menu dropdown-menu-size-lg overflow-hidden p-0">
+							<div class="row px-3 py-4">
+								<!-- Image and button -->
+								<div class="col-sm-6">
+									<ul class="list-unstyled">
+										<li> <a class="dropdown-item" href="index.html">Classic Default</a> </li>
+										<li> <a class="dropdown-item" href="index-software-company.html">Software Company</a> </li>
+										<li> <a class="dropdown-item" href="index-finance-consulting.html">Finance Consulting</a> </li>
+										<li> <a class="dropdown-item" href="index-ai-agency.html">AI Agency</a> </li>
+										<li> <a class="dropdown-item" href="index-product-landing.html">Product Landing</a> </li>
+									</ul>
+								</div>
+
+								<!-- Image and button -->
+								<div class="col-sm-6">
+									<ul class="list-unstyled">
+										<li> <a class="dropdown-item" href="index-saas.html">SaaS</a> </li>
+										<li> <a class="dropdown-item" href="index-ai-chatbot.html">SaaS AI Chatbot</a> </li>
+										<li> <a class="dropdown-item" href="index-application-showcase.html">Application Showcase</a> </li>
+										<li> <a class="dropdown-item" href="index-personal-portfolio.html">Personal Portfolio</a> </li>
+										<li> <a class="dropdown-item" href="index-blog.html">Blog home</a> </li>
+									</ul>
+								</div>
+							</div>
+
+							<!-- Cta -->
+							 <div class="h-200px position-relative" style="background:url(assets/images/elements/nav-cta.jpg) no-repeat; background-size:cover; background-position:center;">
+								<!-- Bg overlay -->
+								 <div class="bg-overlay bg-dark bg-opacity-10"></div>
+							 </div>
+						</div>
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">Pages</a>
+						<ul class="dropdown-menu">
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">About</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="about-v1.html">About v.1</a> </li>
+									<li> <a class="dropdown-item" href="about-v2.html">About v.2</a> </li>
+									<li> <a class="dropdown-item" href="services-grid.html">Services Grid</a></li>
+									<li> <a class="dropdown-item" href="services-list.html">Services List</a></li>
+									<li> <a class="dropdown-item" href="service-single.html">Service Single</a></li>
+									<li> <a class="dropdown-item" href="team.html">Team</a></li>
+									<li> <a class="dropdown-item" href="career.html">Career <span class="badge text-bg-success ms-2">2 Job</span></a></li>
+									<li> <a class="dropdown-item" href="career-single.html">Career Single</a></li>
+								</ul>
+							</li>
+
+							<li> <a class="dropdown-item" href="contact-us-v1.html">Contact Us v1</a> </li>
+							<li> <a class="dropdown-item" href="contact-us-v2.html">Contact Us v2</a> </li>
+							<li> <a class="dropdown-item" href="pricing-v1.html">Pricing v1</a> </li>
+							<li> <a class="dropdown-item" href="pricing-v2.html">Pricing v2</a> </li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Saas pages</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="feature-single.html">Feature Single</a> </li>
+									<li> <a class="dropdown-item" href="integrations.html">Integrations</a> </li>
+									<li> <a class="dropdown-item" href="integration-single.html">Integrations Single</a> </li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Portfolio</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="portfolio-grid.html">Portfolio Grid</a> </li>
+									<li> <a class="dropdown-item" href="portfolio-list.html">Portfolio List</a> </li>
+									<li> <a class="dropdown-item" href="portfolio-modern.html">Portfolio Modern</a> </li>
+									<li> <a class="dropdown-item" href="portfolio-case-study-v1.html">Portfolio case study v1</a> </li>
+									<li> <a class="dropdown-item" href="portfolio-case-study-v2.html">Portfolio case study v2</a> </li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Blog</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="blog-minimal.html">Blog Minimal</a> </li>
+									<li> <a class="dropdown-item" href="blog-single.html">Blog Single</a> </li>
+								</ul>
+							</li>
+
+							<li> <a class="dropdown-item" href="error-404.html">Error 404</a> </li>
+							<li> <a class="dropdown-item" href="coming-soon.html">Coming soon</a> </li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Authentication</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="sign-in.html">Sign in</a> </li>
+									<li> <a class="dropdown-item" href="sign-up.html">Sign up</a> </li>
+									<li> <a class="dropdown-item" href="forgot-password.html">Forgot Password</a> </li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Doc</a>
+						<div class="dropdown-menu dropdown-menu-size-xl dropdown-menu-center p-xl-3">
+							<div class="row row-cols-1 row-cols-md-2 pt-2">
+								<!-- Doc menu -->
+								<div class="col">
+									<div class="dropdown-item bg-secondary-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
+										<div class="d-flex">
+											<!-- Icon -->
+											<div class="icon-md bg-primary bg-opacity-15 text-primary rounded flex-shrink-0"><i class="bi bi-file-earmark-text fs-6"></i></div>
+											<!-- Content -->
+											<div class="mx-3">
+												<p class="stretched-link heading-color fw-bold mb-0">Documentation</p>
+												<p class="mb-0 text-body small">Using documentation you can easily develop projects</p>
+											</div>
+										</div>
+										<!-- Button -->
+										<a class="icon-link icon-link-hover text-primary-hover stretched-link" href="#" target="_blank"><i class="bi bi-chevron-right"></i> </a>
+									</div>
+								</div>
+
+								<!-- Doc menu -->
+								<div class="col">
+									<div class="dropdown-item bg-secondary-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
+										<div class="d-flex">
+											<!-- Icon -->
+											<div class="icon-md bg-pink bg-opacity-15 text-pink rounded flex-shrink-0"><i class="bi bi-stickies fs-6"></i></div>
+											<!-- Content -->
+											<div class="mx-3">
+												<p class="stretched-link heading-color fw-bold mb-0">Snippets</p>
+												<p class="mb-0 text-body small">Development guides for building projects with Folio</p>
+											</div>
+										</div>
+										<!-- Button -->
+										<a class="icon-link icon-link-hover text-primary-hover stretched-link" href="#" target="_blank"><i class="bi bi-chevron-right"></i> </a>
+									</div>
+								</div>
+
+								<!-- Doc menu -->
+								<div class="col">
+									<div class="dropdown-item bg-secondary-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
+										<div class="d-flex">
+											<!-- Icon -->
+											<div class="icon-md bg-success bg-opacity-15 text-success rounded flex-shrink-0"><i class="bi bi-bullseye fs-6"></i></div>
+											<!-- Content -->
+											<div class="mx-3">
+												<p class="stretched-link heading-color fw-bold mb-0">Changelog</p>
+												<p class="mb-0 text-body small">Recent feature release and announcement.</p>
+											</div>
+										</div>
+										<!-- Button -->
+										<a class="icon-link icon-link-hover text-primary-hover stretched-link" href="#" target="_blank"><i class="bi bi-chevron-right"></i> </a>
+									</div>
+								</div>
+
+								<!-- Doc menu -->
+								<div class="col">
+									<div class="dropdown-item bg-secondary-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
+										<div class="d-flex">
+											<!-- Icon -->
+											<div class="icon-md bg-warning bg-opacity-15 text-warning rounded flex-shrink-0"><i class="bi bi-mask fs-6"></i></div>
+											<!-- Content -->
+											<div class="mx-3">
+												<p class="stretched-link heading-color fw-bold mb-0">Playwright tips</p>
+												<p class="mb-0 text-body small">Tips and In-depth guide for headless browser automation</p>
+											</div>
+										</div>
+										<!-- Button -->
+										<a class="icon-link icon-link-hover text-primary-hover stretched-link" href="#" target="_blank"><i class="bi bi-chevron-right"></i> </a>
+									</div>
+								</div>
+
+								<!-- Doc menu -->
+								<div class="col">
+									<div class="dropdown-item bg-secondary-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
+										<div class="d-flex">
+											<!-- Icon -->
+											<div class="icon-md bg-info bg-opacity-15 text-info rounded flex-shrink-0"><i class="bi bi-grid-fill fs-6"></i></div>
+											<!-- Content -->
+											<div class="mx-3">
+												<p class="stretched-link heading-color fw-bold mb-0">Integrations</p>
+												<p class="mb-0 text-body small">Taking advantage of integrations with other services.</p>
+											</div>
+										</div>
+										<!-- Button -->
+										<a class="icon-link icon-link-hover text-primary-hover stretched-link" href="integrations.html" target="_blank"><i class="bi bi-chevron-right"></i> </a>
+									</div>
+								</div>
+
+								<!-- Doc menu -->
+								<div class="col">
+									<div class="dropdown-item bg-secondary-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
+										<div class="d-flex">
+											<!-- Icon -->
+											<div class="icon-md bg-purple bg-opacity-15 text-purple rounded flex-shrink-0"><i class="bi bi-chat-dots fs-6"></i></div>
+											<!-- Content -->
+											<div class="mx-3">
+												<p class="stretched-link heading-color fw-bold mb-0">Supports</p>
+												<p class="mb-0 text-body small">Need help? Our customers support is there to help you.</p>
+											</div>
+										</div>
+										<!-- Button -->
+										<a class="icon-link icon-link-hover text-primary-hover stretched-link" href="#" target="_blank"><i class="bi bi-chevron-right"></i> </a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item"> <a class="nav-link" href="contact-us-v1.html">Contact us</a> </li>
+				</ul>
+			</div>
+			<!-- Main navbar END -->
+
+			<!-- Buttons -->
+			<ul class="nav align-items-center dropdown-hover ms-sm-2">
+				<!-- Dark mode option START -->
+				<li class="nav-item dropdown dropdown-animation">
+					<button class="btn btn-link mb-0 px-2 lh-1" id="bd-theme"
+					type="button"
+					aria-expanded="false"
+					data-bs-toggle="dropdown"
+					data-bs-display="static">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"  class="bi bi-circle-half theme-icon-active fill-mode fa-fw" viewBox="0 0 16 16">
+						<path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+						<use href="#"></use>
+					</svg>
+					</button>
+
+					<ul class="dropdown-menu min-w-auto dropdown-menu-end" aria-labelledby="bd-theme">
+						<li class="mb-1">
+							<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light">
+								<svg width="16" height="16" fill="currentColor" class="bi bi-brightness-high-fill fa-fw mode-switch me-1" viewBox="0 0 16 16">
+									<path d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+									<use href="#"></use>
+								</svg>Light
+							</button>
+						</li>
+						<li class="mb-1">
+							<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon-stars-fill fa-fw mode-switch me-1" viewBox="0 0 16 16">
+									<path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+									<path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+									<use href="#"></use>
+								</svg>Dark
+							</button>
+						</li>
+						<li>
+							<button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-half fa-fw mode-switch me-1" viewBox="0 0 16 16">
+									<path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+									<use href="#"></use>
+								</svg>Auto
+							</button>
+						</li>
+					</ul>
+				</li>
+				<!-- Dark mode option END -->
+
+				<!-- Sign up button -->
+				<li class="nav-item ms-2 d-none d-sm-block">
+					<a href="sign-up.html" class="btn btn-sm btn-primary-grad mb-0">Sign up</a>
+				</li>
+				<!-- Responsive navbar toggler -->
+				<li class="nav-item">
+					<button class="navbar-toggler ms-sm-3 p-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-animation">
+							<span></span>
+							<span></span>
+							<span></span>
+						</span>
+					</button>
+				</li>	
+			</ul>
+
+		</div>
+	</nav>
+	<!-- Logo Nav END -->
+</header>
+<!-- Header END -->
+
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+
+<!-- =======================
+Project content START -->
+<section class="position-relative pt-6 pt-xl-7 overflow-hidden">
+	<!-- Blur decoration -->
+	<div class="position-absolute end-0 top-0">
+		<img src="assets/images/elements/grad-shape/blur-decoration-2.svg" class="opacity-1 blur-8 h-300px rotate-335" alt="Grad shape">
+	</div>
+	
+	<!-- Main image -->
+	 <div class="container-fluid px-xxl-5 pt-2">
+		 <div class="h-300px h-sm-400px h-xl-500px rounded-4 overflow-hidden" data-jarallax data-speed="0.6" style="background:url(assets/images/portfolio/05.jpg) no-repeat; background-size:cover; background-position: center;"></div>
+	 </div>
+
+	<!-- Content -->
+	<div class="container pt-6 pt-xl-7">
+		<div class="row g-4" data-sticky-container>
+
+			<!-- Left side content START -->
+			<div class="col-md-7 col-lg-8">
+				<!-- Breadcrumb -->
+				<nav class="mb-2" aria-label="breadcrumb">
+					<ol class="breadcrumb pt-0">
+						<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+						<li class="breadcrumb-item"><a href="#">Portfolio</a></li>
+						<li class="breadcrumb-item active" aria-current="page">Portfolio case study v2</li>
+					</ol>
+				</nav>
+
+				<!-- Title -->
+				<h1 class="h2 mb-3">Mobile app development</h1>
+				<p class="lead">Ideas are the seeds of innovation. They can originate from personal experiences, observations, or the desire to solve a problem.</p>
+
+				<!-- Overview -->
+				<h6 class="mt-5 mb-3"><span class="text-primary me-2">01.</span>Overview</h6>
+				<p>Design a clean, intuitive interface that provides an exceptional user experience. Ensure ease of navigation and accessibility for all users, including those with disabilities. Implement a robust set of features including secure payment gateways, real-time push notifications, and comprehensive user analytics. Incorporate a seamless shopping experience with a well-structured product catalog and efficient checkout process.</p>
+				<!-- List -->
+				<ul class="list-inline">
+					<li class="list-inline-item"> <a class="btn btn-secondary btn-sm mb-lg-0" href="#">Branding</a> </li>
+					<li class="list-inline-item"> <a class="btn btn-secondary btn-sm mb-lg-0" href="#">Packaging</a> </li>
+					<li class="list-inline-item"> <a class="btn btn-secondary btn-sm mb-lg-0" href="#">UI/UX design</a> </li>
+				</ul>
+
+				<!-- The Challenge -->
+				<h6 class="mt-5 mb-3"><span class="text-primary me-2">02.</span>The Challenge</h6>
+				<p><span class="dropcap fs-2 heading-color bg-secondary bg-opacity-50 rounded px-2">I</span>ntegrating multiple third-party services, such as payment gateways, social media logins, and user analytics tools, presented a significant challenge. Ensuring these integrations worked harmoniously without compromising the app's performance was crucial. Additionally, securing user data and privacy, particularly during transactions, required robust encryption and compliance with data protection regulations to build user trust.</p>
+				<p>Delivering the project within a stringent timeline necessitated meticulous planning and efficient execution. Coordinating among different teams, managing resources effectively, and adhering to the project schedule were vital to meeting the deadline without compromising on quality.</p>
+				<!-- List -->
+				<ul class="list-group list-group-borderless">
+					<li class="list-group-item d-flex heading-color"><i class="bi bi-check-lg text-success me-2"></i>Integrating multiple third-party services seamlessly.</li>
+					<li class="list-group-item d-flex heading-color"><i class="bi bi-check-lg text-success me-2"></i>Ensuring robust security and privacy for user data.</li>
+					<li class="list-group-item d-flex heading-color"><i class="bi bi-check-lg text-success me-2"></i>Meeting strict project deadlines while maintaining quality.</li>
+					<li class="list-group-item d-flex heading-color"><i class="bi bi-check-lg text-success me-2"></i>Providing a consistent user experience across all devices and platforms.</li>
+					<li class="list-group-item d-flex heading-color"><i class="bi bi-check-lg text-success me-2"></i>Designing for scalability to handle increased user traffic and data</li>
+				</ul>
+			</div>
+			<!-- Left side content END -->
+
+			<!-- Right side content START -->
+			<div class="col-md-5 col-lg-4">
+				<div data-sticky data-margin-top="100" data-sticky-for="576">
+					<div class="card card-body bg-secondary-grad rounded-4 p-4 ms-md-4">
+						<!-- List -->
+						<ul class="list-group list-group-borderless">
+							<li class="list-group-item mb-3">
+								<small>Client</small>
+								<p class="heading-color fw-semibold mt-1 mb-0">StackBros Agency</p>
+							</li>
+
+							<li class="list-group-item mb-3">
+								<small>Category</small>
+								<p class="heading-color fw-semibold mt-1 mb-0">UI/UX design</p>
+							</li>
+
+							<li class="list-group-item mb-3">
+								<small>Location</small>
+								<p class="heading-color fw-semibold mt-1 mb-0">489 Depot Road Midland</p>
+							</li>
+
+							<li class="list-group-item mb-3">
+								<small>Time spent</small>
+								<p class="heading-color fw-semibold mt-1 mb-0">2023, 4 months</p>
+							</li>
+
+							<li class="list-group-item d-grid mb-0">
+								<a href="#" class="btn btn-dark mb-0">View project<i class="bi bi-box-arrow-up-right ms-2"></i></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- Right side content END -->
+		</div>
+
+		<!-- Image gallery START -->
+		<div class="row g-4 align-items-end mt-4 mt-sm-6">
+			<!-- Image item -->
+			<div class="col-md-7">
+				<img src="assets/images/portfolio/01.jpg" class="rounded-4" alt="portfolio image">
+			</div>
+
+			<!-- Image item -->
+			<div class="col-md-4 ms-auto">
+				<img src="assets/images/portfolio/03.jpg" class="rounded-4 position-relative" alt="portfolio image">
+			</div>
+
+			<!-- Image item -->
+			<div class="col-md-6 mx-auto">
+				<img src="assets/images/portfolio/04.jpg" class="rounded-4 mt-md-n6" alt="portfolio image">
+			</div>
+		</div>
+		<!-- Image gallery END -->
+
+		<!-- Quote -->
+		<div class="card card-body bg-secondary bg-opacity-50 p-sm-5 mt-5 mt-sm-7">
+			<q class="fs-6 heading-color">Too months nay end change relied who beauty wishes matter. Shew of john real park so rest we on. Ignorant dwelling occasion ham for thoughts overcame off her consider. Polite it elinor is depend.</q>
+			<!-- Avatar -->
+			<div class="d-flex align-items-center mt-4">
+				<!-- Avatar -->
+				<div class="avatar">
+					<img class="avatar-img rounded-circle" src="assets/images/avatar/09.jpg" alt="avatar">
+				</div>
+				<!-- Info -->
+				<div class="ms-3">
+					<h6 class="mb-0">Emma Watson</h6>
+					<small>CEO, Co-founder</small>
+				</div>
+			</div>
+		</div>
+
+		<!-- Result START -->
+		<div class="row g-lg-4 mt-6">
+			<!-- Result -->
+			<div class="col-lg-5">
+				<h6 class="mb-3"><span class="text-primary me-2">03.</span>Result</h6>
+				<p class="lead mb-lg-4">Two assure Edward whence the was. Who worthy yet ten boys denote wonder. Weeks views her sight old tears sorry. Additions can suspected its concealed put furnished.</p>
+			</div>
+
+			<div class="col-lg-7 col-xl-6 ms-auto">
+				<p>Partnering with experts, seeking mentorship, and building a network of like-minded individuals can provide valuable insights and support.</p>
+
+				<!-- Skillset START -->
+				<div class="row row-cols-2 row-cols-md-3 g-4 mt-1">
+					<!-- Item -->
+					<div class="col">
+						<h2 class="mb-0">22<span class="text-primary mb-0">%</span></h2>
+						<p class="mb-0">Increase in time spent on website</p>
+					</div>
+
+					<!-- Item -->
+					<div class="col">
+							<h2 class="mb-0">4.5<span class="text-primary mb-0">M</span></h2>
+						<p class="mb-0">View this project got across our social media network</p>
+					</div>
+
+					<!-- Item -->
+					<div class="col">
+						<h2 class="mb-0">$12.8<span class="text-primary mb-0">M</span></h2>
+						<p class="mb-0">Total raised in funding so far</p>
+					</div>
+				</div>
+				<!-- Skillset END -->
+			</div>
+		</div>
+		<!-- Result END -->
+
+		<hr class="mt-5 mb-4"> <!-- Divider -->
+
+		<!-- Pagination -->
+		<ul class="pagination pagination-border-none d-flex justify-content-between mb-0">
+			<li>
+				<ul class="list-unstyled">
+					<li class="page-item">
+						<a class="page-link" href="#"><i class="bi bi-arrow-left me-2 rtl-flip"></i>Prev project</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<ul class="list-unstyled">
+					<li class="page-item active"><a class="page-link" href="#"><i class="bi bi-grid-fill"></i></a></li>
+				</ul>
+			</li>
+			<li>
+				<ul class="list-unstyled">
+					<li class="page-item">
+						<a class="page-link" href="#">Next project<i class="bi bi-arrow-right ms-2 rtl-flip"></i></a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+
+	</div>
+</section>
+<!-- =======================
+Project content END -->
+
+<!-- =======================
+CTA START -->
+<section class="pt-0">
+	<div class="container">
+		<div class="bg-secondary position-relative rounded-3 overflow-hidden p-4 p-sm-6">
+			<!-- BG pattern -->
+			<div class="position-absolute end-0 top-0 rotate-343 mt-n5 me-n8">
+				<img src="assets/images/elements/grad-shape/05.png" class="h-200px h-md-300px h-lg-500px" alt="bg pattern">
+			</div>
+
+			<!-- BG pattern -->
+			<div class="position-absolute start-0 top-0 rotate-343 mt-n5 ms-n6">
+				<img src="assets/images/elements/grad-shape/11.png" class="h-200px blur-2" alt="bg pattern">
+			</div>
+
+			<div class="row g-4 align-items-center position-relative">
+				<!-- Title and list -->
+				<div class="col-xl-8">
+					<h5 class="fw-light">Have a project in mind?</h5>
+					<h2 class="h1 fw-bold">Let’s get to <span class="text-primary-grad"> work.</span></h2>
+				</div>
+
+				<!-- Button -->
+				 <div class="col-xl-4 text-xl-end">
+					<a href="#" class="btn btn-dark mb-0">Get in touch</a>
+				 </div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- =======================
+CTA END -->
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+
+<!-- =======================
+Footer START -->
+<footer class="bg-dark pt-6 pt-lg-8" data-bs-theme="dark">
+	<div class="container">
+		<!-- Link widgets -->
+		<div class="row g-4">
+
+			<!-- Widget item -->
+			<div class="col-md-6 col-xl-4">
+				<!-- logo -->
+				<a href="index.html">
+					<img class="h-40px" src="assets/images/logo-light.svg" alt="logo">
+				</a>
+				<p class="my-3 my-xl-4">A Bootstrap Template that's both stylish and functional, perfect for any type of technology or corporate website.</p>
+			</div>
+
+			<div class="col-xl-7 ms-auto">
+				<div class="row g-4">
+					<!-- Widget item -->
+					<div class="col-6 col-md-3">
+						<h6 class="mb-3 mb-xl-4">Company</h6>
+						<!-- Links -->
+						<ul class="nav flex-column gap-1">
+							<li class="nav-item"><a class="nav-link pt-0" href="about-v1.html">About us</a></li>
+							<li class="nav-item"><a class="nav-link" href="contact-us.html">Contact us</a></li>
+							<li class="nav-item"><a class="nav-link" href="career.html">Career <span class="badge bg-primary ms-2">2 jobs</span></a></li>
+							<li class="nav-item"><a class="nav-link" href="career-single.html">Career detail</a></li>
+							<li class="nav-item"><a class="nav-link" href="contact-us-v2.html">Become a partner</a></li>
+							<li class="nav-item"><a class="nav-link" href="service-v1.html">Services</a></li>
+						</ul>
+					</div>
+
+					<!-- Widget item -->
+					<div class="col-6 col-md-3">
+						<h6 class="mb-3 mb-xl-4">Resources</h6>
+						<!-- Links -->
+						<ul class="nav flex-column gap-1">
+							<li class="nav-item"><a class="nav-link pt-0" href="portfolio-case-study-v1.html">Case studies</a></li>
+							<li class="nav-item"><a class="nav-link" href="pricing-v1.html">Pricing <span class="badge bg-success ms-2">New</span></a></li>
+							<li class="nav-item"><a class="nav-link" href="blog-minimal.html">Blogs</a></li>
+							<li class="nav-item"><a class="nav-link" href="blog-single.html">Blog detail</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Success stories<i class="bi bi-box-arrow-up-right small ms-2"></i></a></li>
+						</ul>
+					</div>
+					
+					<!-- Widget item -->
+					<div class="col-sm-6 col-md-6">
+						<h6 class="mb-3 mb-xl-4">Download our app</h6>
+						<p class="mb-3">Get instant access to exclusive features for FREE!</p>
+						<div class="row g-2 mb-4 mb-sm-5">
+							<!-- Google play store button -->
+							<div class="col-5 col-sm-6 col-md-5 col-lg-4 col-xl-5">
+								<a href="#"> <img src="assets/images/elements/google-play.svg" alt=""> </a>
+							</div>
+							<!-- App store button -->
+							<div class="col-5 col-sm-6 col-md-5 col-lg-4 col-xl-5">
+								<a href="#"> <img src="assets/images/elements/app-store.svg" alt="app-store"> </a>
+							</div>
+						</div>
+
+						<!-- Social buttons -->
+						<span class="heading-color fw-semibold">Follow on:</span>
+						<ul class="list-inline align-items-center mb-0 mt-3">
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon bg-facebook" href="#"><i class="bi bi-facebook lh-base"></i></a> </li>
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon bg-instagram" href="#"><i class="bi bi-instagram lh-base"></i></a> </li>
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon bg-twitter-x" href="#"><i class="bi bi-twitter-x lh-base"></i></a> </li>
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon bg-linkedin" href="#"><i class="bi bi-linkedin lh-base"></i></a> </li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Divider -->
+		<hr class="mt-xl-5 mb-0 opacity-1">
+
+		<!-- Bottom footer -->
+		<div class="d-md-flex justify-content-between align-items-center text-center text-lg-start py-4">
+			<!-- copyright text -->
+			<div class="text-body small mb-3 mb-md-0"> Copyrights ©2025 Folio. Build by <a href="#" target="_blank" class="text-body text-primary-hover hover-underline-animation">StackBros</a>. </div>
+			
+			<!-- Policy link -->
+			<ul class="nav d-flex justify-content-center gap-1 mb-0">
+				<li class="nav-item"><a class="nav-link small py-0" href="#">Privacy policy</a></li>
+				<li class="nav-item"><a class="nav-link small py-0 pe-0" href="#">Terms &amp; conditions</a></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<!-- =======================
+Footer END -->
+
+<!-- Back to top -->
+<div class="back-top"></div>
+
+<!-- Bootstrap JS -->
+<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+<!--Vendors-->
+<script src="assets/vendor/glightbox/js/glightbox.js"></script>
+<script src="assets/vendor/jarallax/jarallax.min.js"></script>
+<script src="assets/vendor/sticky-js/sticky.min.js"></script>
+
+<!-- Theme Functions -->
+<script src="assets/js/functions.js"></script>
+
+</body>
+
+<!-- Mirrored from stackbros.in/folio/landing/portfolio-case-study-v2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 29 Nov 2025 04:20:01 GMT -->
+</html>

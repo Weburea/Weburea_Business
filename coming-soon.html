@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from stackbros.in/folio/landing/coming-soon.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 29 Nov 2025 04:20:02 GMT -->
+<head>
+	
+	<title>Folio - Multipurpose Bootstrap Template</title>
+
+	<!-- Meta Tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="StackBros">
+	<meta name="description" content="multipurpose Bootstrap Template">
+
+	<!-- Dark mode -->
+	<script>
+		const storedTheme = localStorage.getItem('theme')
+ 
+		const getPreferredTheme = () => {
+			if (storedTheme) {
+				return storedTheme
+			}
+			return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'light'
+		}
+
+		const setTheme = function (theme) {
+			if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				document.documentElement.setAttribute('data-bs-theme', 'dark')
+			} else {
+				document.documentElement.setAttribute('data-bs-theme', theme)
+			}
+		}
+
+		setTheme(getPreferredTheme())
+
+		window.addEventListener('DOMContentLoaded', () => {
+		    var el = document.querySelector('.theme-icon-active');
+			if(el != 'undefined' && el != null) {
+				const showActiveTheme = theme => {
+				const activeThemeIcon = document.querySelector('.theme-icon-active use')
+				const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
+				const svgOfActiveBtn = btnToActive.querySelector('.mode-switch use').getAttribute('href')
+
+				document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+					element.classList.remove('active')
+				})
+
+				btnToActive.classList.add('active')
+				activeThemeIcon.setAttribute('href', svgOfActiveBtn)
+			}
+
+			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+				if (storedTheme !== 'light' || storedTheme !== 'dark') {
+					setTheme(getPreferredTheme())
+				}
+			})
+
+			showActiveTheme(getPreferredTheme())
+
+			document.querySelectorAll('[data-bs-theme-value]')
+				.forEach(toggle => {
+					toggle.addEventListener('click', () => {
+						const theme = toggle.getAttribute('data-bs-theme-value')
+						localStorage.setItem('theme', theme)
+						setTheme(theme)
+						showActiveTheme(theme)
+					})
+				})
+
+			}
+		})
+		
+	</script>
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="assets/images/favicon.ico">
+
+	<!-- Google Font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com/">
+	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
+	
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+
+<body class="bg-secondary">
+	
+<!-- Header START -->
+<header class="header-sticky bg-transparent">
+	<!-- Logo Nav START -->
+	<nav class="navbar navbar-expand-xl">
+		<div class="container justify-content-center">
+			<!-- Logo START -->
+			<a class="navbar-brand" href="index.html">
+				<img class="light-mode-item navbar-brand-item" src="assets/images/logo.svg" alt="logo">
+				<img class="dark-mode-item navbar-brand-item" src="assets/images/logo-light.svg" alt="logo">
+			</a>
+			<!-- Logo END -->
+		</div>
+	</nav>
+	<!-- Logo Nav END -->
+</header>
+<!-- Header END -->
+
+<!-- **************** MAIN CONTENT START **************** -->
+<main class="d-flex flex-column justify-content-center" style="min-height: calc(100vh - 160px)">
+
+<!-- =======================
+Hero START -->
+<section class="py-5 p-lg-0">
+	<!-- Blur decoration -->
+	<div class="position-absolute top-0 start-0 mt-n9 ms-n5">
+		<img src="assets/images/elements/grad-shape/blur-decoration.svg" class="blur-7 opacity-2" alt="Grad shape">
+	</div>
+	<!-- Blur decoration -->
+	<div class="position-absolute top-0 end-0 mt-n9">
+		<img src="assets/images/elements/grad-shape/blur-decoration-2.svg" class="blur-9 opacity-2" alt="Grad shape">
+	</div>
+
+	<div class="container position-relative">
+		<div class="row g-4 d-flex justify-content-center align-items-center">
+			<!-- Main image -->
+			<div class="col-sm-8 col-md-6">
+				<img src="assets/images/elements/coming-soon.png" alt="coming soon image">
+			</div>
+
+			<div class="col-md-6 col-xl-5 ms-auto">
+				<!-- Title -->
+				<h1 class="fw-bold">Cooking Up Something <span class="text-primary-grad">Great</span></h1>
+				<p class="mb-0">We are going to launch our website very soon, Stay tune.</p>
+
+				<!-- Input -->
+				<form class="mt-5">
+					<b>Notify me when the website is launched</b>
+					<div class="bg-body shadow-primary rounded-2 p-1 mt-2">
+						<!-- Input subscribe -->
+						<div class="input-group">
+							<input class="form-control border-0 me-1" type="email" placeholder="Enter your email">
+							<button type="button" class="btn btn-dark rounded-2 mb-0">Notify Me!</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div> <!-- Row END -->
+	</div>
+</section>
+<!-- =======================
+Hero END -->
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+
+<!-- =======================
+Footer START -->
+<footer>
+	<div class="container">
+		<!-- Bottom footer -->
+		<div class="d-md-flex justify-content-between align-items-center text-center text-lg-start pb-3 pb-md-0">
+			<!-- copyright text -->
+			<div class="mb-3 mb-md-0"> Copyrights ©2025 Folio. Build by <a href="#" class="text-body text-primary-hover">StackBros</a>. </div>
+			<!-- copyright links-->
+			<!-- Language selector -->
+			<ul class="list-inline align-items-center mb-0">
+				<li class="list-inline-item"> <a class="btn btn-xs btn-icon bg-facebook" href="#"><i class="bi bi-facebook lh-base"></i></a> </li>
+				<li class="list-inline-item"> <a class="btn btn-xs btn-icon bg-instagram-gradient" href="#"><i class="bi bi-instagram lh-base"></i></a> </li>
+				<li class="list-inline-item"> <a class="btn btn-xs btn-icon bg-twitter-x" href="#"><i class="bi bi-twitter-x lh-base"></i></a> </li>
+				<li class="list-inline-item"> <a class="btn btn-xs btn-icon bg-linkedin" href="#"><i class="bi bi-linkedin lh-base"></i></a> </li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<!-- =======================
+Footer END -->
+
+<!-- Back to top -->
+<div class="back-top"></div>
+
+<!-- Bootstrap JS -->
+<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Theme Functions -->
+<script src="assets/js/functions.js"></script>
+
+</body>
+
+<!-- Mirrored from stackbros.in/folio/landing/coming-soon.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 29 Nov 2025 04:20:02 GMT -->
+</html>

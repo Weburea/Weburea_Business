@@ -16569,6 +16569,14 @@ textarea.form-control-lg {
   height: 100vh !important;
 }
 
+.h-5px {
+  height: 5px !important;
+}
+
+.h-10px {
+  height: 10px !important;
+}
+
 .h-20px {
   height: 20px !important;
 }
@@ -19422,7 +19430,7 @@ a.badge:hover {
     max-width: 100%;
   }
   .navbar-expand-xxl .navbar-brand .navbar-brand-item {
-    height: 30px;
+    height: 25px;
   }
   .navbar-expand-xxl .navbar-brand {
     padding: 20px 0;
@@ -21467,3 +21475,50 @@ a.text-primary-hover:hover, button.text-primary-hover:hover {
 
 /*User CSS*/
 /*# sourceMappingURL=style.css.map */
+/* 1. Container Height */
+.vertical-marquee-height {
+    height: 700px; 
+    overflow: hidden;
+}
+
+/* 2. THE GLITCH FIX: Force vertical layout immediately with !important */
+.swiper-vertical-marquee .swiper-wrapper {
+    flex-direction: column !important; /* Force top-to-bottom */
+    box-sizing: border-box !important;
+}
+
+.swiper-vertical-marquee .swiper-slide {
+    width: 100% !important; 
+    display: block !important;
+    height: auto !important;
+    margin-bottom: 24px !important;
+}
+
+/* 3. THE "HIDE & SHOW" TRICK */
+.swiper-vertical-marquee {
+    opacity: 0; /* Start invisible */
+    animation: smoothReveal 1s forwards; /* Run the reveal animation */
+    animation-delay: 8s; /* WAIT 2 SECONDS before showing anything */
+}
+
+/* The Animation */
+@keyframes smoothReveal {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Sticky Video Effect */
+#sticky-video-container {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+    z-index: 10;
+}
+
+#dynamic-video {
+    width: 100%;
+    transform-origin: center top;
+    transition: transform 0.1s ease-out;
+    will-change: transform;
+}

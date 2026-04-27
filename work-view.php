@@ -210,97 +210,66 @@ Web Development and Software Testing & QAHero START -->
 			<div class="d-flex gap-3 gap-sm-4 flex-wrap">
 				<!-- Button -->
 				<a href="portfolio-modern.html" class="btn btn-primary-grad">Explore our work</a>
-
-				<!-- Info -->
-				<div class="d-flex gap-2 align-items-center">
-					<ul class="avatar-group mb-0 align-items-center">
-						<li class="avatar">
-							<img class="avatar-img rounded-circle" src="assets/images/avatar/02.jpg" alt="avatar">
-						</li>
-						<li class="avatar">
-							<img class="avatar-img rounded-circle" src="assets/images/avatar/05.jpg" alt="avatar">
-						</li>
-						<li class="avatar">
-							<img class="avatar-img rounded-circle" src="assets/images/avatar/10.jpg" alt="avatar">
-						</li>
-						<li class="avatar">
-							<img class="avatar-img rounded-circle" src="assets/images/avatar/09.jpg" alt="avatar">
-						</li>
-					</ul>
-					<p class="heading-color mb-0">15K+ happy clients</p>
-				</div>
+				<!-- Button -->
+				<a href="https://www.youtube.com/embed/n_Cn8eFo7u8" class="btn btn-link text-primary-hover heading-color d-flex align-items-center gap-2 m-0 p-0" data-glightbox="">
+					<div class="icon-md bg-primary bg-opacity-10 text-primary rounded-circle">
+						<i class="bi bi-play-fill fs-5"></i>
+					</div>
+					Watch a demo
+				</a>
 			</div>
-
 		</div>
 	</div>
 
+	<!-- =======================Image  START -->
+	<div class=" position-relative overflow-hidden mt-5">
 
-    <!-- =======================Image  START -->
-    <div class=" position-relative overflow-hidden mt-5">
-        <!-- skewed divider	 -->
-        <span class="position-absolute top-0 start-0">
-            <svg class="fill-body" width="1920" height="237" viewBox="0 0 1920 237" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1940.5 0H-9V164C708.2 295.2 1589.5 218.667 1940.5 164V0Z"/>
-            </svg>
-        </span>
+		<!-- skewed divider	 -->
+		<span class="position-absolute top-0 start-0">
+			<svg class="fill-secondary opacity-1 shadow-sm" width="1000" height="800" viewBox="0 0 1000 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M-154.5 738L1001 -105.5L1061 880L-43 955.5L-154.5 738Z"></path>
+			</svg>
+		</span>
 
-        <div class="container position-relative z-index-9">
-            <!-- Grad blur decoration -->
-            <div class="position-absolute top-0 start-50 translate-middle-x mt-n3">
-                <img src="assets/images/elements/grad-shape/blur-decoration-2.svg" class="opacity-2 blur-8" alt="Grad shape">
-            </div>
+		<div class="container position-relative z-index-9">
+			<!-- Image -->
+			<div class="position-absolute top-50 start-50 translate-middle d-none d-lg-block">
+				<img src="assets/images/elements/grad-shape/02.png" class="h-300px opacity-5" alt="">
+			</div>
 
-            <!-- Image -->
-            <div class="bg-body bg-opacity-10 bg-blur border border-white border-opacity-25 position-relative rounded-4 shadow-primary-lg p-4">
-                <!-- Dots -->
-                <span class="text-purple">
-                    <svg class="mt-n4" width="40" height="10" viewBox="0 0 40 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M10 5C10 7.76142 7.76142 10 5 10C2.23858 10 0 7.76142 0 5C0 2.23858 2.23858 0 5 0C7.76142 0 10 2.23858 10 5Z" fill="currentColor"/>
-                        <path d="M25 5C25 7.76142 22.7614 10 20 10C17.2386 10 15 7.76142 15 5C15 2.23858 17.2386 0 20 0C22.7614 0 25 2.23858 25 5Z" fill="currentColor"/>
-                        <path d="M40 5C40 7.76142 37.7614 10 35 10C32.2386 10 30 7.76142 30 5C30 2.23858 32.2386 0 35 0C37.7614 0 40 2.23858 40 5Z" fill="currentColor"/>
-                    </svg>
-                </span>
-
-                <!-- Images content -->
-                <div class="row rounded-4 overflow-hidden g-0">
-                    <!-- Call image -->
-                    <div class="col-sm-5">
-                        <div class="card card-body p-0 h-100">
-                            <!-- Image -->
-                            <img src="assets/images/bg/02.jpg" alt="">
-
-                            <!-- Actions -->
-                            <div class="card-img-overlay d-flex flex-column">
-                                <ul class="list-inline d-flex gap-3 mb-1 mt-auto mx-auto">
-                                    <li class="list-inline-item me-0">
-                                        <button class="btn btn-lg btn-white btn-icon rounded-circle mb-0" type="button"><i class="bi bi-mic fa-sm"></i></button>
-                                    </li>
-
-                                    <li class="list-inline-item me-0">
-                                        <button class="btn btn-lg btn-white btn-icon rounded-circle mb-0" type="button"><i class="bi bi-camera-reels fa-sm"></i></button>
-                                    </li>
-
-                                    <li class="list-inline-item me-0">
-                                        <button class="btn btn-lg btn-danger btn-icon rounded-circle mb-0" type="button"><i class="bi bi-telephone-x fa-sm"></i>
-                                        </button>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Code image -->
-                    <div class="col-sm-7">
-                        <div class="h-100" style="background:url(assets/images/bg/code.jpg) no-repeat; background-size:cover; background-position:left top;"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- =======================Image -->
+			<div class="bg-body bg-opacity-10 bg-blur border border-white border-opacity-25 position-relative rounded-4 shadow-primary-lg p-4">
+				<div class="row rounded-4 overflow-hidden g-0">
+					<div class="col-sm-5">
+						<div class="card card-body p-0 h-100">
+							<img src="assets/images/portfolio/01.jpg" class="h-100 object-fit-cover rounded-start-4" alt="">
+						</div>
+					</div>
+					<div class="col-sm-7">
+						<div class="card card-body bg-dark p-4 p-md-5 h-100 rounded-start-0 rounded-end-4" data-bs-theme="dark">
+							<div class="d-flex justify-content-between align-items-center mb-4">
+								<div class="icon-lg bg-primary bg-opacity-10 text-primary rounded-circle"><i class="bi bi-shield-check fs-4"></i></div>
+								<span class="badge bg-primary bg-opacity-10 text-primary">Secure Account</span>
+							</div>
+							<h4 class="mb-3">Security & Quality Assurance</h4>
+							<p class="mb-4">Our dedicated testing team ensures your software is bug-free, secure, and performs at scale. We provide comprehensive QA services for all platforms.</p>
+							<div class="d-flex align-items-center gap-3 mt-auto">
+								<div class="avatar-group">
+									<div class="avatar avatar-xs"><img class="avatar-img rounded-circle" src="assets/images/avatar/01.jpg" alt="avatar"></div>
+									<div class="avatar avatar-xs"><img class="avatar-img rounded-circle" src="assets/images/avatar/02.jpg" alt="avatar"></div>
+									<div class="avatar avatar-xs"><img class="avatar-img rounded-circle" src="assets/images/avatar/03.jpg" alt="avatar"></div>
+									<div class="avatar avatar-xs"><div class="avatar-img rounded-circle bg-primary"><span class="text-white position-absolute top-50 start-50 translate-middle small">9+</span></div></div>
+								</div>
+								<span class="small fw-semibold">Trusted by 10k+ businesses</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
 <!-- =======================
-Web Development and Software Testing & QA Hero END -->
+Web Development and Software Testing & QAHero END -->
 
 
 
@@ -614,104 +583,12 @@ Features and rating UI Design END -->
 
 
         <!-- =======================
-Steps START -->
+Steps START (DEACTIVATED) -->
+        <!-- 
         <section>
-            <div class="container">
-                <div class="row g-4 align-items-lg-center">
-                    <!-- Images -->
-                    <div class="col-md-6 col-xl-5 order-2 order-md-1">
-                 					<div id="stepsImageSwiper" class="swiper" data-swiper-options='{
-						"spaceBetween": 30,
-						"effect": "fade",
-						"autoplay":false
-						}'>
-
-                            <div class="swiper-wrapper">
-                                <!-- Testimonials item -->
-                                <div class="swiper-slide bg-body">
-                                    <div class="bg-secondary-grad rounded-4 overflow-hidden p-5 h-100">
-                                        <img src="assets/images/mobile-app/step-1.jpg"
-                                            class="mb-n8 rounded-5 shadow-primary" alt="step image">
-                                    </div>
-                                </div>
-
-                                <!-- Testimonials item -->
-                                <div class="swiper-slide bg-body">
-                                    <div class="bg-secondary-grad rounded-4 overflow-hidden p-5 h-100">
-                                        <img src="assets/images/mobile-app/step-2.jpg"
-                                            class="mb-n8 rounded-5 shadow-primary" alt="step image">
-                                    </div>
-                                </div>
-
-                                <!-- Testimonials item -->
-                                <div class="swiper-slide bg-body">
-                                    <div class="bg-secondary-grad rounded-4 overflow-hidden p-5 h-100">
-                                        <img src="assets/images/mobile-app/step-3.jpg"
-                                            class="mb-n8 rounded-5 shadow-primary" alt="step image">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Steps Content START -->
-                    <div class="col-md-6 order-1 ms-auto">
-                        <!-- Slider START -->
-                        				<div id="stepsContentSwiper" class="swiper" data-swiper-options='{
-					"spaceBetween": 30,
-					"autoplay":false,
-					"navigation":{
-						"nextEl":".swiper-button-next-steps",
-						"prevEl":".swiper-button-prev-steps"
-					}}'>
-
-                            <div class="swiper-wrapper mb-lg-5">
-                                <!-- Testimonials item -->
-                                <div class="swiper-slide">
-                                    <span class="fw-semibold text-primary">Phase 1</span>
-                                    <h2 class="my-3">Sign up and secure your account</h2>
-                                    <p class="mb-0">Create an account using your email or phone number. Complete the
-                                        straightforward verification process to ensure your account is protected. Follow
-                                        the simple verification process to secure your account. This ensures a
-                                        personalized and seamless banking experience.</p>
-                                </div>
-
-                                <!-- Testimonials item -->
-                                <div class="swiper-slide">
-                                    <span class="fw-semibold text-primary">Phase 2</span>
-                                    <h2 class="my-3">Enter your personal and financial getails</h2>
-                                    <p class="mb-0">Provide the necessary information to set up your profile. This
-                                        ensures a personalized and seamless banking experience tailored to your needs.
-                                        This ensures a personalized and seamless banking experience.</p>
-                                </div>
-
-                                <!-- Testimonials item -->
-                                <div class="swiper-slide">
-                                    <span class="fw-semibold text-primary">Phase 3</span>
-                                    <h2 class="my-3">Explore the full range of banking features</h2>
-                                    <p class="mb-0">Discover all the appâ€™s functionalities, from instant money
-                                        transfers to convenient bill payments, and start managing your finances with
-                                        ease and efficiency. This ensures a personalized and seamless banking
-                                        experience. Follow the simple verification process to secure your account.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Slider END -->
-
-                        <!-- Slider arrow -->
-                        <div class="d-flex gap-3 position-relative mt-3">
-                            <a href="#"
-                                class="btn btn-lg btn-secondary btn-icon rounded-circle mb-0 swiper-button-prev-steps rtl-flip"><i
-                                    class="bi bi-arrow-left"></i></a>
-                            <a href="#"
-                                class="btn btn-lg btn-secondary btn-icon rounded-circle mb-0 swiper-button-next-steps rtl-flip"><i
-                                    class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <!-- Steps Content END -->
-                </div>
-            </div>
-        </section>
+            ...
+        </section> 
+        -->
         <!-- =======================
 Steps END -->
 
@@ -1273,108 +1150,12 @@ Pricing START -->
         <!-- =====Pricing ====== -->
 
 <!-- =======================
-Related works START -->
+Related works START (DEACTIVATED) -->
+<!-- 
 <section>
-	<div class="container">
-		<!-- Title -->
-		<h3 class="mb-4">Related works</h3>
-
-		<!-- Slider START -->
-		<div class="swiper" data-swiper-options='{ 
-				"loop": false,
-				"spaceBetween": 40,
-				"pagination":{
-					"el":".swiper-pagination"
-				},
-				"breakpoints": {
-					"576": {"slidesPerView": 1}, 
-					"768": {"slidesPerView": 2},
-					"1200": {"slidesPerView": 3}
-				}}'>
-
-			<div class="swiper-wrapper">
-				<!-- Slider item -->
-				<div class="swiper-slide">
-					<div class="card card-img-scale bg-transparent overflow-hidden">
-						<div class="card-img-scale-wrapper rounded-3">
-							<!-- Card Image -->              
-							<img src="assets/images/portfolio/4by4/01.jpg" class="img-scale" alt="portfolio-img">
-						</div>
-						<!-- Card body -->
-						<div class="card-body px-0 pb-0">
-							<h6 class="mb-0"><a href="portfolio-case-studies.html" class="heading-color stretched-link">Mobile app development</a></h6>
-							<small>UI/UX design</small>
-						</div>
-					</div>
-				</div>
-
-				<!-- Slider item -->
-				<div class="swiper-slide">
-					<div class="card card-img-scale bg-transparent overflow-hidden">
-						<div class="card-img-scale-wrapper rounded-3">
-							<!-- Card Image -->              
-							<img src="assets/images/portfolio/4by4/02.jpg" class="img-scale" alt="portfolio-img">
-						</div>
-						<!-- Card body -->
-						<div class="card-body px-0 pb-0">
-							<h6 class="mb-0"><a href="portfolio-case-studies.html" class="heading-color stretched-link">Digital marketing overhaul</a></h6>
-							<small>Marketing</small>
-						</div>
-					</div>
-				</div>
-
-				<!-- Slider item -->
-				<div class="swiper-slide">
-					<div class="card card-img-scale bg-transparent overflow-hidden">
-						<div class="card-img-scale-wrapper rounded-3">
-							<!-- Card Image -->              
-							<img src="assets/images/portfolio/4by4/05.jpg" class="img-scale" alt="portfolio-img">
-						</div>
-						<!-- Card body -->
-						<div class="card-body px-0 pb-0">
-							<h6 class="mb-0"><a href="portfolio-case-studies.html" class="heading-color stretched-link">TechWave</a></h6>
-							<small>Animation</small>
-						</div>
-					</div>
-				</div>
-
-				<!-- Slider item (Duplicate to enable swiping) -->
-				<div class="swiper-slide">
-					<div class="card card-img-scale bg-transparent overflow-hidden">
-						<div class="card-img-scale-wrapper rounded-3">
-							<!-- Card Image -->              
-							<img src="assets/images/portfolio/4by4/04.jpg" class="img-scale" alt="portfolio-img">
-						</div>
-						<!-- Card body -->
-						<div class="card-body px-0 pb-0">
-							<h6 class="mb-0"><a href="portfolio-case-studies.html" class="heading-color stretched-link">OMOWave</a></h6>
-							<small>Animation</small>
-						</div>
-					</div>
-				</div>
-                
-				<!-- Slider item (Duplicate to enable swiping) -->
-				<div class="swiper-slide">
-					<div class="card card-img-scale bg-transparent overflow-hidden">
-						<div class="card-img-scale-wrapper rounded-3">
-							<!-- Card Image -->              
-							<img src="assets/images/portfolio/4by4/06.jpg" class="img-scale" alt="portfolio-img">
-						</div>
-						<!-- Card body -->
-						<div class="card-body px-0 pb-0">
-							<h6 class="mb-0"><a href="portfolio-case-studies.html" class="heading-color stretched-link">Creative Studio</a></h6>
-							<small>Branding</small>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<!-- Slider Pagination -->
-			<div class="swiper-pagination swiper-pagination-primary position-relative mt-4"></div>
-		</div>
-		<!-- Slider END -->
-	</div>	
-</section>
+    ...
+</section> 
+-->
 <!-- =======================
 Related works END -->
 
@@ -1431,6 +1212,7 @@ Footer END -->
     <script src="assets/vendor/glightbox/js/glightbox.js"></script>
     <script src="assets/vendor/jarallax/jarallax.min.js"></script>
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/ityped/index.js"></script>
     <script src="assets/vendor/aos/aos.js"></script>
 
     <!-- Theme Functions -->

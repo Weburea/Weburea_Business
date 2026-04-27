@@ -29,7 +29,7 @@
     <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
 
     <!-- Theme CSS -->
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
 
 </head>
 
@@ -38,6 +38,16 @@
     <!-- Header START -->
     <?php include('include/front_header.php') ?>
     <!-- Header END -->
+
+    <?php
+    // We already have $pdo from front_header.php
+    try {
+        $stmt = $pdo->query("SELECT * FROM services WHERE status = 'active' ORDER BY id ASC");
+        $all_services_list = $stmt->fetchAll();
+    } catch (Exception $e) {
+        $all_services_list = [];
+    }
+    ?>
 
     <!-- **************** MAIN CONTENT START **************** -->
     <main>
@@ -84,349 +94,59 @@ Hero START -->
                 <div class="row">
                     <div class="col-xl-10 mx-auto">
                         <div class="row g-4 g-lg-5">
-
+                            <?php 
+                            $count = 0;
+                            foreach($all_services_list as $service): 
+                                $is_even = ($count % 2 == 0);
+                                $container_class = $is_even ? "col-xl-11" : "col-xl-11 ms-auto";
+                                $why_choose = json_decode($service['why_choose_json'], true);
+                                $count++;
+                            ?>
                             <!-- Service item START -->
-                            <div class="col-xl-11">
-                                <div
-                                    class="card card-hover-shadow card-hover-transition shadow-primary-sm bg-body bg-opacity-75 bg-blur rounded-4 p-3 p-lg-4">
+                            <div class="<?php echo $container_class; ?>">
+                                <div class="card card-hover-shadow card-hover-transition shadow-primary-sm bg-body bg-opacity-75 bg-blur rounded-4 p-3 p-lg-4">
                                     <div class="row g-0">
                                         <div class="col-md-5">
                                             <!-- Image -->
                                             <video class="card-img mb-3 mb-md-0 rounded-4 w-100 h-100"
                                                 style="object-fit: cover;" autoplay loop muted playsinline>
-                                                <source src="assets/images/services/4by3/UI_UX.mp4" type="video/mp4">
+                                                <source src="<?php echo $service['hero_video']; ?>" type="video/mp4">
                                             </video>
                                         </div>
                                         <div class="col-md-7">
                                             <!-- Content -->
                                             <div class="card-body d-flex flex-column h-100 px-2 px-md-4 py-0 py-md-2">
                                                 <!-- Title -->
-                                                <h5 class="card-title">Product Design (UI/UX)</h5>
-                                                <p class="card-text">User-centric design solutions that create
-                                                    intuitive, engaging, and beautiful digital experiences for web and
-                                                    mobile.</p>
+                                                <h5 class="card-title mt-2 mt-md-0"><?php echo $service['name']; ?></h5>
+                                                <p class="card-text small"><?php echo $service['description_short']; ?></p>
 
-                                                <!-- List -->
+                                                <!-- List (Why Choose Us items) -->
                                                 <ul class="list-inline d-flex flex-wrap gap-2 mb-3">
-                                                    <li class="list-inline-item heading-color"> <i
-                                                            class="bi bi-check-circle text-success me-1"></i>UX Research
-                                                        & User Journeys</li>
-                                                    <li class="list-inline-item heading-color"> <i
-                                                            class="bi bi-check-circle text-success me-1"></i>Wireframing
-                                                        & Prototyping</li>
-                                                    <li class="list-inline-item heading-color"> <i
-                                                            class="bi bi-check-circle text-success me-1"></i>Mobile &
-                                                        Web Interfaces</li>
-                                                    <li class="list-inline-item heading-color"> <i
-                                                            class="bi bi-check-circle text-success me-1"></i>Design
-                                                        Systems</li>
-                                                </ul>
-
-                                                <!-- Button link -->
-                                                <a class="icon-link icon-link-hover stretched-link mt-auto"
-                                                    href="single_services.php">View detail<i
-                                                        class="bi bi-arrow-right"></i> </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Service item END -->
-
-                            <!-- Service item START -->
-                            <div class="col-xl-11 ms-auto">
-                                <div
-                                    class="card card-hover-shadow card-hover-transition shadow-primary-sm bg-body bg-opacity-75 bg-blur rounded-4 p-3 p-lg-4">
-                                    <div class="row g-0">
-                                        <div class="col-md-5">
-                                            <!-- Image -->
-                                            <video class="card-img mb-3 mb-md-0 rounded-4 w-100 h-100"
-                                                style="object-fit: cover;" autoplay loop muted playsinline>
-                                                <source src="assets/images/services/4by3/Branding.mp4" type="video/mp4">
-                                            </video>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <!-- Content -->
-                                            <div class="card-body d-flex flex-column h-100 px-2 px-md-4 py-0 py-md-2">
-                                                <!-- Title -->
-                                                <h5 class="card-title">Graphics & Branding</h5>
-                                                <p class="card-text">Crafting unique brand identities and visual assets
-                                                    that resonate with your audience and stand out in the market.</p>
-
-                                                <!-- List -->
-                                                <ul class="list-inline d-flex flex-wrap gap-2 mb-3">
-                                                    <li class="list-inline-item heading-color"> <i
-                                                            class="bi bi-check-circle text-success me-1"></i>Brand
-                                                        Strategy & Identity</li>
-                                                    <li class="list-inline-item heading-color"> <i
-                                                            class="bi bi-check-circle text-success me-1"></i>Logo Design
+                                                    <?php if($why_choose): foreach($why_choose as $item): ?>
+                                                    <li class="list-inline-item heading-color small"> 
+                                                        <i class="bi bi-check-circle text-success me-1"></i>
+                                                        <?php echo $item['title']; ?>
                                                     </li>
-                                                    <li class="list-inline-item heading-color"> <i
-                                                            class="bi bi-check-circle text-success me-1"></i>Marketing
-                                                        Visual Assets</li>
-                                                    <li class="list-inline-item heading-color"> <i
-                                                            class="bi bi-check-circle text-success me-1"></i>Print &
-                                                        Digital Collaterals</li>
+                                                    <?php endforeach; endif; ?>
                                                 </ul>
 
-                                                <!-- Button link -->
-                                                <a class="icon-link icon-link-hover stretched-link mt-auto"
-                                                    href="single_services.php">View detail<i
-                                                        class="bi bi-arrow-right"></i> </a>
+                                                <!-- Button links -->
+                                                <div class="d-flex justify-content-between align-items-center mt-auto">
+                                                    <a class="icon-link icon-link-hover"
+                                                        href="single_services.php?slug=<?php echo $service['slug']; ?>">View detail<i
+                                                            class="bi bi-arrow-right"></i> </a>
+                                                    <a class="icon-link icon-link-hover"
+                                                        href="main-pricing.php?service=<?php echo $service['slug']; ?>">View Pricing<i
+                                                            class="bi bi-arrow-right"></i> </a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <!-- Service item END -->
+                            <?php endforeach; ?>
 
-                            <!-- Service item START -->
-                            <div class="col-xl-11">
-                                <div
-                                    class="card card-hover-shadow card-hover-transition shadow-primary-sm bg-body bg-opacity-75 bg-blur rounded-4 p-3 p-lg-4">
-                                    <div class="row g-0">
-                                        <div class="col-md-5">
-                                            <!-- Image -->
-                                            <video class="card-img mb-3 mb-md-0 rounded-4 w-100 h-100"
-                                                style="object-fit: cover;" autoplay loop muted playsinline>
-                                                <source src="assets/images/services/4by3/Motions_Graphics.mp4"
-                                                    type="video/mp4">
-                                            </video>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <!-- Content -->
-                                            <div class="card-body d-flex flex-column h-100 px-2 px-md-4 py-0 py-md-2">
-                                                <!-- Title -->
-                                                <h5 class="card-title">Motion Graphics</h5>
-                                                <p class="card-text">Bringing your brand to life with dynamic motion
-                                                    graphics, animations, and visual effects that capture attention.
-                                                </p>
-
-                                                <!-- List -->
-                                                <ul class="list-inline d-flex flex-wrap gap-2 mb-3">
-                                                    <li class="list-inline-item heading-color"> <i
-                                                            class="bi bi-check-circle text-success me-1"></i>2D & 3D
-                                                        Animation</li>
-                                                    <li class="list-inline-item heading-color"> <i
-                                                            class="bi bi-check-circle text-success me-1"></i>Logo
-                                                        Animation & Intros</li>
-                                                    <li class="list-inline-item heading-color"> <i
-                                                            class="bi bi-check-circle text-success me-1"></i>Explainer
-                                                        Videos</li>
-                                                    <li class="list-inline-item heading-color"> <i
-                                                            class="bi bi-check-circle text-success me-1"></i>Visual
-                                                        Effects (VFX)</li>
-                                                </ul>
-
-                                                <!-- Button link -->
-                                                <a class="icon-link icon-link-hover stretched-link mt-auto"
-                                                    href="single_services.php">View detail<i
-                                                        class="bi bi-arrow-right"></i> </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Service item END -->
-
-                            <!-- Service item START -->
-                            <div class="col-xl-11 ms-auto">
-                                <div
-                                    class="card card-hover-shadow card-hover-transition card-img-scale shadow-primary-sm bg-body bg-opacity-50 bg-blur rounded-4 p-3 p-lg-4">
-                                    <div class="row g-0">
-                                        <div class="col-md-5">
-                                            <!-- Image -->
-                                            <video class="card-img mb-3 mb-md-0 rounded-4 w-100 h-100"
-                                                style="object-fit: cover;" autoplay loop muted playsinline>
-                                                <source src="assets/images/services/4by3/Software_Testing.mp4"
-                                                    type="video/mp4">
-                                            </video>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <!-- Content -->
-                                            <div class="card-body d-flex flex-column h-100 px-2 px-md-4 py-0 py-md-2">
-                                                <!-- Title -->
-                                                <h5 class="card-title">QA & Software Testing</h5>
-                                                <p class="card-text">Comprehensive testing strategies to ensure your
-                                                    software is bug-free, secure, and performs flawlessly across all
-                                                    devices.
-                                                </p>
-
-                                                <!-- List -->
-                                                <ul class="list-inline d-flex flex-wrap gap-2 mb-3">
-                                                    <li class="list-inline-item heading-color"> <i
-                                                            class="bi bi-check-circle text-success me-1"></i>Manual &
-                                                        Automation Testing</li>
-                                                    <li class="list-inline-item heading-color"> <i
-                                                            class="bi bi-check-circle text-success me-1"></i>API &
-                                                        Performance Checks</li>
-                                                    <li class="list-inline-item heading-color"> <i
-                                                            class="bi bi-check-circle text-success me-1"></i>Security
-                                                        Vulnerability</li>
-                                                    <li class="list-inline-item heading-color"> <i
-                                                            class="bi bi-check-circle text-success me-1"></i>Cross-Platform
-                                                        Testing</li>
-                                                </ul>
-
-                                                <!-- Button link -->
-                                                <a class="icon-link icon-link-hover stretched-link mt-auto"
-                                                    href="single_services.php">View detail<i
-                                                        class="bi bi-arrow-right"></i> </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Service item END -->
-
-                            <!-- Service item START -->
-                            <div class="col-xl-11">
-                                <div
-                                    class="card card-hover-shadow card-hover-transition shadow-primary-sm bg-body bg-opacity-75 bg-blur rounded-4 p-3 p-lg-4">
-                                    <div class="row g-0">
-                                        <div class="col-md-5">
-                                            <!-- Image -->
-                                            <video class="card-img mb-3 mb-md-0 rounded-4 w-100 h-100"
-                                                style="object-fit: cover;" autoplay loop muted playsinline>
-                                                <source src="assets/images/services/4by3/Web_Development.mp4"
-                                                    type="video/mp4">
-                                            </video>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <!-- Content -->
-                                            <div class="card-body d-flex flex-column h-100 px-2 px-md-4 py-0 py-md-2">
-                                                <!-- Title -->
-                                                <h5 class="card-title">Web Development</h5>
-                                                <p class="card-text">Build scalable, high-performance websites and web
-                                                    applications tailored to your specific business needs.
-                                                </p>
-
-                                                <!-- List -->
-                                                <ul class="list-inline d-flex flex-wrap gap-2 mb-3">
-                                                    <li class="list-inline-item heading-color"> <i
-                                                            class="bi bi-check-circle text-success me-1"></i>Custom
-                                                        Website Build</li>
-                                                    <li class="list-inline-item heading-color"> <i
-                                                            class="bi bi-check-circle text-success me-1"></i>Frontend
-                                                        (React/Vue)</li>
-                                                    <li class="list-inline-item heading-color"> <i
-                                                            class="bi bi-check-circle text-success me-1"></i>Backend &
-                                                        API Integration</li>
-                                                    <li class="list-inline-item heading-color"> <i
-                                                            class="bi bi-check-circle text-success me-1"></i>Performance
-                                                        Optimization</li>
-                                                </ul>
-
-                                                <!-- Button link -->
-                                                <a class="icon-link icon-link-hover stretched-link mt-auto"
-                                                    href="single_services.php">View detail<i
-                                                        class="bi bi-arrow-right"></i> </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Service item END -->
-
-                            <!-- Service item START -->
-                            <div class="col-xl-11 ms-auto">
-                                <div
-                                    class="card card-hover-shadow card-hover-transition card-img-scale shadow-primary-sm bg-body bg-opacity-50 bg-blur rounded-4 p-3 p-lg-4">
-                                    <div class="row g-0">
-                                        <div class="col-md-5">
-                                            <!-- Image -->
-                                            <video class="card-img mb-3 mb-md-0 rounded-4 w-100 h-100"
-                                                style="object-fit: cover;" autoplay loop muted playsinline>
-                                                <source src="assets/images/services/4by3/Ads_Marketing.mp4"
-                                                    type="video/mp4">
-                                            </video>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <!-- Content -->
-                                            <div class="card-body d-flex flex-column h-100 px-2 px-md-4 py-0 py-md-2">
-                                                <!-- Title -->
-                                                <h5 class="card-title">Ad Marketing Campaigns</h5>
-                                                <p class="card-text">Strategic ad campaigns designed to maximize your
-                                                    reach, engagement, and return on investment across key digital
-                                                    platforms.
-                                                </p>
-
-                                                <!-- List -->
-                                                <ul class="list-inline d-flex flex-wrap gap-2 mb-3">
-                                                    <li class="list-inline-item heading-color"> <i
-                                                            class="bi bi-check-circle text-success me-1"></i>Social
-                                                        Media Ads</li>
-                                                    <li class="list-inline-item heading-color"> <i
-                                                            class="bi bi-check-circle text-success me-1"></i>Google &
-                                                        PPC Campaigns</li>
-                                                    <li class="list-inline-item heading-color"> <i
-                                                            class="bi bi-check-circle text-success me-1"></i>Targeting &
-                                                        Retargeting</li>
-                                                    <li class="list-inline-item heading-color"> <i
-                                                            class="bi bi-check-circle text-success me-1"></i>Analytics &
-                                                        Optimization</li>
-                                                </ul>
-
-                                                <!-- Button link -->
-                                                <a class="icon-link icon-link-hover stretched-link mt-auto"
-                                                    href="single_services.php">View detail<i
-                                                        class="bi bi-arrow-right"></i> </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Service item END -->
-
-                            <!-- Service item START -->
-                            <div class="col-xl-11">
-                                <div
-                                    class="card card-hover-shadow card-hover-transition shadow-primary-sm bg-body bg-opacity-75 bg-blur rounded-4 p-3 p-lg-4">
-                                    <div class="row g-0">
-                                        <div class="col-md-5">
-                                            <!-- Image -->
-                                            <video class="card-img mb-3 mb-md-0 rounded-4 w-100 h-100"
-                                                style="object-fit: cover;" autoplay loop muted playsinline>
-                                                <source src="assets/images/services/4by3/Videos_Editing.mp4"
-                                                    type="video/mp4">
-                                            </video>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <!-- Content -->
-                                            <div class="card-body d-flex flex-column h-100 px-2 px-md-4 py-0 py-md-2">
-                                                <!-- Title -->
-                                                <h5 class="card-title">Video Editing</h5>
-                                                <p class="card-text">Professional video editing services to enhance your
-                                                    content with expertly crafted visuals, sound design, and
-                                                    storytelling.
-                                                </p>
-
-                                                <!-- List -->
-                                                <ul class="list-inline d-flex flex-wrap gap-2 mb-3">
-                                                    <li class="list-inline-item heading-color"> <i
-                                                            class="bi bi-check-circle text-success me-1"></i>Corporate &
-                                                        Promo Videos</li>
-                                                    <li class="list-inline-item heading-color"> <i
-                                                            class="bi bi-check-circle text-success me-1"></i>Color
-                                                        Grading & Correction</li>
-                                                    <li class="list-inline-item heading-color"> <i
-                                                            class="bi bi-check-circle text-success me-1"></i>Sound
-                                                        Design & Mixing</li>
-                                                    <li class="list-inline-item heading-color"> <i
-                                                            class="bi bi-check-circle text-success me-1"></i>Social
-                                                        Media Reels</li>
-                                                </ul>
-
-                                                <!-- Button link -->
-                                                <a class="icon-link icon-link-hover stretched-link mt-auto"
-                                                    href="single_services.php">View detail<i
-                                                        class="bi bi-arrow-right"></i> </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Service item END -->
 
                         </div>
                     </div>

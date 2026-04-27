@@ -1,0 +1,98 @@
+// Custom styles
+// Add your custom styles here
+
+body {
+  font-family: var(--bs-body-font-family);
+}
+
+// Override Primary Button Hover Color
+.btn-primary {
+  --bs-btn-hover-bg: #F48C06;
+  --bs-btn-active-bg: #F48C06; // Also update active state to match
+  --bs-btn-hover-border-color: #F48C06; // Ensure border matches
+}
+
+// =============================================
+// Clean Hamburger Navbar Toggler
+// =============================================
+.navbar-toggler.weburea-toggler {
+  align-items: center !important;
+  justify-content: center !important;
+  width: 42px !important;
+  height: 42px !important;
+  padding: 0 !important;
+  border: 1.5px solid rgba(var(--bs-primary-rgb), 0.4) !important;
+  border-radius: 10px !important;
+  background: rgba(var(--bs-primary-rgb), 0.08) !important;
+  transition: all 0.3s ease;
+  box-shadow: none !important;
+  outline: none !important;
+
+  // Only show on mobile (below xl breakpoint)
+  @media (max-width: 1199.98px) {
+    display: flex !important;
+  }
+
+  // Explicitly hide on xl+ (desktop)
+  @media (min-width: 1200px) {
+    display: none !important;
+  }
+
+  &:hover {
+    background: rgba(var(--bs-primary-rgb), 0.16) !important;
+    border-color: rgba(var(--bs-primary-rgb), 0.7) !important;
+  }
+
+  .weburea-toggler-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 5px;
+    width: 20px;
+    height: 18px;
+    position: relative;
+
+    > span {
+      display: block !important;
+      height: 2px !important;
+      border-radius: 2px !important;
+      background-color: var(--bs-primary) !important;
+      transition: all 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
+      transform-origin: center;
+
+      &:nth-child(1) { width: 20px; }
+      &:nth-child(2) { width: 13px; }
+      &:nth-child(3) { width: 20px; }
+    }
+  }
+
+  &[aria-expanded="true"] {
+    background: rgba(var(--bs-primary-rgb), 0.14) !important;
+    border-color: var(--bs-primary) !important;
+
+    .weburea-toggler-icon > span {
+      &:nth-child(1) {
+        width: 20px;
+        transform: translateY(7px) rotate(45deg);
+      }
+      &:nth-child(2) {
+        opacity: 0;
+        width: 0;
+      }
+      &:nth-child(3) {
+        width: 20px;
+        transform: translateY(-7px) rotate(-45deg);
+      }
+    }
+  }
+}
+
+// =============================================
+// Portfolio Picture Grid Alignment
+// =============================================
+.portfolio-img-cover {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}

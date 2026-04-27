@@ -1,3 +1,14 @@
+<?php
+require_once('db.php');
+$footer_cols = ['footer_col_1' => [], 'footer_col_2' => [], 'footer_col_3' => [], 'footer_social' => []];
+try {
+    $stmtFooter = $pdo->query("SELECT * FROM site_components WHERE component_type LIKE 'footer_%' AND status = 'active' ORDER BY sort_order ASC, id ASC");
+    $footer_items = $stmtFooter->fetchAll(PDO::FETCH_ASSOC);
+    foreach($footer_items as $item) {
+        $footer_cols[$item['component_type']][] = $item;
+    }
+} catch (Exception $e) {}
+?>
 <footer class="bg-dark position-relative pt-6 pt-lg-8" data-bs-theme="dark">
 
     <!-- Shape decoration -->
@@ -34,17 +45,18 @@
                     <div class="col-sm-6 col-md-4">
                         <h6 class="mb-0">Company</h6>
                         <hr class="opacity-1 my-md-4"> <!-- Divider -->
-                        <!-- Links -->
                         <ul class="nav flex-column gap-1">
-                            <li class="nav-item"><a class="nav-link pt-0" href="about-v1.html">About us</a></li>
-                            <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact us</a></li>
-                            <li class="nav-item"><a class="nav-link" href="career.html">Career <span
-                                        class="badge text-bg-success ms-2">We are hiring!</span></a></li>
-                            <li class="nav-item"><a class="nav-link" href="career-single.html">Career detail</a>
+                            <?php foreach($footer_cols['footer_col_1'] as $item): ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?php echo htmlspecialchars($item['url']); ?>">
+                                    <?php if($item['icon']): ?><i class="<?php echo htmlspecialchars($item['icon']); ?> me-2"></i><?php endif; ?>
+                                    <?php echo htmlspecialchars($item['label']); ?>
+                                    <?php if($item['badge_text']): ?>
+                                        <span class="badge <?php echo htmlspecialchars($item['badge_class']); ?> ms-2"><?php echo htmlspecialchars($item['badge_text']); ?></span>
+                                    <?php endif; ?>
+                                </a>
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="contact-us-v2.html">Become a partner</a>
-                            </li>
-                            <li class="nav-item"><a class="nav-link" href="service-v1.html">Services</a></li>
+                            <?php endforeach; ?>
                         </ul>
                     </div>
 
@@ -52,15 +64,18 @@
                     <div class="col-sm-6 col-md-4">
                         <h6 class="mb-0">Resources</h6>
                         <hr class="opacity-1 my-md-4"> <!-- Divider -->
-                        <!-- Links -->
                         <ul class="nav flex-column gap-1">
-                            <li class="nav-item"><a class="nav-link pt-0" href="portfolio-case-study-v1.html">Case
-                                    studies</a></li>
-                            <li class="nav-item"><a class="nav-link" href="pricing-v1.html">Pricing</a></li>
-                            <li class="nav-item"><a class="nav-link" href="blog-minimal.html">Blogs</a></li>
-                            <li class="nav-item"><a class="nav-link" href="blog-single.html">Blog detail</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Success stories<i
-                                        class="bi bi-box-arrow-up-right small ms-2"></i></a></li>
+                            <?php foreach($footer_cols['footer_col_2'] as $item): ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?php echo htmlspecialchars($item['url']); ?>">
+                                    <?php if($item['icon']): ?><i class="<?php echo htmlspecialchars($item['icon']); ?> me-2"></i><?php endif; ?>
+                                    <?php echo htmlspecialchars($item['label']); ?>
+                                    <?php if($item['badge_text']): ?>
+                                        <span class="badge <?php echo htmlspecialchars($item['badge_class']); ?> ms-2"><?php echo htmlspecialchars($item['badge_text']); ?></span>
+                                    <?php endif; ?>
+                                </a>
+                            </li>
+                            <?php endforeach; ?>
                         </ul>
                     </div>
 
@@ -68,19 +83,18 @@
                     <div class="col-sm-6 col-md-4">
                         <h6 class="mb-0">Community</h6>
                         <hr class="opacity-1 my-md-4"> <!-- Divider -->
-                        <!-- Links -->
                         <ul class="nav flex-column gap-1">
-                            <li class="nav-item"><a class="nav-link pt-0" href="#"><i
-                                        class="bi bi-file-earmark-text me-2"></i>Documentation</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#"><i
-                                        class="bi bi-bullseye me-2"></i>Changelog <span
-                                        class="badge text-bg-primary ms-2">v2.0.0</span></a></li>
-                            <li class="nav-item"><a class="nav-link" href="#"><i
-                                        class="bi bi-chat-left me-2"></i>Supports</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#"><i
-                                        class="bi bi-send me-2"></i>Newsletter</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#"><i
-                                        class="bi bi-life-preserver me-2"></i>Help center</a></li>
+                            <?php foreach($footer_cols['footer_col_3'] as $item): ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?php echo htmlspecialchars($item['url']); ?>">
+                                    <?php if($item['icon']): ?><i class="<?php echo htmlspecialchars($item['icon']); ?> me-2"></i><?php endif; ?>
+                                    <?php echo htmlspecialchars($item['label']); ?>
+                                    <?php if($item['badge_text']): ?>
+                                        <span class="badge <?php echo htmlspecialchars($item['badge_class']); ?> ms-2"><?php echo htmlspecialchars($item['badge_text']); ?></span>
+                                    <?php endif; ?>
+                                </a>
+                            </li>
+                            <?php endforeach; ?>
                         </ul>
                     </div>
                 </div>
@@ -112,20 +126,19 @@
         <!-- Bottom footer -->
         <div class="d-md-flex justify-content-between align-items-center text-center text-lg-start py-4">
             <!-- copyright text -->
-            <div class="text-body small mb-3 mb-md-0"> Copyrights ©2025 Folio. Build by <a href="#" target="_blank"
-                    class="text-body text-primary-hover hover-underline-animation">StackBros</a>. </div>
+            <div class="text-body small mb-3 mb-md-0"> Copyrights ©2025 Weburea. Build by <a href="#" target="_blank"
+                    class="text-body text-primary-hover hover-underline-animation">Weburea Team</a>. </div>
             <!-- copyright links-->
 
             <!-- Social link -->
             <ul class="list-inline mb-0">
-                <li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-secondary" href="#"><i
-                            class="bi bi-facebook lh-base"></i></a> </li>
-                <li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-secondary" href="#"><i
-                            class="bi bi-instagram lh-base"></i></a> </li>
-                <li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-secondary" href="#"><i
-                            class="bi bi-twitter-x lh-base"></i></a> </li>
-                <li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-secondary" href="#"><i
-                            class="bi bi-linkedin lh-base"></i></a> </li>
+                <?php foreach($footer_cols['footer_social'] as $social): ?>
+                <li class="list-inline-item"> 
+                    <a class="btn btn-xs btn-icon btn-secondary" href="<?php echo htmlspecialchars($social['url']); ?>" <?php if(strpos($social['url'], '#') !== 0) echo 'target="_blank"'; ?>>
+                        <i class="<?php echo htmlspecialchars($social['icon']); ?> lh-base"></i>
+                    </a> 
+                </li>
+                <?php endforeach; ?>
             </ul>
         </div>
     </div>

@@ -1,0 +1,23 @@
+{
+  "name": "weburea_agency",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "sass assets/scss/main.scss assets/css/main.css",
+    "watch": "sass --watch assets/scss/main.scss assets/css/main.css",
+    "dev": "browser-sync start --proxy \"localhost/Weburea_Agency\" --files \"**/*.php, assets/css/*.css, assets/js/*.js\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.8",
+    "sass": "^1.97.3"
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.4"
+  }
+}

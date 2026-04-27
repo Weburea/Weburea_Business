@@ -241,3 +241,61 @@ Job listing START -->
 </section>
 <!-- =======================
 Job listing END -->
+
+
+
+<!-- Pricing item START -->
+<div class="col-xl-10 mx-auto">
+    <div class="card card-hover-shadow card-hover-transition bg-primary-grad rounded-4 p-4 p-sm-5" data-bs-theme="dark">
+        <div class="row g-4 g-md-0">
+            <div class="col-md-6">
+                <!-- Icon image -->
+                <div class="icon-xl bg-dark rounded-circle mb-4">
+                    <img src="assets/images/elements/thunder.png" class="h-40px" alt="rocket image">
+                </div>
+                <p class="lead heading-color fw-semibold mb-2">Enterprise plan</p>
+                <!-- Pricing text -->
+                <p class="h1 heading-color mb-2">Custom</p>
+                <p class="mb-0">For businesses with unique requirements, our Custom Plan delivers a
+                    fully personalized experience.</p>
+            </div>
+
+            <div class="col-md-5 ms-auto">
+                <!-- Content -->
+                <div class="card-body d-flex flex-column h-100 p-0">
+                    <span class="fw-semibold mb-1 mb-md-3">Quick look at all the features</span>
+                    <!-- Feature list -->
+                    <ul class="list-group list-group-borderless mb-3">
+                        <li class="list-group-item d-flex heading-color mb-0"><i
+                                class="bi bi-check-lg text-success me-1"></i>Unlimited projects</li>
+                        <li class="list-group-item d-flex heading-color mb-0"><i
+                                class="bi bi-check-lg text-success me-1"></i>Custom reporting and
+                            analytics</li>
+                        <li class="list-group-item d-flex heading-color mb-0"><i
+                                class="bi bi-check-lg text-success me-1"></i>Dedicated account
+                            manager</li>
+                        <li class="list-group-item d-flex heading-color mb-0"><i
+                                class="bi bi-check-lg text-success me-1"></i>Tailored support and
+                            consulting</li>
+                        <li class="list-group-item d-flex heading-color mb-0"><i
+                                class="bi bi-check-lg text-success me-1"></i>Personalized onboarding
+                            and training</li>
+                    </ul>
+                    <!-- Button -->
+                    <a class="btn btn-white icon-link icon-link-hover justify-content-center mb-0" href="#">Contact us<i
+                            class="bi bi-arrow-right"></i> </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Pricing item END -->
+
+
+<!-- Skew decoration -->
+<span class="position-absolute bottom-0 start-0">
+    <svg class="text-dark" width="1920" height="73" viewBox="0 0 1920 73" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0L1920 61.5V73H0V0Z" fill="currentColor"></path>
+    </svg>
+</span>

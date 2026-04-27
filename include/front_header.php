@@ -1,4 +1,28 @@
-<header class="header-sticky header-absolute">
+<?php
+require_once('db.php');
+// Fetch active services for the dropdown
+try {
+    $stmt = $pdo->query("SELECT name, slug, description_short FROM services WHERE status = 'active' ORDER BY id ASC");
+    $header_services = $stmt->fetchAll();
+
+    // Fetch dynamic header components
+    $stmtNav = $pdo->query("SELECT * FROM site_components WHERE component_type = 'header_nav' AND status = 'active' ORDER BY sort_order ASC, id ASC");
+    $header_navs = $stmtNav->fetchAll(PDO::FETCH_ASSOC);
+
+    // Fetch global media assets (like services cta)
+    $stmtMedia = $pdo->query("SELECT label, image FROM site_components WHERE component_type = 'global_media' AND status = 'active'");
+    $global_media = $stmtMedia->fetchAll(PDO::FETCH_KEY_PAIR); // label as key, image as value
+    
+    // Alternative: fetch by special_type for more precision
+    $stmtCta = $pdo->query("SELECT image FROM site_components WHERE special_type = 'services_cta' AND status = 'active' LIMIT 1");
+    $services_cta_img = $stmtCta->fetchColumn();
+} catch (Exception $e) {
+    $header_services = [];
+    $header_navs = [];
+    $services_cta_img = 'assets/images/elements/nav-cta.jpg';
+}
+?>
+<header class="header-sticky header-absolute" <?php if(isset($header_theme)) echo 'data-bs-theme="' . htmlspecialchars($header_theme) . '"'; ?>>
     <!-- Logo Nav START -->
     <nav class="navbar navbar-expand-xl">
         <div class="container">
@@ -12,222 +36,107 @@
             <!-- Main navbar START -->
             <div class="navbar-collapse collapse" id="navbarCollapse">
                 <ul class="navbar-nav navbar-nav-scroll dropdown-hover mx-auto">
+                    <?php 
+                    $current_page = basename($_SERVER['PHP_SELF']);
+                    if (!empty($header_navs)): 
+                        foreach($header_navs as $nav): 
+                            // Determine if this nav item is active
+                            $is_active = false;
+                            $nav_url = $nav['url'];
+                            
+                            if ($nav['special_type'] == 'services_dropdown') {
+                                // Services is active if on all_services or single_services
+                                if ($current_page == 'all_services.php' || $current_page == 'single_services.php') {
+                                    $is_active = true;
+                                }
+                            } else {
+                                if ($current_page == $nav_url) {
+                                    $is_active = true;
+                                }
+                            }
+                            
+                            $active_class = $is_active ? 'active' : '';
+                            
+                            if ($nav['special_type'] == 'services_dropdown'): 
+                    ?>
+                                <!-- Services Megamenu START -->
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle <?php echo $active_class; ?>" href="#" data-bs-auto-close="outside"
+                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo htmlspecialchars($nav['label']); ?></a>
 
-                    <!-- Nav item -->
-                    <li class="nav-item"> <a class="nav-link" href="work.php">Work</a> </li>
-
-                    <!-- Nav item -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" data-bs-auto-close="outside"
-                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services</a>
-
-                        <div class="dropdown-menu dropdown-menu-size-xl dropdown-menu-center p-xl-3">
-                            <div class="row row-cols-1 row-cols-md-2 pt-2">
-
-                                <!-- All Services -->
-                                <div class="col">
-                                    <div
-                                        class="dropdown-item bg-secondary-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
-                                        <div class="d-flex">
-                                            <!-- Icon -->
-                                            <div
-                                                class="icon-md bg-primary bg-opacity-15 text-primary rounded flex-shrink-0">
-                                                <i class="bi bi-grid-fill fs-6"></i>
+                                    <div class="dropdown-menu dropdown-menu-size-xl dropdown-menu-center p-xl-3">
+                                        <div class="row row-cols-1 row-cols-md-2 pt-2">
+                                            <!-- All Services -->
+                                            <div class="col">
+                                                <div class="dropdown-item bg-secondary-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
+                                                    <div class="d-flex">
+                                                        <div class="icon-md bg-primary bg-opacity-15 text-primary rounded flex-shrink-0">
+                                                            <i class="bi bi-grid-fill fs-6"></i>
+                                                        </div>
+                                                        <div class="mx-3">
+                                                            <p class="stretched-link heading-color fw-bold mb-0">
+                                                                <a href="all_services.php">All Services</a>
+                                                            </p>
+                                                            <p class="mb-0 text-body small">Explore our full range of creative and tech solutions.</p>
+                                                        </div>
+                                                    </div>
+                                                    <a class="icon-link icon-link-hover text-primary-hover stretched-link" href="all_services.php"><i class="bi bi-chevron-right"></i></a>
+                                                </div>
                                             </div>
 
-                                            <!-- Content -->
-                                            <div class="mx-3">
-                                                <p class="stretched-link heading-color fw-bold mb-0">
-                                                    <a href="all_services.php">All Services</a>
-                                                </p>
-                                                <p class="mb-0 text-body small">Explore our full range of creative and
-                                                    tech solutions.</p>
+                                            <?php 
+                                            $icons = [
+                                                'bi-pencil-square text-success',
+                                                'bi-palette text-pink',
+                                                'bi-camera-reels text-warning',
+                                                'bi-bug text-info',
+                                                'bi-code-slash text-purple',
+                                                'bi-megaphone text-info',
+                                                'bi-film text-danger'
+                                            ];
+                                            $i = 0;
+                                            foreach($header_services as $hs): 
+                                                $icon_class = $icons[$i % count($icons)];
+                                                $i++;
+                                            ?>
+                                            <!-- Dynamic Service Item -->
+                                            <div class="col">
+                                                <div class="dropdown-item bg-secondary-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
+                                                    <div class="d-flex">
+                                                        <div class="icon-md bg-opacity-15 rounded flex-shrink-0">
+                                                            <i class="bi <?php echo $icon_class; ?> fs-6"></i>
+                                                        </div>
+                                                        <div class="mx-3">
+                                                            <p class="stretched-link heading-color fw-bold mb-0">
+                                                                <a href="single_services.php?slug=<?php echo $hs['slug']; ?>"><?php echo $hs['name']; ?></a>
+                                                            </p>
+                                                            <p class="mb-0 text-body small">
+                                                                <?php 
+                                                                    $words = explode(' ', $hs['description_short']);
+                                                                    echo implode(' ', array_slice($words, 0, 8)) . (count($words) > 8 ? '...' : '');
+                                                                ?>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <a class="icon-link icon-link-hover text-primary-hover stretched-link"
+                                                        href="single_services.php?slug=<?php echo $hs['slug']; ?>"><i class="bi bi-chevron-right"></i></a>
+                                                </div>
                                             </div>
+                                            <?php endforeach; ?>
                                         </div>
 
-                                        <!-- Button -->
-                                        <a class="icon-link icon-link-hover text-primary-hover stretched-link"
-                                            href="all_services.php"><i class="bi bi-chevron-right"></i></a>
-                                    </div>
-                                </div>
-
-                                <!-- Product Design -->
-                                <div class="col">
-                                    <div
-                                        class="dropdown-item bg-secondary-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
-                                        <div class="d-flex">
-                                            <div
-                                                class="icon-md bg-success bg-opacity-15 text-success rounded flex-shrink-0">
-                                                <i class="bi bi-pencil-square fs-6"></i>
-                                            </div>
-                                            <div class="mx-3">
-                                                <p class="stretched-link heading-color fw-bold mb-0">
-                                                    <a href="single_services.php">Product Design (UI/UX)</a>
-                                                </p>
-                                                <p class="mb-0 text-body small">Modern UI/UX design for websites &
-                                                    digital products.</p>
-                                            </div>
+                                        <!-- CTA Background -->
+                                        <div class="h-200px position-relative mt-3"
+                                            style="background:url(<?php echo !empty($services_cta_img) ? $services_cta_img : 'assets/images/elements/nav-cta.jpg'; ?>) no-repeat; background-size:cover; background-position:center;">
+                                            <div class="bg-overlay bg-dark bg-opacity-10"></div>
                                         </div>
-                                        <a class="icon-link icon-link-hover text-primary-hover stretched-link"
-                                            href="single_services.php"><i class="bi bi-chevron-right"></i></a>
                                     </div>
-                                </div>
-
-                                <!-- Graphics & Branding -->
-                                <div class="col">
-                                    <div
-                                        class="dropdown-item bg-secondary-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
-                                        <div class="d-flex">
-                                            <div class="icon-md bg-pink bg-opacity-15 text-pink rounded flex-shrink-0">
-                                                <i class="bi bi-palette fs-6"></i>
-                                            </div>
-                                            <div class="mx-3">
-                                                <p class="stretched-link heading-color fw-bold mb-0">
-                                                    <a href="single_services.php">Graphics & Branding</a>
-                                                </p>
-                                                <p class="mb-0 text-body small">Brand identity, design systems, and
-                                                    creative assets.</p>
-                                            </div>
-                                        </div>
-                                        <a class="icon-link icon-link-hover text-primary-hover stretched-link"
-                                            href="single_services.php"><i class="bi bi-chevron-right"></i></a>
-                                    </div>
-                                </div>
-
-                                <!-- Motion Graphics -->
-                                <div class="col">
-                                    <div
-                                        class="dropdown-item bg-secondary-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
-                                        <div class="d-flex">
-                                            <div
-                                                class="icon-md bg-warning bg-opacity-15 text-warning rounded flex-shrink-0">
-                                                <i class="bi bi-camera-reels fs-6"></i>
-                                            </div>
-                                            <div class="mx-3">
-                                                <p class="stretched-link heading-color fw-bold mb-0">
-                                                    <a href="single_services.php">Motion Graphics</a>
-                                                </p>
-                                                <p class="mb-0 text-body small">High-impact animations & motion visuals.
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <a class="icon-link icon-link-hover text-primary-hover stretched-link"
-                                            href="single_services.php"><i class="bi bi-chevron-right"></i></a>
-                                    </div>
-                                </div>
-
-                                <!-- QA & Testing -->
-                                <div class="col">
-                                    <div
-                                        class="dropdown-item bg-secondary-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
-                                        <div class="d-flex">
-                                            <div class="icon-md bg-info bg-opacity-15 text-info rounded flex-shrink-0">
-                                                <i class="bi bi-bug fs-6"></i>
-                                            </div>
-                                            <div class="mx-3">
-                                                <p class="stretched-link heading-color fw-bold mb-0">
-                                                    <a href="single_services.php">QA & Software Testing</a>
-                                                </p>
-                                                <p class="mb-0 text-body small">Manual & automated testing for flawless
-                                                    products.</p>
-                                            </div>
-                                        </div>
-                                        <a class="icon-link icon-link-hover text-primary-hover stretched-link"
-                                            href="single_services.php"><i class="bi bi-chevron-right"></i></a>
-                                    </div>
-                                </div>
-
-                                <!-- Web Development -->
-                                <div class="col">
-                                    <div
-                                        class="dropdown-item bg-secondary-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
-                                        <div class="d-flex">
-                                            <div
-                                                class="icon-md bg-purple bg-opacity-15 text-purple rounded flex-shrink-0">
-                                                <i class="bi bi-code-slash fs-6"></i>
-                                            </div>
-                                            <div class="mx-3">
-                                                <p class="stretched-link heading-color fw-bold mb-0">
-                                                    <a href="single_services.php">Web Development</a>
-                                                </p>
-                                                <p class="mb-0 text-body small">Full-stack development for scalable
-                                                    digital solutions.</p>
-                                            </div>
-                                        </div>
-                                        <a class="icon-link icon-link-hover text-primary-hover stretched-link"
-                                            href="single_services.php"><i class="bi bi-chevron-right"></i></a>
-                                    </div>
-                                </div>
-
-                                <!-- Social Media Management -->
-                                <div class="col">
-                                    <div
-                                        class="dropdown-item bg-secondary-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
-                                        <div class="d-flex">
-                                            <div class="icon-md bg-info bg-opacity-15  rounded flex-shrink-0">
-                                                <i class="bi bi-megaphone fs-6"></i>
-                                            </div>
-                                            <div class="mx-3">
-                                                <p class="stretched-link heading-color fw-bold mb-0">
-                                                    <a href="single_services.php">Ad Marketing Campaigns</a>
-                                                </p>
-                                                <p class="mb-0 text-body small">Content creation & audience-building
-                                                    strategies.</p>
-                                            </div>
-                                        </div>
-                                        <a class="icon-link icon-link-hover text-primary-hover stretched-link"
-                                            href="single_services.php"><i class="bi bi-chevron-right"></i></a>
-                                    </div>
-                                </div>
-
-                                <!-- Video Editing -->
-                                <div class="col">
-                                    <div
-                                        class="dropdown-item bg-secondary-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
-                                        <div class="d-flex">
-                                            <div
-                                                class="icon-md bg-danger bg-opacity-15 text-danger rounded flex-shrink-0">
-                                                <i class="bi bi-film fs-6"></i>
-                                            </div>
-                                            <div class="mx-3">
-                                                <p class="stretched-link heading-color fw-bold mb-0">
-                                                    <a href="single_services.php">Video Editing</a>
-                                                </p>
-                                                <p class="mb-0 text-body small">Cinematic editing for ads, reels &
-                                                    promos.</p>
-                                            </div>
-                                        </div>
-                                        <a class="icon-link icon-link-hover text-primary-hover stretched-link"
-                                            href="video_editing.php"><i class="bi bi-chevron-right"></i></a>
-                                    </div>
-                                </div>
-
-
-                            </div>
-
-                            <!-- CTA Background -->
-                            <div class="h-200px position-relative mt-3"
-                                style="background:url(assets/images/elements/nav-cta.jpg) no-repeat; background-size:cover; background-position:center;">
-                                <div class="bg-overlay bg-dark bg-opacity-10"></div>
-                            </div>
-                        </div>
-                    </li>
-
-
-                    <!-- Nav item -->
-                    <li class="nav-item"> <a class="nav-link" href="benefits.php">Benefits</a> </li>
-
-                    <!-- Nav item -->
-                    <li class="nav-item"> <a class="nav-link" href="pricing.php">Pricing</a> </li>
-
-                    <!-- Nav item -->
-                    <li class="nav-item"> <a class="nav-link" href="team.php">Team</a> </li>
-
-                    <!-- Nav item -->
-                    <li class="nav-item"> <a class="nav-link" href="blog.php">Blog</a> </li>
-
-                    <!-- Nav item -->
-                    <li class="nav-item"> <a class="nav-link" href="contact-us-v1.html">Contact us</a> </li>
+                                </li>
+                            <?php else: ?>
+                                <li class="nav-item"> <a class="nav-link <?php echo $active_class; ?>" href="<?php echo htmlspecialchars($nav['url']); ?>"><?php echo htmlspecialchars($nav['label']); ?></a> </li>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                 </ul>
             </div>
             <!-- Main navbar END -->
@@ -290,26 +199,13 @@
                 </li>
                 <!-- Responsive navbar toggler -->
                 <li class="nav-item">
-                    <button class="navbar-toggler ms-sm-3 p-2 p-2   align-items-center justify-content-center"
+                    <button class="navbar-toggler weburea-toggler ms-sm-3"
                         type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                         aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                        <span
-                            class="navbar-toggler-animation d-flex justify-content-center border-color-white border-2">
-                            <svg class="bg-warning text-white bg-opacity-10" width="26" height="26" viewBox="0 0 24 24"
-                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M12.75 4C12.75 3.0335 13.5335 2.25 14.5 2.25H20C20.9665 2.25 21.75 3.0335 21.75 4V9.5C21.75 10.4665 20.9665 11.25 20 11.25H14.5C13.5335 11.25 12.75 10.4665 12.75 9.5V4Z"
-                                    fill="#dc7712ff" fill-opacity="0.18"></path>
-                                <path
-                                    d="M12.75 14.5C12.75 13.5335 13.5335 12.75 14.5 12.75H20C20.9665 12.75 21.75 13.5335 21.75 14.5V20C21.75 20.9665 20.9665 21.75 20 21.75H14.5C13.5335 21.75 12.75 20.9665 12.75 20V14.5Z"
-                                    fill="#dc7712ff"></path>
-                                <path
-                                    d="M2.25 4C2.25 3.0335 3.0335 2.25 4 2.25H9.5C10.4665 2.25 11.25 3.0335 11.25 4V9.5C11.25 10.4665 10.4665 11.25 9.5 11.25H4C3.0335 11.25 2.25 10.4665 2.25 9.5V4Z"
-                                    fill="#dc7712ff" fill-opacity="0.18"></path>
-                                <path
-                                    d="M2.25 14.5C2.25 13.5335 3.0335 12.75 4 12.75H9.5C10.4665 12.75 11.25 13.5335 11.25 14.5V20C11.25 20.9665 10.4665 21.75 9.5 21.75H4C3.0335 21.75 2.25 20.9665 2.25 20V14.5Z"
-                                    fill="#dc7712ff" fill-opacity="0.18"></path>
-                            </svg>
+                        <span class="weburea-toggler-icon">
+                            <span></span>
+                            <span></span>
+                            <span></span>
                         </span>
                     </button>
                 </li>

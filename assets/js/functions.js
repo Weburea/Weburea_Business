@@ -443,14 +443,20 @@ var e = {
           type.forEach(el => {
               var strings = el.getAttribute('data-type-text');
               var split_strings = strings.split("&&");
-              var typespeed = el.getAttribute('data-speed') ? el.getAttribute('data-speed') : 200;
-              var typeBackSpeed = el.getAttribute('data-back-speed') ? el.getAttribute('data-back-speed') : 50;
+              var typespeed = el.getAttribute('data-speed') ? parseInt(el.getAttribute('data-speed')) : 200;
+              var typeBackSpeed = el.getAttribute('data-back-speed') ? parseInt(el.getAttribute('data-back-speed')) : 50;
+              var typeStartDelay = el.getAttribute('data-start-delay') ? parseInt(el.getAttribute('data-start-delay')) : 500;
+              var typeBackDelay = el.getAttribute('data-back-delay') ? parseInt(el.getAttribute('data-back-delay')) : 1500;
+              var typeLoop = el.getAttribute('data-loop') ? el.getAttribute('data-loop') === 'true' : true;
 
               ityped.init(el, {
                   strings: split_strings,
                   showCursor: true,
                   typeSpeed: typespeed,
-                  backSpeed: typeBackSpeed
+                  backSpeed: typeBackSpeed,
+                  startDelay: typeStartDelay,
+                  backDelay: typeBackDelay,
+                  loop: typeLoop
               });
           });
       }

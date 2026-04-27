@@ -1,9 +1,39 @@
+<?php
+require_once('include/db.php');
+
+// Get slug from URL
+$slug = isset($_GET['slug']) ? $_GET['slug'] : '';
+
+if (empty($slug)) {
+    header("Location: all_services.php");
+    exit();
+}
+
+try {
+    $stmt = $pdo->prepare("SELECT * FROM services WHERE slug = ? AND status = 'active' LIMIT 1");
+    $stmt->execute([$slug]);
+    $service = $stmt->fetch();
+
+    if (!$service) {
+        header("Location: all_services.php");
+        exit();
+    }
+
+    // Decode JSON fields
+    $why_choose = json_decode($service['why_choose_json'], true) ?: [];
+    $ecosystem = json_decode($service['ecosystem_json'], true) ?: [];
+    $tools = json_decode($service['tools_json'] ?? '[]', true) ?: [];
+
+} catch (Exception $e) {
+    die("Error fetching service: " . $e->getMessage());
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
-    <title>Weburea Agency - Professional Digital Solutions</title>
+    <title><?php echo $service['name']; ?> — Weburea Agency</title>
 
     <!-- Meta Tags -->
     <meta charset="utf-8">
@@ -32,7 +62,40 @@
     <link rel="stylesheet" type="text/css" href="assets/vendor/swiper/swiper-bundle.min.css">
 
     <!-- Theme CSS -->
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+
+    <style>
+        /* Responsive hero container to fix mobile spacing */
+        .hero-sticky-container {
+            height: 150vh;
+            margin-bottom: 450px;
+        }
+
+        .transition-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 1rem 3rem rgba(0,0,0,.125) !important;
+        }
+
+        .transition-hover {
+            transition: all 0.3s ease-in-out;
+        }
+
+        @media (max-width: 575.98px) {
+            .hero-sticky-container {
+                height: auto !important;
+                margin-bottom: 30px !important;
+            }
+        }
+
+        .icon-fallback {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            line-height: 1;
+        }
+    </style>
 
 </head>
 
@@ -61,25 +124,27 @@ Content START -->
             </div>
 
             <!-- Main hero -->
-            <div class="container position-relative" data-sticky-container style="height: 150vh; margin-bottom: 200px;">
+            <div class="container position-relative hero-sticky-container" data-sticky-container>
                 <div class="row">
                     <!-- Title and contents -->
                     <div class="col-md-5">
                         <!-- Breadcrumb -->
                         <nav class="mb-2" aria-label="breadcrumb">
                             <ol class="breadcrumb pt-0">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                <li class="breadcrumb-item"><a href="#">services</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">service detail</li>
+                                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                                <li class="breadcrumb-item"><a href="all_services.php">services</a></li>
+                                <li class="breadcrumb-item active" aria-current="page"><?php echo $service['name']; ?></li>
                             </ol>
                         </nav>
 
                         <!-- Title -->
-                        <h1 class="display-5 mb-5">Web design and development</h1>
+                        <h1 class="display-5 mb-5"><?php echo $service['name']; ?></h1>
 
-                        <!-- Button -->
-                        <a class="btn btn-dark icon-link icon-link-hover" href="#">Start a project<i
-                                class="bi bi-arrow-right"></i> </a>
+                        <!-- Buttons -->
+                        <div class="d-flex gap-3">
+                            <a class="btn btn-dark icon-link icon-link-hover" href="main-pricing.php?service=<?php echo $service['slug']; ?>">View Pricing<i
+                                    class="bi bi-arrow-right"></i> </a>
+                        </div>
 
 
                     </div>
@@ -89,7 +154,7 @@ Content START -->
                         <div id="sticky-video-container" data-sticky data-margin-top="100" data-sticky-for="576">
                             <video id="dynamic-video" class="rounded-4 h-400px h-lg-500px w-100"
                                 style="object-fit: cover;" autoplay loop muted playsinline>
-                                <source src="assets/images/services/4by3/Web_Development_page_button.mp4"
+                                <source src="<?php echo $service['hero_video']; ?>"
                                     type="video/mp4">
                             </video>
                         </div>
@@ -105,17 +170,11 @@ Content END -->
             <div class="container">
                 <div class="row">
                     <div class="col-lg-10 mx-auto">
-                        <div id="overview-text" class="mt-5 mt-md-9">
-                            <h5>Overview</h5>
-                            <p>A brief introduction to your web development services. This can be a few sentences
-                                summarizing what you do and the unique value you bring to clients.</p>
-                            <p>At Weburea, we specialize in creating custom web solutions that drive business growth.
-                                Our
-                                expert team delivers cutting-edge websites tailored to meet your unique needs. Highlight
-                                the main benefits of your web development services. This helps visitors quickly
-                                understand why they should choose you over competitors.</p>
-                            <p>Highlight the main benefits of your web development services. This helps visitors quickly
-                                understand why they should choose you over competitors.</p>
+                        <div id="overview-text" class="mt-4 mt-md-9 border-start border-primary border-3 ps-4 ps-md-5">
+                            <span class="badge text-bg-primary mb-3"><?php echo $service['overview_badge']; ?></span>
+                            <h2 class="mb-4"><?php echo $service['overview_title']; ?></h2>
+                            <p class="lead"><?php echo $service['overview_lead']; ?></p>
+                            <div><?php echo $service['overview_text']; ?></div>
                         </div>
                     </div>
                 </div>
@@ -131,37 +190,36 @@ Detail START -->
                 <h5 class="mb-4">Why choose Weburea?</h5>
 
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-xl-4 g-4">
+                    <?php 
+                    $available_3d_icons = [
+                        'assets/images/services/3d-icon/consulting.png',
+                        'assets/images/services/3d-icon/app-dev.png',
+                        'assets/images/services/3d-icon/development.png',
+                        'assets/images/services/3d-icon/marketing.png',
+                        'assets/images/services/3d-icon/brand.png',
+                        'assets/images/services/3d-icon/database.png'
+                    ];
+                    $i = 0;
+                    foreach($why_choose as $wc): 
+                        $icon_class = isset($wc['icon']) ? trim($wc['icon']) : '';
+                        $is_bootstrap = (strpos($icon_class, 'bi-') === 0);
+                        $icon_image = (!$is_bootstrap && !empty($icon_class)) ? $icon_class : $available_3d_icons[$i % count($available_3d_icons)];
+                        $i++;
+                    ?>
                     <div class="col">
-                        <div class="card card-body h-100 rounded-3 p-4">
-                            <h6 class="mb-3">Strategy-First Design</h6>
-                            <p class="mb-0">We don't just make things look good; we design meaningful experiences rooted
-                                in user psychology and business goals.</p>
+                        <div class="card card-body h-100 rounded-3 p-4 border-0 shadow-sm transition-hover">
+                            <div class="mb-4">
+                                <?php if ($is_bootstrap): ?>
+                                    <i class="bi <?php echo $icon_class; ?> icon-fallback"></i>
+                                <?php else: ?>
+                                    <img src="<?php echo $icon_image; ?>" class="h-60px" alt="icon" onerror="this.outerHTML='<i class=\'bi bi-patch-check icon-fallback\'></i>'">
+                                <?php endif; ?>
+                            </div>
+                            <h6 class="mb-3"><?php echo $wc['title']; ?></h6>
+                            <p class="mb-0"><?php echo $wc['text']; ?></p>
                         </div>
                     </div>
-
-                    <div class="col">
-                        <div class="card card-body h-100 rounded-3 p-4">
-                            <h6 class="mb-3">Glitch-Free Assurance</h6>
-                            <p class="mb-0">With our dedicated QA & Software Testing, we ensure every product we ship is
-                                stable, secure, and ready for the real world.</p>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="card card-body h-100 rounded-3 p-4">
-                            <h6 class="mb-3">Global Standards</h6>
-                            <p class="mb-0">Whether you are a local Nigerian startup or a global brand, we deliver
-                                scalable solutions that compete on the world stage.</p>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="card card-body h-100 rounded-3 p-4">
-                            <h6 class="mb-3">Full-Cycle Growth</h6>
-                            <p class="mb-0">From the first logo concept to the final ad campaign, we handle the entire
-                                lifecycle of your digital presence.</p>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
                 <div class="row g-4 mt-5 mt-md-7">
                     <div class="col-lg-6 pe-lg-6">
@@ -175,162 +233,103 @@ Detail START -->
                         <h2>Our integrated service ecosystem</h2>
 
                         <div class="accordion accordion-icon accordion-icon-start mt-4" id="accordionExample2">
+                            <?php 
+                            $j = 0;
+                            foreach($ecosystem as $eco): 
+                                $j++;
+                                $is_show = ($j == 1) ? "show" : "";
+                                $is_collapsed = ($j == 1) ? "" : "collapsed";
+                            ?>
                             <div class="accordion-item mb-2">
-                                <h6 class="accordion-header" id="heading-1">
-                                    <button class="accordion-button py-2" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse-1" aria-expanded="true" aria-controls="collapse-1">
-                                        <span class="lead fw-bold">UI/UX & Product Design</span>
+                                <h6 class="accordion-header" id="heading-<?php echo $j; ?>">
+                                    <button class="accordion-button py-2 <?php echo $is_collapsed; ?>" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse-<?php echo $j; ?>" aria-expanded="<?php echo ($j==1)?'true':'false'; ?>" aria-controls="collapse-<?php echo $j; ?>">
+                                        <span class="lead fw-bold"><?php echo $eco['title']; ?></span>
                                     </button>
                                 </h6>
-                                <div id="collapse-1" class="accordion-collapse collapse show"
-                                    aria-labelledby="heading-1" data-bs-parent="#accordionExample2">
+                                <div id="collapse-<?php echo $j; ?>" class="accordion-collapse collapse <?php echo $is_show; ?>"
+                                    aria-labelledby="heading-<?php echo $j; ?>" data-bs-parent="#accordionExample2">
                                     <div class="accordion-body">
-                                        We craft intuitive user interfaces and experiences. From wireframing to
-                                        high-fidelity prototypes, we ensure your product is easy to use and visually
-                                        stunning across all devices.
+                                        <?php echo $eco['content']; ?>
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="accordion-item mb-2">
-                                <h6 class="accordion-header" id="heading-2">
-                                    <button class="accordion-button py-2 collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#collapse-2" aria-expanded="false"
-                                        aria-controls="collapse-2">
-                                        <span class="lead fw-bold">Web Development & QA</span>
-                                    </button>
-                                </h6>
-                                <div id="collapse-2" class="accordion-collapse collapse" aria-labelledby="heading-2"
-                                    data-bs-parent="#accordionExample2">
-                                    <div class="accordion-body">
-                                        We build robust websites using modern frameworks (React, Node.js, PHP).
-                                        Crucially, we pair development with rigorous Software Testing (QA) to eliminate
-                                        bugs before launch.
-                                    </div>
-                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                </div>
+                <!-- =======================
+Clients START -->
+                <section class="pt-5 pt-xl-7">
+                    <div class="container">
+                        <div class="row g-4">
+                            <!-- Title -->
+                            <div class="col-lg-5">
+                                <h2 class="mb-4">Trusted by industry Tools Kits</h2>
+                                <!-- Rating -->
+                                <p class="mb-2">3000+ Users rated us <span class="text-warning fw-bold">4.85</span> out
+                                    of 5.</p>
+                                <ul class="avatar-group mb-sm-0">
+                                    <li class="avatar avatar-sm">
+                                        <img class="avatar-img rounded-circle" src="assets/images/avatar/01.jpg"
+                                            alt="avatar">
+                                    </li>
+                                    <li class="avatar avatar-sm">
+                                        <img class="avatar-img rounded-circle" src="assets/images/avatar/02.jpg"
+                                            alt="avatar">
+                                    </li>
+                                    <li class="avatar avatar-sm">
+                                        <img class="avatar-img rounded-circle" src="assets/images/avatar/03.jpg"
+                                            alt="avatar">
+                                    </li>
+                                    <li class="avatar avatar-sm">
+                                        <img class="avatar-img rounded-circle" src="assets/images/avatar/08.jpg"
+                                            alt="avatar">
+                                    </li>
+                                    <li class="avatar avatar-sm">
+                                        <img class="avatar-img rounded-circle" src="assets/images/avatar/07.jpg"
+                                            alt="avatar">
+                                    </li>
+                                </ul>
                             </div>
 
-                            <div class="accordion-item mb-2">
-                                <h6 class="accordion-header" id="heading-3">
-                                    <button class="accordion-button py-2 collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#collapse-3" aria-expanded="false"
-                                        aria-controls="collapse-3">
-                                        <span class="lead fw-bold">Branding & Motion Graphics</span>
-                                    </button>
-                                </h6>
-                                <div id="collapse-3" class="accordion-collapse collapse" aria-labelledby="heading-3"
-                                    data-bs-parent="#accordionExample2">
-                                    <div class="accordion-body">
-                                        We bring brands to life. Whether it's a complete logo system or engaging video
-                                        edits and motion graphics, we create visual assets that tell your story
-                                        dynamically.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="accordion-item mb-2">
-                                <h6 class="accordion-header" id="heading-4">
-                                    <button class="accordion-button py-2 collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#collapse-4" aria-expanded="false"
-                                        aria-controls="collapse-4">
-                                        <span class="lead fw-bold">Social Media & Marketing</span>
-                                    </button>
-                                </h6>
-                                <div id="collapse-4" class="accordion-collapse collapse" aria-labelledby="heading-4"
-                                    data-bs-parent="#accordionExample2">
-                                    <div class="accordion-body">
-                                        Growth is part of the process. We help you reach your audience through targeted
-                                        Social Media Marketing, Ad campaigns, and content strategies designed to
-                                        convert.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="accordion-item mb-2">
-                                <h6 class="accordion-header" id="heading-5">
-                                    <button class="accordion-button py-2 collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#collapse-5" aria-expanded="false"
-                                        aria-controls="collapse-5">
-                                        <span class="lead fw-bold">Custom Software Solutions</span>
-                                    </button>
-                                </h6>
-                                <div id="collapse-5" class="accordion-collapse collapse" aria-labelledby="heading-5"
-                                    data-bs-parent="#accordionExample2">
-                                    <div class="accordion-body">
-                                        Need something unique? We develop bespoke web applications, custom CMS
-                                        integrations, and internal tools tailored specifically to your business
-                                        operations.
-                                    </div>
+                            <div class="col-lg-7">
+                                <!-- Clients -->
+                                <div class="row row-cols-2 row-cols-sm-auto g-3">
+                                    <?php if (empty($tools)): ?>
+                                        <!-- Fallback placeholder if no tools defined -->
+                                        <div class="col">
+                                            <div class="bg-secondary bg-opacity-50 rounded-3 p-3">
+                                                <p class="small mb-0 text-secondary">Tools Coming Soon</p>
+                                            </div>
+                                        </div>
+                                    <?php else: ?>
+                                        <?php foreach($tools as $tool): ?>
+                                        <!-- Item -->
+                                        <div class="col">
+                                            <div class="bg-secondary bg-opacity-50 rounded-3 p-3">
+                                                <img src="<?php echo $tool['logo_dark'] ?? $tool['logo_light']; ?>"
+                                                    class="light-mode-item h-30px" alt="tool logo">
+                                                <img src="<?php echo $tool['logo_light'] ?? $tool['logo_dark']; ?>"
+                                                    class="dark-mode-item h-30px" alt="tool logo">
+                                            </div>
+                                        </div>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="inner-container text-center mt-7">
-                    <h4>Our Tool Stack</h4>
-                    <p class="mb-4">The technologies we use to build, design, and test.</p>
-                    <ul class="list-inline d-flex justify-content-center flex-wrap gap-4 mt-4">
-                        <li class="list-inline-item me-0">
-                            <a href="#"
-                                class="icon-xl btn-transition bg-body d-flex justify-content-center align-items-center rounded-2">
-                                <img src="assets/images/client/icons/08.svg" class="h-40px" alt="icon">
-                            </a>
-                        </li>
-
-                        <li class="list-inline-item me-0">
-                            <a href="#"
-                                class="icon-xl btn-transition bg-body d-flex justify-content-center align-items-center rounded-2">
-                                <img src="assets/images/client/icons/04.svg" class="h-40px" alt="icon">
-                            </a>
-                        </li>
-
-                        <li class="list-inline-item me-0">
-                            <a href="#"
-                                class="icon-xl btn-transition bg-body d-flex justify-content-center align-items-center rounded-2">
-                                <img src="assets/images/client/icons/12.svg" class="h-40px" alt="icon">
-                            </a>
-                        </li>
-
-                        <li class="list-inline-item me-0">
-                            <a href="#"
-                                class="icon-xl btn-transition bg-body d-flex justify-content-center align-items-center rounded-2">
-                                <img src="assets/images/client/icons/09.svg" class="h-40px" alt="icon">
-                            </a>
-                        </li>
-
-                        <li class="list-inline-item me-0">
-                            <a href="#"
-                                class="icon-xl btn-transition bg-body d-flex justify-content-center align-items-center rounded-2">
-                                <img src="assets/images/client/icons/05.svg" class="h-40px" alt="icon">
-                            </a>
-                        </li>
-
-                        <li class="list-inline-item me-0">
-                            <a href="#"
-                                class="icon-xl btn-transition bg-body d-flex justify-content-center align-items-center rounded-2">
-                                <img src="assets/images/client/icons/03.svg" class="h-40px" alt="icon">
-                            </a>
-                        </li>
-
-                        <li class="list-inline-item me-0">
-                            <a href="#"
-                                class="icon-xl btn-transition bg-body d-flex justify-content-center align-items-center rounded-2">
-                                <img src="assets/images/client/icons/02.svg" class="h-40px" alt="icon">
-                            </a>
-                        </li>
-
-                        <li class="list-inline-item me-0">
-                            <a href="#"
-                                class="icon-xl btn-transition bg-body d-flex justify-content-center align-items-center rounded-2">
-                                <img src="assets/images/client/icons/10.svg" class="h-40px" alt="icon">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                </section>
+                <!-- =======================
+Clients END -->
             </div>
         </section>
         <!-- =======================
 Detail END -->
+
+
+
 
         <!-- =======================
 Process START -->

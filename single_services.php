@@ -64,38 +64,7 @@ try {
     <!-- Theme CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/main.css">
 
-    <style>
-        /* Responsive hero container to fix mobile spacing */
-        .hero-sticky-container {
-            height: 150vh;
-            margin-bottom: 450px;
-        }
 
-        .transition-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 1rem 3rem rgba(0,0,0,.125) !important;
-        }
-
-        .transition-hover {
-            transition: all 0.3s ease-in-out;
-        }
-
-        @media (max-width: 575.98px) {
-            .hero-sticky-container {
-                height: auto !important;
-                margin-bottom: 30px !important;
-            }
-        }
-
-        .icon-fallback {
-            font-size: 2.5rem;
-            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline-block;
-            line-height: 1;
-        }
-    </style>
 
 </head>
 

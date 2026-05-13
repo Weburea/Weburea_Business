@@ -1,0 +1,2924 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Our Work — Weburea Agency</title>
+
+    <!-- Meta Tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Weburea Agency">
+
+    <meta name="description"
+        content="Explore our portfolio of UI/UX design, web development, and branding projects.">
+
+    <meta name="keywords"
+        content="Weburea Portfolio, UI UX Design Projects, Web Development Case Studies">
+
+    <!-- Dark mode -->
+    <script>
+    const storedTheme = localStorage.getItem('theme')
+
+    const getPreferredTheme = () => {
+        if (storedTheme) {
+            return storedTheme
+        }
+        return 'auto'
+    }
+
+    const setTheme = function (theme) {
+        if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.setAttribute('data-bs-theme', 'dark')
+        } else if (theme === 'auto') {
+            document.documentElement.setAttribute('data-bs-theme', 'light')
+        } else {
+            document.documentElement.setAttribute('data-bs-theme', theme)
+        }
+    }
+
+    setTheme(getPreferredTheme())
+
+    window.addEventListener('DOMContentLoaded', () => {
+        var el = document.querySelector('.theme-icon-active');
+        if (el != 'undefined' && el != null) {
+            const showActiveTheme = theme => {
+                const activeThemeIcon = document.querySelector('.theme-icon-active use')
+                const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
+                const svgOfActiveBtn = btnToActive.querySelector('.mode-switch use').getAttribute('href')
+
+                document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+                    element.classList.remove('active')
+                })
+
+                btnToActive.classList.add('active')
+                activeThemeIcon.setAttribute('href', svgOfActiveBtn)
+            }
+
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+                if (storedTheme !== 'light' || storedTheme !== 'dark') {
+                    setTheme(getPreferredTheme())
+                }
+            })
+
+            showActiveTheme(getPreferredTheme())
+
+            document.querySelectorAll('[data-bs-theme-value]')
+                .forEach(toggle => {
+                    toggle.addEventListener('click', () => {
+                        const theme = toggle.getAttribute('data-bs-theme-value')
+                        localStorage.setItem('theme', theme)
+                        setTheme(theme)
+                        showActiveTheme(theme)
+                    })
+                })
+
+        }
+    })
+
+</script>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/Vector_small.svg">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap"
+        rel="stylesheet">
+
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="assets/vendor/glightbox/css/glightbox.css">
+    <link rel="stylesheet" type="text/css" href="assets/vendor/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/vendor/aos/aos.css">
+    
+
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/comparison-slider.css">
+
+
+
+</head>
+
+<body>
+
+    <!-- Header START -->
+    <header class="header-sticky header-absolute" >
+    <!-- Logo Nav START -->
+    <nav class="navbar navbar-expand-xl">
+        <div class="container">
+            <!-- Logo START -->
+            <a class="navbar-brand me-0" href="index.php">
+                <img class="light-mode-item navbar-brand-item" src="assets/images/logo.svg" alt="logo">
+                <img class="dark-mode-item navbar-brand-item" src="assets/images/logo-light.svg" alt="logo">
+            </a>
+            <!-- Logo END -->
+
+            <!-- Main navbar START -->
+            <div class="navbar-collapse collapse" id="navbarCollapse">
+                <ul class="navbar-nav navbar-nav-scroll dropdown-hover mx-auto">
+                                                    <li class="nav-item"> <a class="nav-link " href="work.php">Work</a> </li>
+                                                                                    <!-- Services Megamenu START -->
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle " href="#" data-bs-auto-close="outside"
+                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services</a>
+
+                                    <div class="dropdown-menu dropdown-menu-size-xl dropdown-menu-center p-xl-3">
+                                        <div class="row row-cols-1 row-cols-md-2 pt-2">
+                                            <!-- All Services -->
+                                            <div class="col">
+                                                <div class="dropdown-item bg-secondary-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
+                                                    <div class="d-flex">
+                                                        <div class="icon-md bg-primary bg-opacity-15 text-primary rounded flex-shrink-0">
+                                                            <i class="bi bi-grid-fill fs-6"></i>
+                                                        </div>
+                                                        <div class="mx-3">
+                                                            <p class="stretched-link heading-color fw-bold mb-0">
+                                                                <a href="all_services.php">All Services</a>
+                                                            </p>
+                                                            <p class="mb-0 text-body small">Explore our full range of creative and tech solutions.</p>
+                                                        </div>
+                                                    </div>
+                                                    <a class="icon-link icon-link-hover text-primary-hover stretched-link" href="all_services.php"><i class="bi bi-chevron-right"></i></a>
+                                                </div>
+                                            </div>
+
+                                                                                        <!-- Dynamic Service Item -->
+                                            <div class="col">
+                                                <div class="dropdown-item bg-secondary-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
+                                                    <div class="d-flex">
+                                                        <div class="icon-md bg-opacity-15 rounded flex-shrink-0">
+                                                            <i class="bi bi-pencil-square text-success fs-6"></i>
+                                                        </div>
+                                                        <div class="mx-3">
+                                                            <p class="stretched-link heading-color fw-bold mb-0">
+                                                                <a href="single_services.php?slug=ui-ux-design">Product Design</a>
+                                                            </p>
+                                                            <p class="mb-0 text-body small">
+                                                                We craft intuitive interfaces and seamless user journeys...                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <a class="icon-link icon-link-hover text-primary-hover stretched-link"
+                                                        href="single_services.php?slug=ui-ux-design"><i class="bi bi-chevron-right"></i></a>
+                                                </div>
+                                            </div>
+                                                                                        <!-- Dynamic Service Item -->
+                                            <div class="col">
+                                                <div class="dropdown-item bg-secondary-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
+                                                    <div class="d-flex">
+                                                        <div class="icon-md bg-opacity-15 rounded flex-shrink-0">
+                                                            <i class="bi bi-palette text-pink fs-6"></i>
+                                                        </div>
+                                                        <div class="mx-3">
+                                                            <p class="stretched-link heading-color fw-bold mb-0">
+                                                                <a href="single_services.php?slug=motion-animation">Motion Graphics & Animation</a>
+                                                            </p>
+                                                            <p class="mb-0 text-body small">
+                                                                Cinematic motion graphics and 3D storytelling that bring...                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <a class="icon-link icon-link-hover text-primary-hover stretched-link"
+                                                        href="single_services.php?slug=motion-animation"><i class="bi bi-chevron-right"></i></a>
+                                                </div>
+                                            </div>
+                                                                                        <!-- Dynamic Service Item -->
+                                            <div class="col">
+                                                <div class="dropdown-item bg-secondary-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
+                                                    <div class="d-flex">
+                                                        <div class="icon-md bg-opacity-15 rounded flex-shrink-0">
+                                                            <i class="bi bi-camera-reels text-warning fs-6"></i>
+                                                        </div>
+                                                        <div class="mx-3">
+                                                            <p class="stretched-link heading-color fw-bold mb-0">
+                                                                <a href="single_services.php?slug=software-qa">Software Testing & QA</a>
+                                                            </p>
+                                                            <p class="mb-0 text-body small">
+                                                                Ensure your products are glitch-free. We perform rigorous...                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <a class="icon-link icon-link-hover text-primary-hover stretched-link"
+                                                        href="single_services.php?slug=software-qa"><i class="bi bi-chevron-right"></i></a>
+                                                </div>
+                                            </div>
+                                                                                        <!-- Dynamic Service Item -->
+                                            <div class="col">
+                                                <div class="dropdown-item bg-secondary-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
+                                                    <div class="d-flex">
+                                                        <div class="icon-md bg-opacity-15 rounded flex-shrink-0">
+                                                            <i class="bi bi-bug text-info fs-6"></i>
+                                                        </div>
+                                                        <div class="mx-3">
+                                                            <p class="stretched-link heading-color fw-bold mb-0">
+                                                                <a href="single_services.php?slug=web-development">Web Development</a>
+                                                            </p>
+                                                            <p class="mb-0 text-body small">
+                                                                Build scalable, high-performance websites and web applications tailored...                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <a class="icon-link icon-link-hover text-primary-hover stretched-link"
+                                                        href="single_services.php?slug=web-development"><i class="bi bi-chevron-right"></i></a>
+                                                </div>
+                                            </div>
+                                                                                        <!-- Dynamic Service Item -->
+                                            <div class="col">
+                                                <div class="dropdown-item bg-secondary-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
+                                                    <div class="d-flex">
+                                                        <div class="icon-md bg-opacity-15 rounded flex-shrink-0">
+                                                            <i class="bi bi-code-slash text-purple fs-6"></i>
+                                                        </div>
+                                                        <div class="mx-3">
+                                                            <p class="stretched-link heading-color fw-bold mb-0">
+                                                                <a href="single_services.php?slug=video-production">Video Editing & Production</a>
+                                                            </p>
+                                                            <p class="mb-0 text-body small">
+                                                                Professional video production and editing to elevate your...                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <a class="icon-link icon-link-hover text-primary-hover stretched-link"
+                                                        href="single_services.php?slug=video-production"><i class="bi bi-chevron-right"></i></a>
+                                                </div>
+                                            </div>
+                                                                                        <!-- Dynamic Service Item -->
+                                            <div class="col">
+                                                <div class="dropdown-item bg-secondary-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
+                                                    <div class="d-flex">
+                                                        <div class="icon-md bg-opacity-15 rounded flex-shrink-0">
+                                                            <i class="bi bi-megaphone text-info fs-6"></i>
+                                                        </div>
+                                                        <div class="mx-3">
+                                                            <p class="stretched-link heading-color fw-bold mb-0">
+                                                                <a href="single_services.php?slug=digital-marketing">Digital Marketing & Ads</a>
+                                                            </p>
+                                                            <p class="mb-0 text-body small">
+                                                                Data-driven marketing campaigns that maximize reach, engagement, and...                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <a class="icon-link icon-link-hover text-primary-hover stretched-link"
+                                                        href="single_services.php?slug=digital-marketing"><i class="bi bi-chevron-right"></i></a>
+                                                </div>
+                                            </div>
+                                                                                    </div>
+
+                                        <!-- CTA Background -->
+                                        <div class="h-200px position-relative mt-3"
+                                            style="background:url(assets/images/elements/nav-cta.jpg) no-repeat; background-size:cover; background-position:center;">
+                                            <div class="bg-overlay bg-dark bg-opacity-10"></div>
+                                        </div>
+                                    </div>
+                                </li>
+                                                                                    <li class="nav-item"> <a class="nav-link " href="benefits.php">Benefits</a> </li>
+                                                                                    <li class="nav-item"> <a class="nav-link " href="pricing.php">Pricing</a> </li>
+                                                                                    <li class="nav-item"> <a class="nav-link " href="about.php">About Us</a> </li>
+                                                                                    <li class="nav-item"> <a class="nav-link " href="blog.php">Blog</a> </li>
+                                                                                    <li class="nav-item"> <a class="nav-link " href="contact.php">Contact us</a> </li>
+                                                                                        </ul>
+            </div>
+            <!-- Main navbar END -->
+
+            <!-- Buttons -->
+            <ul class="nav align-items-center dropdown-hover ms-sm-2">
+                <!-- Dark mode option START -->
+                <li class="nav-item dropdown dropdown-animation">
+                    <button class="btn btn-link mb-0 px-2 lh-1" id="bd-theme" type="button" aria-expanded="false"
+                        data-bs-toggle="dropdown" data-bs-display="static">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                            class="bi bi-circle-half theme-icon-active fill-mode fa-fw" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z" />
+                            <use href="#"></use>
+                        </svg>
+                    </button>
+
+                    <ul class="dropdown-menu min-w-auto dropdown-menu-end" aria-labelledby="bd-theme">
+                        <li class="mb-1">
+                            <button type="button" class="dropdown-item d-flex align-items-center"
+                                data-bs-theme-value="light">
+                                <svg width="16" height="16" fill="currentColor"
+                                    class="bi bi-brightness-high-fill fa-fw mode-switch me-1" viewBox="0 0 16 16">
+                                    <path
+                                        d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
+                                    <use href="#"></use>
+                                </svg>Light
+                            </button>
+                        </li>
+                        <li class="mb-1">
+                            <button type="button" class="dropdown-item d-flex align-items-center"
+                                data-bs-theme-value="dark">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-moon-stars-fill fa-fw mode-switch me-1" viewBox="0 0 16 16">
+                                    <path
+                                        d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
+                                    <path
+                                        d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z" />
+                                    <use href="#"></use>
+                                </svg>Dark
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="dropdown-item d-flex align-items-center active"
+                                data-bs-theme-value="auto">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-circle-half fa-fw mode-switch me-1" viewBox="0 0 16 16">
+                                    <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z" />
+                                    <use href="#"></use>
+                                </svg>Auto
+                            </button>
+                        </li>
+                    </ul>
+                </li>
+                <!-- Dark mode option END -->
+
+                <!-- Sign up button -->
+                <li class="nav-item ms-2 d-none d-sm-block">
+                    <a href="https://calendly.com/" class="btn btn-sm btn-primary-grad mb-0">Book a Call</a>
+                </li>
+                <!-- Responsive navbar toggler -->
+                <li class="nav-item">
+                    <button class="navbar-toggler weburea-toggler ms-sm-3"
+                        type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="weburea-toggler-icon">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </button>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+    <!-- Logo Nav END -->
+</header>    <!-- Header END -->
+
+    <!-- **************** MAIN CONTENT START **************** -->
+    <main>
+
+        <!-- =======================
+Motion Graphics & Animation Hero START -->
+        <section class="bg-secondary pt-xl-8 pb-0 d-none">
+            <!-- Title and content -->
+            <div class="container position-relative pt-4 pt-sm-5">
+                <div class="row g-4">
+                    <!-- Title and breadcrumb -->
+                    <div class="col-lg-5">
+                        <nav class="mb-3" aria-label="breadcrumb">
+                            <ol class="breadcrumb breadcrumb-dots pt-0">
+                                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                                <li class="breadcrumb-item"><a href="work.php">Our Work</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Digital Transformation</li>
+                            </ol>
+                        </nav>
+
+                        <!-- Title -->
+                        <h1 class="display-6 fw-bold mb-3 mb-md-4 mb-0">Digital Transformation Project</h1>
+                        <!-- button link  -->
+                         <a href="#" class="btn btn-primary-grad mb-0">View Project</a> 
+                    </div>
+
+                    <!-- Project detail -->
+                    <div class="col-lg-4 ms-auto">
+                        <div class="row g-3 g-sm-4">
+                            <!-- Item -->
+                            <div class="col-sm-6 col-md-4 col-lg-6">
+                                <small class="text-primary-grad">Industry:</small>
+                                <p class="heading-color fw-semibold mt-1 mb-0">Digital</p>
+                            </div>
+
+                            <!-- Item -->
+                            <div class="col-sm-6 col-md-4 col-lg-6">
+                                <small class="text-primary-grad">Year Published:</small>
+                                <p class="heading-color fw-semibold mt-1 mb-0">2024</p>
+                            </div>
+
+                            <!-- Item -->
+                            <div class="col-sm-12 col-md-10 col-lg-10">
+                                <small class="text-primary-grad">Project direction:</small>
+                                <p class="heading-color fw-semibold mt-1 mb-0">Custom Solution</p>
+                            </div>
+
+                           
+                        </div>
+                    </div>
+                </div> <!-- Row END -->
+            </div>
+
+            <!-- BG image -->
+            <div class="h-600px h-md-700px mt-6"
+                style="background:url(assets/images/portfolio/03.jpg) no-repeat; background-size:cover; background-position:center;">
+            </div>
+        </section>
+        <!-- =======================
+Motion Graphics & Animation Hero END -->
+
+
+<!-- =======================
+Product Design Hero START -->
+<section class="position-relative overflow-hidden pt-sm-8 pt-lg-9 pb-0 d-none">
+	<!-- Curve bg -->
+	<span>
+		<svg class="position-absolute bottom-0 start-0 mb-n1 mb-lg-n4" viewBox="0 0 1920 149" style="enable-background:new 0 0 1920 149; z-index: 4" xml:space="preserve">
+			<path class="text-secondary" d="M873.3,37.9C775,19.2,603.7-11.5,433.5,4.4C275.1,19.3,45.1,43.4-12,4.4v121V149l1946-2.6V97.6 c-109.9-35.9-230.6-93.1-468.8-75.4C1260.2,37.3,1089.7,79,873.3,37.9z" fill="currentColor"/>
+		</svg>
+	</span>
+
+	<!-- Blur decoration -->
+	<div class="position-absolute end-0 top-0">
+		<img src="assets/images/elements/grad-shape/blur-decoration-2.svg" class="opacity-2 blur-9 h-300px rotate-335" alt="Grad shape">
+	</div>
+
+	<div class="container position-relative pt-4 pt-sm-0 pb-8 pb-xl-9">
+		<div class="row align-items-center">
+			<!-- Content -->
+			<div class="col-lg-6 mb-6 mb-lg-0">
+				<h1 class="fw-bold mb-3 mb-md-4">Smart, Secure, and Simple <span class="text-primary-grad">Banking</span></h1>
+				<p class="lead mb-3 mb-md-4">Experience seamless money transfers, hassle-free bill payments, and secure account management—all in one app.</p>
+
+				<!-- Buttons -->
+				<div class="d-sm-flex mb-4 mb-lg-7">
+					<a href="#"> <img src="assets/images/elements/google-play.svg" class="btn-transition me-4 mb-2 mb-sm-0" width="180" alt="play store"> </a>
+					<a href="#"> <img src="assets/images/elements/app-store.svg" class="btn-transition" width="180" alt="app-store"> </a>
+				</div>
+
+				<!-- Review deco -->
+				<div class="d-flex align-items-center">
+					<!-- Avatar list -->
+					<ul class="avatar-group align-items-center justify-content-center mb-0 me-2">
+						<li class="avatar avatar-sm">
+							<img class="avatar-img rounded-circle" src="assets/images/avatar/02.jpg" alt="avatar">
+						</li>
+						<li class="avatar avatar-sm">
+							<img class="avatar-img rounded-circle" src="assets/images/avatar/05.jpg" alt="avatar">
+						</li>
+						<li class="avatar avatar-sm">
+							<img class="avatar-img rounded-circle" src="assets/images/avatar/10.jpg" alt="avatar">
+						</li>
+						<li class="avatar avatar-sm">
+							<img class="avatar-img rounded-circle" src="assets/images/avatar/09.jpg" alt="avatar">
+						</li>
+						<li class="avatar avatar-sm">
+							<img class="avatar-img rounded-circle" src="assets/images/avatar/06.jpg" alt="avatar">
+						</li>
+					</ul>
+
+					<p class="heading-color mb-0"><span class="text-primary">5000+</span> users have downloaded our app</p>
+				</div>
+			</div>
+
+			<!-- Image -->
+			<div class="col-sm-9 col-lg-5 col-xxl-4 position-relative mx-auto">
+				<!-- Decoration images -->
+				<div class="position-absolute start-0 top-0 mt-6 ms-xl-n7 z-index-2 d-none d-sm-block">
+					<img src="assets/images/mobile-app/deocration-2.jpg" class="aos rounded-3 shadow-primary" data-aos="zoom-in" data-aos-delay="400" data-aos-duration="800" data-aos-easing="ease-in-out" style="height: 80px;" alt="deocration">
+				</div>
+
+				<div class="position-absolute top-50 end-0 translate-middle-y me-n6 me-xl-n8 mt-xl-n5 d-none d-sm-block">
+					<img src="assets/images/mobile-app/deocration-3.jpg" class="aos rounded-3 shadow-primary" data-aos="zoom-in" data-aos-delay="600" data-aos-duration="800" data-aos-easing="ease-in-out" alt="deocration">
+				</div>
+
+				<!-- Main image -->
+				<img src="assets/images/mobile-app/hero.png" class="aos mb-n8 mb-md-n9 mb-xxl-n8" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800" data-aos-easing="ease-in-out" alt="mobile image">
+			</div>
+
+		</div>
+	</div>
+</section>
+<!-- =======================
+Product Design Hero END -->
+
+<!-- =======================
+Web Development and Software Testing & QAHero START -->
+<section class="position-relative pt-sm-8 pt-lg-9 pb- d-none">
+	<!-- Right side svg decoration -->
+	<div class="position-absolute top-0 end-0 z-index-2 d-none d-md-block rtl-flip">
+		<img src="assets/images/elements/grad-shape/07.png" alt="">
+	</div>
+
+	<div class="container pt-4">
+		<div class="col-md-9 pe-3">
+			<!-- Pre title -->
+			<p class="heading-color bg-secondary d-inline-block rounded px-3 py-2 mb-3"><span class="badge bg-dark me-2">New</span> Maximize productivity with next-generation software</p>
+
+			<!-- Title -->
+			<h1 class="display-7 fw-semibold mb-4">Creating software solutions for your  <span class="text-purple">Web Development</span></h1>
+
+			<!-- Button and info -->
+			<div class="d-flex gap-3 gap-sm-4 flex-wrap">
+				<!-- Button -->
+				<a href="#" class="btn btn-primary-grad">Preview Live Work</a>
+
+				<!-- Info -->
+				<div class="d-flex gap-4 align-items-center">
+					 <!-- Item -->
+                            <div class="col-sm-6 col-md-3 col-lg-6">
+                                <small class="text-purple">Date Published</small>
+                                <p class="heading-color fw-semibold mt-1 mb-0">28 April, 2026</p>
+                            </div>
+
+                             <!-- Item -->
+                            <div class="col-sm-6 col-md-3 col-lg-6">
+                                <small class="text-purple">Company</small>
+                                <p class="heading-color fw-semibold mt-1 mb-0">QUARED TECH</p>
+                            </div>
+
+                              <!-- Item -->
+                            <div class="col-sm-6 col-md-3 col-lg-6">
+                                <small class="text-purple">Industry</small>
+                                <p class="heading-color fw-semibold mt-1 mb-0">Fintech</p>
+                            </div>
+				
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+    <!-- =======================Image  START -->
+    <div class=" position-relative overflow-hidden my-5">
+        <!-- skewed divider	 -->
+        <span class="position-absolute top-0 start-0">
+            <svg class="fill-body" width="1920" height="237" viewBox="0 0 1920 237" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1940.5 0H-9V164C708.2 295.2 1589.5 218.667 1940.5 164V0Z"/>
+            </svg>
+        </span>
+
+        <div class="container position-relative z-index-9">
+            <!-- Grad blur decoration -->
+            <div class="position-absolute top-0 start-50 translate-middle-x mt-n3">
+                <img src="assets/images/elements/grad-shape/blur-decoration-2.svg" class="opacity-2 blur-8" alt="Grad shape">
+            </div>
+
+            <!-- Image -->
+            <div class="bg-body bg-opacity-10 bg-blur border border-white border-opacity-25 position-relative rounded-4 shadow-primary-lg p-4">
+                <!-- Dots -->
+                <span class="text-purple">
+                    <svg class="mt-n4" width="40" height="10" viewBox="0 0 40 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 5C10 7.76142 7.76142 10 5 10C2.23858 10 0 7.76142 0 5C0 2.23858 2.23858 0 5 0C7.76142 0 10 2.23858 10 5Z" fill="currentColor"/>
+                        <path d="M25 5C25 7.76142 22.7614 10 20 10C17.2386 10 15 7.76142 15 5C15 2.23858 17.2386 0 20 0C22.7614 0 25 2.23858 25 5Z" fill="currentColor"/>
+                        <path d="M40 5C40 7.76142 37.7614 10 35 10C32.2386 10 30 7.76142 30 5C30 2.23858 32.2386 0 35 0C37.7614 0 40 2.23858 40 5Z" fill="currentColor"/>
+                    </svg>
+                </span>
+
+                <!-- Comparison Slider START -->
+                <div class="comparison-slider-wrapper rounded-4 overflow-hidden">
+                    <div class="comparison-slider" id="imageComparisonSlider">
+                        <!-- Before Content (Bottom Layer) -->
+                        <div class="before-layer">
+                            <video src="assets/images/services/4by3/Web_Development_page_top.mp4" class="w-100 h-100 object-fit-cover" autoplay loop muted playsinline></video>
+                            <div class="label-badge before-label">Visual Interface</div>
+                        </div>
+                        
+                        <!-- After Content (Top Layer) -->
+                        <div class="after-layer" style="background-image: url(assets/images/bg/code.jpg);">
+                            <div class="label-badge after-label">Core Logic</div>
+                        </div>
+                        
+                        <!-- Handle -->
+                        <div class="slider-handle">
+                            <div class="handle-button">
+                                <i class="bi bi-chevron-left"></i>
+                                <i class="bi bi-chevron-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Comparison Slider END -->
+            </div>
+        </div>
+    </div>
+    <!-- =======================Image -->
+</section>
+<!-- =======================
+Web Development and Software Testing & QA Hero END -->
+
+
+<!-- =======================
+Video Editing & Production Hero START -->
+<section class="pt-0 d-none">
+	<!-- Title and content -->
+	<div class="bg-dark position-relative overflow-hidden pb-6 pt-8 py-sm-9">
+		<!-- Grad blur -->
+		<div class="position-absolute end-0 top-0">
+			<img src="assets/images/elements/grad-shape/blur-decoration-2.svg" class="opacity-1 blur-8 h-300px rotate-335" alt="Grad shape">
+		</div>
+		
+		<!-- Title and content -->
+		<div class="container position-relative pb-7" data-bs-theme="dark">
+			<div class="inner-container">
+				<!-- Main title -->
+				<h1 class="text-center mb-0">High-Impact <span class="text-purple">Video Production</span> & Editing</h1>
+	
+				<!-- List -->
+				<ul class="list-inline d-flex justify-content-center flex-wrap gap-2 gap-md-4 mb-0 mt-4 mt-xl-5">
+					<li class="list-inline-item"> <i class="bi bi-calendar-check-fill text-pink me-2 lead"></i>Date: <span class="fw-normal">April 2026</span></li>
+					<li class="list-inline-item"> <i class="bi bi-film text-success me-2 lead"></i>Direction: <span class="fw-normal">Video Animation & Editing</span></li>
+					<li class="list-inline-item"> <i class="bi bi-building-fill text-warning me-2 lead"></i>Industry: <span class="fw-normal">Tech & Media</span></li>
+					<li class="list-inline-item"> <i class="bi bi-globe text-info me-2 lead"></i>Scope: <span class="fw-normal">Global</span></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<!-- Image -->
+	<div class="container mt-n7 mt-sm-n9">
+		<!-- Image -->
+		<div class="bg-body bg-opacity-10 bg-blur border border-white border-opacity-10 position-relative rounded-5 shadow-primary-lg p-2 p-sm-4">
+			<!-- Dots -->
+			<span class="d-none d-sm-block">
+				<svg class="mt-n4" width="40" height="10" viewBox="0 0 40 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path class="text-success" d="M10 5C10 7.76142 7.76142 10 5 10C2.23858 10 0 7.76142 0 5C0 2.23858 2.23858 0 5 0C7.76142 0 10 2.23858 10 5Z" fill="currentColor"></path>
+					<path class="text-warning" d="M25 5C25 7.76142 22.7614 10 20 10C17.2386 10 15 7.76142 15 5C15 2.23858 17.2386 0 20 0C22.7614 0 25 2.23858 25 5Z" fill="currentColor"></path>
+					<path class="text-danger" d="M40 5C40 7.76142 37.7614 10 35 10C32.2386 10 30 7.76142 30 5C30 2.23858 32.2386 0 35 0C37.7614 0 40 2.23858 40 5Z" fill="currentColor"></path>
+				</svg>
+			</span>
+		
+			<!-- Images -->
+			<img src="assets/images/bg/chat-boat.jpg" class="rounded-4 shadow-sm" alt="chatbot image">
+
+			<!-- Decoration image -->
+			<img src="assets/images/elements/chat-heart.png" class="position-absolute top-0 start-0 ms-8 mt-n4 d-none d-sm-block" alt="">
+		</div>
+	</div>
+</section>
+<!-- =======================
+Video Editing & Production Hero END -->
+
+
+<!-- =======================
+Digital Marketing & Ads Hero START -->
+<section class="bg-secondary bg-opacity-50 position-relative pt-xl-8 overflow-hidden">
+	<!-- Curve decoration -->
+	<span>
+		<svg class="position-absolute bottom-0 start-0 mb-n3 z-index-2" viewBox="0 0 1950 178" style="enable-background:new 0 0 1950 178;">
+			<path class="fill-body" d="M1480.3,21.8c238.7-17.4,359.6,39,469.7,74.4V178H0v-54.2V4.4c57.3,38.5,287.7,14.6,446.4,0 c170.6-15.7,342.3,14.5,440.8,33C1104,78,1274.8,36.9,1480.3,21.8z"/>
+		</svg>
+	</span>
+	
+	<div class="container position-relative pt-4 pt-sm-5 pb-4 pb-lg-8">
+		<!-- Main title and images START -->
+		<div class="row">
+			<!-- Title and content -->
+			<div class="col-lg-5 mb-6 mb-lg-0">
+				<h1 class="h2 mb-lg-4">High-Impact Marketing & ROI-Driven Ad Strategies</h1>
+				<p class="mb-lg-4">Transforming brand visibility into measurable revenue through precision-targeted campaigns and data-driven ad optimization.</p>
+				<a href="#" class="btn btn-primary-grad mb-0">Request Strategy Audit</a>
+			</div>
+
+			<!-- Image -->
+			<div class="col-lg-6 position-relative ms-auto">
+				<!-- Decoration images -->
+				<div class="position-absolute top-0 start-50 translate-middle ms-6">
+					<img src="assets/images/elements/saas-decoration/03.png" class="shadow-primary-lg rounded-4" alt="feature image">
+				</div>
+
+				<!-- Decoration images -->
+				<div class="position-absolute bottom-0 start-0 mb-n4">
+					<img src="assets/images/elements/saas-decoration/06.png" class="h-100px h-sm-200px shadow-primary-lg rounded-4" alt="feature image">
+				</div>
+
+				<!-- Main image -->
+				<div class="ps-md-7">
+					<img src="assets/images/about/11.jpg" class="rounded-4" alt="feature image">
+				</div>
+			</div>
+		</div>
+		<!-- Main title and images END -->
+
+		<!-- Benefits and skill sets START -->
+		<div class="row align-items-center g-4 mt-6 mt-lg-9">
+			<!-- Image -->
+			<div class="col-md-4 col-lg-3 order-2">
+				<img src="assets/images/elements/saas-decoration/07.png" class="w-md-300px shadow-primary-lg rounded-4" alt="feature image">
+			</div>
+
+			<!-- Content -->
+			<div class="col-md-8 ms-auto order-1 order-md-2">
+				<div class="row g-4 align-items-center">
+					<!-- Benefits -->
+					<div class="col-md-6">
+						<!-- Title -->
+						<h6 class="mb-3">Maximize Your Digital Footprint with Performance Marketing</h6>
+						<!-- List -->
+						<ul class="list-group list-group-borderless">
+							<li class="list-group-item d-flex pb-0"><i class="bi bi-check-circle text-success me-2"></i>Omnichannel Campaign Management</li>
+							<li class="list-group-item d-flex pb-0"><i class="bi bi-check-circle text-success me-2"></i>Conversion Rate Optimization (CRO)</li>
+							<li class="list-group-item d-flex pb-0"><i class="bi bi-check-circle text-success me-2"></i>Precision Audience Segmenting</li>
+						</ul>
+					</div>
+
+					<!-- Skill sets -->
+					<div class="col-md-6 border-start border-2 border-pink ps-sm-5">
+						<div class="row row-cols-2 g-4">
+							<!-- Item -->
+							<div class="col">
+								<h3 class="mb-0">250<span class="text-primary">+</span></h3>
+								<p class="mb-0">Campaigns Launched</p>
+							</div>
+		
+							<!-- Item -->
+							<div class="col">
+								<h3 class="mb-0">15<span class="text-primary">M+</span></h3>
+								<p class="mb-0">Ad Impressions</p>
+							</div>
+
+							<!-- Item -->
+							<div class="col">
+								<h3 class="mb-0">4.5<span class="text-primary">x</span></h3>
+								<p class="mb-0">Avg. Ad ROI</p>
+							</div>
+		
+							<!-- Item -->
+							<div class="col">
+								<h3 class="mb-0">98<span class="text-primary">%</span></h3>
+								<p class="mb-0">Client Retention</p>
+							</div>
+						</div>
+					</div>
+				</div> <!-- Row END -->
+			</div>
+		</div>
+		<!-- Benefits and skill sets END -->
+
+	</div>
+</section>
+<!-- =======================
+Digital Marketing & Ads Hero END -->
+
+
+
+<!-- ============ UI product Desgin Sections Stats Here =========-->
+<!-- =======================
+Features and rating for UI Design START -->
+<div class="">
+        <section class="bg-secondary position-relative overflow-hidden z-index-2 pt-6 d-none">
+            <div class="container">
+                <!-- Title -->
+                <div class="inner-container-small text-center mb-4 mb-md-6">
+                    <h2 class="mb-0">Discover the power of our online <span class="text-primary-grad">banking</span> app
+                    </h2>
+                </div>
+
+                <!-- Features and image -->
+                <div class="row g-4 g-lg-5 align-items-lg-center">
+                    <!-- left side features -->
+                    <div class="col-md-6 col-lg-4 order-1 pe-5">
+                        <!-- Item -->
+                        <div class="aos d-flex justify-content-lg-end mb-4 mb-md-6" data-aos="fade-right"
+                            data-aos-delay="100" data-aos-duration="1000" data-aos-easing="ease-in-out">
+                            <!-- Content -->
+                            <div class="text-lg-end order-1 ms-3 ms-lg-0 me-lg-3">
+                                <h6 class="mb-2">Instant money transfers</h6>
+                                <p class="mb-0">Transfer money to friends, family, or businesses quickly and securely.
+                                </p>
+                            </div>
+                            <!-- Icon -->
+                            <div class="icon-lg bg-body text-success rounded-circle flex-shrink-0 order-lg-2"><i
+                                    class="bi bi-cash-stack fa-lg"></i></div>
+                        </div>
+
+                        <!-- Item -->
+                        <div class="aos d-flex justify-content-lg-end mb-4 mb-md-6" data-aos="fade-right"
+                            data-aos-delay="100" data-aos-duration="1000" data-aos-easing="ease-in-out">
+                            <!-- Content -->
+                            <div class="text-lg-end order-1 ms-3 ms-lg-0 me-lg-3">
+                                <h6 class="mb-2">Easy bill payments</h6>
+                                <p class="mb-0">Pay utility bills, credit card bills, and more with just a few taps.</p>
+                            </div>
+                            <!-- Icon -->
+                            <div class="icon-lg bg-body text-purple rounded-circle flex-shrink-0 order-lg-2"><i
+                                    class="bi bi-receipt fa-lg"></i></div>
+                        </div>
+
+                        <!-- Item -->
+                        <div class="aos d-flex justify-content-lg-end" data-aos="fade-right" data-aos-delay="100"
+                            data-aos-duration="1000" data-aos-easing="ease-in-out">
+                            <!-- Content -->
+                            <div class="text-lg-end order-1 ms-3 ms-lg-0 me-lg-3">
+                                <h6 class="mb-2">Real-time notifications</h6>
+                                <p class="mb-0">Stay updated with real-time alerts for transactions and account
+                                    activities.</p>
+                            </div>
+                            <!-- Icon -->
+                            <div class="icon-lg bg-body text-warning rounded-circle flex-shrink-0 order-lg-2"><i
+                                    class="bi bi-bell fa-lg"></i></div>
+                        </div>
+                    </div>
+
+                    <!-- Image -->
+                    <div class="col-md-8 col-lg-4 mx-auto order-3 order-lg-2">
+                        <img src="assets/images/mobile-app/feature.png" class="aos" data-aos="fade-up"
+                            data-aos-delay="100" data-aos-duration="1000" data-aos-easing="ease-in-out"
+                            alt="feature mobile">
+                    </div>
+
+                    <!-- Right side features -->
+                    <div class="col-md-6 col-lg-4 order-2 order-lg-3">
+                        <!-- Item -->
+                        <div class="aos d-flex mb-4 mb-md-6" data-aos="fade-left" data-aos-delay="100"
+                            data-aos-duration="1000" data-aos-easing="ease-in-out">
+                            <!-- Icon -->
+                            <div class="icon-lg bg-body text-info rounded-circle flex-shrink-0"><i
+                                    class="bi bi-person-vcard fa-lg"></i></div>
+                            <!-- Content -->
+                            <div class="ms-3">
+                                <h6 class="mb-2">Account management</h6>
+                                <p class="mb-0">Monitor your account balance, transaction history, and manage your
+                                    finances efficiently.</p>
+                            </div>
+                        </div>
+
+                        <!-- Item -->
+                        <div class="aos d-flex mb-4 mb-md-6" data-aos="fade-left" data-aos-delay="100"
+                            data-aos-duration="1000" data-aos-easing="ease-in-out">
+                            <!-- Icon -->
+                            <div class="icon-lg bg-body text-primary rounded-circle flex-shrink-0"><i
+                                    class="bi bi-gear fa-lg"></i></div>
+                            <!-- Content -->
+                            <div class="ms-3">
+                                <h6 class="mb-2">Budgeting tools</h6>
+                                <p class="mb-0">Use built-in tools to set budgets, track spending, and save more
+                                    effectively.</p>
+                            </div>
+                        </div>
+
+                        <!-- Item -->
+                        <div class="aos d-flex" data-aos="fade-left" data-aos-delay="100" data-aos-duration="1000"
+                            data-aos-easing="ease-in-out">
+                            <!-- Icon -->
+                            <div class="icon-lg bg-body text-pink rounded-circle flex-shrink-0"><i
+                                    class="bi bi-headset fa-lg"></i></div>
+                            <!-- Content -->
+                            <div class="ms-3">
+                                <h6 class="mb-2">24/7 customer support</h6>
+                                <p class="mb-0">Get help anytime with our dedicated customer support team, available
+                                    around the clock.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ratings -->
+                <div class="inner-container row g-4 mt-6 mt-md-8" data-aos="zoom-in" data-aos-delay="100"
+                    data-aos-duration="1000" data-aos-easing="ease-in-out">
+                    <!-- Rating number -->
+                    <div class="col-sm-6 col-md-4">
+                        <div class="text-center border-end pe-sm-5 h-100">
+                            <img src="assets/images/elements/review.svg" class="h-60px mb-4" alt="review image">
+                            <h4>4.5/5.0</h4>
+                            <p class="mb-0">Rating by 365 users</p>
+                        </div>
+                    </div>
+
+                    <!-- platform rating number -->
+                    <div class="col-sm-6 col-md-4">
+                        <div class="text-center border-end pe-sm-5 h-100">
+                            <div class="d-flex justify-content-center gap-2 mb-4">
+                                <img src="assets/images/elements/apple.svg" class="h-60px" alt="">
+                                <img src="assets/images/elements/play-store.svg" class="h-60px" alt="">
+                            </div>
+                            <h4>35K+</h4>
+                            <p class="mb-0">Review on google play and iOS</p>
+                        </div>
+                    </div>
+
+                    <!-- platform rating number -->
+                    <div class="col-md-4">
+                        <div class="text-center h-100">
+                            <span class="display-6 text-primary-grad"><i class="bi bi-people"></i></span>
+                            <h4>86M</h4>
+                            <p class="mb-0">Total members use this platform</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- =======================
+Features and rating UI Design END -->
+
+
+        <!-- =======================
+Steps For UI START -->
+        <section class="d-none">
+            <div class="container">
+                <div class="row g-4 align-items-lg-center">
+                    <!-- Images -->
+                    <div class="col-md-6 col-xl-5 order-2 order-md-1">
+                 					<div id="stepsImageSwiper" class="swiper" data-swiper-options='{
+						"spaceBetween": 30,
+						"effect": "fade",
+						"autoplay":false
+						}'>
+
+                            <div class="swiper-wrapper">
+                                <!-- Testimonials item -->
+                                <div class="swiper-slide bg-body">
+                                    <div class="bg-secondary-grad rounded-4 overflow-hidden p-5 h-100">
+                                        <img src="assets/images/mobile-app/step-1.jpg"
+                                            class="mb-n8 rounded-5 shadow-primary" alt="step image">
+                                    </div>
+                                </div>
+
+                                <!-- Testimonials item -->
+                                <div class="swiper-slide bg-body">
+                                    <div class="bg-secondary-grad rounded-4 overflow-hidden p-5 h-100">
+                                        <img src="assets/images/mobile-app/step-2.jpg"
+                                            class="mb-n8 rounded-5 shadow-primary" alt="step image">
+                                    </div>
+                                </div>
+
+                                <!-- Testimonials item -->
+                                <div class="swiper-slide bg-body">
+                                    <div class="bg-secondary-grad rounded-4 overflow-hidden p-5 h-100">
+                                        <img src="assets/images/mobile-app/step-3.jpg"
+                                            class="mb-n8 rounded-5 shadow-primary" alt="step image">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Steps Content START -->
+                    <div class="col-md-6 order-1 ms-auto">
+                        <!-- Slider START -->
+                        				<div id="stepsContentSwiper" class="swiper" data-swiper-options='{
+					"spaceBetween": 30,
+					"autoplay":false,
+					"navigation":{
+						"nextEl":".swiper-button-next-steps",
+						"prevEl":".swiper-button-prev-steps"
+					}}'>
+
+                            <div class="swiper-wrapper mb-lg-5">
+                                <!-- Testimonials item -->
+                                <div class="swiper-slide">
+                                    <span class="fw-semibold text-primary">Phase 1</span>
+                                    <h2 class="my-3">Sign up and secure your account</h2>
+                                    <p class="mb-0">Create an account using your email or phone number. Complete the
+                                        straightforward verification process to ensure your account is protected. Follow
+                                        the simple verification process to secure your account. This ensures a
+                                        personalized and seamless banking experience.</p>
+                                </div>
+
+                                <!-- Testimonials item -->
+                                <div class="swiper-slide">
+                                    <span class="fw-semibold text-primary">Phase 2</span>
+                                    <h2 class="my-3">Enter your personal and financial getails</h2>
+                                    <p class="mb-0">Provide the necessary information to set up your profile. This
+                                        ensures a personalized and seamless banking experience tailored to your needs.
+                                        This ensures a personalized and seamless banking experience.</p>
+                                </div>
+
+                                <!-- Testimonials item -->
+                                <div class="swiper-slide">
+                                    <span class="fw-semibold text-primary">Phase 3</span>
+                                    <h2 class="my-3">Explore the full range of banking features</h2>
+                                    <p class="mb-0">Discover all the app’s functionalities, from instant money
+                                        transfers to convenient bill payments, and start managing your finances with
+                                        ease and efficiency. This ensures a personalized and seamless banking
+                                        experience. Follow the simple verification process to secure your account.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slider END -->
+
+                        <!-- Slider arrow -->
+                        <div class="d-flex gap-3 position-relative mt-3">
+                            <a href="#"
+                                class="btn btn-lg btn-secondary btn-icon rounded-circle mb-0 swiper-button-prev-steps rtl-flip"><i
+                                    class="bi bi-arrow-left"></i></a>
+                            <a href="#"
+                                class="btn btn-lg btn-secondary btn-icon rounded-circle mb-0 swiper-button-next-steps rtl-flip"><i
+                                    class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- Steps Content END -->
+                </div>
+            </div>
+        </section>
+        <!-- =======================
+Steps for UI END -->
+
+        <!-- =======================
+Detail for Ui START -->
+        <section class="d-none">
+            <div class="container">
+                <!-- Overview -->
+                <div class="row mb-5">
+                    <div class="col-md-4">
+                        <span class="text-primary-grad fw-bold lead">01.</span>
+                        <h5>Overview</h5>
+                    </div>
+                    <!-- Content -->
+                    <div class="col-md-8 ms-auto">
+                        <p class="lead">Ideas are the seeds of innovation. They can originate from personal experiences,
+                            observations, or the desire to solve a problem.</p>
+                        <p>Once an idea takes root, it requires nurturing and refinement. This stage involves research,
+                            brainstorming, and gathering feedback. Conducting market analysis, exploring existing
+                            solutions, and collaborating with others can help refine the idea further. The goal is to
+                            gain a deeper understanding of the idea's feasibility, potential impact, and market
+                            viability.</p>
+                        <!-- Tag list -->
+                        <ul class="list-inline">
+                            <li class="list-inline-item"> <a class="btn btn-light btn-sm mb-lg-0" href="#">Branding</a>
+                            </li>
+                            <li class="list-inline-item"> <a class="btn btn-light btn-sm mb-lg-0" href="#">Packaging</a>
+                            </li>
+                            <li class="list-inline-item"> <a class="btn btn-light btn-sm mb-lg-0" href="#">UI/UX
+                                    design</a> </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Challenge -->
+                <div class="row">
+                    <div class="col-md-4">
+                        <span class="text-primary-grad fw-bold lead">02.</span>
+                        <h5>The Challenge</h5>
+                    </div>
+                    <!-- Content -->
+                    <div class="col-md-8 ms-auto">
+                        <p>Turning ideas into reality is a transformative process that drives innovation and progress.
+                            It begins with recognizing the power and potential of an idea. Through cultivation,
+                            planning, and strategizing, ideas are refined and shaped into actionable plans. Challenges
+                            are embraced as opportunities for growth, and perseverance becomes key in overcoming
+                            obstacles.</p>
+
+                        <!-- List -->
+                        <div class="row">
+                            <div class="col-sm-6 col-lg-5">
+                                <ul class="list-group list-group-borderless">
+                                    <li class="list-group-item d-flex heading-color"><i
+                                            class="bi bi-check-circle text-primary me-2"></i>Brand Development</li>
+                                    <li class="list-group-item d-flex heading-color"><i
+                                            class="bi bi-check-circle text-primary me-2"></i>Art Direction</li>
+                                    <li class="list-group-item d-flex heading-color"><i
+                                            class="bi bi-check-circle text-primary me-2"></i>Marketing Strategy</li>
+                                    <li class="list-group-item d-flex heading-color"><i
+                                            class="bi bi-check-circle text-primary me-2"></i>Mobile App Design</li>
+                                </ul>
+                            </div>
+
+                            <div class="col-sm-6 col-lg-5">
+                                <ul class="list-group list-group-borderless">
+                                    <li class="list-group-item d-flex heading-color"><i
+                                            class="bi bi-check-circle text-primary me-2"></i>Content Management</li>
+                                    <li class="list-group-item d-flex heading-color"><i
+                                            class="bi bi-check-circle text-primary me-2"></i>System & Guides</li>
+                                    <li class="list-group-item d-flex heading-color"><i
+                                            class="bi bi-check-circle text-primary me-2"></i>Graphic Design</li>
+                                    <li class="list-group-item d-flex heading-color"><i
+                                            class="bi bi-check-circle text-primary me-2"></i>Brand Development</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- =======================
+Detail for Ui END -->
+
+
+        <!-- =======================
+Images for Ui START -->
+        <section class="py-0 mb-n9 d-none">
+            <div class="container">
+                <div class="row g-4 g-lg-5">
+                    <!-- Image -->
+                    <div class="col-6 col-md-6">
+                        <a href="assets/images/portfolio/3by4/09.jpg" data-glightbox data-gallery="image-popup">
+                            <img src="assets/images/portfolio/3by4/09.jpg" class="rounded" alt="portfolio-img">
+                        </a>
+                    </div>
+
+                    <!-- Image -->
+                    <div class="col-6 col-md-6">
+                        <a href="assets/images/portfolio/3by4/06.jpg" data-glightbox data-gallery="image-popup">
+                            <img src="assets/images/portfolio/3by4/06.jpg" class="rounded" alt="portfolio-img">
+                        </a>
+                    </div>
+
+                    <!-- Image -->
+                    <div class="col-6 col-md-6">
+                        <a href="assets/images/portfolio/3by4/01.jpg" data-glightbox data-gallery="image-popup">
+                            <img src="assets/images/portfolio/3by4/01.jpg" class="rounded" alt="portfolio-img">
+                        </a>
+                    </div>
+
+                      <!-- Image -->
+                    <div class="col-6 col-md-6">
+                        <a href="assets/images/portfolio/3by4/04.jpg" data-glightbox data-gallery="image-popup">
+                            <img src="assets/images/portfolio/3by4/04.jpg" class="rounded" alt="portfolio-img">
+                        </a>
+                    </div>
+
+                   
+                </div>
+            </div>
+        </section>
+        <!-- =======================
+Images for UI END -->
+
+        <!-- =======================
+Result for UI START -->
+        <section class="bg-secondary bg-opacity-50 d-none">
+            <div class="container pt-8">
+                <div class="row">
+                    <div class="col-md-4">
+                        <span class="text-primary-grad fw-bold lead">03.</span>
+                        <h5>Result</h5>
+                    </div>
+                    <!-- Content -->
+                    <div class="col-md-8 ms-auto">
+                        <p class="lead">Two assure Edward whence the was. Who worthy yet ten boys denote wonder. Weeks
+                            views her sight old tears sorry. Additions can suspected its concealed put furnished.</p>
+                        <p class="mb-0">Transforming ideas into reality often requires collaboration with a diverse
+                            range of individuals. Partnering with experts, seeking mentorship, and building a network of
+                            like-minded individuals can provide valuable insights and support.</p>
+
+                        <!-- Skill sets -->
+                        <div class="row row-cols-2 row-cols-md-3 mt-0 g-4 g-lg-5">
+                            <!-- Item -->
+                            <div class="col">
+                                <h2 class="mb-0">22<span class="text-primary mb-0">%</span></h2>
+                                <p class="mb-0">Increase in time spent on website</p>
+                            </div>
+
+                            <!-- Item -->
+                            <div class="col">
+                                <h2 class="mb-0">4.5<span class="text-purple mb-0">M</span></h2>
+                                <p class="mb-0">View this project got across our social media network</p>
+                            </div>
+
+                            <!-- Item -->
+                            <div class="col">
+                                <h2 class="mb-0">$12.8<span class="text-pink mb-0">M</span></h2>
+                                <p class="mb-0">Total raised in funding so far</p>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- Row END -->
+            </div>
+        </section>
+        <!-- =======================
+Result for UI END -->
+
+
+        <!-- =======================
+Images Two part for UI START -->
+        <section class="bg-secondary bg-opacity-50 py-0 mb-n9 my-5 pb-5 d-none">
+            <div class="container">
+                <div class="row g-4 g-lg-5">
+                    <!-- Image -->
+                    <div class="col-6 col-md-6">
+                        <a href="assets/images/portfolio/3by4/09.jpg" data-glightbox data-gallery="image-popup">
+                            <img src="assets/images/portfolio/3by4/09.jpg" class="rounded" alt="portfolio-img">
+                        </a>
+                    </div>
+
+                    <!-- Image -->
+                    <div class="col-6 col-md-6">
+                        <a href="assets/images/portfolio/3by4/06.jpg" data-glightbox data-gallery="image-popup">
+                            <img src="assets/images/portfolio/3by4/06.jpg" class="rounded" alt="portfolio-img">
+                        </a>
+                    </div>
+
+                   <!-- Parallax image -->
+                    <div class="col-12">
+                        <div class="bg-parallax rounded h-400px h-xl-500px overflow-hidden" data-jarallax
+                            data-speed="0.6"
+                            style="background:url(assets/images/portfolio/04.jpg) no-repeat; background-size:cover; background-position:center;">
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+          <br><br><br><br><br><br>
+        
+        </section>
+        <!-- =======================
+
+Images Two part for UI END -->
+
+
+<!-- Image View Start -->
+<section class="position-relative z-index-2 py-0 mt-7 d-none" data-bs-theme="dark">
+	<div class="container-fluid position-relative">
+		<div class="max-width-1550 bg-dark position-relative rounded-4 overflow-hidden py-6 py-lg-8">
+			<!-- Grad blur -->
+			<div class="position-absolute top-0 end-0 mt-n6">
+				<img src="assets/images/elements/grad-shape/blur-decoration.svg" class="rotate-270 blur-8 opacity-2" alt="Grad shape">
+			</div>
+			
+			<!-- Title and content -->
+			<div class="container inner-container-small text-center mb-7">
+				<h2 class="mb-4">Get a closer look at how our app works</h2>
+				<p class="mb-4"> Browse through our gallery to get a glimpse of the intuitive design and powerful features that make managing your finances effortless.</p>
+				<div class="d-sm-flex justify-content-center">
+					<a href="#"> <img src="assets/images/elements/google-play.svg" class="btn-transition me-sm-4 mb-2 mb-sm-0" width="180" alt="play store"> </a>
+					<a href="#"> <img src="assets/images/elements/app-store.svg" class="btn-transition" width="180" alt="app-store"> </a>
+				</div>
+			</div>
+
+			<!-- Slider START -->
+			<div class="swiper swiper-outside-n5 pb-6 mx-3 mx-sm-0 swiper-initialized swiper-horizontal swiper-backface-hidden" data-swiper-options="{
+				&quot;slidesPerView&quot;: 1, 
+				&quot;spaceBetween&quot;: 50,
+				&quot;autoplay&quot;:{
+					&quot;delay&quot;: 2000, 
+					&quot;disableOnInteraction&quot;: false,
+					&quot;pauseOnMouseEnter&quot;: true
+				},
+				&quot;breakpoints&quot;: { 
+					&quot;576&quot;: {&quot;slidesPerView&quot;: 3}, 
+					&quot;992&quot;: {&quot;slidesPerView&quot;: 5},
+					&quot;1300&quot;: {&quot;slidesPerView&quot;: 7}
+				},
+				&quot;pagination&quot;:{
+					&quot;el&quot;:&quot;.swiper-pagination&quot;,
+					&quot;clickable&quot;:&quot;true&quot;
+				}}">
+
+				<!-- Slider items -->
+				<div class="swiper-wrapper align-items-center" id="swiper-wrapper-9b9510a31a4a68b52" aria-live="off" style="transition-duration: 0ms; transform: translate3d(-228.571px, 0px, 0px); transition-delay: 0ms;">
+					<!-- Image -->
+					
+
+					<!-- Image -->
+					
+
+					<!-- Image -->
+					
+
+					<!-- Image -->
+					
+
+					<!-- Image -->
+					
+
+					<!-- Image -->
+					
+
+					<!-- Image -->
+					
+
+					<!-- Image -->
+					
+				<div class="swiper-slide swiper-slide-prev" role="group" aria-label="7 / 8" data-swiper-slide-index="6" style="width: 178.571px; margin-right: 50px;">
+						<img src="assets/images/mobile-app/screen/s-07.jpg" class="rounded-4 border border-secondary border-3" alt="mobile screen">
+					</div><div class="swiper-slide swiper-slide-active" role="group" aria-label="8 / 8" data-swiper-slide-index="7" style="width: 178.571px; margin-right: 50px;">
+						<img src="assets/images/mobile-app/screen/s-08.jpg" class="rounded-4 border border-secondary border-3" alt="mobile screen">
+					</div><div class="swiper-slide swiper-slide-next" role="group" aria-label="1 / 8" data-swiper-slide-index="0" style="width: 178.571px; margin-right: 50px;">
+						<img src="assets/images/mobile-app/screen/s-01.jpg" class="rounded-4 border border-secondary border-3" alt="mobile screen">
+					</div><div class="swiper-slide" role="group" aria-label="2 / 8" data-swiper-slide-index="1" style="width: 178.571px; margin-right: 50px;">
+						<img src="assets/images/mobile-app/screen/s-02.jpg" class="rounded-4 border border-secondary border-3" alt="mobile screen">
+					</div><div class="swiper-slide" role="group" aria-label="3 / 8" data-swiper-slide-index="2" style="width: 178.571px; margin-right: 50px;">
+						<img src="assets/images/mobile-app/screen/s-03.jpg" class="rounded-4 border border-secondary border-3" alt="mobile screen">
+					</div><div class="swiper-slide" role="group" aria-label="4 / 8" data-swiper-slide-index="3" style="width: 178.571px; margin-right: 50px;">
+						<img src="assets/images/mobile-app/screen/s-04.jpg" class="rounded-4 border border-secondary border-3" alt="mobile screen">
+					</div><div class="swiper-slide" role="group" aria-label="5 / 8" data-swiper-slide-index="4" style="width: 178.571px; margin-right: 50px;">
+						<img src="assets/images/mobile-app/screen/s-05.jpg" class="rounded-4 border border-secondary border-3" alt="mobile screen">
+					</div><div class="swiper-slide" role="group" aria-label="6 / 8" data-swiper-slide-index="5" style="width: 178.571px; margin-right: 50px;">
+						<img src="assets/images/mobile-app/screen/s-06.jpg" class="rounded-4 border border-secondary border-3" alt="mobile screen">
+					</div></div>
+
+				<!-- Slider Pagination -->
+				<div class="swiper-pagination swiper-pagination-primary position-absolute bottom-0 mb-4 swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal"><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 2"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 3"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 4"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 5"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 6"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 7"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 8" aria-current="true"></span></div>
+			<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>	
+			<!-- Slider END	 -->
+		</div>
+	</div>
+</section>
+<!-- Image View End -->
+
+<!-- Motion Slides For UI End -->
+</div>
+<!-- ============ UI product Desgin Sections End =========-->
+
+
+
+
+
+<!-- ============ Web Development and Software Testing & QA Hero  Sections Start =========-->
+
+<!-- Stack Tools Used logos Start  -->
+<div class="inner-container text-center d-none">
+				<h4>Development stack and QA toolkits we utilize</h4>
+				<!-- Logo list -->
+				<ul class="list-inline d-flex justify-content-center flex-wrap gap-4 my-5 my-lg-6">
+					<!-- Logo item -->
+					<li class="list-inline-item me-0">
+						<a href="#" class="icon-xl btn-transition bg-white border border-white border-opacity-10 d-flex justify-content-center align-items-center rounded-2" style="--bs-bg-opacity:0.05">
+							<img src="assets/images/client/icons/08.svg" class="h-40px" alt="icon">
+						</a>
+					</li>
+
+					<!-- Logo item -->
+					<li class="list-inline-item me-0">
+						<a href="#" class="icon-xl btn-transition bg-white border border-white border-opacity-10 d-flex justify-content-center align-items-center rounded-2" style="--bs-bg-opacity:0.05">
+							<img src="assets/images/client/icons/04.svg" class="h-40px" alt="icon">
+						</a>
+					</li>
+
+					<!-- Logo item -->
+					<li class="list-inline-item me-0">
+						<a href="#" class="icon-xl btn-transition bg-white border border-white border-opacity-10 d-flex justify-content-center align-items-center rounded-2" style="--bs-bg-opacity:0.05">
+							<img src="assets/images/client/icons/12.svg" class="h-40px" alt="icon">
+						</a>
+					</li>
+
+					<!-- Logo item -->
+					<li class="list-inline-item me-0">
+						<a href="#" class="icon-xl btn-transition bg-white border border-white border-opacity-10 d-flex justify-content-center align-items-center rounded-2" style="--bs-bg-opacity:0.05">
+							<img src="assets/images/client/icons/09.svg" class="h-40px" alt="icon">
+						</a>
+					</li>
+
+					<!-- Logo item -->
+					<li class="list-inline-item me-0">
+						<a href="#" class="icon-xl btn-transition bg-white border border-white border-opacity-10 d-flex justify-content-center align-items-center rounded-2" style="--bs-bg-opacity:0.05">
+							<img src="assets/images/client/icons/05.svg" class="h-40px" alt="icon">
+						</a>
+					</li>
+
+					<!-- Logo item -->
+					<li class="list-inline-item me-0">
+						<a href="#" class="icon-xl btn-transition bg-white border border-white border-opacity-10 d-flex justify-content-center align-items-center rounded-2" style="--bs-bg-opacity:0.05">
+							<img src="assets/images/client/icons/03.svg" class="h-40px" alt="icon">
+						</a>
+					</li>
+
+					<!-- Logo item -->
+					<li class="list-inline-item me-0">
+						<a href="#" class="icon-xl btn-transition bg-white border border-white border-opacity-10 d-flex justify-content-center align-items-center rounded-2" style="--bs-bg-opacity:0.05">
+							<img src="assets/images/client/icons/02.svg" class="h-40px" alt="icon">
+						</a>
+					</li>
+
+					<!-- Logo item -->
+					<li class="list-inline-item me-0">
+						<a href="#" class="icon-xl btn-transition bg-white border border-white border-opacity-10 d-flex justify-content-center align-items-center rounded-2" style="--bs-bg-opacity:0.05">
+							<img src="assets/images/client/icons/10.svg" class="h-40px" alt="icon">
+						</a>
+					</li>
+				</ul>
+
+			</div>
+
+<!-- Stack Tools Used logos End -->
+
+
+
+<!-- Functionality list offers Start  -->
+ <section class="bg-dark overflow-hidden position-relative d-none" data-bs-theme="dark">
+	<!-- Image -->
+	<div class="col-md-8 col-lg-7 col-xl-12 col-xxl-9 position-absolute bottom-0 end-0 me-xl-n9 d-none d-md-block">
+		<img src="assets/images/product/feature-bg.png" class="ps-8 position-relative z-index-2" alt="">
+	</div>
+	<!-- Blur decoration -->
+	<div class="position-absolute bottom-50 end-0">
+		<img src="assets/images/elements/grad-shape/blur-decoration-2.svg" class="opacity-2 blur-9" alt="Grad shape">
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-6">
+				<!-- Title -->
+				<h2 class="mb-4 mb-md-6">High-Performance Development & Rigorous QA</h2>
+
+				<!-- Features START -->
+				<div class="row g-4 g-lg-5">
+					<!-- Item -->
+					<div class="col-md-6">
+						<span class="text-primary fs-3"><i class="bi bi-cpu"></i></span>
+						<h6 class="my-3">Scalable Architecture</h6>
+						<p class="mb-0">Modern frameworks and modular code designed for long-term scalability and growth.</p>
+					</div>
+					<!-- Item -->
+					<div class="col-md-6">
+						<span class="text-pink fs-3"><i class="bi bi-shield-check"></i></span>
+						<h6 class="my-3">Automated Testing</h6>
+						<p class="mb-0">End-to-end testing pipelines ensuring zero-regression releases and high reliability.</p>
+					</div>
+					<!-- Item -->
+					<div class="col-md-6">
+						<span class="text-success fs-3"><i class="bi bi-cloud-arrow-up"></i></span>
+						<h6 class="my-3">Cloud Native Design</h6>
+						<p class="mb-0">Optimized for AWS/Azure with serverless and microservices-first strategies.</p>
+					</div>
+					<!-- Item -->
+					<div class="col-md-6">
+						<span class="text-purple fs-3"><i class="bi bi-lightning-charge"></i></span>
+						<h6 class="my-3">Real-time Performance</h6>
+						<p class="mb-0">Low-latency data processing and high-availability systems for complex applications.</p>
+					</div>
+					<!-- Item -->
+					<div class="col-md-6">
+						<span class="text-warning fs-3"><i class="bi bi-lock"></i></span>
+						<h6 class="my-3">Security First</h6>
+						<p class="mb-0">Built with OWASP standards and regular vulnerability scanning to protect your data.</p>
+					</div>
+				</div>
+				<!-- Features END -->
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Functionality list offers End -->
+
+<!-- =======================
+Features and rating UI Design START -->
+<section class="bg-secondary position-relative overflow-hidden z-index-2 pt-6 d-none">
+	<div class="container">
+		<!-- Title -->
+		<div class="inner-container-small text-center mb-4 mb-md-6">
+			<h2 class="mb-0">Accelerating your digital transformation through <span class="text-primary-grad">Weburea</span></h2>
+		</div>
+
+		<!-- Features and image -->
+		<div class="row g-4 g-lg-5 align-items-lg-center">
+			<!-- left side features -->
+			<div class="col-md-6 col-lg-4 order-1 pe-5">
+				<!-- Item -->
+				<div class="aos d-flex justify-content-lg-end mb-4 mb-md-6" data-aos="fade-right" data-aos-delay="100" data-aos-duration="1000" data-aos-easing="ease-in-out">
+					<!-- Content -->
+					<div class="text-lg-end order-1 ms-3 ms-lg-0 me-lg-3">
+						<h6 class="mb-2">Custom API Integrations</h6>
+						<p class="mb-0">Connecting your core services with seamless, secure, and robust API gateways.</p>
+					</div>
+					<!-- Icon -->
+					<div class="icon-lg bg-body text-success rounded-circle flex-shrink-0 order-lg-2"><i class="bi bi-shuffle fa-lg"></i></div>
+				</div>
+
+				<!-- Item -->
+				<div class="aos d-flex justify-content-lg-end mb-4 mb-md-6" data-aos="fade-right" data-aos-delay="100" data-aos-duration="1000" data-aos-easing="ease-in-out">
+					<!-- Content -->
+					<div class="text-lg-end order-1 ms-3 ms-lg-0 me-lg-3">
+						<h6 class="mb-2">Cross-Browser Testing</h6>
+						<p class="mb-0">Ensuring pixel-perfect rendering across all modern browsers and device viewports.</p>
+					</div>
+					<!-- Icon -->
+					<div class="icon-lg bg-body text-purple rounded-circle flex-shrink-0 order-lg-2"><i class="bi bi-laptop fa-lg"></i></div>
+				</div>
+
+				<!-- Item -->
+				<div class="aos d-flex justify-content-lg-end" data-aos="fade-right" data-aos-delay="100" data-aos-duration="1000" data-aos-easing="ease-in-out">
+					<!-- Content -->
+					<div class="text-lg-end order-1 ms-3 ms-lg-0 me-lg-3">
+						<h6 class="mb-2">Agile QA Cycles</h6>
+						<p class="mb-0">Rapid feedback loops that minimize bugs and maximize your speed to market.</p>
+					</div>
+					<!-- Icon -->
+					<div class="icon-lg bg-body text-warning rounded-circle flex-shrink-0 order-lg-2"><i class="bi bi-clock-history fa-lg"></i></div>
+				</div>
+			</div>
+
+			<!-- Image -->
+			<div class="col-md-8 col-lg-4 mx-auto order-3 order-lg-2">
+				<img src="assets/images/mobile-app/feature.png" class="aos" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000" data-aos-easing="ease-in-out" alt="feature mobile">
+			</div>
+
+			<!-- Right side features -->
+			<div class="col-md-6 col-lg-4 order-2 order-lg-3">
+				<!-- Item -->
+				<div class="aos d-flex mb-4 mb-md-6" data-aos="fade-left" data-aos-delay="100" data-aos-duration="1000" data-aos-easing="ease-in-out">
+					<!-- Icon -->
+					<div class="icon-lg bg-body text-info rounded-circle flex-shrink-0"><i class="bi bi-terminal fa-lg"></i></div>
+					<!-- Content -->
+					<div class="ms-3">
+						<h6 class="mb-2">User-Centric DevOps</h6>
+						<p class="mb-0">Automated deployment pipelines built for continuous innovation and uptime.</p>
+					</div>
+				</div>
+
+				<!-- Item -->
+				<div class="aos d-flex mb-4 mb-md-6" data-aos="fade-left" data-aos-delay="100" data-aos-duration="1000" data-aos-easing="ease-in-out">
+					<!-- Icon -->
+					<div class="icon-lg bg-body text-primary rounded-circle flex-shrink-0"><i class="bi bi-code-slash fa-lg"></i></div>
+					<!-- Content -->
+					<div class="ms-3">
+						<h6 class="mb-2">Technical Consulting</h6>
+						<p class="mb-0">Expert guidance on architecture, modern tech stacks, and long-term scalability.</p>
+					</div>
+				</div>
+
+				<!-- Item -->
+				<div class="aos d-flex" data-aos="fade-left" data-aos-delay="100" data-aos-duration="1000" data-aos-easing="ease-in-out">
+					<!-- Icon -->
+					<div class="icon-lg bg-body text-pink rounded-circle flex-shrink-0"><i class="bi bi-gear-wide-connected fa-lg"></i></div>
+					<!-- Content -->
+					<div class="ms-3">
+						<h6 class="mb-2">24/7 QA Support</h6>
+						<p class="mb-0">Dedicated engineers providing monitoring and performance tuning around the clock.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Ratings -->
+		<div class="inner-container row g-4 mt-6 mt-md-8" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="1000" data-aos-easing="ease-in-out">
+			<!-- Rating number -->
+			<div class="col-sm-6 col-md-4">
+				<div class="text-center border-end pe-sm-5 h-100">
+					<img src="assets/images/elements/review.svg" class="h-60px mb-4" alt="review image">
+					<h4>4.5/5.0</h4>
+					<p class="mb-0">Rating by 365 users</p>
+				</div>
+			</div>
+
+			<!-- platform rating number -->
+			<div class="col-sm-6 col-md-4">
+				<div class="text-center border-end pe-sm-5 h-100">
+					<div class="d-flex justify-content-center gap-2 mb-4">
+						<img src="assets/images/elements/apple.svg" class="h-60px" alt="">
+						<img src="assets/images/elements/play-store.svg" class="h-60px" alt="">
+					</div>
+					<h4>35K+</h4>
+					<p class="mb-0">Review on google play and iOS</p>
+				</div>
+			</div>
+
+			<!-- platform rating number -->
+			<div class="col-md-4">
+				<div class="text-center h-100">
+					<span class="display-6 text-primary-grad"><i class="bi bi-people"></i></span>
+					<h4>86M</h4>
+					<p class="mb-0">Total members use this platform</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- =======================
+Features and rating UI Design END -->
+
+
+<!-- =======================
+Detail START -->
+<section class="d-none">
+	<div class="container">
+		<!-- Overview -->
+		<div class="row mb-5">
+			<div class="col-md-4">
+				<span class="text-primary-grad fw-bold lead">01.</span>
+				<h5>Overview</h5>
+			</div>
+			<!-- Content -->
+			<div class="col-md-8 ms-auto">
+				<p class="lead">In today's digital landscape, robust web applications and flawless quality assurance are the foundations of success.</p>
+				<p>Our approach combines cutting-edge engineering with exhaustive testing methodologies. From initial architecture to final stress testing, we ensure every line of code serves a purpose. We don't just build websites; we engineer reliable digital platforms that handle complex logic and high traffic volumes while maintaining a seamless user experience.</p>
+				<!-- Tag list -->
+				<ul class="list-inline">
+					<li class="list-inline-item"> <a class="btn btn-light btn-sm mb-lg-0" href="#">Full-Stack</a> </li>
+					<li class="list-inline-item"> <a class="btn btn-light btn-sm mb-lg-0" href="#">Automated QA</a> </li>
+					<li class="list-inline-item"> <a class="btn btn-light btn-sm mb-lg-0" href="#">Architecture</a> </li>
+					<li class="list-inline-item"> <a class="btn btn-light btn-sm mb-lg-0" href="#">DevOps</a> </li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- Challenge -->
+		<div class="row">
+			<div class="col-md-4">
+				<span class="text-primary-grad fw-bold lead">02.</span>
+				<h5>The Challenge</h5>
+			</div>
+			<!-- Content -->
+			<div class="col-md-8 ms-auto">
+				<p>The primary challenge for this project was to modernize a complex legacy system into a forward-thinking digital platform without interrupting service for the existing user base.</p>
+
+				<!-- List -->
+				<div class="row">
+					<div class="col-sm-6 col-lg-5">
+						<ul class="list-group list-group-borderless">
+							<li class="list-group-item d-flex heading-color"><i class="bi bi-check-circle text-primary me-2"></i>System Architecture</li>
+							<li class="list-group-item d-flex heading-color"><i class="bi bi-check-circle text-primary me-2"></i>Performance Tuning</li>
+							<li class="list-group-item d-flex heading-color"><i class="bi bi-check-circle text-primary me-2"></i>Security Hardening</li>
+							<li class="list-group-item d-flex heading-color"><i class="bi bi-check-circle text-primary me-2"></i>Integration Testing</li>
+						</ul>
+					</div>
+
+					<div class="col-sm-6 col-lg-5">
+						<ul class="list-group list-group-borderless">
+							<li class="list-group-item d-flex heading-color"><i class="bi bi-check-circle text-primary me-2"></i>CI/CD Pipelines</li>
+							<li class="list-group-item d-flex heading-color"><i class="bi bi-check-circle text-primary me-2"></i>Legacy Migration</li>
+							<li class="list-group-item d-flex heading-color"><i class="bi bi-check-circle text-primary me-2"></i>Database Redesign</li>
+							<li class="list-group-item d-flex heading-color"><i class="bi bi-check-circle text-primary me-2"></i>Load Balancing</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- =======================
+Detail END -->
+
+<!-- =======================
+Images START -->
+<section class="py-0 mb-n9 d-none">
+	<div class="container">
+		<div class="row g-4 g-lg-5">
+			<!-- Image -->
+			<div class="col-6 col-md-4">
+				<a href="assets/images/portfolio/3by4/09.jpg" data-glightbox data-gallery="image-popup">
+					<img src="assets/images/portfolio/3by4/09.jpg" class="rounded" alt="portfolio-img">
+				</a>
+			</div>
+
+			<!-- Image -->
+			<div class="col-6 col-md-4">
+				<a href="assets/images/portfolio/3by4/06.jpg" data-glightbox data-gallery="image-popup">
+					<img src="assets/images/portfolio/3by4/06.jpg" class="rounded" alt="portfolio-img">
+				</a>
+			</div>
+
+			<!-- Image -->
+			<div class="col-6 col-md-4">
+				<a href="assets/images/portfolio/3by4/01.jpg" data-glightbox data-gallery="image-popup">
+					<img src="assets/images/portfolio/3by4/01.jpg" class="rounded" alt="portfolio-img">
+				</a>
+			</div>
+
+			<!-- Parallax image -->
+			<div class="col-12">
+				<div class="bg-parallax rounded h-400px h-xl-500px overflow-hidden" data-jarallax data-speed="0.6" style="background:url(assets/images/portfolio/04.jpg) no-repeat; background-size:cover; background-position:center;"></div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- =======================
+Images END -->
+
+<!-- =======================
+Result START -->
+<section class="bg-secondary bg-opacity-50 d-none">
+	<div class="container pt-8">
+		<div class="row">
+			<div class="col-md-4">
+				<span class="text-primary-grad fw-bold lead">03.</span>
+				<h5>Result</h5>
+			</div>
+			<!-- Content -->
+			<div class="col-md-8 ms-auto">
+				<p class="lead">The implementation of advanced QA methodologies and optimized architecture led to a 75% reduction in production bugs and a significantly more stable platform.</p>
+				<p class="mb-0">By leveraging modern dev stacks and automated testing pipelines, we not only improved the user experience but also accelerated the client's development velocity, allowing for more frequent and reliable feature releases.</p>
+
+				<!-- Skill sets -->
+				<div class="row row-cols-2 row-cols-md-3 mt-0 g-4 g-lg-5">
+					<!-- Item -->
+					<div class="col">
+						<h2 class="mb-0">99.9<span class="text-primary mb-0">%</span></h2>
+						<p class="mb-0">Uptime achieved with zero-downtime deployments</p>
+					</div>
+
+					<!-- Item -->
+					<div class="col">
+							<h2 class="mb-0">3<span class="text-purple mb-0">X</span></h2>
+						<p class="mb-0">Faster application load times across all devices</p>
+					</div>
+
+					<!-- Item -->
+					<div class="col">
+						<h2 class="mb-0">$0<span class="text-pink mb-0">M</span></h2>
+						<p class="mb-0">Lost to security vulnerabilities or production breaches</p>
+					</div>
+				</div>
+			</div>
+		</div> <!-- Row END -->
+	</div>
+</section>
+<!-- =======================
+Result END -->
+
+
+<!-- ============ Web Development and Software Testing & QA Hero   Sections End =========-->
+
+
+
+
+
+
+
+
+
+
+<!-- ============ Motion Graphics & Animation Sections  Start =========-->
+
+
+<!-- Motion Slides For UI Start -->
+ <!-- =======================
+Detail for Motion START -->
+        <section class="d-none">
+            <div class="container">
+                <!-- Overview -->
+                <div class="row mb-5">
+                    <div class="col-md-4">
+                        <span class="text-primary-grad fw-bold lead">01.</span>
+                        <h5>Overview</h5>
+                    </div>
+                    <!-- Content -->
+                    <div class="col-md-8 ms-auto">
+                        <p class="lead">A strong brand identity is the cornerstone of any successful business. For this project, our goal was to completely reimagine the client's visual language and digital presence.</p>
+                        <p>We started by diving deep into their core values, target audience, and market positioning. This research phase allowed us to craft a comprehensive design system that seamlessly integrates bold typography, custom illustrations, and intuitive user experiences. The result is a cohesive brand identity that stands out in a crowded market and resonates deeply with their audience.</p>
+                        <!-- Tag list -->
+                        <ul class="list-inline">
+                            <li class="list-inline-item"> <a class="btn btn-light btn-sm mb-lg-0" href="#">Brand Identity</a>
+                            </li>
+                            <li class="list-inline-item"> <a class="btn btn-light btn-sm mb-lg-0" href="#">Graphic Design</a>
+                            </li>
+                            <li class="list-inline-item"> <a class="btn btn-light btn-sm mb-lg-0" href="#">UI/UX Design</a> </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Challenge -->
+                <div class="row">
+                    <div class="col-md-4">
+                        <span class="text-primary-grad fw-bold lead">02.</span>
+                        <h5>The Challenge</h5>
+                    </div>
+                    <!-- Content -->
+                    <div class="col-md-8 ms-auto">
+                        <p>The primary challenge was to modernize a legacy brand without losing its established customer base. We needed to bridge the gap between their traditional values and a forward-thinking digital approach.</p>
+                        <p>By establishing a unified design language, we ensured consistency across all touchpoints—from marketing collateral and packaging to their mobile app and website. This required meticulous planning, rigorous testing, and a highly collaborative approach to align all design decisions with the overarching brand strategy.</p>
+
+                        <!-- List -->
+                        <div class="row mt-4">
+                            <div class="col-sm-6 col-lg-5">
+                                <ul class="list-group list-group-borderless">
+                                    <li class="list-group-item d-flex heading-color"><i
+                                            class="bi bi-check-circle text-primary me-2"></i>Visual Identity</li>
+                                    <li class="list-group-item d-flex heading-color"><i
+                                            class="bi bi-check-circle text-primary me-2"></i>Art Direction</li>
+                                    <li class="list-group-item d-flex heading-color"><i
+                                            class="bi bi-check-circle text-primary me-2"></i>Typography & Colors</li>
+                                    <li class="list-group-item d-flex heading-color"><i
+                                            class="bi bi-check-circle text-primary me-2"></i>Digital Experience</li>
+                                </ul>
+                            </div>
+
+                            <div class="col-sm-6 col-lg-5">
+                                <ul class="list-group list-group-borderless">
+                                    <li class="list-group-item d-flex heading-color"><i
+                                            class="bi bi-check-circle text-primary me-2"></i>Packaging Design</li>
+                                    <li class="list-group-item d-flex heading-color"><i
+                                            class="bi bi-check-circle text-primary me-2"></i>Brand Guidelines</li>
+                                    <li class="list-group-item d-flex heading-color"><i
+                                            class="bi bi-check-circle text-primary me-2"></i>Creative Strategy</li>
+                                    <li class="list-group-item d-flex heading-color"><i
+                                            class="bi bi-check-circle text-primary me-2"></i>Illustration System</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- =======================
+Detail for Motion END -->
+
+        <!-- =======================
+Images Two part for UI START -->
+        <section class="bg-opacity-50 py-0 mb-n9 d-none">
+            <div class="container-fluid">
+                <div class="row g-4 g-lg-5">
+                    <!-- Image -->
+                    <div class="col-6 col-md-4">
+                        <a href="assets/images/portfolio/3by4/09.jpg" data-glightbox data-gallery="image-popup">
+                            <img src="assets/images/portfolio/3by4/09.jpg" class="rounded" alt="portfolio-img">
+                        </a>
+                    </div>
+
+                    <!-- Image -->
+                    <div class="col-6 col-md-4">
+                        <a href="assets/images/portfolio/3by4/06.jpg" data-glightbox data-gallery="image-popup">
+                            <img src="assets/images/portfolio/3by4/06.jpg" class="rounded" alt="portfolio-img">
+                        </a>
+                    </div>
+
+                      <!-- Image -->
+                    <div class="col-6 col-md-4">
+                        <a href="assets/images/portfolio/3by4/06.jpg" data-glightbox data-gallery="image-popup">
+                            <img src="assets/images/portfolio/3by4/06.jpg" class="rounded" alt="portfolio-img">
+                        </a>
+                    </div>
+
+
+                     <!-- Image -->
+                    <div class="col-6 col-md-4">
+                        <a href="assets/images/portfolio/3by4/09.jpg" data-glightbox data-gallery="image-popup">
+                            <img src="assets/images/portfolio/3by4/09.jpg" class="rounded" alt="portfolio-img">
+                        </a>
+                    </div>
+
+                    <!-- Image -->
+                    <div class="col-6 col-md-4">
+                        <a href="assets/images/portfolio/3by4/06.jpg" data-glightbox data-gallery="image-popup">
+                            <img src="assets/images/portfolio/3by4/06.jpg" class="rounded" alt="portfolio-img">
+                        </a>
+                    </div>
+
+                      <!-- Image -->
+                    <div class="col-6 col-md-4">
+                        <a href="assets/images/portfolio/3by4/06.jpg" data-glightbox data-gallery="image-popup">
+                            <img src="assets/images/portfolio/3by4/06.jpg" class="rounded" alt="portfolio-img">
+                        </a>
+                    </div>
+
+                 
+                    
+                      <!-- Parallax image -->
+                    <div class="col-12">
+                        <div class="bg-parallax rounded h-400px h-xl-700px overflow-hidden" data-jarallax
+                            data-speed="0.6"
+                            style="background:url(assets/images/portfolio/04.jpg) no-repeat; background-size:cover; background-position:center;">
+                        </div>
+                    </div>
+
+                     <!-- Images with reduced gap -->
+                    <div class="col-9 mx-auto">
+                        <div class="row g-2">
+                            <div class="col-6 col-md-6">
+                                <a href="assets/images/portfolio/3by4/09.jpg" data-glightbox data-gallery="image-popup">
+                                    <img src="assets/images/portfolio/3by4/03.jpg" class="rounded" alt="portfolio-img">
+                                </a>
+                            </div>
+
+                            <div class="col-6 col-md-6">
+                                <a href="assets/images/portfolio/3by4/06.jpg" data-glightbox data-gallery="image-popup">
+                                    <img src="assets/images/portfolio/3by4/08.jpg" class="rounded" alt="portfolio-img">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                      <!-- Parallax image -->
+                    <div class="col-12">
+                        <div class="bg-parallax rounded h-400px h-xl-700px overflow-hidden" data-jarallax
+                            data-speed="0.6"
+                            style="background:url(assets/images/portfolio/04.jpg) no-repeat; background-size:cover; background-position:center;">
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            <br><br><br>
+            <br><br><br>
+        </section>
+        
+        <!-- =======================
+Images Two part for UI END -->
+
+<!--  ============ Motion Graphics & Animation Sections  End =========  -->
+
+
+
+
+
+
+
+
+
+
+
+<!--  ============ Video Editing & Production  Sections   Start =========  -->
+
+<!-- Detail for Video Editing & Production Start -->
+        <section class="d-none">
+            <div class="container">
+                <!-- Overview -->
+                <div class="row mb-5">
+                    <div class="col-md-4">
+                        <span class="text-primary-grad fw-bold lead">01.</span>
+                        <h5>Overview</h5>
+                    </div>
+                    <!-- Content -->
+                    <div class="col-md-8 ms-auto">
+                        <p class="lead">High-quality video production is essential for modern marketing. For this project, our goal was to craft compelling visual stories that captivate audiences and drive engagement across social media and web platforms.</p>
+                        <p>We started by analyzing the client's brand voice and target demographics. This allowed us to develop a tailored video strategy involving dynamic motion graphics, seamless editing, and impactful storytelling. The result is a series of high-converting ads and animations that stand out on platforms like Upwork, YouTube, and Instagram.</p>
+                        <!-- Tag list -->
+                        <ul class="list-inline">
+                            <li class="list-inline-item"> <a class="btn btn-light btn-sm mb-lg-0" href="#">Video Editing</a>
+                            </li>
+                            <li class="list-inline-item"> <a class="btn btn-light btn-sm mb-lg-0" href="#">Motion Graphics</a>
+                            </li>
+                            <li class="list-inline-item"> <a class="btn btn-light btn-sm mb-lg-0" href="#">Social Media Ads</a> </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Challenge -->
+                <div class="row">
+                    <div class="col-md-4">
+                        <span class="text-primary-grad fw-bold lead">02.</span>
+                        <h5>The Challenge</h5>
+                    </div>
+                    <!-- Content -->
+                    <div class="col-md-8 ms-auto">
+                        <p>The primary challenge was producing content that remains engaging in short-form formats while conveying a complex brand message. We needed to ensure every frame was optimized for viewer retention and conversion.</p>
+                        <p>By leveraging advanced editing techniques and engaging motion graphics, we created cohesive video campaigns across multiple platforms. This required storyboarding, precise timing, and collaborative feedback loops to align the final cut with the overarching marketing strategy.</p>
+
+                        <!-- List -->
+                        <div class="row mt-4">
+                            <div class="col-sm-6 col-lg-5">
+                                <ul class="list-group list-group-borderless">
+                                    <li class="list-group-item d-flex heading-color"><i
+                                            class="bi bi-check-circle text-primary me-2"></i>Social Media Ads</li>
+                                    <li class="list-group-item d-flex heading-color"><i
+                                            class="bi bi-check-circle text-primary me-2"></i>Web Commercials</li>
+                                    <li class="list-group-item d-flex heading-color"><i
+                                            class="bi bi-check-circle text-primary me-2"></i>Animation Videos</li>
+                                    <li class="list-group-item d-flex heading-color"><i
+                                            class="bi bi-check-circle text-primary me-2"></i>Color Grading</li>
+                                </ul>
+                            </div>
+
+                            <div class="col-sm-6 col-lg-5">
+                                <ul class="list-group list-group-borderless">
+                                    <li class="list-group-item d-flex heading-color"><i
+                                            class="bi bi-check-circle text-primary me-2"></i>Visual Effects (VFX)</li>
+                                    <li class="list-group-item d-flex heading-color"><i
+                                            class="bi bi-check-circle text-primary me-2"></i>Storyboarding</li>
+                                    <li class="list-group-item d-flex heading-color"><i
+                                            class="bi bi-check-circle text-primary me-2"></i>Audio Mixing</li>
+                                    <li class="list-group-item d-flex heading-color"><i
+                                            class="bi bi-check-circle text-primary me-2"></i>Video Production</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+<!-- Detail for Video Editing & Production End -->
+
+<!-- =======================
+Video Production START -->
+<section class="bg-secondary-grad overflow-hidden position-relative pt-5 mt-3 d-none">
+	<!-- Geo gard pattern decoration -->
+	<div class="position-absolute bottom-0 start-0 ms-n8 mb-n6">
+		<img src="assets/images/elements/geo-grad-pattern.svg" class="h-500px opacity-2" alt="pattern">
+	</div>
+
+	<div class="container">
+		<!-- Title and slider button -->
+		<div class="row mb-4 mb-md-5">
+			<!-- Title -->
+			<div class="col-md-8 col-xl-6">
+				<h2>Impactful Video & Motion Graphics</h2>
+			</div>
+			<!-- Buttons -->
+			<div class="col-md-4 col-xl-6">
+				<!-- Slider arrow -->
+				<div class="d-flex justify-content-md-end gap-3 position-relative mt-3">
+					<a href="#" class="btn btn-lg btn-white btn-icon rounded-circle mb-0 swiper-button-prev-feature rtl-flip"><i class="bi bi-arrow-left"></i></a>
+					<a href="#" class="btn btn-lg btn-white btn-icon rounded-circle mb-0 swiper-button-next-feature rtl-flip"><i class="bi bi-arrow-right"></i></a>
+				</div>
+			</div>
+		</div>
+
+		<!-- Features slider START -->
+		<div class="swiper swiper-outside-end-n20" data-swiper-options='{
+			"spaceBetween": 50,
+			"loop": true,
+			"autoplay":{
+				"pauseOnMouseEnter": true
+			},
+			"navigation":{
+				"nextEl":".swiper-button-next-feature",
+				"prevEl":".swiper-button-prev-feature"
+			},
+			"breakpoints": { 
+				"576": {"slidesPerView": 2},
+				"992": {"slidesPerView": 3},
+				"1200": {"slidesPerView": 4}
+			}}'>
+			
+			<div class="swiper-wrapper">
+				<!-- Feature item -->
+				<div class="swiper-slide">
+					<div class="card card-img-scale rounded-4 overflow-hidden h-100">
+						<!-- Card Video -->              
+						<video src="assets/images/portfolio/02.mp4" autoplay loop muted playsinline class="img-scale w-100 h-100" style="object-fit: cover; min-height: 450px;"></video>
+						<!-- BG overlay -->
+						<div class="bg-overlay bg-dark opacity-4"></div>
+
+						<!-- Card elements -->
+						<div class="card-img-overlay p-4 p-xxl-5 d-flex flex-column justify-content-end">
+							<a href="assets/images/portfolio/02.mp4" class="glightbox stretched-link" data-glightbox="type: video"></a>
+							<div class="position-relative z-index-2 pointer-events-none">
+								<h5 class="text-white">Promotional Video</h5>
+								<p class="text-white text-opacity-75 mb-0">Engaging promotional video content for social media.</p>
+							</div>
+						</div>						
+					</div>
+				</div>
+
+				<!-- Feature item -->
+				<div class="swiper-slide">
+					<div class="card card-img-scale rounded-4 overflow-hidden h-100">
+						<!-- Card Video -->              
+						<video src="assets/images/portfolio/Animated-iPhone-mockups.mp4" autoplay loop muted playsinline class="img-scale w-100 h-100" style="object-fit: cover; min-height: 450px;"></video>
+						<!-- BG overlay -->
+						<div class="bg-overlay bg-dark opacity-4"></div>
+
+						<!-- Card elements -->
+						<div class="card-img-overlay p-4 p-xxl-5 d-flex flex-column justify-content-end">
+							<a href="assets/images/portfolio/Animated-iPhone-mockups.mp4" class="glightbox stretched-link" data-glightbox="type: video"></a>
+							<div class="position-relative z-index-2 pointer-events-none">
+								<h5 class="text-white">App Mockup Animation</h5>
+								<p class="text-white text-opacity-75 mb-0">High-fidelity animated iPhone mockups for app showcases.</p>
+							</div>
+						</div>						
+					</div>
+				</div>
+
+				<!-- Feature item -->
+				<div class="swiper-slide">
+					<div class="card card-img-scale rounded-4 overflow-hidden h-100">
+						<!-- Card Video -->              
+						<video src="assets/images/portfolio/testing.mp4" autoplay loop muted playsinline class="img-scale w-100 h-100" style="object-fit: cover; min-height: 450px;"></video>
+						<!-- BG overlay -->
+						<div class="bg-overlay bg-dark opacity-4"></div>
+
+						<!-- Card elements -->
+						<div class="card-img-overlay p-4 p-xxl-5 d-flex flex-column justify-content-end">
+							<a href="assets/images/portfolio/testing.mp4" class="glightbox stretched-link" data-glightbox="type: video"></a>
+							<div class="position-relative z-index-2 pointer-events-none">
+								<h5 class="text-white">Product Teaser</h5>
+								<p class="text-white text-opacity-75 mb-0">Short, impactful video edits designed to capture attention.</p>
+							</div>
+						</div>						
+					</div>
+				</div>
+
+				<!-- Feature item -->
+				<div class="swiper-slide">
+					<div class="card card-img-scale rounded-4 overflow-hidden h-100">
+						<!-- Card Video -->              
+						<video src="assets/images/portfolio/02.mp4" autoplay loop muted playsinline class="img-scale w-100 h-100" style="object-fit: cover; min-height: 450px;"></video>
+						<!-- BG overlay -->
+						<div class="bg-overlay bg-dark opacity-4"></div>
+
+						<!-- Card elements -->
+						<div class="card-img-overlay p-4 p-xxl-5 d-flex flex-column justify-content-end">
+							<a href="assets/images/portfolio/02.mp4" class="glightbox stretched-link" data-glightbox="type: video"></a>
+							<div class="position-relative z-index-2 pointer-events-none">
+								<h5 class="text-white">Brand Storytelling</h5>
+								<p class="text-white text-opacity-75 mb-0">Compelling video narratives that communicate brand values.</p>
+							</div>
+						</div>						
+					</div>
+				</div>
+
+				<!-- Feature item -->
+				<div class="swiper-slide">
+					<div class="card card-img-scale rounded-4 overflow-hidden h-100">
+						<!-- Card Video -->              
+						<video src="assets/images/portfolio/Animated-iPhone-mockups.mp4" autoplay loop muted playsinline class="img-scale w-100 h-100" style="object-fit: cover; min-height: 450px;"></video>
+						<!-- BG overlay -->
+						<div class="bg-overlay bg-dark opacity-4"></div>
+
+						<!-- Card elements -->
+						<div class="card-img-overlay p-4 p-xxl-5 d-flex flex-column justify-content-end">
+							<a href="assets/images/portfolio/Animated-iPhone-mockups.mp4" class="glightbox stretched-link" data-glightbox="type: video"></a>
+							<div class="position-relative z-index-2 pointer-events-none">
+								<h5 class="text-white">UI Interactions</h5>
+								<p class="text-white text-opacity-75 mb-0">Smooth UI animations showcasing digital experiences.</p>
+							</div>
+						</div>						
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Features slider END -->
+	</div>
+</section>
+<!-- =======================
+Video Production END -->
+
+<!--  ============ Video Editing & Production  Sections   End =========  -->
+
+
+
+
+
+<!--  ============ Digital Marketing & Ads Sections  Start =========  -->
+
+<!-- =======================
+Digital Marketing & Ads Sections Core features START -->
+<section class="pt-md-0 ">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-10 mx-auto">
+				<!-- Feature item -->
+				<div class="row g-4 align-items-center mb-6">
+					<div class="col-md-6 pe-md-5">
+						<div class="bg-secondary-grad p-4 rounded-4">
+							<img src="assets/images/elements/saas-decoration/tab-3.png" alt="tab image">
+						</div>
+					</div>
+
+					<div class="col-md-6">
+						<h4 class="mb-md-4">Precision Audience Targeting</h4>
+						<p class="mb-0">Leveraging deep demographic insights to reach high-value prospects. For this project, we refactored the client's targeting parameters, resulting in a 35% surge in engagement by focusing on intent-based audience segments that were previously untapped.</p>
+					</div>
+				</div>
+
+				<!-- Feature item -->
+				<div class="row g-4 align-items-center mb-6">
+					<div class="col-md-6 order-2">
+						<h4 class="mb-md-4">Real-time Ad Performance Tracking</h4>
+						<p class="mb-0">Eliminating ad spend waste through instantaneous conversion analytics. By deploying custom tracking pixels, we enabled the company to monitor lead flow in real-time, allowing for rapid creative testing and budget optimization that halved their customer acquisition costs.</p>
+					</div>
+
+					<div class="col-md-6 ps-md-5 order-md-2">
+						<div class="bg-secondary p-4 rounded-4">
+							<img src="assets/images/elements/saas-decoration/tab-2.png" alt="tab image">
+						</div>
+					</div>
+				</div>
+
+				<!-- Feature item -->
+				<div class="row g-4 align-items-center">
+					<div class="col-md-6 pe-md-5">
+						<div class="bg-secondary-grad p-4 rounded-4">
+							<img src="assets/images/elements/saas-decoration/step-3.png" class="rounded-4" alt="tab image">
+						</div>
+					</div>
+
+					<div class="col-md-6">
+						<h4 class="mb-md-4">Scalable Multi-Channel Growth</h4>
+						<p class="mb-0">Building a robust digital ecosystem that converts across every touchpoint. We synchronized the brand's presence across Google and Meta, creating a unified sales funnel that improved overall conversion rates by 50% within the first fiscal quarter.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- =======================
+Digital Marketing & Ads Sections Core features END -->
+
+        <!-- =======================
+Images Digital Marketing & Ads Sections START -->
+        <section class="bg-opacity-50 py-0 mb-n9 my-5 pb-5">
+            <div class="container">
+                <div class="row g-4 g-lg-5">
+                    <!-- Image -->
+                    <div class="col-6 col-md-6">
+                        <a href="assets/images/portfolio/3by4/09.jpg" data-glightbox data-gallery="image-popup">
+                            <img src="assets/images/portfolio/3by4/09.jpg" class="rounded" alt="portfolio-img">
+                        </a>
+                    </div>
+
+                    <!-- Image -->
+                    <div class="col-6 col-md-6">
+                        <a href="assets/images/portfolio/3by4/06.jpg" data-glightbox data-gallery="image-popup">
+                            <img src="assets/images/portfolio/3by4/06.jpg" class="rounded" alt="portfolio-img">
+                        </a>
+                    </div>
+
+                   <!-- Parallax image -->
+                    <div class="col-12">
+                        <div class="bg-parallax rounded h-400px h-xl-500px overflow-hidden" data-jarallax
+                            data-speed="0.6"
+                            style="background:url(assets/images/portfolio/04.jpg) no-repeat; background-size:cover; background-position:center;">
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+          <br><br><br><br><br><br>
+        
+        </section>
+        <!-- =======================
+Images Digital Marketing & Ads Sections END -->
+
+<!--  ============ Digital Marketing & Ads Sections   End =========  -->
+
+
+
+
+
+
+
+
+
+        <!-- =======================
+Testimonials START -->
+        <section class="py-5 mt-5 ">
+            <div class="container">
+                <div class="row align-items-center">
+                    <!-- Title and slider button -->
+                    <div class="col-lg-4 text-center text-lg-start">
+                        <h2 class="mb-3 mb-lg-4">Hear from our satisfied users</h2>
+                        <!-- Rating -->
+                        <ul
+                            class="avatar-group align-items-center justify-content-center justify-content-lg-start mb-2">
+                            <li class="avatar avatar-sm">
+                                <img class="avatar-img rounded-circle" src="assets/images/avatar/02.jpg" alt="avatar">
+                            </li>
+                            <li class="avatar avatar-sm">
+                                <img class="avatar-img rounded-circle" src="assets/images/avatar/05.jpg" alt="avatar">
+                            </li>
+                            <li class="avatar avatar-sm">
+                                <img class="avatar-img rounded-circle" src="assets/images/avatar/10.jpg" alt="avatar">
+                            </li>
+                            <li class="avatar avatar-sm">
+                                <img class="avatar-img rounded-circle" src="assets/images/avatar/09.jpg" alt="avatar">
+                            </li>
+                            <li class="avatar avatar-sm">
+                                <img class="avatar-img rounded-circle" src="assets/images/avatar/06.jpg" alt="avatar">
+                            </li>
+                        </ul>
+                        <p>Rated <span class="badge bg-dark">4.9/5.0</span> by over 100.000+ users</p>
+                    </div>
+
+                    <div class="col-lg-8 col-xl-7 ms-auto">
+                        <!-- Slider START -->
+                        <div class="swiper mt-2 mt-md-4" data-swiper-options='{
+                    "spaceBetween": 30,
+                    "autoplay":{
+                        "delay": 4000, 
+                        "disableOnInteraction": false,
+                        "pauseOnMouseEnter": true
+                    },
+                    "navigation":{
+                        "nextEl":".swiper-button-next-test",
+                        "prevEl":".swiper-button-prev-test"
+                    }}'>
+
+                            <div class="swiper-wrapper">
+                                <!-- Testimonial item -->
+                                <div class="swiper-slide">
+                                    <div class="card bg-secondary bg-opacity-50 rounded-4 overflow-hidden">
+                                        <div class="row g-0">
+                                            <div class="col-md-5">
+                                                <!-- Image -->
+                                                <img src="assets/images/team/01.jpg" class="rounded-start mb-3 mb-md-0"
+                                                    alt="...">
+                                            </div>
+                                            <div class="col-md-7 col-xl-6">
+                                                <!-- Content -->
+                                                <div class="card-body d-flex flex-column h-100 p-xl-4">
+                                                    <!-- Rating star -->
+                                                    <ul class="list-inline mb-2">
+                                                        <li class="list-inline-item me-0"><i
+                                                                class="bi bi-star-fill text-primary"></i></li>
+                                                        <li class="list-inline-item me-0"><i
+                                                                class="bi bi-star-fill text-primary"></i></li>
+                                                        <li class="list-inline-item me-0"><i
+                                                                class="bi bi-star-fill text-primary"></i></li>
+                                                        <li class="list-inline-item me-0"><i
+                                                                class="bi bi-star-fill text-primary"></i></li>
+                                                        <li class="list-inline-item me-0"><i
+                                                                class="bi bi-star-half text-primary"></i></li>
+                                                    </ul>
+                                                    <p class="heading-color">I've been using this app for over a year
+                                                        now, and it has made managing my finances so much easier. The
+                                                        user interface is incredibly intuitive.</p>
+
+                                                    <!-- Info -->
+                                                    <div class="mt-auto">
+                                                        <p class="lead heading-color fw-semibold mb-0">Emma Watson</p>
+                                                        <small>UI/UX Designer</small>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Testimonial item -->
+                                <div class="swiper-slide">
+                                    <div class="card bg-secondary bg-opacity-50 rounded-4 overflow-hidden">
+                                        <div class="row g-0">
+                                            <div class="col-md-5">
+                                                <!-- Image -->
+                                                <img src="assets/images/team/04.jpg" class="rounded-start mb-3 mb-md-0"
+                                                    alt="...">
+                                            </div>
+                                            <div class="col-md-7 col-xl-6">
+                                                <!-- Content -->
+                                                <div class="card-body d-flex flex-column h-100 p-xl-4">
+                                                    <!-- Rating star -->
+                                                    <ul class="list-inline mb-2">
+                                                        <li class="list-inline-item me-0"><i
+                                                                class="bi bi-star-fill text-primary"></i></li>
+                                                        <li class="list-inline-item me-0"><i
+                                                                class="bi bi-star-fill text-primary"></i></li>
+                                                        <li class="list-inline-item me-0"><i
+                                                                class="bi bi-star-fill text-primary"></i></li>
+                                                        <li class="list-inline-item me-0"><i
+                                                                class="bi bi-star-fill text-primary"></i></li>
+                                                        <li class="list-inline-item me-0"><i
+                                                                class="bi bi-star-half text-primary"></i></li>
+                                                    </ul>
+                                                    <p class="heading-color">The app is fast, reliable, and customer
+                                                        support is always there when I need help. Highly recommended!
+                                                    </p>
+
+                                                    <!-- Info -->
+                                                    <div class="mt-auto">
+                                                        <p class="lead heading-color fw-semibold mb-0">Louis Ferguson
+                                                        </p>
+                                                        <small>Web Developer</small>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Testimonial item -->
+                                <div class="swiper-slide">
+                                    <div class="card bg-secondary bg-opacity-50 rounded-4 overflow-hidden">
+                                        <div class="row g-0">
+                                            <div class="col-md-5">
+                                                <!-- Image -->
+                                                <img src="assets/images/team/03.jpg" class="rounded-start mb-3 mb-md-0"
+                                                    alt="...">
+                                            </div>
+                                            <div class="col-md-7 col-xl-6">
+                                                <!-- Content -->
+                                                <div class="card-body d-flex flex-column h-100 p-xl-4">
+                                                    <!-- Rating star -->
+                                                    <ul class="list-inline mb-2">
+                                                        <li class="list-inline-item me-0"><i
+                                                                class="bi bi-star-fill text-primary"></i></li>
+                                                        <li class="list-inline-item me-0"><i
+                                                                class="bi bi-star-fill text-primary"></i></li>
+                                                        <li class="list-inline-item me-0"><i
+                                                                class="bi bi-star-fill text-primary"></i></li>
+                                                        <li class="list-inline-item me-0"><i
+                                                                class="bi bi-star-fill text-primary"></i></li>
+                                                        <li class="list-inline-item me-0"><i
+                                                                class="bi bi-star-fill text-primary"></i></li>
+                                                    </ul>
+                                                    <p class="heading-color">The budgeting tools in this app have helped
+                                                        me save more and spend wisely.</p>
+
+                                                    <!-- Info -->
+                                                    <div class="mt-auto">
+                                                        <p class="lead heading-color fw-semibold mb-0">Jacqueline Miller
+                                                        </p>
+                                                        <small>Product designer</small>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slider arrow -->
+                            <div
+                                class="d-flex justify-content-between position-absolute top-50 start-50 translate-middle w-100 z-index-2">
+                                <a href="#"
+                                    class="btn btn-dark btn-icon btn-lg rounded-circle mb-0 swiper-button-prev-test rtl-flip ms-2"><i
+                                        class="bi bi-arrow-left"></i></a>
+                                <a href="#"
+                                    class="btn btn-dark btn-icon btn-lg rounded-circle mb-0 swiper-button-next-test rtl-flip me-2"><i
+                                        class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <!-- Slider END -->
+                    </div>
+                </div> <!-- Row END -->
+            </div>
+        </section>
+        <!-- =======================
+        Testimonials END -->
+
+
+        <!-- Pricing  -->
+        <section class="price-wrap overflow-hidden pt-0 mt-8" id="dynamic-pricing-section">
+            <div class="container">
+                <div class="row">
+                    <!-- Contents and tabs -->
+                    <div class="col-xl-8 position-relative">
+
+                        <!-- hand decoration -->
+                        <div class="position-absolute end-0 top-0 me-xl-n4 z-index-2 d-none d-sm-block" style="margin-top: 180px; margin-right: -40px;">
+                            <img src="assets/images/elements/money-hand.png" alt="decoration" style="max-height: 200px; transform: rotate(-15deg);">
+                        </div>
+
+                        <!-- Title and content -->
+                        <div class="inner-container-small ms-0 mb-4 mb-lg-6">
+                            <h2 class="mb-sm-4">Affordable solutions for every budget</h2>
+                            <p>Need guidance? <a href="#" class="link-purple hover-underline-animation fw-bold">Reserve a
+                                    20-minute call</a></p>
+                        </div>
+
+                        <!-- Static Service Indicator -->
+                        <div class="mb-4">
+                            <label class="small text-uppercase fw-bold text-muted mb-2" style="letter-spacing: 1px;">Pick this package</label>
+                            <div class="premium-service-indicator">
+                                <img src="assets/images/services/3d-icon/app-dev.png" alt="service icon" class="me-2" style="width: 32px; height: 32px; object-fit: contain;">
+                                <span class="fw-bold text-white">Product Design</span>
+                            </div>
+                        </div>
+
+                        <!-- Price change switch -->
+                        <form class="d-flex align-items-center mb-5">
+                            <!-- Label -->
+                            <span class="fw-semibold text-white-50">Monthly</span>
+                            <!-- Switch -->
+                            <div class="form-check form-switch form-check-lg mx-3 mb-0">
+                                <input class="form-check-input mt-0 price-toggle" type="checkbox" id="annualToggle">
+                            </div>
+                            <!-- Label -->
+                            <div class="position-relative d-flex align-items-center">
+                                <span class="fw-semibold text-white me-2">Yearly</span>
+                                <span class="badge bg-success-soft text-success rounded-pill px-2 py-1 small" style="font-size: 0.7rem;">20% SAVE</span>
+                            </div>
+                        </form>
+
+                        <!-- Tabs START -->
+                        <ul class="nav nav-pills-secondary nav-responsive gap-3 gap-xxl-4" id="pricingTabs" role="tablist">
+                            <!-- Populated via JS -->
+                        </ul>
+                        <!-- Tabs END -->
+                    </div>
+
+                    <!-- Tabs Content START -->
+                    <div class="col-xl-4 mt-5 mt-xl-8">
+                        <div class="tab-content" id="pricingTabContent">
+                            <!-- Populated via JS -->
+                        </div>
+                    </div>
+                    <!-- Tab content END -->
+                </div> <!-- Row END -->
+            </div>
+        </section>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const pricingData = {"1":{"service":{"id":1,"name":"Product Design","slug":"ui-ux-design","icon_3d":"assets\/images\/services\/3d-icon\/app-dev.png"},"plans":[{"id":1,"service_id":1,"name":"Basic plan","price":"800","annual_price":"1200","description":"","features_json":["Up to 5 Screens","Basic UX Research","Color & Typography Guide","Static Wireframes","Mobile OR Web"],"comparison_values_json":"{\"Number of Screens\":\"Up to 5\",\"UX Research Depth\":\"Basic\",\"Design System\":\"Style Guide\",\"Prototyping Level\":\"Static\",\"Device Support\":\"Single\",\"Usability Testing\":\"1 Round\",\"Dev Handoff Mode\":\"PDF\",\"Revisions\":\"2\"}","is_custom":0,"is_recommended":0,"label":"","status":"active","created_at":"2026-04-20 03:42:56"},{"id":2,"service_id":1,"name":"Standard plan","price":"5,500","annual_price":"4,800","description":"","features_json":["Up to 15 Screens","Full UX Persona Research","Comprehensive Design System","Interactive Prototypes","Mobile & Web"],"comparison_values_json":"{\"Number of Screens\":\"Up to 15\",\"UX Research Depth\":\"Full Audit\",\"Design System\":\"Complete\",\"Prototyping Level\":\"High-Fi\",\"Device Support\":\"Responsive\",\"Usability Testing\":\"3 Rounds\",\"Dev Handoff Mode\":\"Figma\",\"Revisions\":\"Unlimited\"}","is_custom":0,"is_recommended":1,"label":"MOST POPULAR","status":"active","created_at":"2026-04-20 03:42:56"},{"id":3,"service_id":1,"name":"Business plan","price":"6000","annual_price":"8,200","description":"","features_json":["Up to 30 Screens","Multi-user Journey Mapping","Internal Design Library","Advanced Low-Level Motion","Cross-Platform Ecosystems"],"comparison_values_json":"{\"Number of Screens\":\"30+\",\"UX Research Depth\":\"Strategic\",\"Design System\":\"Advanced\",\"Prototyping Level\":\"Complex\",\"Device Support\":\"Multi-Platform\",\"Usability Testing\":\"Continuous\",\"Dev Handoff Mode\":\"Managed\",\"Revisions\":\"Unlimited\"}","is_custom":0,"is_recommended":0,"label":"","status":"active","created_at":"2026-04-20 03:42:56"},{"id":4,"service_id":1,"name":"Enterprise plan","price":"Custom","annual_price":null,"description":null,"features_json":["Unlimited Screens","End-to-End Product Design","Scaling Component Libraries","Production-Ready Specs","Dedicated Research Team"],"comparison_values_json":"{\"Number of Screens\": \"Unlimited\", \"UX Research Depth\": \"Corporate\", \"Design System\": \"Enterprise\", \"Prototyping Level\": \"Atomic\", \"Device Support\": \"Omni-channel\", \"Usability Testing\": \"Global\", \"Dev Handoff Mode\": \"Enterprise\", \"Revisions\": \"Priority\"}","is_custom":0,"is_recommended":0,"label":null,"status":"active","created_at":"2026-04-20 03:42:56"}]},"3":{"service":{"id":3,"name":"Motion Graphics & Animation","slug":"motion-animation","icon_3d":"assets\/uploads\/icons\/motion-graphics---animation-icon_3d-1776391349.png"},"plans":[{"id":9,"service_id":3,"name":"Basic plan","price":"950","annual_price":"800","description":"","features_json":["15s-30s Duration","1080p Resolution","Client Provided Script","No Voiceover"],"comparison_values_json":"{\"Video Duration\":\"15-30s\",\"Resolution\":\"1080p\",\"Scriptwriting\":\"Client\",\"Voiceover Included\":\"No\",\"3D Animation\":\"No\",\"Stock Footage Lib\":\"Basic\",\"Background Music\":\"Included\",\"Render Speed\":\"Standard\"}","is_custom":0,"is_recommended":1,"label":"","status":"active","created_at":"2026-04-20 03:42:56"},{"id":10,"service_id":3,"name":"Standard plan","price":"2,800","annual_price":"2,400","description":"","features_json":["Up to 2m Duration","4K Resolution","Professional Scripting","AI Voiceover Included"],"comparison_values_json":"{\"Video Duration\":\"2 min\",\"Resolution\":\"4K\",\"Scriptwriting\":\"Pro plan\",\"Voiceover Included\":\"Yes (AI)\",\"3D Animation\":\"Partial\",\"Stock Footage Lib\":\"Premium\",\"Background Music\":\"Sound Design\",\"Render Speed\":\"Express\"}","is_custom":0,"is_recommended":0,"label":"POPULAR","status":"active","created_at":"2026-04-20 03:42:56"},{"id":11,"service_id":3,"name":"Business plan","price":"5,500","annual_price":"4,800","description":null,"features_json":["Up to 5m Duration","Raw Render Access","Strategic Narrative","Custom Characters"],"comparison_values_json":"{\"Video Duration\": \"5 min\", \"Resolution\": \"5K\", \"Scriptwriting\": \"Master\", \"Voiceover Included\": \"Pro Duo\", \"3D Animation\": \"Full 3D\", \"Stock Footage Lib\": \"Unlimited\", \"Background Music\": \"Bespoke\", \"Render Speed\": \"Instant\"}","is_custom":0,"is_recommended":0,"label":null,"status":"active","created_at":"2026-04-20 03:42:56"},{"id":12,"service_id":3,"name":"Enterprise plan","price":"Custom","annual_price":null,"description":null,"features_json":["Strategic Storytelling","Studio Voiceover","Hyper-Realistic 3D","Original Score"],"comparison_values_json":"{\"Video Duration\": \"Custom\", \"Resolution\": \"8K\", \"Scriptwriting\": \"Strategic\", \"Voiceover Included\": \"Pro Studio\", \"3D Animation\": \"Full 3D\", \"Stock Footage Lib\": \"Custom\", \"Background Music\": \"Original\", \"Render Speed\": \"Instant\"}","is_custom":0,"is_recommended":0,"label":null,"status":"active","created_at":"2026-04-20 03:42:56"}]},"4":{"service":{"id":4,"name":"Software Testing & QA","slug":"software-qa","icon_3d":"assets\/images\/services\/3d-icon\/database.png"},"plans":[{"id":13,"service_id":4,"name":"Basic plan","price":"1,200","annual_price":"1,000","description":null,"features_json":["Functional Testing","Top 5 Devices","Manual Only","Jira\/Trello Report"],"comparison_values_json":"{\"Testing Type\": \"Functional\", \"Device Coverage\": \"5 Devices\", \"Automation Level\": \"Manual\", \"Bug Reporting\": \"Standard\", \"API Documentation\": \"Review\", \"Security Audits\": \"No\", \"Performance Benchmarks\": \"No\", \"Release Support\": \"Basic\"}","is_custom":0,"is_recommended":0,"label":null,"status":"active","created_at":"2026-04-20 03:42:56"},{"id":14,"service_id":4,"name":"Standard plan","price":"3,500","annual_price":"3,000","description":null,"features_json":["Full Regression","25+ Devices & OS","Semi-Automated","Visual Bug Video Log"],"comparison_values_json":"{\"Testing Type\": \"Full Suite\", \"Device Coverage\": \"25 Devices\", \"Automation Level\": \"Hybrid\", \"Bug Reporting\": \"Video Logs\", \"API Documentation\": \"Complete\", \"Security Audits\": \"Yes\", \"Performance Benchmarks\": \"Load Test\", \"Release Support\": \"Launch\"}","is_custom":0,"is_recommended":1,"label":"BEST VALUE","status":"active","created_at":"2026-04-20 03:42:56"},{"id":15,"service_id":4,"name":"Business plan","price":"6,500","annual_price":"5,800","description":null,"features_json":["DevOps Integration","Unlimited Browsers","Full Playwright Suite","Penetration Testing"],"comparison_values_json":"{\"Testing Type\": \"Full Audit\", \"Device Coverage\": \"Unlimited\", \"Automation Level\": \"Auto-DevOps\", \"Bug Reporting\": \"Live Feed\", \"API Documentation\": \"Postman Suite\", \"Security Audits\": \"Advanced\", \"Performance Benchmarks\": \"Chaos Eng\", \"Release Support\": \"Strategic\"}","is_custom":0,"is_recommended":0,"label":null,"status":"active","created_at":"2026-04-20 03:42:56"},{"id":16,"service_id":4,"name":"Enterprise plan","price":"Custom","annual_price":null,"description":null,"features_json":["Embedded QA Team","Full CI\/CD Automation","Real-time Dashboards","Post-Launch Monitoring"],"comparison_values_json":"{\"Testing Type\": \"Continuous\", \"Device Coverage\": \"Unlimited\", \"Automation Level\": \"Full Auto\", \"Bug Reporting\": \"Real-time\", \"API Documentation\": \"Strategic\", \"Security Audits\": \"Pentest\", \"Performance Benchmarks\": \"Chaos Eng\", \"Release Support\": \"Strategic\"}","is_custom":0,"is_recommended":0,"label":null,"status":"active","created_at":"2026-04-20 03:42:56"}]},"5":{"service":{"id":5,"name":"Web Development","slug":"web-development","icon_3d":"assets\/images\/services\/3d-icon\/development.png"},"plans":[{"id":17,"service_id":5,"name":"Basic plan","price":"3,500","annual_price":"3,000","description":null,"features_json":["React\/Next.js\/WP","Up to 10 Pages","Basic Shop","Standard APIs"],"comparison_values_json":"{\"Platform Used\": \"React\/Stack\", \"Custom Features\": \"10 Pages\", \"E-commerce Support\": \"Basic\", \"API Integrations\": \"Stripe\/Mail\", \"Speed Performance\": \"85+\", \"SEO Optimization\": \"Basic\", \"User Dashboard\": \"Standard\", \"CMS Access\": \"Yes\"}","is_custom":0,"is_recommended":0,"label":null,"status":"active","created_at":"2026-04-20 03:42:56"},{"id":18,"service_id":5,"name":"Standard plan","price":"8,500","annual_price":"7,200","description":null,"features_json":["Custom Architecture","Unified Ecosystem","Full Advanced Shop","Complex API Syncs"],"comparison_values_json":"{\"Platform Used\": \"Custom Arc\", \"Custom Features\": \"Unlimited\", \"E-commerce Support\": \"Advanced\", \"API Integrations\": \"Multi-Sync\", \"Speed Performance\": \"98+\", \"SEO Optimization\": \"Strategic\", \"User Dashboard\": \"Custom Portals\", \"CMS Access\": \"Managed\"}","is_custom":0,"is_recommended":1,"label":"CLIENT FAVORITE","status":"active","created_at":"2026-04-20 03:42:56"},{"id":19,"service_id":5,"name":"Business plan","price":"15,000","annual_price":"13,500","description":null,"features_json":["Enterprise Infrastructure","Microservices Setup","Advanced AI Features","Corporate Security"],"comparison_values_json":"{\"Platform Used\": \"Node Cluster\", \"Custom Features\": \"Corporate\", \"E-commerce Support\": \"Multi-Store\", \"API Integrations\": \"ERP\/SAP\", \"Speed Performance\": \"Absolute\", \"SEO Optimization\": \"Domination\", \"User Dashboard\": \"Admin Suite\", \"CMS Access\": \"Custom\"}","is_custom":0,"is_recommended":0,"label":null,"status":"active","created_at":"2026-04-20 03:42:56"},{"id":20,"service_id":5,"name":"Enterprise plan","price":"Custom","annual_price":null,"description":null,"features_json":["Global Marketplaces","Custom ERP Connect","Bespoke Edge Perf","Infrastructure Management"],"comparison_values_json":"{\"Platform Used\": \"Enterprise\", \"Custom Features\": \"Ecosystem\", \"E-commerce Support\": \"Global\", \"API Integrations\": \"Omni-Connect\", \"Speed Performance\": \"Absolute\", \"SEO Optimization\": \"Domination\", \"User Dashboard\": \"Admin Suite\", \"CMS Access\": \"Corporate\"}","is_custom":0,"is_recommended":0,"label":null,"status":"active","created_at":"2026-04-20 03:42:56"}]},"6":{"service":{"id":6,"name":"Video Editing & Production","slug":"video-production","icon_3d":"assets\/images\/services\/3d-icon\/consulting.png"},"plans":[{"id":21,"service_id":6,"name":"Basic plan","price":"750","annual_price":"600","description":null,"features_json":["Remote Editing","Up to 30 min Raw","Sub 2m Final","Film Filters"],"comparison_values_json":"{\"Production Mode\": \"Editing Only\", \"Raw Footage Limit\": \"30 mins\", \"Final Edit Length\": \"Under 2m\", \"Color Grading\": \"Filters\", \"Sound Mixing\": \"Levels\", \"Stock Asset Lib\": \"Basic\", \"Revisions\": \"2\", \"Delivery Time\": \"48h\"}","is_custom":0,"is_recommended":0,"label":null,"status":"active","created_at":"2026-04-20 03:42:56"},{"id":22,"service_id":6,"name":"Standard plan","price":"2,200","annual_price":"1,900","description":null,"features_json":["Hybrid Directing","Unlimited Raw","Custom Final Length","Cinema Grade"],"comparison_values_json":"{\"Production Mode\": \"Hybrid\", \"Raw Footage Limit\": \"Unlimited\", \"Final Edit Length\": \"Custom\", \"Color Grading\": \"Cinema\", \"Sound Mixing\": \"Pro Mix\", \"Stock Asset Lib\": \"Premium\", \"Revisions\": \"Unlimited\", \"Delivery Time\": \"Express\"}","is_custom":0,"is_recommended":1,"label":"HIGH QUALITY","status":"active","created_at":"2026-04-20 03:42:56"},{"id":23,"service_id":6,"name":"Business plan","price":"4,500","annual_price":"4,000","description":null,"features_json":["Strategic Storytelling","On-site Crew","4K Mastering","Dolby Audio Mix"],"comparison_values_json":"{\"Production Mode\": \"Full Suite\", \"Raw Footage Limit\": \"Exhaustive\", \"Final Edit Length\": \"Narrative\", \"Color Grading\": \"High-Fi\", \"Sound Mixing\": \"Mastered\", \"Stock Asset Lib\": \"Exclusive\", \"Revisions\": \"High\", \"Delivery Time\": \"Planned\"}","is_custom":0,"is_recommended":0,"label":null,"status":"active","created_at":"2026-04-20 03:42:56"},{"id":24,"service_id":6,"name":"Enterprise plan","price":"Custom","annual_price":null,"description":null,"features_json":["Master Colorist","Orchestral Mixing","Exclusive Scoring","Project Managed"],"comparison_values_json":"{\"Production Mode\": \"Full Crew\", \"Raw Footage Limit\": \"Unlimited\", \"Final Edit Length\": \"Narrative\", \"Color Grading\": \"Mastered\", \"Sound Mixing\": \"Atmos\", \"Stock Asset Lib\": \"Exclusive\", \"Revisions\": \"Executive\", \"Delivery Time\": \"Project\"}","is_custom":0,"is_recommended":0,"label":null,"status":"active","created_at":"2026-04-20 03:42:56"}]},"7":{"service":{"id":7,"name":"Digital Marketing & Ads","slug":"digital-marketing","icon_3d":"assets\/images\/services\/3d-icon\/marketing.png"},"plans":[{"id":25,"service_id":7,"name":"Basic plan","price":"1,500","annual_price":"1,200","description":null,"features_json":["Google & Meta","Up to $5k Spend","Standard Audit","5 Graphics\/mo"],"comparison_values_json":"{\"Ad Platforms\": \"Google\/Meta\", \"Monthly Spend Cap\": \"$5,000\", \"Campaign Audit\": \"Standard\", \"Content Pieces\": \"5 Posts\", \"Retargeting Setup\": \"Yes\", \"Email Funnels\": \"No\", \"Performance Data\": \"Monthly\", \"Consulting Hours\": \"1 hr\"}","is_custom":0,"is_recommended":0,"label":null,"status":"active","created_at":"2026-04-20 03:42:56"},{"id":26,"service_id":7,"name":"Standard plan","price":"4,500","annual_price":"3,900","description":"","features_json":["Omni-channel Ads","Up to $50k Spend","Deep-Dive Strategy","20 Graphics\/Video"],"comparison_values_json":"{\"Ad Platforms\":\"Omni-channel\",\"Monthly Spend Cap\":\"$50,000\",\"Campaign Audit\":\"Strategic\",\"Content Pieces\":\"20 Assets\",\"Retargeting Setup\":\"Dynamic\",\"Email Funnels\":\"3-Step\",\"Performance Data\":\"Real-time\",\"Consulting Hours\":\"Weekly\"}","is_custom":0,"is_recommended":1,"label":"IMPROVE GROWTH","status":"active","created_at":"2026-04-20 03:42:56"},{"id":27,"service_id":7,"name":"Business plan","price":"8,500","annual_price":"7,600","description":null,"features_json":["Advanced Ads Ecosystem","Unlimited Spend Mgmt","Global Content Engine","BI Solution"],"comparison_values_json":"{\"Ad Platforms\": \"Advanced\", \"Monthly Spend Cap\": \"Mastered\", \"Campaign Audit\": \"Full Data\", \"Content Pieces\": \"Unlimited\", \"Retargeting Setup\": \"AI-Driven\", \"Email Funnels\": \"Mastery\", \"Performance Data\": \"Live Data\", \"Consulting Hours\": \"Bi-Weekly\"}","is_custom":0,"is_recommended":0,"label":null,"status":"active","created_at":"2026-04-20 03:42:56"},{"id":28,"service_id":7,"name":"Enterprise plan","price":"Custom","annual_price":null,"description":null,"features_json":["Enterprise Ad Stack","Executive Strategy","Full Funnel Ecosystem","Priority Access"],"comparison_values_json":"{\"Ad Platforms\": \"Enterprise\", \"Monthly Spend Cap\": \"Unlimited\", \"Campaign Audit\": \"Executive\", \"Content Pieces\": \"Unlimited\", \"Retargeting Setup\": \"Strategic\", \"Email Funnels\": \"Ecosystem\", \"Performance Data\": \"Custom BI\", \"Consulting Hours\": \"Unlimited\"}","is_custom":0,"is_recommended":0,"label":null,"status":"active","created_at":"2026-04-20 03:42:56"}]}};
+                const tabsList = document.getElementById('pricingTabs');
+                const tabsContent = document.getElementById('pricingTabContent');
+                const annualToggle = document.getElementById('annualToggle');
+                const currentWorkServiceId = 1;
+                
+                let currentServiceId = currentWorkServiceId;
+
+                // Render Plans
+                function renderPlans(serviceId) {
+                    if (!serviceId) return;
+                    const data = pricingData[serviceId];
+                    if (!data) return;
+
+                    const plans = data.plans;
+                    const service = data.service;
+                    const isAnnual = annualToggle.checked;
+
+                    tabsList.innerHTML = '';
+                    tabsContent.innerHTML = '';
+
+                    plans.forEach((plan, index) => {
+                        const isActive = index === 0;
+                        const planId = `plan-${plan.id}`;
+                        const price = isAnnual ? plan.annual_price : plan.price;
+                        const priceDisplay = (price && price !== '0') ? price : 'Custom';
+                        
+                        // Icon mapping based on standard plan names
+                        let icon = 'assets/images/elements/rocket.png';
+                        const n = plan.name.toLowerCase();
+                        if (n.includes('basic') || n.includes('starter')) icon = 'assets/images/elements/rocket.png';
+                        else if (n.includes('standard') || n.includes('pro')) icon = 'assets/images/elements/thunder.png';
+                        else if (n.includes('business') || n.includes('premium')) icon = 'assets/images/elements/fire.png';
+                        else if (n.includes('enterprise')) icon = 'assets/images/elements/ufo.png';
+
+                        // Add Tab
+                        const li = document.createElement('li');
+                        li.className = 'nav-item col';
+                        li.role = 'presentation';
+                        li.style.minWidth = '14rem';
+                        li.innerHTML = `
+                            <a href="#!" class="nav-link p-4 rounded-4 ${isActive ? 'active' : ''}" 
+                               id="${planId}-tab" data-bs-toggle="tab" data-bs-target="#${planId}-pane" 
+                               role="tab" aria-controls="${planId}-pane" aria-selected="${isActive}">
+                                <div class="icon-lg bg-body shadow-primary rounded-circle mb-3">
+                                    <img src="${icon}" class="h-40px" alt="${plan.name}">
+                                </div>
+                                <p class="heading-color fw-semibold mb-3">${plan.name}</p>
+                                <div class="plan-price-wrapper">
+                                    <span class="plan-price-currency">${priceDisplay}</span>
+                                    ${priceDisplay !== 'Custom' ? '<span class="small text-muted">/month</span>' : ''}
+                                </div>
+                            </a>
+                        `;
+                        tabsList.appendChild(li);
+
+                        // Add Content
+                        const featuresHtml = plan.features_json.map(f => `
+                            <li class="list-group-item d-flex heading-color mb-0">
+                                <i class="bi bi-check-lg text-success me-2"></i>${f}
+                            </li>
+                        `).join('');
+
+                        const pane = document.createElement('div');
+                        pane.className = `tab-pane fade ${isActive ? 'show active' : ''}`;
+                        pane.id = `${planId}-pane`;
+                        pane.role = 'tabpanel';
+                        pane.ariaLabelledby = `${planId}-tab`;
+                        pane.innerHTML = `
+                            <div class="card features-card p-4 p-sm-5 rounded-4 shadow-lg">
+                                <div class="card-body p-0">
+                                    <h5 class="mb-4 text-white">Included features</h5>
+                                    <ul class="list-group list-group-borderless mb-4">
+                                        ${featuresHtml}
+                                    </ul>
+                                </div>
+                                <div class="card-footer bg-transparent text-center mt-4 p-0">
+                                    <a href="contact.php" class="btn btn-primary w-100 mb-3 py-3 rounded-pill fw-bold">Get started</a>
+                                    <a href="main-pricing.php?service=${service.slug}" class="link-white hover-underline-animation small fw-semibold">View comparison table</a>
+                                </div>
+                            </div>
+                        `;
+                        tabsContent.appendChild(pane);
+                    });
+                }
+
+                // Toggle Update
+                annualToggle.addEventListener('change', () => {
+                    if (currentServiceId) renderPlans(currentServiceId);
+                });
+
+                // Initial Load
+                if (currentWorkServiceId) {
+                    renderPlans(currentWorkServiceId);
+                }
+            });
+        </script>
+        <!-- Pricing END -->
+
+
+        
+<!-- =======================
+Related works Start -->
+<section>
+	<div class="container">
+		<!-- Title -->
+		<h3 class="mb-4">Related works</h3>
+
+		<!-- Slider START -->
+		<div class="swiper" data-swiper-options='{ 
+				"loop": false,
+				"spaceBetween": 40,
+				"pagination":{
+					"el":".swiper-pagination"
+				},
+				"breakpoints": {
+					"576": {"slidesPerView": 1}, 
+					"768": {"slidesPerView": 2},
+					"1200": {"slidesPerView": 3}
+				}}'>
+
+			<div class="swiper-wrapper">
+                                                <!-- Slider item -->
+                        <div class="swiper-slide">
+                            <div class="card card-img-scale bg-transparent overflow-hidden">
+                                <div class="card-img-scale-wrapper rounded-3">
+                                    <img src="assets/images/portfolio/list/04.jpg" class="img-scale" alt="Mobile app development">
+                                </div>
+                                <div class="card-body px-0 pb-0">
+                                    <h6 class="mb-0"><a href="work-view.php?id=1" class="heading-color stretched-link">Mobile app development</a></h6>
+                                    <small>Branding, Packaging, UI/UX design</small>
+                                </div>
+                            </div>
+                        </div>
+                                                <!-- Slider item -->
+                        <div class="swiper-slide">
+                            <div class="card card-img-scale bg-transparent overflow-hidden">
+                                <div class="card-img-scale-wrapper rounded-3">
+                                    <img src="assets/images/portfolio/list/03.jpg" class="img-scale" alt="Transforming ideas into reality">
+                                </div>
+                                <div class="card-body px-0 pb-0">
+                                    <h6 class="mb-0"><a href="work-view.php?id=3" class="heading-color stretched-link">Transforming ideas into reality</a></h6>
+                                    <small>Web Design, Branding, UI/UX design</small>
+                                </div>
+                            </div>
+                        </div>
+                                                <!-- Slider item -->
+                        <div class="swiper-slide">
+                            <div class="card card-img-scale bg-transparent overflow-hidden">
+                                <div class="card-img-scale-wrapper rounded-3">
+                                    <img src="assets/uploads/portfolio/virtual-reality-experience-image-1777740387.png" class="img-scale" alt="Virtual Reality Experience">
+                                </div>
+                                <div class="card-body px-0 pb-0">
+                                    <h6 class="mb-0"><a href="work-view.php?id=13" class="heading-color stretched-link">Virtual Reality Experience</a></h6>
+                                    <small>VR/AR, 3D Modeling</small>
+                                </div>
+                            </div>
+                        </div>
+                                                <!-- Slider item -->
+                        <div class="swiper-slide">
+                            <div class="card card-img-scale bg-transparent overflow-hidden">
+                                <div class="card-img-scale-wrapper rounded-3">
+                                    <img src="assets/uploads/portfolio/ai-content-generator-image-1777740460.png" class="img-scale" alt="AI Content Generator">
+                                </div>
+                                <div class="card-body px-0 pb-0">
+                                    <h6 class="mb-0"><a href="work-view.php?id=14" class="heading-color stretched-link">AI Content Generator</a></h6>
+                                    <small>AI, SAAS</small>
+                                </div>
+                            </div>
+                        </div>
+                                                <!-- Slider item -->
+                        <div class="swiper-slide">
+                            <div class="card card-img-scale bg-transparent overflow-hidden">
+                                <div class="card-img-scale-wrapper rounded-3">
+                                    <img src="assets/images/portfolio/list/01.jpg" class="img-scale" alt="Digital marketing overhaul">
+                                </div>
+                                <div class="card-body px-0 pb-0">
+                                    <h6 class="mb-0"><a href="work-view.php?id=4" class="heading-color stretched-link">Digital marketing overhaul</a></h6>
+                                    <small>Marketing, SEO, Social media</small>
+                                </div>
+                            </div>
+                        </div>
+                        			</div>
+
+			<!-- Slider Pagination -->
+			<div class="swiper-pagination swiper-pagination-primary position-relative mt-4"></div>
+		</div>
+		<!-- Slider END -->
+	</div>	
+</section>
+<!-- =======================
+Related works END -->
+
+        <!-- =======================
+CTA START -->
+        <section class="pt-0">
+            <div class="container">
+                <div class="bg-secondary position-relative rounded-3 overflow-hidden p-4 p-sm-6">
+                    <!-- BG pattern -->
+                    <div class="position-absolute end-0 top-0 rotate-343 mt-n5 me-n8">
+                        <img src="assets/images/elements/grad-shape/05.png" class="h-200px h-sm-300px h-lg-500px"
+                            alt="bg pattern">
+                    </div>
+
+                    <!-- BG pattern -->
+                    <div class="position-absolute start-0 top-0 rotate-343 mt-n5 ms-n6">
+                        <img src="assets/images/elements/grad-shape/11.png" class="h-200px blur-2" alt="bg pattern">
+                    </div>
+
+                    <div class="row g-4 align-items-center position-relative">
+                        <!-- Title and list -->
+                        <div class="col-xl-8">
+                            <h5 class="fw-light">Have a project in mind?</h5>
+                            <h2 class="h1 fw-bold">Let’s get to<span class="text-primary-grad"> work.</span></h2>
+                        </div>
+
+                        <!-- Button -->
+                        <div class="col-xl-4 text-xl-end">
+                            <a href="#" class="btn btn-dark mb-0">Get in touch</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- =======================
+CTA END -->
+
+    </main>
+    <!-- **************** MAIN CONTENT END **************** -->
+
+    <!-- =======================
+Footer START -->
+    <footer class="bg-dark position-relative pt-6 pt-lg-8" data-bs-theme="dark">
+
+    <!-- Shape decoration -->
+    <div class="position-absolute top-0 end-0 mt-n8 z-index-9 d-none d-md-block">
+        <img src="assets/images/elements/grad-shape/06.png" class="w-250px" alt="Shape">
+    </div>
+
+    <div class="container position-relative">
+        <div class="row mb-4 mb-lg-7">
+            <!-- Logo -->
+            <div class="col-lg-3 col-xl-4 mb-4 mb-lg-0">
+                <!-- logo -->
+                <a class="me-0" href="index.html">
+                    <img class="h-40px" src="assets/images/logo-light.svg" alt="logo">
+                </a>
+            </div>
+
+            <!-- CTA -->
+            <div class="col-lg-9 col-xl-7 ms-md-auto">
+                <div class="bg-white d-md-flex justify-content-between align-items-center rounded-4 p-4"
+                    style="--bs-bg-opacity:0.05">
+                    <h5 class="mb-3 mb-md-0"><span class="hand-wave-animate">🖐️</span> Let's innovate together</h5>
+                    <a href="contact-us-v1.html" class="btn btn-sm btn-primary-grad text-nowrap mb-0">Start
+                        innovating</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Link widgets -->
+        <div class="row">
+            <div class="col-xl-8">
+                <div class="row g-4">
+                    <!-- Widget item -->
+                    <div class="col-sm-6 col-md-4">
+                        <h6 class="mb-0">Company</h6>
+                        <hr class="opacity-1 my-md-4"> <!-- Divider -->
+                        <ul class="nav flex-column gap-1">
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="about-v1.html">
+                                                                        About us                                                                    </a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="contact-us.html">
+                                                                        Contact us                                                                    </a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="career.html">
+                                                                        Career                                                                            <span class="badge text-bg-success ms-2">We are hiring!</span>
+                                                                    </a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="career-single.html">
+                                                                        Career detail                                                                    </a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="contact-us-v2.html">
+                                                                        Become a partner                                                                    </a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="service-v1.html">
+                                                                        Services                                                                    </a>
+                            </li>
+                                                    </ul>
+                    </div>
+
+                    <!-- Widget item -->
+                    <div class="col-sm-6 col-md-4">
+                        <h6 class="mb-0">Resources</h6>
+                        <hr class="opacity-1 my-md-4"> <!-- Divider -->
+                        <ul class="nav flex-column gap-1">
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="portfolio-case-study-v1.html">
+                                                                        Case studies                                                                    </a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="pricing-v1.html">
+                                                                        Pricing                                                                    </a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="blog-minimal.html">
+                                                                        Blogs                                                                    </a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="blog-single.html">
+                                                                        Blog detail                                                                    </a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="bi-box-arrow-up-right me-2"></i>                                    Success stories                                                                    </a>
+                            </li>
+                                                    </ul>
+                    </div>
+
+                    <!-- Widget item -->
+                    <div class="col-sm-6 col-md-4">
+                        <h6 class="mb-0">Community</h6>
+                        <hr class="opacity-1 my-md-4"> <!-- Divider -->
+                        <ul class="nav flex-column gap-1">
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="bi-file-earmark-text me-2"></i>                                    Documentation                                                                    </a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="bi-bullseye me-2"></i>                                    Changelog                                                                            <span class="badge text-bg-primary ms-2">v2.0.0</span>
+                                                                    </a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="bi-chat-left me-2"></i>                                    Supports                                                                    </a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="bi-send me-2"></i>                                    Newsletter                                                                    </a>
+                            </li>
+                                                    </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Widget item -->
+            <div class="col-xl-4 mt-6 mt-xl-0">
+                <h6 class="mb-0">Download our app</h6>
+
+                <hr class="opacity-1 my-md-4"> <!-- Divider -->
+                <p>Get instant access to exclusive features for FREE!</p>
+
+                <div class="row g-2 mt-2 mb-4 mb-sm-5">
+                    <!-- Google play store button -->
+                    <div class="col-5 col-sm-3 col-lg-2 col-xl-4">
+                        <a href="#"> <img src="assets/images/elements/google-play.svg" alt=""> </a>
+                    </div>
+                    <!-- App store button -->
+                    <div class="col-5 col-sm-3 col-lg-2 col-xl-4">
+                        <a href="#"> <img src="assets/images/elements/app-store.svg" alt="app-store"> </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Divider -->
+        <hr class="mt-xl-5 mb-0 opacity-1">
+
+        <!-- Bottom footer -->
+        <div class="d-md-flex justify-content-between align-items-center text-center text-lg-start py-4">
+            <!-- copyright text -->
+            <div class="text-body small mb-3 mb-md-0"> Copyrights ©2025 Weburea. Build by <a href="#" target="_blank"
+                    class="text-body text-primary-hover hover-underline-animation">Weburea Team</a>. </div>
+            <!-- copyright links-->
+
+            <!-- Social link -->
+            <ul class="list-inline mb-0">
+                                <li class="list-inline-item"> 
+                    <a class="btn btn-xs btn-icon btn-secondary" href="https://facebook.com" target="_blank">
+                        <i class="bi-facebook lh-base"></i>
+                    </a> 
+                </li>
+                                <li class="list-inline-item"> 
+                    <a class="btn btn-xs btn-icon btn-secondary" href="https://twitter.com" target="_blank">
+                        <i class="bi-twitter lh-base"></i>
+                    </a> 
+                </li>
+                                <li class="list-inline-item"> 
+                    <a class="btn btn-xs btn-icon btn-secondary" href="https://instagram.com" target="_blank">
+                        <i class="bi-instagram lh-base"></i>
+                    </a> 
+                </li>
+                                <li class="list-inline-item"> 
+                    <a class="btn btn-xs btn-icon btn-secondary" href="https://linkedin.com" target="_blank">
+                        <i class="bi-linkedin lh-base"></i>
+                    </a> 
+                </li>
+                            </ul>
+        </div>
+    </div>
+</footer>    <!-- =======================
+Footer END -->
+
+    <!-- Back to top -->
+    <div class="back-top"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!--Vendors-->
+    <script src="assets/vendor/glightbox/js/glightbox.js"></script>
+    <script src="assets/vendor/jarallax/jarallax.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    
+
+    <!-- Theme Functions -->
+    <script src="assets/js/functions.js"></script>
+    <script src="assets/js/comparison-slider.js"></script>
+
+    <!-- Swiper synchronization script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Wait for a small timeout to ensure functions.js has initialized swipers
+            setTimeout(function() {
+                const imageSwiperEl = document.querySelector('#stepsImageSwiper');
+                const contentSwiperEl = document.querySelector('#stepsContentSwiper');
+                
+                if (imageSwiperEl && contentSwiperEl && imageSwiperEl.swiper && contentSwiperEl.swiper) {
+                    const imageSwiper = imageSwiperEl.swiper;
+                    const contentSwiper = contentSwiperEl.swiper;
+                    
+                    // Link them using event listeners for 100% reliable synchronization
+                    imageSwiper.on('slideChange', function () {
+                        contentSwiper.slideTo(imageSwiper.activeIndex);
+                    });
+                    contentSwiper.on('slideChange', function () {
+                        imageSwiper.slideTo(contentSwiper.activeIndex);
+                    });
+                    
+                    console.log('Swipers synchronized successfully with events');
+                }
+            }, 500);
+        });
+    </script>
+
+</body>
+
+</html>

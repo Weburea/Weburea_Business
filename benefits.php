@@ -18,7 +18,16 @@ $services = $servicesStmt->fetchAll(PDO::FETCH_ASSOC);
 
 $allPricingData = [];
 foreach ($services as $service) {
-    $plansStmt = $pdo->prepare("SELECT * FROM pricing_plans WHERE service_id = ? AND status = 'active' ORDER BY id ASC");
+    $plansStmt = $pdo->prepare("SELECT * FROM pricing_plans 
+                                 WHERE service_id = ? AND status = 'active' 
+                                 ORDER BY is_custom ASC, 
+                                 CASE 
+                                   WHEN name LIKE '%Basic%' THEN 1 
+                                   WHEN name LIKE '%Standard%' THEN 2 
+                                   WHEN name LIKE '%Pro%' OR name LIKE '%Premium%' OR name LIKE '%Business%' THEN 3 
+                                   WHEN name LIKE '%Enterprise%' THEN 4 
+                                   ELSE 5 
+                                 END ASC");
     $plansStmt->execute([$service['id']]);
     $plans = $plansStmt->fetchAll(PDO::FETCH_ASSOC);
     
@@ -722,11 +731,13 @@ Our Solutions END -->
                         const price = isAnnual ? plan.annual_price : plan.price;
                         const priceDisplay = (price && price !== '0') ? price : 'Custom';
                         
-                        // Icon mapping or default
+                        // Icon mapping based on standard plan names
                         let icon = 'assets/images/elements/rocket.png';
-                        if (plan.name.toLowerCase().includes('starter')) icon = 'assets/images/elements/rocket.png';
-                        else if (plan.name.toLowerCase().includes('professional')) icon = 'assets/images/elements/thunder.png';
-                        else if (plan.name.toLowerCase().includes('enterprise')) icon = 'assets/images/elements/fire.png';
+                        const n = plan.name.toLowerCase();
+                        if (n.includes('basic') || n.includes('starter')) icon = 'assets/images/elements/rocket.png';
+                        else if (n.includes('standard') || n.includes('pro')) icon = 'assets/images/elements/thunder.png';
+                        else if (n.includes('business') || n.includes('premium')) icon = 'assets/images/elements/fire.png';
+                        else if (n.includes('enterprise')) icon = 'assets/images/elements/ufo.png';
 
                         // Add Tab
                         const li = document.createElement('li');

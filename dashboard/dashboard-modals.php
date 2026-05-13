@@ -26,27 +26,7 @@ $configs = $all_configs[$current_context] ?? [];
     <link rel="stylesheet" type="text/css" href="assets/css/style.css?v=<?= time() ?>">
     <link rel="stylesheet" type="text/css" href="assets/css/dashboard.css?v=<?= time() ?>">
     
-    <style>
-        .modal-config-card { border-radius: 20px; overflow: hidden; transition: all 0.3s ease; height: 100%; display: flex; flex-direction: column; border: 1px solid rgba(0,0,0,0.05); background: var(--bs-card-bg); }
-        .modal-config-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important; }
-        .config-header { padding: 2.5rem; display: flex; align-items: center; justify-content: center; position: relative; }
-        .config-icon-preview { width: 100px; height: 100px; background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid rgba(255,255,255,0.3); }
-        .config-icon-preview img { width: 60px; height: 60px; object-fit: contain; }
-        .config-body { padding: 2rem; flex-grow: 1; }
-        .config-footer { padding: 1.5rem 2rem; background: rgba(0,0,0,0.02); border-top: 1px solid rgba(0,0,0,0.05); display: flex; gap: 10px; }
-        .label-premium { font-size: 0.65rem; font-weight: 800; text-uppercase; letter-spacing: 1.5px; color: var(--bs-primary); margin-bottom: 0.5rem; display: block; }
-        .form-control-premium { border-radius: 12px; padding: 0.75rem 1rem; border: 1px solid rgba(0,0,0,0.1); font-weight: 600; font-size: 0.9rem; }
-        [data-bs-theme="dark"] .modal-config-card { border-color: rgba(255,255,255,0.1); }
-        [data-bs-theme="dark"] .config-footer { background: rgba(255,255,255,0.02); border-color: rgba(255,255,255,0.1); }
-        .btn-test-modal { background: #f8f9fa; color: #333; border: 1px solid #ddd; border-radius: 10px; padding: 0.5rem 1rem; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; transition: all 0.2s; cursor: pointer; }
-        .btn-test-modal:hover { background: #333; color: #fff; }
 
-        /* Avatar Clickable Overrides */
-        .config-icon-trigger { position: relative; cursor: pointer; }
-        .config-icon-trigger:hover .avatar-overlay { opacity: 1; transform: scale(1); }
-        .avatar-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(244, 140, 6, 0.7); border-radius: 50%; display: flex; align-items: center; justify-content: center; opacity: 0; transform: scale(0.8); transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index: 5; }
-        .avatar-overlay i { color: white; font-size: 1.5rem; }
-    </style>
 </head>
 
 <body>

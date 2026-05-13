@@ -54,6 +54,7 @@ Header START -->
                                 <li> <a class="dropdown-item" href="dashboard-subscriptions.php">Subscriptions</a></li>
                                 <li> <a class="dropdown-item" href="dashboard-jobs.php">Careers</a></li>
                                 <li> <a class="dropdown-item" href="dashboard-services.php">Service List</a></li>
+                                <li> <a class="dropdown-item" href="dashboard-work.php">Portfolio Management</a></li>
                                 <li> <a class="dropdown-item" href="dashboard-pricing.php">Pricing Management</a></li>
                                 <li> <a class="dropdown-item" href="dashboard-components.php">Site Components</a></li>
                                 <li> <a class="dropdown-item" href="dashboard-modals.php">User Modals</a></li>

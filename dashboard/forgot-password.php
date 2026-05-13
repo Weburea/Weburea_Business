@@ -49,77 +49,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 	<!-- Theme CSS -->
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/auth.css?v=<?= time() ?>">
 
-    <style>
-        body {
-            font-family: 'Outfit', sans-serif;
-            background: linear-gradient(135deg, #0f172a 0%, #172554 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0;
-        }
-        .auth-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 40px;
-            width: 100%;
-            max-width: 450px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-        }
-        .auth-logo {
-            width: 150px;
-            margin-bottom: 30px;
-        }
-        .form-control {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: #fff;
-            padding: 12px 15px;
-            border-radius: 12px;
-        }
-        .form-control:focus {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: #3b82f6;
-            color: #fff;
-            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
-        }
-        .btn-primary {
-            background: #3b82f6;
-            border: none;
-            padding: 12px;
-            border-radius: 12px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        .btn-primary:hover {
-            background: #2563eb;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
-        }
-        .auth-footer {
-            margin-top: 25px;
-            text-align: center;
-            color: #94a3b8;
-        }
-        .auth-footer a {
-            color: #3b82f6;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .alert-info {
-            background: rgba(59, 130, 246, 0.1);
-            border: 1px solid rgba(59, 130, 246, 0.2);
-            color: #93c5fd;
-            border-radius: 12px;
-        }
-    </style>
+
 </head>
 
-<body>
+<body class="auth-page">
 
 <div class="container d-flex justify-content-center">
     <div class="auth-card">

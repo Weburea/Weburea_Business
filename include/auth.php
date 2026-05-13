@@ -67,6 +67,29 @@ function isLoggedIn() {
 }
 
 /**
+ * Dual-Auth: Check for active session OR valid API Key header
+ */
+function checkAuth() {
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    if (isLoggedIn()) {
+        return true;
+    }
+
+    $headers = getallheaders();
+    $apiKey = $headers['X-API-Key'] ?? $headers['x-api-key'] ?? null;
+    $validKey = 'weburea_secret_2026'; 
+
+    if ($apiKey === $validKey) {
+        return true;
+    }
+
+    return false;
+}
+
+/**
  * Logout user
  */
 function logoutUser() {

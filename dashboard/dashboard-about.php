@@ -32,15 +32,7 @@ require_once('../include/alerts.php');
     <link rel="stylesheet" type="text/css" href="assets/css/style.css?v=<?= time() ?>">
     <link rel="stylesheet" type="text/css" href="assets/css/dashboard.css?v=<?= time() ?>">
 
-    <style>
-        .avatar-clickable:hover {
-            opacity: 0.8;
-            border-color: var(--bs-primary) !important;
-        }
-        .border-dashed {
-            border: 2px dashed #cbd5e1 !important;
-        }
-    </style>
+
 </head>
 
 <body>

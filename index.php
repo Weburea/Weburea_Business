@@ -91,125 +91,7 @@
     <!-- Theme CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/main.css">
 
-    <style>
-        /* Center Icon Ripple Animation */
-        .ripple-anim {
-            box-shadow: 0 0 0 0 rgba(var(--bs-primary-rgb), 0.7);
-            animation: ripple 2s infinite;
-        }
 
-        @keyframes ripple {
-            0% {
-                box-shadow: 0 0 0 0 rgba(var(--bs-primary-rgb), 0.7);
-            }
-
-            70% {
-                box-shadow: 0 0 0 20px rgba(var(--bs-primary-rgb), 0);
-            }
-
-            100% {
-                box-shadow: 0 0 0 0 rgba(var(--bs-primary-rgb), 0);
-            }
-        }
-
-        /* Premium Floating Icons Scaling & Professional Alignment */
-        @media (max-width: 767.98px) {
-            .benefits-icon-grid {
-                padding: 0 1rem;
-            }
-
-            .icon-xxl {
-                width: 70px !important;
-                height: 70px !important;
-                min-width: 70px !important;
-            }
-
-            .icon-xl {
-                width: 55px !important;
-                height: 55px !important;
-                min-width: 55px !important;
-            }
-
-            .icon-lg {
-                width: 45px !important;
-                height: 45px !important;
-                min-width: 45px !important;
-            }
-
-            .icon-md {
-                width: 35px !important;
-                height: 35px !important;
-                min-width: 35px !important;
-            }
-
-            .icon-xxl img {
-                height: 30px !important;
-            }
-
-            .icon-xl img {
-                height: 25px !important;
-            }
-
-            .icon-lg img {
-                height: 20px !important;
-            }
-
-            .icon-md img {
-                height: 15px !important;
-            }
-        }
-
-        /* V-Shape Layout — uses flex-end + margin-bottom */
-        @media (min-width: 992px) {
-
-            /* row-cols-lg-9 is not in this Bootstrap version — define it */
-            .row-cols-lg-9>* {
-                flex: 0 0 auto;
-                width: 11.1111%;
-            }
-
-            /* Force all 9 icons on one line */
-            .benefits-icon-grid {
-                flex-wrap: nowrap;
-                align-items: flex-end;
-            }
-
-            /* Each icon gets a bottom margin to lift it above the row baseline */
-            /* Center (idx 4) stays at baseline, edges (idx 0, 8) are lifted highest */
-            /* Aggressive values for a definitive V-shape with a sharp center dip */
-            .benefits-icon-grid .mb-lg-v0 {
-                margin-bottom: 0 !important;
-            }
-
-            .benefits-icon-grid .mb-lg-v2 {
-                margin-bottom: 5rem !important;
-            }
-
-            .benefits-icon-grid .mb-lg-v4 {
-                margin-bottom: 10.5rem !important;
-            }
-
-            .benefits-icon-grid .mb-lg-v6 {
-                margin-bottom: 16.5rem !important;
-            }
-
-            .benefits-icon-grid .mb-lg-v8 {
-                margin-bottom: 23rem !important;
-            }
-        }
-
-        .benefits-icon-grid .card {
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-            border: none;
-            background: #fff;
-        }
-
-        .benefits-icon-grid .card:hover {
-            transform: scale(1.1) translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
-            z-index: 5;
-        }
-    </style>
 
 
 
@@ -1038,7 +920,17 @@ CTA START -->
             if ($index === 0)
                 $defaultServiceId = $svc['id'];
 
-            $pStmt = $pdo->prepare("SELECT * FROM pricing_plans WHERE service_id = ? AND status = 'active' ORDER BY is_custom ASC, price ASC LIMIT 4");
+            $pStmt = $pdo->prepare("SELECT * FROM pricing_plans 
+                                     WHERE service_id = ? AND status = 'active' 
+                                     ORDER BY is_custom ASC, 
+                                     CASE 
+                                       WHEN name LIKE '%Basic%' THEN 1 
+                                       WHEN name LIKE '%Standard%' THEN 2 
+                                       WHEN name LIKE '%Pro%' OR name LIKE '%Premium%' OR name LIKE '%Business%' THEN 3 
+                                       WHEN name LIKE '%Enterprise%' THEN 4 
+                                       ELSE 5 
+                                     END ASC 
+                                     LIMIT 4");
             $pStmt->execute([$svc['id']]);
             $plans = $pStmt->fetchAll();
 

@@ -31,39 +31,7 @@ require_once('../include/alerts.php');
     <link rel="stylesheet" type="text/css" href="assets/css/style.css?v=<?= time() ?>">
     <link rel="stylesheet" type="text/css" href="assets/css/dashboard.css?v=<?= time() ?>">
 
-    <style>
-        .avatar-clickable:hover {
-            border-color: var(--bs-primary) !important;
-        }
-        @media (max-width: 576px) {
-            .small-mobile-text {
-                font-size: 0.7rem !important;
-                display: inline-block;
-                vertical-align: middle;
-                white-space: nowrap;
-            }
-            .avatar-responsive {
-                width: 75px !important;
-                height: 75px !important;
-            }
-            .ben-avatar-item {
-                flex: 0 0 calc(33.333% - 1rem) !important;
-                max-width: 90px;
-            }
-            #ben-hero-avatars {
-                flex-wrap: wrap !important;
-                justify-content: center !important;
-                gap: 1rem !important;
-                overflow-x: visible !important;
-            }
-            .table-premium td {
-                padding: 0.75rem 0.5rem !important;
-            }
-            .toggle-column {
-                min-width: 120px;
-            }
-        }
-    </style>
+
 </head>
 
 <body>
@@ -125,15 +93,15 @@ require_once('../include/alerts.php');
                             </div>
                             <form id="ben-hero-form">
                                 <div class="row g-4">
-                                    <div class="col-md-5">
+                                    <div class="col-12">
                                         <label class="form-label font-base fw-bold">Title Prefix</label>
                                         <input type="text" name="title_prefix" class="form-control" placeholder="Grow Your Career & Enjoy the">
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-12">
                                         <label class="form-label font-base fw-bold">Highlighted Word</label>
                                         <input type="text" name="title_highlight" class="form-control" placeholder="Benefits">
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-12">
                                         <label class="form-label font-base fw-bold">Highlight Type</label>
                                         <div id="hero-title-color-select"></div>
                                         <input type="hidden" name="title_highlight_type">
@@ -191,20 +159,18 @@ require_once('../include/alerts.php');
                                 <div class="row g-4">
                                     <div class="col-md-6 border-end">
                                         <h6 class="mb-3">Content & Links</h6>
-                                        <div class="row g-2 mb-3">
-                                            <div class="col-md-5">
-                                                <label class="form-label small">Title Prefix</label>
-                                                <input type="text" name="sol_title_prefix" class="form-control">
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label class="form-label small">Highlighted Word</label>
-                                                <input type="text" name="sol_title_highlight" class="form-control">
-                                            </div>
-                                            <div class="col-md-4">
-                                                <label class="form-label small">Highlight Type</label>
-                                                <div id="sol-title-color-select"></div>
-                                                <input type="hidden" name="sol_title_highlight_type">
-                                            </div>
+                                        <div class="mb-3">
+                                            <label class="form-label small">Title Prefix</label>
+                                            <input type="text" name="sol_title_prefix" class="form-control">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label small">Highlighted Word</label>
+                                            <input type="text" name="sol_title_highlight" class="form-control">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label small">Highlight Type</label>
+                                            <div id="sol-title-color-select"></div>
+                                            <input type="hidden" name="sol_title_highlight_type">
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label small">Description</label>

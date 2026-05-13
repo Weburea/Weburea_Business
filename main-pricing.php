@@ -15,7 +15,16 @@ if (!$service) {
 }
 
 // Fetch pricing plans
-$planStmt = $pdo->prepare("SELECT * FROM pricing_plans WHERE service_id = ? AND status = 'active' ORDER BY is_custom ASC, price ASC");
+$planStmt = $pdo->prepare("SELECT * FROM pricing_plans 
+                           WHERE service_id = ? AND status = 'active' 
+                           ORDER BY is_custom ASC, 
+                           CASE 
+                             WHEN name LIKE '%Basic%' THEN 1 
+                             WHEN name LIKE '%Standard%' THEN 2 
+                             WHEN name LIKE '%Pro%' OR name LIKE '%Premium%' OR name LIKE '%Business%' THEN 3 
+                             WHEN name LIKE '%Enterprise%' THEN 4 
+                             ELSE 5 
+                           END ASC");
 $planStmt->execute([$service['id']]);
 $plans = $planStmt->fetchAll();
 

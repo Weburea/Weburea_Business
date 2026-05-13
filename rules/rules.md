@@ -16,6 +16,7 @@ This document serves as the primary technical and design authority for the Webur
 - **Delete Modals**: **Mandatory Pattern:** All destructive actions (deleting reviews, benefits, or components) MUST use the `'dark'` version of the `showPremiumDeleteModal`. This replaces the standard red/danger style to maintain a more sophisticated, "Security Protocol" feel.
 - **Universal Alerts**: **Mandatory Pattern:** For all non-destructive feedback (success, info, errors), use the `showPremiumAlert(title, message, type, btnText)` helper. 
     - **Types**: `success` (Green), `danger/error` (Red), `warning` (Orange), `info` (Blue).
+    - **Rule**: For "Limit Reached" notifications or general informational constraints, always use the `'info'` type to ensure a professional, non-alarming aesthetic.
     - **Bootstrap Integration**: Ensure `inject_premium_alert_modal()` is called at the end of the file.
 - **Layout**: Modals should be optimized to fit within `100vh`. Use `modal-dialog-scrollable` for long forms.
 - **Typography**: Labels must be small, bold, and uppercase with `letter-spacing: 1px`.
@@ -160,3 +161,68 @@ This document serves as the primary technical and design authority for the Webur
 - **Implementation**: After `functions.js` initializes the swipers, manually link them: `swiperA.controller.control = swiperB; swiperB.controller.control = swiperA;`.
 - **Spacing Consistency**: Sections must strictly follow the `py-0`, `py-6`, `py-lg-8` and `max-width-1550` patterns established in the reference templates to ensure high-fidelity "floating card" aesthetics.
 - **Touch Interaction**: Always ensure `simulateTouch` is enabled for linked swipers to support intuitive mobile navigation.
+
+## 18. CSS Architecture & Internal Styles
+- **No Internal CSS**: **DO NOT** use internal `<style>` tags in any `.php` or HTML files. This prevents code from becoming cramped and unmanageable.
+- **Frontend Styles**: All frontend CSS updates MUST be placed in the main frontend CSS file (`assets/css/main.css`).
+- **Dashboard/Backend Styles**: All dashboard-related CSS updates MUST be placed in the dashboard's specific CSS file (`dashboard/assets/css/dashboard.css`).
+- **Strict Separation**: Maintain a strict separation of concerns; never mix frontend styles into dashboard stylesheets or vice versa.
+
+
+## 19. Portfolio Management & Sequencing
+- **Sorting Logic**: Portfolio items **MUST** follow a strict priority sequence to maintain high-fidelity layouts.
+    - **Frontend Display**: Always `ORDER BY (sort_order = 0), sort_order ASC, id ASC`. This ensures unassigned projects (`0`) appear at the end of the list, while prioritized projects (`1, 2, 3...`) appear first.
+- **Conflict Resolution (Automated Shifting)**: 
+    - **Rule**: When a project's `sort_order` is updated manually in the dashboard, the system **MUST** automatically shift other projects to prevent priority duplicates.
+    - **Implementation**: If a new `sort_order` > 0 is assigned, the API must increment the `sort_order` of all existing records that are greater than or equal to the new value.
+- **Drag-and-Drop Synchronization**:
+    - **Interactive Tool**: Use `SortableJS` for administrative reordering with the `.drag-handle` selector.
+    - **Persistence**: Reordering operations must perform a bulk transactional `UPDATE` via the dedicated reordering endpoint.
+    - **Feedback**: Every reorder or manual sequence change **MUST** trigger a `showToast` notification to confirm database persistence.
+
+## 20. Service-Pricing Synchronization (Auto-Sync)
+- **Concept**: Portfolio works are linked to services via `service_id`. The project details page (`work-view.php`) is designed to automatically render ALL pricing plans associated with that service.
+- **Rule**: Manual selection of individual pricing plans for a project is deprecated. 
+- **Implementation**: 
+    - **Dashboard UI**: When a service is selected, the dashboard MUST display a "Pricing Synchronized" badge and inform the user that all plans for that service are now linked.
+    - **Data Integrity**: The `pricing_id` field in `portfolio_works` should be set to `0` or `NULL` when auto-syncing, as the frontend logic primarily relies on `service_id` to fetch the full plan array.
+    - **Visual Feedback**: Use the `bg-success-soft` badge with a checkmark icon to confirm the synchronization state in the administrative modal.
+
+## 21. Dynamic Case Study Narrative
+- **Requirement**: Portfolio project views (`work-view.php`) must never use hardcoded case study text.
+- **Fields**:
+    - **Overview**: Must pull from `project_overview` (fallback to `description`).
+    - **The Challenge**: Must pull from `project_challenge`.
+    - **Challenge Points**: Must pull from `challenge_points` (newline-separated list).
+    - **Impact/Results**: Must pull from the `results_metrics` array within `service_data_json`.
+- **Media**: Additional project images MUST be rendered from the `additional_images` JSON array, supporting both lightbox galleries and parallax dividers.
+
+## 22. Visual Data Management (No Raw JSON Entry)
+- **Mandatory Rule**: Administrative forms **MUST NOT** require the user to input or edit raw JSON strings for complex data (e.g., image lists, feature arrays).
+- **Implementation Standards**:
+    - **Image Lists**: Must use a visual grid uploader with thumbnails and delete triggers.
+    - **Array Fields**: Must use dynamic "Add Row" UI components.
+    - **Backend Sync**: All visual UI components must automatically serialize their state into a hidden JSON input for database persistence, ensuring a seamless user experience.
+    - **Validation**: Every complex input must be preceded by a visual preview or summary state to prevent "guessing" what the JSON data represents.
+
+## 23. Modular Service Layouts (Portfolio Architecture)
+- **Mandatory Rule**: The `work-view.php` file MUST NOT contain hardcoded blocks for specific service layouts. It must act strictly as a controller.
+- **Component Architecture**: 
+    - Service-specific hero and body sections MUST be housed in the `include/work_services/` directory.
+    - File naming conventions: `hero-{slug}.php` and `body-{slug}.php` (e.g., `hero-ui-ux.php`).
+- **Implementation**:
+    - Use associative arrays (`$heroMap`, `$bodyMap`) to map the `service_slug` to the correct include file.
+    - Always provide a fallback to `hero-standard.php` and `body-standard.php` if the specific service file does not exist.
+- **Integrity**: All included files automatically inherit the controller's variables (`$work`, `$serviceData`, etc.) and must maintain the "Systematic Design" principles (e.g., Avatar Clickable, Comparison Sliders, Parallax).
+
+## 24. Input Limits & Data Constraints
+- **Functionality Grids**: High-Performance features in the portfolio must be limited to exactly **4 items** to maintain layout consistency.
+- **Case Study Gallery**: Additional project images/videos are limited to **4 assets** total.
+- **Administrative Feedback**: When a limit is reached, use `showPremiumAlert` with the `'info'` theme (Information badge) rather than the standard warning theme.
+- **Implementation**: Limits must be enforced both on the "Add Row" trigger and during the "Multiple Upload" asset intake.
+
+### 25. Storage & Asset Lifecycle
+- **Capacity**: Portfolio storage is capped at **5000MB (5GB)** for high-fidelity work assets.
+- **Auto-Cleanup**: Upon deletion of any "Work" asset, the system MUST permanently remove all associated media (images, videos, logos) from the filesystem to preserve storage space.
+- **Naming Protocol**: Uploaded files MUST be prefixed with the sanitized project title and a unique timestamp to prevent collisions and ensure administrative traceability.
+- **File Types**: Supported high-fidelity assets include `.webp`, `.mp4`, `.webm`, and `.svg` for optimal performance.

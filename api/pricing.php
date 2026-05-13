@@ -43,18 +43,34 @@ try {
             $isAdmin = checkAuth();
             
             if ($service_id) {
+                $orderClause = "ORDER BY is_custom ASC, 
+                                 CASE 
+                                   WHEN name LIKE '%Basic%' THEN 1 
+                                   WHEN name LIKE '%Standard%' THEN 2 
+                                   WHEN name LIKE '%Pro%' OR name LIKE '%Premium%' OR name LIKE '%Business%' THEN 3 
+                                   WHEN name LIKE '%Enterprise%' THEN 4 
+                                   ELSE 5 
+                                 END ASC";
                 $query = $isAdmin ? 
-                    "SELECT * FROM pricing_plans WHERE service_id = ? ORDER BY id ASC" : 
-                    "SELECT * FROM pricing_plans WHERE service_id = ? AND status = 'active' ORDER BY id ASC";
+                    "SELECT * FROM pricing_plans WHERE service_id = ? $orderClause" : 
+                    "SELECT * FROM pricing_plans WHERE service_id = ? AND status = 'active' $orderClause";
                 $stmt = $pdo->prepare($query);
                 $stmt->execute([$service_id]);
             } else {
                 // Fetching all plans
+                $orderClause = "ORDER BY service_id ASC, is_custom ASC, 
+                                 CASE 
+                                   WHEN name LIKE '%Basic%' THEN 1 
+                                   WHEN name LIKE '%Standard%' THEN 2 
+                                   WHEN name LIKE '%Pro%' OR name LIKE '%Premium%' OR name LIKE '%Business%' THEN 3 
+                                   WHEN name LIKE '%Enterprise%' THEN 4 
+                                   ELSE 5 
+                                 END ASC";
                 if ($isAdmin) {
-                    $stmt = $pdo->query("SELECT * FROM pricing_plans ORDER BY service_id ASC, id ASC");
+                    $stmt = $pdo->query("SELECT * FROM pricing_plans $orderClause");
                 } else {
                     // Public fetch all - restricted to active
-                    $stmt = $pdo->query("SELECT * FROM pricing_plans WHERE status = 'active' ORDER BY service_id ASC, id ASC");
+                    $stmt = $pdo->query("SELECT * FROM pricing_plans WHERE status = 'active' $orderClause");
                 }
             }
             

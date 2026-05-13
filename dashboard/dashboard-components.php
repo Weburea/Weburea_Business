@@ -123,12 +123,12 @@ require_once('../include/alerts.php');
     </main>
 
     <!-- Detailed Management Modal -->
-    <div class="modal fade" id="componentModal" tabindex="-1" aria-hidden="true">
+    <div class="modal fade premium-alert-modal" id="componentModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
-            <div class="modal-content overflow-hidden border-0 shadow-lg" style="border-radius: 20px;">
-                <div class="premium-alert-header bg-dark-blue">
-                    <div class="frosted-icon-circle">
-                        <i class="bi bi-gear-fill"></i>
+            <div class="modal-content overflow-hidden border-0 shadow-lg">
+                <div class="premium-alert-header bg-dark-blue overflow-visible">
+                    <div class="frosted-icon-circle modal-icon-animate-up">
+                        <i class="bi bi-gear-fill text-white fs-1"></i>
                     </div>
                 </div>
 
@@ -231,18 +231,17 @@ require_once('../include/alerts.php');
 
                     <hr class="my-4 opacity-10">
 
-                    <button type="button" class="btn btn-premium-action bg-dark-blue shadow-lg w-100 py-3 mb-3"
+                    <button type="button" class="btn btn-premium-action bg-dark-blue shadow-lg w-100 py-3 mb-2"
                         onclick="saveComponent()">
                         <i class="bi bi-save2-fill me-2"></i>Verify & Push Changes
                     </button>
-                    <button type="button" class="btn btn-premium-cancel w-100 small" data-bs-dismiss="modal">Discard &
-                        Return</button>
+                    <button type="button" class="btn btn-premium-cancel w-100 small" data-bs-dismiss="modal">Discard & Return</button>
                 </div>
 
-                <div class="verified-secure-footer">
+                <div class="verified-secure-footer py-4 px-3 bg-dark-blue">
                     <div class="secure-branding">
-                        <img src="assets/images/logo.svg" alt="Weburea">
-                        <span>Verified Secure Session</span>
+                        <img src="../assets/images/logo-light.svg" alt="Weburea" class="secure-logo">
+                        <span class="secure-status text-white opacity-75">Verified Secure Session</span>
                     </div>
                 </div>
             </div>
